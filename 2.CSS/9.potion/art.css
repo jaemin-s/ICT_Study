@@ -1,0 +1,76 @@
+@import url('../common.css');
+/* body */
+body{
+    background: #666;
+}
+/* warpper */
+#wrapper{
+    width: 1000px;
+    margin: 0 10% 10%;
+}
+/* header */
+header{
+    background: rgb(253, 164, 50);
+}
+header>h1{
+    color: white;
+}
+
+/* container */
+.container{
+    background: white;
+}
+
+/* side-menu */
+.side-menu{
+    width: 25%;
+    float: left;
+    
+}
+.side-menu>h3{
+    background: rgb(151, 0, 8);
+    color: white;
+}
+.side-menu>ul{
+    text-decoration: underline;
+}
+header>h2.stit{
+    background: rgb(204, 204, 204);
+}
+
+/* main-content */
+.main-content{
+    background: rgb(221, 221, 221);
+    color: rgb(20, 54, 84);
+    width: 50%;
+    float: left;
+    /* margin-left: 25%; */
+}
+.art-piece>.title{
+    background: rgb(20, 54, 84);
+    color: rgb(221, 221, 221);
+}
+
+/* banner */
+.banner{
+    width: 25%;
+    float: left;
+}
+h3>span{
+    text-decoration: underline;
+}
+h3>span.all{
+    color: #666;
+}
+h3>span.love{
+    color: rgb(253, 164, 50);
+}
+ul.link a{
+    text-decoration: underline;
+}
+
+/* footer */
+footer{
+    background: rgb(20, 54, 84);
+    color: rgb(221, 221, 221); 
+}

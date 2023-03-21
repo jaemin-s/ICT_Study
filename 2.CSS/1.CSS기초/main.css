@@ -1,0 +1,7 @@
+@import "./side.css";
+
+h1, p{
+    color: greenyellow;
+    background: slateblue;
+    width: fit-content;
+}
