@@ -2,18 +2,36 @@
 /* body */
 body{
     background: #666;
+    font-size: 14px;
+    font-weight: bold;
+}
+span{
+    display: block;
 }
 /* warpper */
 #wrapper{
-    width: 1000px;
+    width: 1400px;
     margin: 0 10% 10%;
 }
 /* header */
 header{
     background: rgb(253, 164, 50);
+    text-align: center;
 }
 header>h1{
     color: white;
+    font-size: 100px;
+    padding: 10px 10%;
+    text-align: center;
+}
+header>h1>span{
+    margin-top: 20px;
+    font-size: 20px;
+}
+header .stit{
+    padding: 5px;
+    font-size: 16px;
+    color: #666;
 }
 
 /* container */
@@ -23,16 +41,23 @@ header>h1{
 
 /* side-menu */
 .side-menu{
-    width: 25%;
+    width: 20%;
     float: left;
     
 }
 .side-menu>h3{
     background: rgb(151, 0, 8);
     color: white;
+    padding: 10px;
 }
 .side-menu>ul{
     text-decoration: underline;
+    padding: 10px;
+    line-height: 2;
+}
+.side-menu li:hover{
+    padding-bottom: 20px;
+    border-bottom: 4px dotted #666;
 }
 header>h2.stit{
     background: rgb(204, 204, 204);
@@ -42,35 +67,72 @@ header>h2.stit{
 .main-content{
     background: rgb(221, 221, 221);
     color: rgb(20, 54, 84);
-    width: 50%;
+    width: 60%;
     float: left;
+    padding: 10px;
     /* margin-left: 25%; */
 }
 .art-piece>.title{
     background: rgb(20, 54, 84);
     color: rgb(221, 221, 221);
+    padding: 10px;
+    margin-top: 10px;
+    font-size: 24px;
+}
+.art-piece .title :hover{
+    text-decoration: underline;
+}
+.art-piece>div{
+    line-height: 2;
+    margin-top: 10px;
+    font-size: 20px;
+}
+.art-piece>p{
+    line-height: 3;
 }
 
 /* banner */
 .banner{
-    width: 25%;
+    width: 20%;
     float: left;
+    padding: 10px;
+}
+h3{
+    font-size: 24px;
+    line-height: 1.4;
 }
 h3>span{
     text-decoration: underline;
 }
 h3>span.all{
-    color: #666;
+    color: rgb(204, 204, 204);
 }
 h3>span.love{
     color: rgb(253, 164, 50);
 }
+.link{
+    margin-top: 30px;
+}
+.link>li{
+    margin-top: 10px;
+}
 ul.link a{
     text-decoration: underline;
+    font-size: 18px;
+
 }
 
 /* footer */
 footer{
     background: rgb(20, 54, 84);
     color: rgb(221, 221, 221); 
+    font-size: 12px;
+    text-align: center;
+    padding: 10px;
+}
+address>a{
+    text-decoration: underline;
+}
+address>span{
+    display: inline;
 }
