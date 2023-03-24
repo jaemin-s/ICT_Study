@@ -6,19 +6,22 @@ a {
     color: inherit;
     text-decoration: none;
 }
-button, input{
-    outline:none;
+
+button,
+input {
+    outline: none;
     border: none;
     color: inherit;
 }
 
 /* common */
-.clearfix::after{
+.clearfix::after {
     content: '';
     display: block;
     clear: both;
 }
-body{
+
+body {
     font-size: 14px;
     font-family: 'Noto Sans Kr', sans-serif;
 }
@@ -26,6 +29,569 @@ body{
 .en {
     font-family: 'Exo 2', sans-serif;
 }
-br.mo{
+
+br.mo {
     display: none;
+}
+
+/* header style */
+header {
+    background: rgba(0, 0, 0, 0.2);
+    width: 100%;
+    height: 100px;
+    line-height: 100px;
+
+    position: fixed;
+    top: 0;
+    z-index: 9999;
+}
+
+header .inner-header {
+    /* background: orange; */
+    width: 84%;
+    margin: 0 auto;
+}
+
+header .inner-header .logo {
+    /* background: blue; */
+    float: left;
+    width: 200px;
+}
+
+header .inner-header .logo img {
+    width: 100%;
+    vertical-align: middle;
+    opacity: 0.7;
+}
+
+header .inner-header nav li a {
+    font-size: 16px;
+    color: white;
+}
+
+header .inner-header .gnb {
+    /* background: green; */
+    float: left;
+    margin-left: 80px;
+}
+
+header .inner-header .gnb li {
+    margin-right: 80px;
+}
+
+header .inner-header .gnb li a {
+    display: block;
+}
+
+header .inner-header .gnb li a:hover {
+    color: orange;
+}
+
+header .inner-header .tnb {
+    /* background: darkmagenta; */
+    float: right;
+}
+
+header .inner-header .tnb li {
+    margin-right: 25px;
+}
+
+header .inner-header .tnb li:first-child i,
+header .inner-header .tnb li:nth-child(2) i {
+    margin-right: 8px;
+    font-size: 20px;
+}
+
+header .inner-header .tnb li:last-child a {
+    border: 1px solid #fff;
+    border-radius: 30px;
+    padding: 5px 15px;
+}
+
+header .inner-header .tnb li:last-child a:hover {
+    background: #fff;
+    color: orange;
+}
+
+header .inner-header .tnb li:last-child i {
+    margin-left: 5px;
+}
+
+header .inner-header nav li {
+    float: left;
+}
+
+header .inner-header .gnb-mobile {
+    display: none;
+}
+
+/* end header */
+
+/* section.main */
+section.main {
+    background: url(../img/vis_4.jpg) no-repeat center / cover fixed;
+    height: 100vh;
+    position: relative;
+}
+
+section.main .main-title {
+    /* background: black; */
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    color: #fff;
+    text-align: center;
+    text-shadow: 2px 2px 10px #123;
+
+    animation: uprise 1s;
+}
+
+@keyframes uprise {
+    from {
+        opacity: 0;
+        top: 60%;
+    }
+
+    to {
+        opacity: 1;
+        top: 50%;
+    }
+}
+
+section.main .main-title h2 {
+    font-size: 55px;
+}
+
+section.main .main-title p {
+    font-size: 30px;
+    margin: 20px 0;
+}
+
+section.main .main-title .view {
+    font-size: 20px;
+    letter-spacing: 2px;
+
+    display: block;
+    width: 180px;
+    margin: 0 auto;
+    border: 4px solid #fff;
+    border-radius: 40px;
+    padding: 8px 0;
+
+    position: relative;
+    overflow: hidden;
+}
+
+section.main .main-title .view::after {
+    content: '';
+    width: 0;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.4);
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: 0.3s;
+}
+
+section.main .main-title .view:hover::after {
+    width: 100%;
+}
+
+/* section에 들어갈 디자인을 일괄 지정 */
+section .title {
+    text-align: center;
+}
+
+section .title h2 {
+    font-size: 45px;
+    color: #111;
+    margin-bottom: 10px;
+}
+
+section .title p {
+    font-size: 18px;
+    color: #555;
+}
+
+section .sub-container {
+    /* background: tomato; */
+    width: 74%;
+    margin: 0 auto;
+}
+
+/* section.about style */
+section.about {
+    /* background: orange; */
+    margin: 80px 0;
+}
+
+section.about .sub-container {
+    /* background: skyblue; */
+    margin-top: 30px;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 30px;
+}
+
+section.about .sub-container li {
+    float: left;
+    width: 33.3%;
+    height: 500px;
+    box-sizing: border-box;
+}
+
+section.about .sub-container li .img-box {
+    overflow: hidden;
+}
+
+section.about .sub-container li .img-box img {
+    width: 100%;
+    transition: 0.6s;
+}
+
+section.about .sub-container li a:hover .img-box img {
+    transform: scale(1.2);
+}
+
+section.about ul li a .text {
+    padding: 25px;
+}
+
+section.about ul li a .text h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+section.about ul li a .text p {
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+section.about ul li a .text p.more {
+    text-transform: uppercase;
+    font-weight: 700;
+    /* background: skyblue; */
+    padding-left: 40px;
+    position: relative;
+}
+
+section.about ul li a .text p.more::before {
+    content: '→';
+    display: block;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    border-radius: 50%;
+    background: orange;
+
+    position: absolute;
+    top: -7px;
+    left: 0;
+}
+
+/* section.innovation style */
+section.innovation {
+    margin-bottom: 150px;
+}
+section.innovation .img-box{
+    margin-top: 50px;
+    height: 540px;
+    background: url(../img/product_1.jpg) no-repeat center / cover;
+
+    position: relative;
+}
+section.innovation .img-box .inner{
+    background: #3a3c4e;
+    width: 80%;
+    color: white;
+    
+    position: absolute;
+    left: 50%;
+    top: 75%;
+    transform: translateX(-50%);
+}
+section.innovation .img-box .inner h3{
+    background: #fff;
+    color: #222;
+    font-size: 18px;
+    padding: 25px 45px;
+    box-sizing: border-box;
+}
+section.innovation .img-box .inner .bottom{
+    padding: 35px 85px;
+    box-sizing: border-box;
+    width: 100%;
+    
+}
+section.innovation .img-box .inner .bottom p{
+    float: left;
+    width: 70%;
+    line-height: 1.6;
+    /* box-sizing: border-box; */
+}
+section.innovation .img-box .inner .bottom a{
+    float: right;
+    padding: 7px 20px;
+    border-radius: 50px;
+    background: orange;
+    color: white;
+    box-sizing: border-box;
+    width: 10%;
+    min-width: 130px;
+    text-align: center;
+}
+section.innovation .img-box .inner .bottom a:hover{
+    background: darkorange;
+}
+
+/* section.me style */
+section.me {
+    background: url(../img/me.jpg) no-repeat center / cover;
+    padding: 80px 0;
+    margin-bottom: 150px;
+}
+
+section.me ul.list{
+    margin-top: 50px;
+    border-top: 2px solid #000;
+    border-bottom: 2px solid #000;
+    
+}
+section.me ul.list>li{
+    padding: 30px 60px;
+}
+section.me ul.list>li:first-child{
+    border-bottom: 2px solid #ddd;
+}
+section.me ul.list>li h3{
+    font-size: 18px;
+    margin-bottom: 20px;
+    position: relative;
+}
+section.me ul.list>li h3 span{
+    position: absolute;
+    left: -30px;
+    color: orange;
+}
+section.me ul.list>li p{
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+section.me ul.list>li .more{
+    font-size: 16px;
+    font-weight: 700;
+}
+section.me ul.list>li .more span{
+    color: orange;
+    margin-left: 3px;
+    font-size: 14px;
+}
+
+section.me ul.list ul.in {
+    margin-bottom: 30px;
+}
+section.me ul.list ul.in li em{
+    float: left;
+    font-weight: 700;
+    width: 12%;
+}
+
+section.me ul.list ul.in li p{
+    float: left;
+    position: relative;
+}
+section.me ul.list ul.in li p::before{
+    content: '';
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: orange;
+    position: absolute;
+    left: -30px;
+    top: 8px;
+}
+
+#incruit-btn{
+    display: block;
+    width: 280px;
+    background: orange;
+    color: #fff;
+    margin: 20px auto 0;
+    padding: 10px 0;
+    box-sizing: border-box;
+    font-weight: 700;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+/* sns */
+.sns {
+    /* background: green; */
+    margin: 80px 0;
+}
+.sns .sub-container{
+    /* background: blue; */
+    margin-top: 50px;
+    padding-bottom: 100px;
+    
+}
+.sns .sub-container li{
+    /* background: red; */
+    width: 30%;
+    float: left;
+    margin-right: 3.3%;
+}
+.sns .sub-container li .img-box{
+    /* background: white; */
+    max-height: 220px;
+    overflow: hidden;
+    
+    position: relative;
+}
+.sns .sub-container li .img-box img{
+    width: 100%;
+    transition: 1s;
+}
+
+.sns .sub-container li .img-box::after{
+    content: "BLOG";
+    font-family: 'EXO 2',sans-serif;
+    color: rgba(255, 255, 255, 0);
+    border: 2px solid rgba(255, 255, 255, 0);
+    border-radius: 14px;
+    padding: 5px 20px;
+    box-sizing: border-box;
+    
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    transition: 0.5s;
+}
+
+.sns .sub-container li .img-box::before{
+    content: '';
+    width: 0%;
+    height: 100%;
+    background: rgba(255, 165, 0,0.8);
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: 0.3s;
+}
+.sns .sub-container li a:hover .img-box::before {
+    width: 100%;
+}
+.sns .sub-container li a:hover .img-box::after {
+    color: rgba(255, 255, 255, 1);
+    border: 2px solid rgba(255, 255, 255, 1);
+}
+
+.sns .sub-container li .bottom{
+    margin-top: 30px;
+
+}
+.sns .sub-container li .bottom p{
+    margin-bottom: 20px;
+    margin-left: 24px;
+    font-weight: 700;
+}
+.sns .sub-container li .bottom p.color{
+    color: orange;
+    font-size: 15px;
+}
+
+.sns .sub-container li .bottom p.time{
+    margin-top: 30px;
+    color: #999;
+    font-size: 14px;
+}
+.sns .sub-container li .bottom p.time i{
+    margin-right: 5px;
+}
+
+/* footer */
+footer{
+    border-top: 1px solid #999;
+    padding: 30px 0;
+}
+
+footer .inner{
+    width: 84%;
+    margin: 0 auto;
+}
+footer .inner .ft-logo{
+    float: left;
+    width: 14%;
+}
+footer .inner .ft-logo img{
+    width: 100%;
+}
+
+footer .inner .address{
+    float: left;
+    margin-left: 100px;
+    margin-top: 25px;
+}
+footer .inner .address li:first-child{
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+footer .inner .address li:last-child {
+    color: #999;
+}
+
+footer .inner .list{
+    float: right;
+    margin-top: 30px;
+}
+footer .inner .list li{
+    float: left;
+    margin-left: 50px;
+}
+footer .inner .list li:last-child{
+    font-weight: 700;
+}
+footer .inner .list li a:hover{
+    text-decoration: underline;
+    color: orange;
+}
+
+/* 1600px 미만 */
+@media screen and (max-width: 1599px) {
+    header .inner-header nav{
+        display: none;
+    }
+
+    header .inner-header .gnb-mobile {
+        display: block;
+        float: right;
+        font-size: 40px;
+        color: #fff;
+    }
+    section.main .main-title h2 {
+        font-size: 40px;
+    }
+    section.main .main-title p {
+        font-size: 20px;
+    }
+    section.main .main-title .view {
+        font-size: 12px;
+        width: 130px;
+    }
+    section.innovation .img-box .inner .bottom {
+        padding: 35px 40px;
+    }
+    section.innovation .img-box .inner .bottom a {
+        margin-top: 15px;
+    }
+    #incruit-btn {
+        width: 220px;
+    }
+}
+/* 1024 미만 */
+@media screen and (max-width:1024px){
+    
 }
