@@ -1,4 +1,0 @@
-// https://m3.material.io/
-// https://m3.material.io/theme-builder#/custom
-// https://m2.material.io/design/color/the-color-system.html#tools-for-picking-colors
-색깔 골라주는 사이트
