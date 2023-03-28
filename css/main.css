@@ -326,6 +326,7 @@ header .fulldown-menu ul li a:hover{
 /* news */
 .news{
     width: 100%;
+    padding-bottom: 210px;
 }
 .news .inner h2{
     padding-bottom: 80px;
@@ -370,4 +371,59 @@ header .fulldown-menu ul li a:hover{
     color: rgb(136, 136, 136);
     font-size: 15px;
     line-height: 1.4em;
+}
+.news .inner .more{
+    position: absolute;
+    top: 40px;
+    right: 20px;
+    font-size: 24px;
+    font-family: 'NEXON Lv2 Gothic Bold';
+    transition: 0.3s;
+}
+.news .inner .more::before{
+    content: '';
+    width: 70%;
+    height: 50%;
+    background: #019fe8;
+    position: absolute;
+    bottom: 0;
+    z-index: -1;
+}
+
+/* careers */
+.careers{
+    position: relative;
+    padding-bottom: 250px;
+}
+.careers .content{
+    position: relative;
+}
+.careers .content .text-box{
+    background: #fff;
+    padding-top: 50px;    
+    padding-right: 65px;
+    position: absolute;
+    bottom: -60px;
+    z-index: 1;
+}
+.careers .content .text-box p{
+    font-family: 'NEXON Lv2 Gothic Bold';
+    font-size: 36px;
+}
+.careers .inner .more{
+    position: absolute;
+    top: 40px;
+    right: 20px;
+    font-size: 24px;
+    font-family: 'NEXON Lv2 Gothic Bold';
+    transition: 0.3s;
+}
+.careers .inner .more::before{
+    content: '';
+    width: 70%;
+    height: 50%;
+    background: #019fe8;
+    position: absolute;
+    bottom: 0;
+    z-index: -1;
 }
