@@ -1,0 +1,86 @@
+@import url(https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css);
+
+@font-face {
+    font-family: 'NEXON Lv2 Gothic Bold';
+    src: url(../font/NEXON\ Lv2\ Gothic\ Bold.woff);
+}
+@font-face {
+    font-family: 'NEXON Lv2 Gothic Light';
+    src: url(../font/NEXON\ Lv2\ Gothic\ Light.woff);
+}
+@font-face {
+    font-family: 'NEXON Lv2 Gothic Medium';
+    src: url(../font/NEXON\ Lv2\ Gothic\ Medium.woff);
+}
+@font-face {
+    font-family: 'NEXON Lv2 Gothic';
+    src: url(../font/NEXON\ Lv2\ Gothic.woff);
+}
+@font-face {
+    font-family: 'NEXON Lv1 Gothic';
+    src: url(../font/NEXON\ Lv1\ Gothic\ OTF.woff);
+}
+@font-face {
+    font-family: 'NEXON Lv1 Gothic Light';
+    src: url(../font/NEXON\ Lv1\ Gothic\ OTF\ Light.woff);
+}
+@font-face {
+    font-family: 'NEXON Lv1 Gothic Bold';
+    src: url(../font/NEXON\ Lv1\ Gothic\ OTF\ Bold.woff;);
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-size: 0.75em;
+    letter-spacing: 0;
+    font-family: 'NEXON Lv2 Gothic', sans-serif;
+}
+
+h1,h2,h3 {
+    font-family: 'NEXON Lv2 Gothic Bold';
+}
+
+h1,h2,h3,h4,h5,h6 {
+    font-size: 1em;
+    color: #222;
+}
+
+.main-container h2{
+    font-size: 66px;
+    font-family: 'NEXON Lv2 Gothic Bold';
+    padding-bottom: 50px;
+}
+
+
+.main-container h4{
+    font-size: 66px;
+    font-family: 'NEXON Lv2 Gothic Regular';
+    font-weight: 300;
+    padding-bottom: 15px;
+}
+
+a {
+    text-decoration: none;
+    color: #222;
+}
+
+p{
+    font-family: 'NEXON Lv2 Gothic Light';
+}
+
+.container {
+    min-width: 1441px;
+}
+
+header {
+    width: 100%;
+    letter-spacing: -0.1em;
+
+}
+
+.clearfix::after{
+    content: '';
+    display: block;
+    clear: both;
+}   
