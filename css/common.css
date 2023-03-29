@@ -1,5 +1,4 @@
 @import url(https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css);
-
 @font-face {
     font-family: 'NEXON Lv2 Gothic Bold';
     src: url(../font/NEXON\ Lv2\ Gothic\ Bold.woff);
@@ -45,21 +44,6 @@ h1,h2,h3,h4,h5,h6 {
     font-size: 1em;
     color: #222;
 }
-
-.main-container h2{
-    font-size: 66px;
-    font-family: 'NEXON Lv2 Gothic Bold';
-    padding-bottom: 50px;
-}
-
-
-.main-container h4{
-    font-size: 66px;
-    font-family: 'NEXON Lv2 Gothic Regular';
-    font-weight: 300;
-    padding-bottom: 15px;
-}
-
 
 a {
     text-decoration: none;

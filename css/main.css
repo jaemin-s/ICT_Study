@@ -1,6 +1,6 @@
 
-/* main-container */
-.main-container{
+/* mid-container */
+.mid-container{
    max-width: 100vw;
    width: 100%;
    /* background: orange; */
@@ -17,37 +17,51 @@
     position: relative;
 }
 /* movie */
-.main-container .movie{
+.mid-container .movie{
     height: 620px;
     width: 100%;
     overflow: hidden;
     z-index: 5;
 }
-.main-container .movie .movie-box{
+.mid-container .movie .movie-box{
     height: auto;
     width: 100%;
 }
 
+.mid-container h2{
+    font-size: 66px;
+    font-family: 'NEXON Lv2 Gothic Bold';
+    padding-bottom: 50px;
+}
+
+
+.mid-container h4{
+    font-size: 66px;
+    font-family: 'NEXON Lv2 Gothic Regular';
+    font-weight: 300;
+    padding-bottom: 15px;
+}
+
 /* mid-title */
-.main-container .mid-title{
+.mid-container .mid-title{
     /* background: skyblue; */
     width: 100%;
     z-index: 10;
     padding-top: 100px;
 }
 
-.main-container .mid-title .inner{
+.mid-container .mid-title .inner{
     text-align: center;
 }
-.main-container .mid-title .inner h2{
+.mid-container .mid-title .inner h2{
     font-family: 'NEXON Lv2 Gothic Bold';
 
 }
-.main-container .mid-title .inner h4{
+.mid-container .mid-title .inner h4{
     padding-bottom: 20px;
 }
 
-.main-container .mid-title .inner .bar {
+.mid-container .mid-title .inner .bar {
     display: block;
     margin: 0 auto;
     width: 1px;
@@ -57,25 +71,25 @@
 
 
 /* bottergames */
-.main-container .bettergames{
+.mid-container .bettergames{
     width: 100%;
 }
-.main-container .bettergames .inner{
+.mid-container .bettergames .inner{
     width: 90%;
     margin: 0 auto;
     display: flex;
     justify-content: start;
 }
-.main-container .bettergames .inner .img-box{
+.mid-container .bettergames .inner .img-box{
     width: 70%;
     max-width: 100%;
     position: absolute;
     right: -150px;
 }
-.main-container .bettergames .inner .img-box img{
+.mid-container .bettergames .inner .img-box img{
     width: 100%;
 }
-.main-container .bettergames .inner .text-box{
+.mid-container .bettergames .inner .text-box{
     width: fit-content;
     min-width: 550px;
     padding-top: 280px;
@@ -84,7 +98,7 @@
     line-height: 1.6em;
     font-weight: bold;
 }
-.main-container .bettergames .inner .text-box p{
+.mid-container .bettergames .inner .text-box p{
     display: block;
     padding-bottom: 55px;
     font-weight: 700;
