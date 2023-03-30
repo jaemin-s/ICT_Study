@@ -1,9 +1,10 @@
 
 /* mid-container */
 .mid-container{
-   max-width: 100vw;
+   /* max-width: 100vw; */
    width: 100%;
    /* background: orange; */
+   overflow: hidden;
 }
 /* inner */
 .inner h2{
@@ -81,8 +82,8 @@
     justify-content: start;
 }
 .mid-container .bettergames .inner .img-box{
-    width: 70%;
-    max-width: 100%;
+    width: 65%;
+    /* max-width: 100%; */
     position: absolute;
     right: -150px;
 }
@@ -277,6 +278,9 @@
 }
 .careers .content{
     position: relative;
+}
+.careers .inner .content img{
+    width: 100%;
 }
 .careers .content .text-box{
     background: #fff;
