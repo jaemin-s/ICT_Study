@@ -1,0 +1,63 @@
+.sub_top {
+    padding: 100px;
+    box-sizing: border-box;
+    margin-left: 1230px;
+    font-size: 13px;
+}
+
+.mid-container .title_wrap {
+    width:90%;
+    margin: 0 auto;
+}  
+
+.mid-container .title_wrap .big_title{
+    font-size: 60px;
+    font-weight: 700;
+    margin-bottom: 40px;
+}
+
+.mid-container .title_wrap .sub_title{
+    font-size: 30px;
+}
+
+.bo_tit {
+    font-size: 23px;
+    font-weight: 700;
+    padding: 10px 0 0;
+    line-height: 1.2em;;
+    min-height: 100px;
+}
+
+.wr_date {
+    display: block;
+    padding-top: 40px;
+    font-size: 14px;
+    color: #aeaeae;
+}
+
+.gall_row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#bo_gall .inner .gall_row .gall_li{
+    width: 30%;
+    margin-right: 5%;
+    margin-bottom: 4%;
+}
+#bo_gall .inner .gall_row .gall_li:nth-child(3n){
+    margin-right: 0;
+}
+.absolute {
+    position: absolute;
+    right: 100px;
+    bottom: 150px;
+    border-bottom: 1px solid #000;
+}
+.absolute input{
+    width: calc(100%-50px);
+    height: 50px;
+    border: 0px;
+    ;
+}
+
