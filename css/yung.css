@@ -21,8 +21,8 @@
 
 .visual .inner {
     width:100%;
+    max-width: 1600px;
 }
-
 
 
 
@@ -244,12 +244,21 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 40px;
     font-weight: 800;
     margin-bottom: 40px;
+        word-break: keep-all;
+
 }
 
 
 .inner .culture_text .c_text_right .b_text .c_content {
     line-height: normal;
+    word-break: keep-all;
 }
+
+.culture_text .b_text .c_content {
+    font-family: 'NEXON Lv2 Gothic Light' !important;
+}
+
+
 
 .inner .culture_text .c_text_right{
     font-size: 23px;
@@ -300,9 +309,17 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 
-.culture_text .b_text .c_content {
-    width: 3000px;
+
+.mid_container .sub_top .inner .location {
+    font-family: 'NEXON Lv2 Gothic Light' !important;
+    margin-left: 320px;
+    font-size: 16px;
 }
+
+.culture .inner_container .inner{
+    margin-left: 320px;
+}
+
 
 
 
