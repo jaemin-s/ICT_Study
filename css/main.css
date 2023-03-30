@@ -1,9 +1,10 @@
 
 /* mid-container */
 .mid-container{
-   max-width: 100vw;
+   /* max-width: 100vw; */
    width: 100%;
    /* background: orange; */
+   overflow: hidden;
 }
 /* inner */
 .inner h2{
@@ -41,7 +42,11 @@
     font-weight: 300;
     padding-bottom: 15px;
 }
-
+@media (max-width:1440px) {
+    .mid-container .movie{
+        margin-top: 40px;
+    }
+}
 /* mid-title */
 .mid-container .mid-title{
     /* background: skyblue; */
@@ -79,11 +84,12 @@
     margin: 0 auto;
     display: flex;
     justify-content: start;
+    align-items: center;
 }
 .mid-container .bettergames .inner .img-box{
-    width: 70%;
-    max-width: 100%;
-    position: absolute;
+    width: 65%;
+    /* max-width: 100%; */
+    /* position: absolute; */
     right: -150px;
 }
 .mid-container .bettergames .inner .img-box img{
@@ -103,7 +109,28 @@
     padding-bottom: 55px;
     font-weight: 700;
 }
-
+@media (max-width:1600px) {
+    .mid-container .bettergames .inner .img-box{
+        width: 60%;
+        right: -80px;
+    }
+    .mid-container .bettergames .inner .text-box{
+        min-width: 0;
+        padding-top: 17vw;
+        box-sizing: border-box;
+    }
+}
+@media (max-width:1280px) {
+    .mid-container .bettergames .inner .text-box p{
+        font-size: 2.1vw;
+        padding-top: 3vw;
+        padding-bottom: 0;
+    }
+    .mid-container .bettergames .inner .img-box{
+        font-stretch: 3vw;
+    }
+    
+}
 /* whoweare */
 .whoweare{
     width: 100%;
@@ -113,10 +140,10 @@
     background-size: cover;
     background-repeat: no-repeat;
 }
-.whoweare .inner{
+/* .whoweare .inner{
     width: 90%;
     margin: 0 auto;
-}
+} */
 .whoweare .interview{
     display: flex;
     width: 100%;
@@ -131,7 +158,7 @@
 }
 .whoweare .interview .img-box img{
     width: 100%;
-    height: 100%;
+    /* height: 100%; */
 }
 .whoweare .interview .text-box{
     width: 53%;
@@ -202,6 +229,33 @@
 .move-right:hover{
     transform: translateX(10px);
 }
+@media (max-width:1280px) {
+    .whoweare .interview .img-box{
+        width: calc(100% - 57vw);
+        padding-right: 0;
+        margin-right: 3vw;
+    }
+    .whoweare .interview .text-box span{
+        font-size: 1.8vw;
+        padding-bottom: 2.5vw;
+    }
+    .whoweare .interview .text-box .name{
+        font-size: 3.3vw;
+        padding-bottom: 5vw;
+    }
+    .whoweare .interview .text-box .name .teamname{
+        font-size: 1.4vw;
+        margin-bottom: 2vw;
+    }
+    .whoweare .interview .text-box h3{
+        font-size: 2.6vw;
+        margin-bottom: 2.2vw;
+    }
+    .whoweare .interview .text-box p{
+        font-size: 1.4vw;
+        padding-left: 1.8vw;
+    }
+}
 
 /* news */
 .news{
@@ -269,6 +323,27 @@
     bottom: 0;
     z-index: -1;
 }
+@media (max-width:800px) {
+    .news .inner .gally{
+        display: block;
+    }
+    .news .inner .gally li{
+        width: 100%;
+    }
+    .news .inner .gally li .img-box{
+        height: 278px;
+    }
+    .news .inner .gally li .img-box a{
+        width: 100%;
+        display: inline-block;
+        height: 100%;
+        text-align: center;
+    }
+    .news .inner .gally li .img-box a img{
+        height: 100%;
+        width: auto;
+    }
+}
 
 /* careers */
 .careers{
@@ -277,6 +352,9 @@
 }
 .careers .content{
     position: relative;
+}
+.careers .inner .content img{
+    width: 100%;
 }
 .careers .content .text-box{
     background: #fff;
@@ -306,4 +384,14 @@
     position: absolute;
     bottom: 0;
     z-index: -1;
+}
+@media (max-width:1280px) {
+    .careers .inner .content .text-box{
+        padding-top: 4vw;
+        padding-right: 5vw;
+        bottom: -5.5vw;
+    }
+    .careers .inner .content .text-box p{
+    font-size: 2.6vw;
+    }
 }
