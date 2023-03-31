@@ -73,7 +73,7 @@ p{
 
 header {
     width: 100%;
-    letter-spacing: -0.1em;
+    /* letter-spacing: -0.1em; */
     
 
 }
@@ -99,7 +99,6 @@ header .white{
     position: absolute;
     width: 100%;
     height: 100%;
-    z-index: 1;
 }
 header .gnb .logo {
     margin-top: 12px;
@@ -115,22 +114,21 @@ header .gnb ul.menu{
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 1;
 
 }
 
-header .gnb .menu ul {
+header .gnb .menu>ul {
     float: left;
     display: flex;
     margin: 0 auto;
 }
-header .gnb .menu li:first-child{
+header .gnb .menu>li:first-child{
     margin-left: 0px;
 }
-header .gnb .menu li{
+header .gnb .menu>li{
     margin-left: 75px;
 }
-header .gnb .menu li:last-child{
+header .gnb .menu>li:nth-child(5){
     margin-right: 220px;
 }
 
@@ -183,42 +181,52 @@ header .language-select a:hover{
 header .fulldown-menu{
     background: rgb(248, 248, 248);
     position: absolute;
-    top: 50px;
-    width: 100%;
+    width: 100vw;
     top: 70px;
+    left: 0;
     padding-bottom: 40px;
+    display: block;
     transform: translateY(-400px);
     border-bottom: 1px solid rgb(238,238,238);
-    z-index: -1;
+    transition: 0.5s;
+    z-index: -1000;
 }
 
 header .fulldown-menu .inner{
     display: flex;
     justify-content: center;
     width: 80%;
+    max-width: 630px;
     margin: 0 auto;
     padding-top: 10px;
 }
 
-header .fulldown-menu ul:nth-child(1){
+
+header .fulldown-menu .inner ul{
+    white-space: nowrap;
+}
+header .fulldown-menu .inner ul:nth-child(1){
     margin-right: 85px;
 }
-header .fulldown-menu ul:nth-child(2){
+header .fulldown-menu .inner ul:nth-child(2){
     margin-right: 35px;
 }
-header .fulldown-menu ul:nth-child(3){
+header .fulldown-menu .inner ul:nth-child(3){
     margin-right: 90px;
 }
-header .fulldown-menu ul:nth-child(4){
+header .fulldown-menu .inner ul:nth-child(4){
     margin-right: 65px;
 }
 
-header .fulldown-menu ul li a{
+header .fulldown-menu .inner ul li a{
     color: #666;
     font-size: 15px;
     line-height: 35px;
+    width: fit-content;
+    font-family: 'NEXON Lv2 Gothic';
+    font-weight: normal;
 }
-header .fulldown-menu ul li a:hover{
+header .fulldown-menu .inner ul li a:hover{
     color: black;
 }
 header .mo-menu{
@@ -262,13 +270,13 @@ header .mo-menu{
         position: fixed;
         height: 100vh;
         width: 75vw;
-        right: -80%;
+        right: -150%;
         top: 0;
         padding-top: 50px;
         z-index: 999;
-        /* transition: 0.3s; */
-        
+        transition: 0.5s;
     }
+    
     header .mo-menu .slide-box .language-select{
         font-size: 11px;
         line-height: 13px;
@@ -281,6 +289,7 @@ header .mo-menu{
         right: 15px;
         top: 10px;
     }
+
     header .mo-menu .slide-box .side-menu li ul{
         transition: 1s;
     }
@@ -308,7 +317,6 @@ header .mo-menu{
         background: #f3f3f3;
     }
     header .mo-menu .slide-box li:active ul li a{
-        height: 50px;
         display: block;
     }
     header .mo-menu .slide-box li ul li a{
@@ -318,7 +326,7 @@ header .mo-menu{
         background: #eee;
         display: none;
         transition: 0.3s;
-        height: 0;
+        height: 50px;
     }
 }
 /* footer */
@@ -511,4 +519,18 @@ footer .go-top:hover{
         flex-direction: column;
         justify-content: center;
     }
+}
+
+
+header .fulldown-menu.on {
+    /* display: block; */
+    transform: translateY(0);
+}
+
+header .language-select a.selected{
+    opacity: 1;
+}
+
+header .mo-menu .slide-box.open{
+    right: 0;
 }

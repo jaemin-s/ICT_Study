@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="./css/common.css">
     <link rel="icon" href="./img/favi-nexon.ico">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    
 
 </head>
 
@@ -26,61 +27,60 @@
                     <li><a href="#">인재채용</a></li>
                     <li><a href="#">투자정보</a></li>
                     <li><a href="#">미디어</a></li>
+                    <div class="fulldown-menu">
+                        <div class="inner">
+                            <ul>
+                                <li><a href="#">넥슨게임즈</a></li>
+                            </ul>
+                            <ul>
+                                <li><a href="#">V4</a></li>
+                                <li><a href="#">서든어택</a></li>
+                                <li><a href="#">블루 아카이브</a></li>
+                                <li><a href="#">히트2</a></li>
+                                <li><a href="#">베일드 엑스퍼트</a></li>
+                                <li><a href="#">퍼스트 디센던트</a></li>
+                                <li><a href="#">갓썸</a></li>
+                            </ul>
+                            <ul>
+                                <li><a href="#">기업문화</a></li>
+                                <li><a href="#">피플&컬처</a></li>
+                                <li><a href="#">복지</a></li>
+                                <li><a href="#">채용</a></li>
+                            </ul>
+                            <ul>
+                                <li><a href="#">기업지배구조</a></li>
+                                <li><a href="#">주가정보</a></li>
+                                <li><a href="#">재무정보</a></li>
+                                <li><a href="#">공시/공고</a></li>
+                            </ul>
+                            <ul>
+                                <li><a href="#">뉴스</a></li>
+                                <li><a href="#">보도자료</a></li>
+                                <li><a href="#">멀티미디어</a></li>
+                            </ul>
+                        </div>
                 </ul>
-                <div class="fulldown-menu">
-                    <div class="inner">
-                        <ul>
-                            <li><a href="#">넥슨게임즈</a></li>
-                        </ul>
-                        <ul>
-                            <li><a href="#">V4</a></li>
-                            <li><a href="#">서든어택</a></li>
-                            <li><a href="#">블루 아카이브</a></li>
-                            <li><a href="#">히트2</a></li>
-                            <li><a href="#">베일드 엑스퍼트</a></li>
-                            <li><a href="#">퍼스트 디센던트</a></li>
-                            <li><a href="#">갓썸</a></li>
-                        </ul>
-                        <ul>
-                            <li><a href="#">기업문화</a></li>
-                            <li><a href="#">피플&컬처</a></li>
-                            <li><a href="#">복지</a></li>
-                            <li><a href="#">채용</a></li>
-                        </ul>
-                        <ul>
-                            <li><a href="#">기업지배구조</a></li>
-                            <li><a href="#">주가정보</a></li>
-                            <li><a href="#">재무정보</a></li>
-                            <li><a href="#">공시/공고</a></li>
-                        </ul>
-                        <ul>
-                            <li><a href="#">뉴스</a></li>
-                            <li><a href="#">보도자료</a></li>
-                            <li><a href="#">멀티미디어</a></li>
-                        </ul>
-                    </div>
-                </div>
                 <div class="language-select">
-                    <a href="#">KOR</a>
-                    <a href="#">ENG</a>
+                    <a class="kor selected" href="#">KOR</a>
+                    <a class="eng" href="#">ENG</a>
                 </div>
                 <div class="mo-menu">
-                    <a href="#"><i class="fa-sharp fa-solid fa-bars"></i></a>
+                    <a href="#" class="open"><i class="fa-sharp fa-solid fa-bars"></i></a>
                     <div class="slide-box">
                         <div class="language-select">
-                            <a href="#">KOR</a>
-                            <a href="#">ENG</a>
+                            <a class="kor selected" href="#">KOR</a>
+                            <a class="eng" href="#">ENG</a>
                         </div>
                         <a href="#" class="close"><i class="fa fa-times"></i></a>
                         <ul class="side-menu">
                             <li>
-                                <a href="#">넥슨게임즈</a>
+                                <a class="big-list" href="#">넥슨게임즈</a>
                                 <ul>
                                     <li><a href="#">넥슨게임즈</a></li>
                                 </ul>
                             </li>
                             <li>
-                                <a href="#">게임</a>
+                                <a class="big-list" href="#">게임</a>
                                 <ul>
                                     <li><a href="#">V4</a></li>
                                     <li><a href="#">서든어택</a></li>
@@ -92,7 +92,7 @@
                                 </ul>
                             </li>
                             <li>
-                                <a href="#">인재채용</a>
+                                <a class="big-list" href="#">인재채용</a>
                                 <ul>
                                     <li><a href="#">기업문화</a></li>
                                     <li><a href="#">피플&컬처</a></li>
@@ -101,7 +101,7 @@
                                 </ul>
                             </li>
                             <li>
-                                <a href="#">투자정보</a>
+                                <a class="big-list" href="#">투자정보</a>
                                 <ul>
                                     <li><a href="#">기업지배구조</a></li>
                                     <li><a href="#">주가정보</a></li>
@@ -110,7 +110,7 @@
                                 </ul>
                             </li>
                             <li>
-                                <a href="#">미디어</a>
+                                <a class="big-list" href="#">미디어</a>
                                 <ul>
                                     <li><a href="#">뉴스</a></li>
                                     <li><a href="#">보도자료</a></li>
@@ -376,6 +376,52 @@
                 </button></a>
         </footer>
     </div>
+
+
+    <script>
+
+        const $hidden = document.querySelector('header .fulldown-menu');
+        const $menu = document.querySelector('.gnb .menu');
+
+        $menu.addEventListener('mouseover', function() {
+            $hidden.classList.add('on');
+        });
+
+        $hidden.addEventListener('mouseout', function() {
+            // $hidden.setAttribute('display', 'none');
+            $hidden.classList.remove('on');
+        });
+
+        const $selectKor = document.querySelector('.kor');
+        const $selectKormo = document.querySelector('.mo-menu .kor');
+        const $selectEng = document.querySelector('.eng');
+        const $selectEngmo = document.querySelector('.mo-menu .eng');
+
+        $selectKor.addEventListener('click', function(){
+            $selectKor.classList.add('selected');
+            $selectKormo.classList.add('selected');
+            $selectEng.classList.remove('selected');
+            $selectEngmo.classList.remove('selected');
+        })
+        $selectEng.addEventListener('click', function(){
+            $selectEng.classList.add('selected');
+            $selectEngmo.classList.add('selected');
+            $selectKor.classList.remove('selected');
+            $selectKormo.classList.remove('selected');
+        })
+
+        const $moOpen = document.querySelector('.mo-menu .open');
+        const $moClose = document.querySelector('.mo-menu .close');
+        const $moMenu = document.querySelector('.mo-menu .slide-box');
+
+        $moOpen.addEventListener('click',function(){
+            $moMenu.classList.add('open');
+        })
+        $moClose.addEventListener('click',function(){
+            $moMenu.classList.remove('open');
+        })
+        
+    </script>
 
 </body>
 
