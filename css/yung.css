@@ -13,19 +13,19 @@
 
 .visual img {
     display: block;
-    width: 100%;
+    max-width: 100%;
     /* margin-top: 10px; */
     margin: 0 auto;
 }
 
+img {
+    max-width: 100%;
+}
 
 .visual .inner {
     width:100%;
     max-width: 1600px;
 }
-
-
-
 
 .visual .wemake {
     position: relative;
@@ -40,6 +40,10 @@
 }
 
 
+
+
+
+
 .visual .wemake .inner_container h2{
     color:white;
     font-size: 60px;
@@ -50,6 +54,7 @@
     margin-top: 90px;
     font-size: 25px;
     line-height: normal;
+
 }
 
 
@@ -71,12 +76,21 @@ div.visual .wemake .inner .wemake_p {
     line-height: normal;
 } */
 
-div.culture .inner h4 {
+/* div.culture .inner h4 {
     font-size: 50px;
     font-weight: 900;
     margin-left: 210px;
     margin-top: 250px;
+} */
+
+
+div.culture .inner_container h4{
+    font-size: 50px;
+    margin-bottom: 300px;
 }
+
+
+
 
 div.culture .c_gray_box {
     background: #fcfcfc;
@@ -317,10 +331,24 @@ h1, h2, h3, h4, h5, h6 {
     width : 100%;
 }
 
-.culture .inner_container .inner{
-    margin-left: 320px;
+
+.culture .inner_continaer{
+    position: relative;
 }
 
+
+.culture .inner_container .inner{
+    margin-left: 320px;
+    margin-top: 100px;
+    position: relative;
+}
+
+.culture .inner_container .inner h4{
+    margin-top: 50px;
+    position: relative;
+    top:170px;
+    left:280px;
+}
 
 
 
@@ -349,8 +377,25 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 
-@media (max-width: 600px) {
-    .visual .culture {
-        color: red; 
+
+
+
+
+@media (max-width: 1440px) {
+
+
+    .visual img{
+        display:block;
+        max-width: 110%;
     }
+
+
+    .culture .inner_container .inner {
+        margin-left: 10px;
+        bottom : -30px;
+    }
+
+
+
+
 }
