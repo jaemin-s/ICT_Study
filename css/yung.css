@@ -349,11 +349,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 
-
-
-
-
-@media screen and (min-width: 600px) {
+@media (max-width: 600px) {
     .visual .culture {
         color: red; 
     }
