@@ -1,3 +1,4 @@
+
 .sub_top {
     padding: 100px;
     box-sizing: border-box;
@@ -332,13 +333,13 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 
-.culture .inner_continaer{
+.culture .inner_container{
     position: relative;
 }
 
 
 .culture .inner_container .inner{
-    margin-left: 320px;
+    margin-left: 60px;
     margin-top: 100px;
     position: relative;
 }
@@ -378,24 +379,128 @@ h1, h2, h3, h4, h5, h6 {
 
 
 
+@media (max-width: 600px) {
+
+
+   .visual .culture {
+         font-size: 40px;
+         margin-top: 20px;
+   }
+
+   .mid_container .sub_top .inner .location{
+    font-size: 18px;
+    margin-left: -20px;
+   }
+
+
+   .visual .wemake .inner_container h2 {
+    margin-bottom: 100px;
+    font-size: 40px;
+    color: white;
+   }
+
+   .visual .wemake .inner_container .wemake_p {
+    color:white;
+    font-size: 14px;
+    margin-top: -100px;
+   }
+
+
+.culture .inner_container .inner{
+        margin-left: -200px;
+        position: relative;
+    }
+div.culture .inner_container h4{
+    font-size: 40px;
+}
+
+.legend .inner .culture_text .b_text h5{
+    text-align: center;
+
+}
+
+
+.legend .inner .culture_text .b_text p.big_tit{
+    font-size: 25px;
+    text-align: center;
+}
 
 
 
-@media (max-width: 1440px) {
+/* .legend .inner .culture_text{
+    position: relative;
+} */
 
+/* .legend .inner .culture_text .c_img{
+    position: absolute;
+    display: block;
+    width:100%;
+    max-width: 170px;
+    left: 200px;
+    top:10px;
+    
+} */
+
+
+.legend .inner .culture_text .b_text .c_content{
+    text-align: left;
+    word-break: keep-all;
+    width:100%;
+}
+}
+
+
+
+
+@media (max-width: 1200px) {
+
+    .mid_container .sub_top .inner .location{
+        font-size: 17px;
+        margin-left: -80px;
+    }
+
+
+
+    .visual .inner .culture{
+        margin-left: 30px;
+    }
 
     .visual img{
-        display:block;
-        max-width: 110%;
+        display: block;
+        max-width: 2000px;
+        margin: 0 auto;
     }
 
 
-    .culture .inner_container .inner {
-        margin-left: 10px;
-        bottom : -30px;
+    .culture .inner_container .inner h4{
+        margin-left: 80px;
     }
 
 
+    .culture{
+        width: 1400px;
+    }
+
+    .inner{
+        width: 1400px;
+    }
+
+
+    .legend .inner .culture_text{
+        width: 1300px;
+        margin-left: 20px;
+    }
+
+
+    .top {
+        width:1600px;
+        background: #f4f2f2;
+    }
+
+    footer .bottom{
+        width:1400px;
+        background: #f4f2f2;
+    }
 
 
 }
