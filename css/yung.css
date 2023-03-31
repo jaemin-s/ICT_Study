@@ -1,8 +1,8 @@
 .sub_top {
     padding: 100px;
     box-sizing: border-box;
-    margin-left: 1230px;
     font-size: 13px;
+    text-align: right;
 }
 
 .visual .culture {
@@ -312,8 +312,9 @@ h1, h2, h3, h4, h5, h6 {
 
 .mid_container .sub_top .inner .location {
     font-family: 'NEXON Lv2 Gothic Light' !important;
-    margin-left: 320px;
+    display: block;
     font-size: 16px;
+    width : 100%;
 }
 
 .culture .inner_container .inner{
@@ -345,4 +346,15 @@ h1, h2, h3, h4, h5, h6 {
 .culture_text .samll_tit {
     font-family : 'NEXON Lv2 Gothic Bold';
 
+}
+
+
+
+
+
+
+@media screen and (min-width: 600px) {
+    .visual .culture {
+        color: red; 
+    }
 }
