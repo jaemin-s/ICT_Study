@@ -6,6 +6,9 @@
    /* background: orange; */
    overflow: hidden;
 }
+header .gnb{
+    box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.1);
+}
 /* inner */
 .inner h2{
     font-weight: 700;
@@ -23,12 +26,43 @@
     width: 100%;
     overflow: hidden;
     z-index: 5;
+    position: relative;
+    
 }
 .mid-container .movie .movie-box{
     height: auto;
     width: 100%;
+    position: relative;
+}
+.mid-container .movie .inner{
+    position: absolute;
+    display: flex;
+    top: 70%;
+    flex-direction: row-reverse;
+}
+.mid-container .movie .inner .btn-box{
+    color: #fff;
+    margin-right: 40px;    
+}
+@media (min-width:1440px) {
+    .mid-container .movie .inner{
+        top: 80%;
+        margin: 0 auto;
+        right: 50%;
+        transform: translateX(50%);
+    }
+    .mid-container .movie .movie-box{
+        position: unset;
+    }
 }
 
+@media (max-width:800px) {
+    .container .mid-container>.movie{
+        height: auto;
+        min-height: 200px;
+    }
+}
+/* end movie */
 .mid-container h2{
     font-size: 66px;
     font-family: 'NEXON Lv2 Gothic Bold';
@@ -72,6 +106,35 @@
     width: 1px;
     height: 50px;
     background: #222;
+}
+@media (max-width:1280px) {
+    .container .mid-container .inner h4{
+        font-size: 5.5vw;
+        padding-bottom: 0.1vw;
+    }
+    .container .mid-container .inner h2{
+        font-size: 5.5vw;
+        padding-bottom: 2.5vw;
+    }
+}
+@media (max-width:800px) {
+    .container .mid-container .inner h4{
+        font-size: 5vw;
+    }
+    .container .mid-container .inner h2{
+        font-size: 5vw;
+    }
+    .container .mid-container .inner .bar{
+        height: 6vw;
+    }
+}
+@media (max-width:600px) {
+    .container .mid-container .inner h4{
+        font-size: 6vw;
+    }
+    .container .mid-container .inner h2{
+        font-size: 6vw;
+    }
 }
 
 
@@ -125,9 +188,39 @@
         font-size: 2.1vw;
         padding-top: 3vw;
         padding-bottom: 0;
+        line-height: 1.6em;
     }
     .mid-container .bettergames .inner .img-box{
         font-stretch: 3vw;
+    }
+    .mid-container .bettergames .inner{
+        width: 100%;
+    }
+}
+@media (max-width:800px) {
+    .mid-container .bettergames .inner{
+        flex-direction: column;
+    }
+    .mid-container .bettergames .inner .text-box{
+        width: 100%;
+        height: 30%;
+        padding-top: 7vw;
+    }
+    .mid-container .bettergames .inner .text-box p{
+        font-size: 2.5vw;
+        padding-bottom: 4vw;
+        padding-top: 0;
+    }
+    .mid-container .bettergames .inner .img-box{
+        width: 70%;
+        height: 70%;
+        position: relative;
+        top : -14vw;
+    }
+}
+@media (max-width:600px) {
+    .mid-container .bettergames .inner .text-box p{
+        font-size: 3.5vw;
     }
     
 }
@@ -229,7 +322,12 @@
 .move-right:hover{
     transform: translateX(10px);
 }
+
 @media (max-width:1280px) {
+    .whoweare{
+        padding-top: 22vw;
+        padding-bottom: 16vw;
+    }
     .whoweare .interview .img-box{
         width: calc(100% - 57vw);
         padding-right: 0;
@@ -255,8 +353,73 @@
         font-size: 1.4vw;
         padding-left: 1.8vw;
     }
+    .whoweare .next a{
+        right: 3vw;
+        font-size: 1.5vw;
+    }
 }
-
+@media (max-width:800px) {
+    .whoweare{
+        padding-top: 10vw;
+    }
+    .whoweare .interview{
+        flex-direction: column;
+    }
+    .whoweare .interview .img-box{
+        width: 80vw;
+        margin:0 auto;
+    }
+    .whoweare .interview .text-box{
+        width: 100%;
+        padding-top: 2vw;
+        padding-bottom: 6vw;
+    }
+    .whoweare .interview .text-box span{
+        font-size: 2.5vw;
+    }
+    .whoweare .interview .text-box .name{
+        font-size: 4.3vw;
+    }
+    .whoweare .interview .text-box .name .teamname{
+        font-size: 2.4vw;
+    }
+    .whoweare .interview .text-box h3{
+        font-size: 3.6vw;
+        margin-bottom: 3vw;
+    }
+    .whoweare .interview .text-box p{
+        font-size: 2.4vw;
+    }
+    .whoweare .next{
+        margin-right: 4vw;
+    }
+    .whoweare .next a{
+        font-size: 2.5vw;
+    }
+    .whoweare .next p{
+        padding: 0 1vw;
+    }
+}
+@media (max-width:600px) {
+    .whoweare .interview .text-box span{
+        font-size: 3.5vw;
+    }
+    .whoweare .interview .text-box .name{
+        font-size: 5.3vw;
+    }
+    .whoweare .interview .text-box .name .teamname{
+        font-size: 3.4vw;
+    }
+    .whoweare .interview .text-box h3{
+        font-size: 4.6vw;
+    }
+    .whoweare .interview .text-box p{
+        font-size: 3.4vw;
+    }
+    .whoweare .next a{
+        font-size: 3.5vw;
+    }
+}
 /* news */
 .news{
     width: 100%;
@@ -343,6 +506,10 @@
         height: 100%;
         width: auto;
     }
+    .news .inner .more{
+        font-size: 3vw;
+        top: 2vw;
+    }
 }
 
 /* careers */
@@ -394,4 +561,19 @@
     .careers .inner .content .text-box p{
     font-size: 2.6vw;
     }
+    .careers .inner .more{
+        font-size: 2vw;
+        right: 45px;
+    }
+}
+@media (max-width:800px) {
+    .careers .inner .content .text-box p{
+    font-size: 3.2vw;
+    }
+
+    .careers .inner .more{
+        font-size: 3vw;
+        top: 2vw;
+    }
+    
 }

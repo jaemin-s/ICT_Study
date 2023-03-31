@@ -92,7 +92,6 @@ header .gnb {
     height: 70px;
     display: flex;
     justify-content: space-between;
-    box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.1);
     z-index: 199;
 }
 header .white{
