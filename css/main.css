@@ -764,6 +764,7 @@ header .gnb{
     }
     .news .inner .gally li{
         width: 100%;
+        padding-bottom: 2vw;
     }
     .news .inner .gally li .img-box{
         height: 278px;
@@ -781,6 +782,14 @@ header .gnb{
     .news .inner .more{
         font-size: 3vw;
         top: 2vw;
+    }
+}
+@media (max-width:400px) {
+    .news .inner .gally li .img-box{
+        height: 100%;
+    }
+    .news .inner .gally li .img-box a img{
+        width: 100%;
     }
 }
 
