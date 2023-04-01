@@ -353,6 +353,18 @@ h1, h2, h3, h4, h5, h6 {
 
 
 
+.hbg .inner-header .menu-open .lnr-menu { 
+  font-size: 50px;
+  margin-left: 2000px;
+}
+
+
+
+
+
+
+
+
 
 
 /* ------------------------------------------ */
@@ -381,43 +393,81 @@ h1, h2, h3, h4, h5, h6 {
 
 @media (max-width: 600px) {
 
+    .top{
+        margin-top: 100px;
+    }
 
-   .visual .culture {
-         font-size: 40px;
+    div.mid_container{
+        margin-right: 200px;
+    }
+
+
+   .visual .culture{
+         font-size: 60px;
          margin-top: 20px;
    }
 
-   .mid_container .sub_top .inner .location{
-    font-size: 18px;
-    margin-left: -20px;
+   .mid_container .sub_top .inner p.location{
+    font-size: 25px;
+    margin-left: -220px;
+    margin-top: 30px;
    }
 
 
    .visual .wemake .inner_container h2 {
-    margin-bottom: 100px;
-    font-size: 40px;
+    margin-bottom: 150px;
+    width: 100%;
+    font-size: 70px;
     color: white;
+    white-space: nowrap;
    }
 
    .visual .wemake .inner_container .wemake_p {
     color:white;
-    font-size: 14px;
+    font-size: 34px;
     margin-top: -100px;
+    white-space: nowrap;
    }
 
 
-.culture .inner_container .inner{
-        margin-left: -200px;
-        position: relative;
-    }
+
+.culture .inner_container .inner h4{
+        margin-left: -10px;
+        font-size: 50px;
+        margin-right: 130px;
+}
+
+
 div.culture .inner_container h4{
     font-size: 40px;
 }
+
+
+
 
 .legend .inner .culture_text .b_text h5{
     text-align: center;
 
 }
+
+div.culture .c_gray_box .inner ul{
+    flex-direction: column;
+    align-items: stretch;
+    vertical-align: middle;
+}
+
+div.culture .c_gray_box .inner ul h5{
+    font-size: 30px;
+}
+
+div.culture .c_gray_box .inner ul li .text-box p{
+    font-size: 20px;
+}
+
+div.culture .c_gray_box .inner ul li .text-box i{
+    font-size: 20px;
+}
+
 
 
 .legend .inner .culture_text .b_text p.big_tit{
@@ -426,20 +476,24 @@ div.culture .inner_container h4{
 }
 
 
+.legend .inner .culture_text .b_text h5{
+    font-size: 50px;
+    margin-bottom: 90px;
+}
 
-/* .legend .inner .culture_text{
-    position: relative;
-} */
+.legend .inner .culture_text .b_text p.big_tit{
+    font-size: 45px;
+}
 
-/* .legend .inner .culture_text .c_img{
-    position: absolute;
-    display: block;
-    width:100%;
-    max-width: 170px;
-    left: 200px;
-    top:10px;
-    
-} */
+
+.legend .inner .culture_text .b_text p.c_content{
+    font-size: 24px;
+    text-align: justify;
+    line-height: 45px;
+    word-spacing: -10px;
+    font-weight: 700;
+}
+
 
 
 .legend .inner .culture_text .b_text .c_content{
@@ -448,6 +502,17 @@ div.culture .inner_container h4{
     width:100%;
 }
 }
+
+
+
+
+
+
+
+
+
+
+
 
 
 
