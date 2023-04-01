@@ -28,9 +28,9 @@
     src: url(../font/NEXON\ Lv1\ Gothic\ OTF\ Bold.woff;);
 }
 @media (max-width:800px) {
-    .container{
+    /* .container{
         display: none;
-    }
+    } */
     
 }
 body {
@@ -73,7 +73,7 @@ p{
 
 header {
     width: 100%;
-    letter-spacing: -0.1em;
+    /* letter-spacing: -0.1em; */
     
 
 }
@@ -92,7 +92,6 @@ header .gnb {
     height: 70px;
     display: flex;
     justify-content: space-between;
-    box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.1);
     z-index: 199;
 }
 header .white{
@@ -100,7 +99,6 @@ header .white{
     position: absolute;
     width: 100%;
     height: 100%;
-    z-index: 1;
 }
 header .gnb .logo {
     margin-top: 12px;
@@ -116,22 +114,21 @@ header .gnb ul.menu{
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 1;
 
 }
 
-header .gnb .menu ul {
+header .gnb .menu>ul {
     float: left;
     display: flex;
     margin: 0 auto;
 }
-header .gnb .menu li:first-child{
+header .gnb .menu>li:first-child{
     margin-left: 0px;
 }
-header .gnb .menu li{
+header .gnb .menu>li{
     margin-left: 75px;
 }
-header .gnb .menu li:last-child{
+header .gnb .menu>li:nth-child(5){
     margin-right: 220px;
 }
 
@@ -184,50 +181,79 @@ header .language-select a:hover{
 header .fulldown-menu{
     background: rgb(248, 248, 248);
     position: absolute;
-    top: 50px;
-    width: 100%;
+    width: 100vw;
     top: 70px;
+    left: 0;
     padding-bottom: 40px;
+    display: block;
     transform: translateY(-400px);
     border-bottom: 1px solid rgb(238,238,238);
-    z-index: -1;
+    transition: 0.5s;
+    z-index: -1000;
 }
 
 header .fulldown-menu .inner{
     display: flex;
     justify-content: center;
     width: 80%;
+    max-width: 630px;
     margin: 0 auto;
     padding-top: 10px;
 }
 
-header .fulldown-menu ul:nth-child(1){
+
+header .fulldown-menu .inner ul{
+    white-space: nowrap;
+}
+header .fulldown-menu .inner ul:nth-child(1){
     margin-right: 85px;
 }
-header .fulldown-menu ul:nth-child(2){
+header .fulldown-menu .inner ul:nth-child(2){
     margin-right: 35px;
 }
-header .fulldown-menu ul:nth-child(3){
+header .fulldown-menu .inner ul:nth-child(3){
     margin-right: 90px;
 }
-header .fulldown-menu ul:nth-child(4){
+header .fulldown-menu .inner ul:nth-child(4){
     margin-right: 65px;
 }
 
-header .fulldown-menu ul li a{
+header .fulldown-menu .inner ul li a{
     color: #666;
     font-size: 15px;
     line-height: 35px;
+    width: fit-content;
+    font-family: 'NEXON Lv2 Gothic';
+    font-weight: normal;
 }
-header .fulldown-menu ul li a:hover{
+header .fulldown-menu .inner ul li a:hover{
     color: black;
 }
 header .mo-menu{
     display: none;
 }
-@media (min-width:801px) and (max-width:1440px) {
+@media (max-width:1440px) {
+    .inner{
+        width: 100%;
+        padding: 0 20px;
+    }
     header .gnb ul.menu{
         display: none;
+    }
+    header .gnb .fulldown-menu{
+        display: none;
+    }
+    header .gnb{
+        box-shadow: none;
+        height: 100px;
+    }
+    header .gnb .logo{
+        margin-left: 20px;
+        margin-top: 25px;
+    }
+    header .gnb .language-select{
+        right: 50px;
+        top: 35px;
     }
     header .mo-menu{
         display: block;
@@ -235,7 +261,7 @@ header .mo-menu{
         z-index: 2;
         position: absolute;
         right: -60px;
-        top: 20px;
+        top: 35px;
         width: 100px;
         height: 100px;
     }
@@ -244,13 +270,13 @@ header .mo-menu{
         position: fixed;
         height: 100vh;
         width: 75vw;
-        right: -80%;
+        right: -150%;
         top: 0;
         padding-top: 50px;
         z-index: 999;
-        /* transition: 0.3s; */
-        
+        transition: 0.5s;
     }
+    
     header .mo-menu .slide-box .language-select{
         font-size: 11px;
         line-height: 13px;
@@ -263,6 +289,7 @@ header .mo-menu{
         right: 15px;
         top: 10px;
     }
+
     header .mo-menu .slide-box .side-menu li ul{
         transition: 1s;
     }
@@ -290,7 +317,6 @@ header .mo-menu{
         background: #f3f3f3;
     }
     header .mo-menu .slide-box li:active ul li a{
-        height: 50px;
         display: block;
     }
     header .mo-menu .slide-box li ul li a{
@@ -300,7 +326,7 @@ header .mo-menu{
         background: #eee;
         display: none;
         transition: 0.3s;
-        height: 0;
+        height: 50px;
     }
 }
 /* footer */
@@ -391,6 +417,7 @@ footer .bottom .inner .familysite .dropup-btn{
     color: #999;
     font-size: 14px;
     width: 220px;
+    position: relative;
 }
 footer .bottom .inner .familysite:hover .dropup-content{
     display: block;
@@ -437,4 +464,73 @@ footer .go-top{
 footer .go-top:hover{
     background: #007aff;
     cursor: pointer;
+}
+@media (max-width:1600px) {
+    footer .top{
+        padding: 4vw 0;
+    }
+    footer .top .inner{
+        padding: 0 20px;
+    }
+    
+}
+@media (min-width:801px) and (max-width:1200px) {
+    footer .top .inner .left-contents .text-box p{
+        font-size: 1.1vw;
+    }
+    footer .top .inner .right-contents>ul>li:first-child{
+        margin-right: 3vw;
+    }
+    footer .top .inner .right-contents>ul>li:nth-child(2){
+        margin-right: 3vw;
+    }
+    footer .top .inner .right-contents>ul>li:nth-child(3){
+        margin-right: 3vw;
+    }
+    footer .top .inner .right-contents>ul>li:nth-child(4){
+        margin-right: 55px;
+    }
+
+    
+    footer .top .inner .right-contents ul li a{
+        font-size: 1.2vw;
+    }
+    footer .top .inner .right-contents ul li ul li a{
+        font-size: 1.2vw;
+    }
+    footer .bottom .inner .copyright p{
+        font-size: 1.2vw;
+    }
+}
+
+@media (max-width:800px) {
+    footer .top .inner{
+        flex-direction: column;
+    }
+    footer .top .inner .right-contents{
+        width: 100%;
+    }
+    footer .top .inner .right-contents>ul{
+        margin-top: 5vw;
+        flex-wrap: wrap;
+        padding-right: 15vw;
+    }
+    footer .bottom .inner{
+        flex-direction: column;
+        justify-content: center;
+    }
+}
+
+
+header .fulldown-menu.on {
+    /* display: block; */
+    transform: translateY(0);
+}
+
+header .language-select a.selected{
+    opacity: 1;
+}
+
+header .mo-menu .slide-box.open{
+    right: 0;
 }
