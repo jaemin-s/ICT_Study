@@ -305,14 +305,14 @@ header .mo-menu{
     }
 
     header .mo-menu .slide-box li a{
-        height: 50px;
+        /* height: 50px; */
         line-height: 50px;
     }
 
     header .mo-menu .slide-box li:hover{
         background: #f3f3f3;
     }
-    header .mo-menu .slide-box li ul li a{
+    header .mo-menu .slide-box>.side-menu>li> ul li a{
         color: #222;
         font-size: 14px;
         padding: 0 15px;
@@ -570,8 +570,20 @@ header .mo-menu .slide-box.open .side-menu>li>ul{
     height: 0;
     overflow: hidden;
 }
-header .mo-menu .slide-box.open .side-menu li.li-clicked ul{
-    height: 100px;
+header .mo-menu .slide-box.open .side-menu li.li-clicked.menu1 ul{
+    height: 50px;
+}
+header .mo-menu .slide-box.open .side-menu li.li-clicked.menu2 ul{
+    height: 350px;
+}
+header .mo-menu .slide-box.open .side-menu li.li-clicked.menu3 ul{
+    height: 200px;
+}
+header .mo-menu .slide-box.open .side-menu li.li-clicked.menu4 ul{
+    height: 200px;
+}
+header .mo-menu .slide-box.open .side-menu li.li-clicked.menu5 ul{
+    height: 150px;
 }
 header .mo-menu .slide-box.open .side-menu li.li-clicked ul li{
     height: 50px;

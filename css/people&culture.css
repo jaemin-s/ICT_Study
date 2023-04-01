@@ -5,7 +5,11 @@
     margin-bottom: 100px;
 }
 
-
+body{
+    position: absolute;
+    top: -100px;
+    width: 100%;
+}
 
 .mid-container .title_wrap {
     width:90%;
