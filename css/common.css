@@ -27,12 +27,7 @@
     font-family: 'NEXON Lv1 Gothic Bold';
     src: url(../font/NEXON\ Lv1\ Gothic\ OTF\ Bold.woff;);
 }
-@media (max-width:800px) {
-    /* .container{
-        display: none;
-    } */
-    
-}
+
 body {
     margin: 0;
     padding: 0;
