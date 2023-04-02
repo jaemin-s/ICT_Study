@@ -37,7 +37,9 @@ body {
     letter-spacing: 0;
     font-family: 'NEXON Lv2 Gothic', sans-serif;
 }
-
+body{
+    position: relative;
+}
 h1,h2,h3 {
     font-family: 'NEXON Lv2 Gothic Bold';
 }
@@ -89,6 +91,7 @@ header .gnb {
     height: 70px;
     display: flex;
     justify-content: space-between;
+    box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.1);
     z-index: 199;
 }
 header .white{

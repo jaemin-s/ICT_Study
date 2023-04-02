@@ -278,9 +278,7 @@
    /* background: orange; */
    overflow: hidden;
 }
-header .gnb{
-    box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.1);
-}
+
 /* inner */
 .inner h2{
     font-weight: 700;
