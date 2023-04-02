@@ -1,15 +1,15 @@
 .container .mid-container .sub_top .inner .location{
     text-align: right;
     font-size: 15px;
-    margin-top: 100px;
-    margin-bottom: 100px;
+    /* margin-top: 100px; */
+    /* margin-bottom: 100px; */
 }
 
-body{
+/* body{
     position: absolute;
     top: -100px;
     width: 100%;
-}
+} */
 
 .mid-container .title_wrap {
     width:90%;
@@ -54,12 +54,12 @@ body{
 #bo_gall .inner .gall_row .gall_li:nth-child(3n){
     margin-right: 0;
 }
-.absolute {
+/* .absolute {
     position: absolute;
     right: 10px;
     bottom: 150px;
     border-bottom: 1px solid #000;
-}
+} */
 .absolute input{
     width: calc(100%-50px);
     height: 50px;
@@ -67,17 +67,17 @@ body{
     font-size: 16px;
     font-weight: bold;
     padding: 0 10px;
-    float: left;
+    /* float: left; */
     color: #999;
 }
 
 .sch_btn {
     background: none;
-    height: 50px;
-    float: right;
+    /* height: 50px; */
+    /* float: right; */
     color: #fff;
     border: 0;
-    width: 40px;
+    /* width: 40px; */
     font-size: 18px;
 } 
 
@@ -91,10 +91,10 @@ body{
 
 p {
     display: block;
-    margin-block-start: 1em;
+    /* margin-block-start: 1em;
     margin-block-end: 1em;
     margin-inline-start: 0px;
-    margin-inline-end: 0px;
+    margin-inline-end: 0px; */
 }
 
 .pg_wrap {
@@ -173,7 +173,7 @@ p {
     margin: 0 0 0 15px;
 }
 
-@media screen and (max-width: 1200px) {
+/* @media screen and (max-width: 1200px) {
     
     .container {
         width: 80%;
@@ -185,4 +185,155 @@ p {
     .container {
         width: 80%;
     }
+} */
+
+/* =================== fix ========================== */
+.mid-container{
+    padding-top: 100px;
 }
+.mid-container .title_wrap{
+    margin-bottom: 100px;
+}
+.title_wrap .inner{
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+}
+.title_wrap .inner .sch_bar{
+    border-bottom: 1px solid #000;
+    max-width: 400px;
+    width: 50%;
+    height: 50px;
+    align-self: flex-end;
+    display: flex;
+}
+.container .mid-container .sub_top .inner p.location{
+    color: #666;
+}
+.sch_bar .sch_input{
+    width: calc(100% - 50px);
+    font-family: 'NEXON Lv2 Gothic';
+    color: rgb(153, 153, 153);
+}
+.sch_bar .sch_btn{
+    width: 50px;
+}
+#bo_gall{
+    margin-bottom: 100px;
+}
+#bo_gall #gall_ul{
+    justify-content: space-between;
+}
+#bo_gall #gall_ul .gall_li{
+    width: 28%;
+    margin-right: 7.8;
+    margin-bottom: 4%;
+}
+#bo_gall #gall_ul .gall_li .gall_img{
+    text-align: center;
+    width: 100%;
+}
+#bo_gall #gall_ul .gall_li .gall_img img{
+    max-width: 100%;
+}
+
+#gall_ul a{
+    display: block;
+}
+
+
+
+@media (max-width:1200px) {
+        .container .mid-container .sub_top .inner p.location{
+            font-size: 13px;
+        }
+        .sub_top .inner p.location img{
+            padding-right: 1vw;
+        }
+        .mid-container .title_wrap .inner .big_title{
+            font-size: 50px;
+        }
+        .mid-container .title_wrap .inner .sub_title{
+            font-size: 22px;
+        }
+        #bo_gall #gall_ul .gall_li .gall_text_href .bo_tit{
+            font-size: 18px;
+        }
+    }
+    @media (max-width:800px) {
+        .mid-container .title_wrap{
+            margin-bottom: 50px;
+        }
+        .mid-container .title_wrap .inner .big_title{
+            padding: 30px 0;
+            font-size: 35px;
+        }
+
+        .title_wrap .inner{
+            flex-direction: column;
+            
+        }
+        .title_wrap .inner .sch_bar{
+            width: 100%;
+            align-self: start;
+            margin-top: 30px;
+        }
+        #bo_gall{
+            margin-bottom: 90px;
+        }
+        #bo_gall #gall_ul .gall_li .gall_text_href .wr_date{
+            padding-top: 20px;
+            font-size: 12px;
+        }
+        #bo_gall #gall_ul .gall_li .gall_text_href .bo_tit{
+            font-size: 15px;
+            min-height: 70px;
+        }
+        #bo_gall .inner .pg_wrap .pg .pg_current{
+            min-width: 28px;
+            height: 28px;
+            line-height: 28px;
+            font-size: 14px;
+        }
+        #bo_gall .inner .pg_wrap .pg .pg_page{
+            min-width: 28px;
+            height: 28px;
+            line-height: 28px;
+            font-size: 14px;
+        }
+    }
+    @media (max-width:600px) {
+        .mid-container .title_wrap{
+            margin-bottom: 50px;
+        }
+        .mid-container .title_wrap .inner .big_title{
+            padding: 20px 0;
+            font-size: 25px;
+            /* margin-bottom: 40px; */
+        }
+        .mid-container .title_wrap .inner .sub_title{
+            font-size: 18px;
+        }
+        #bo_gall #gall_ul{
+            flex-direction: column;
+        }
+        #bo_gall #gall_ul .gall_li{
+            width: 100%;
+            margin-bottom: 30px;
+        }
+        #bo_gall #gall_ul .gall_li .gall_text_href .bo_tit{
+            padding: 10px 0;
+            min-height: 10px;
+        }
+        #bo_gall .inner .pg_wrap .pg .pg_current{
+            min-width: 20px;
+            height: 20px;
+            line-height: 20px;
+        }
+        #bo_gall .inner .pg_wrap .pg .pg_page{
+            min-width: 20px;
+            height: 20px;
+            line-height: 20px;
+        }
+    }
+/* =================== end fix ========================== */

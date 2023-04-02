@@ -37,9 +37,7 @@ body {
     letter-spacing: 0;
     font-family: 'NEXON Lv2 Gothic', sans-serif;
 }
-body{
-    position: relative;
-}
+
 h1,h2,h3 {
     font-family: 'NEXON Lv2 Gothic Bold';
 }
