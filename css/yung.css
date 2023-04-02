@@ -514,11 +514,14 @@ h1, h2, h3, h4, h5, h6 {
     .mid_container .culture .c_gray_box{
         padding: 120px 0;
     }
+    .mid_container .culture .c_gray_box ul{
+        max-width: 1600px;
+    }
     .mid_container .culture .c_gray_box ul li{
         box-sizing: border-box;
-        width: 22%;
+        width: 20%;
         margin-right: 2%;
-        padding: 3.36% 0;
+        /* padding: 3.36% 0; */
     }
     .mid_container .culture .c_gray_box .inner .text-box{
         height: 100%;
