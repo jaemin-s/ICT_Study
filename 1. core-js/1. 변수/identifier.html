@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        // 자바에서는 변수의 중복선언을 해도 에러가 안남
+        // 마지막에 선언된 것을 인식한다
+        // 하지만 사용을 지양할 것
+        var apple = '사과';
+        var apple = '애플';
+        console.log(apple);
+
+        var banana = '바나나';
+        var BANANA = '빠나나';
+        console.log(banana);
+        console.log(BANANA);
+
+        // var my-name = '홍길동' (x)
+        var my_name = '홍길동';
+        var $my_name = '홍길동';
+
+        var myPhoneNumber = '01012345678'; //camel
+        var my_phone_number = '01012345678' //snake
+        var MyPhoneNumber = '01012345678' //pascal
+        var strMyPhoneNumber = '01012345678' //Hungarian
+
+        var 과일 = '사과';
+        console.log(과일);
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UP&DOWN</title>
+
+</head>
+<body>
+    <script>
+        let rn = Math.round(Math.random()*100)+1;
+        let cnt = 0;
+        function updown(x,y){
+            let input;
+            while(true){
+            input = +prompt(`${x}~${y} 사이 숫자를 입력하세요`);
+                if(input<x||input>y){
+                    alert('범위 내로 입력하세요');
+                }else{
+                    break;
+                }
+            }
+            cnt++;
+            if(rn === input){
+                alert(`정답입니다. ${cnt}번만에 맞췃습니다`);
+                isWin(cnt);
+                return;
+            }else if(rn < input){
+                alert(`Down!`);
+                chance(cnt);
+                return updown(x,input-1);
+            }else{
+                alert(`Up!`);
+                chance(cnt);
+                return updown(input+1,y);
+            }
+        }
+        
+        function isWin(cnt){
+            if(cnt>6){
+                alert('Lose~');
+            }else{
+                alert('Win!');
+            }
+        }
+
+        function chance(cnt){
+            if(cnt===6){
+                alert('기회 소진!');
+                alert('계속 도전해보세요');
+                return;
+            }else if(cnt<6){
+                alert(`남은 기회 ${6-cnt}번`);
+                return;
+            }else{
+                return;
+            }
+        }
+
+        updown(1,100);
+    </script>
+</body>
+</html>

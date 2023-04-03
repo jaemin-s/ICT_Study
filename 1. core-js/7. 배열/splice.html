@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+        // splice() : 배열의 특정 요소를 제거
+        var foods = ['f1','f2','f3','f4'];
+        console.log(foods);
+
+        // splice(시작 인덱스, 개수)
+        var delFood = foods.splice(1,2);
+        console.log(delFood);
+        console.log(foods);
+
+        foods.splice(0,1,'f5','f6');
+        console.log(foods);
+
+        // 삭제 개수를 0을 주면 삭제없이 데이터를 추가할 수 있다
+        foods.splice(2,0,'f7');
+        console.log(foods);
+
+        // 개수 미지정시 시작인덱스부터 끝까지 삭제
+        foods.splice(2);
+        console.log(foods);
+
+
+
+    </script>
+
+
+
+
+</body>
+</html>
