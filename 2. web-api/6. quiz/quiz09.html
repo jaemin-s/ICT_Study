@@ -54,6 +54,12 @@
             box-sizing: border-box;
             resize: none;
         }
+        .btn1.dark{
+            content: '밝게 보기';
+        }
+        .btn2.change-text{
+            content: '내용 보기';
+        }
         .hide{
             display: none;
         }
@@ -101,13 +107,14 @@
                 $header.style.color = 'white';
                 $section.style.color = 'white';
                 $a.style.color = 'white';
-                $btn1.textContent = '밝게 보기';
+                //$btn1.textContent = '밝게 보기';
+
             }else{
                 document.body.style.background = 'none';
                 $header.style.color = 'black';
                 $section.style.color = 'black';
                 $a.style.color = 'blue';
-                $btn1.textContent = '어둡게 보기';
+                //$btn1.textContent = '어둡게 보기';
             }
         });
 
@@ -116,6 +123,7 @@
         const $rightText = document.querySelector('.right .inner');
 
         $btn2.addEventListener('click',()=>{
+$btn2.classList.toggle('changeText');
            
 [...$rightText.children].forEach( c => {
  c.classList.toggle('hide');
