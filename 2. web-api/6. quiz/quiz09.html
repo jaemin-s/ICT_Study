@@ -63,6 +63,9 @@
         .hide{
             display: none;
         }
+        .btn3.spatula{
+            content: '사진 모드';
+        }
     </style>
 </head>
 
@@ -135,6 +138,16 @@ $btn2.classList.toggle('changeText');
 
 
         // 메모장 모드/사진 모드
+        const $btn3 = document.querySelector('.btn3');
+        const $leftCon = document.querySelector('.left .inner');
+
+        $btn3.addEventListener('click',()=>{
+        $btn3.classList.toggle('spatula');
+        [...$leftCon.children]
+        if([...$leftCon.children].legth<2){
+        $leftCon.insertAdjacentHTML('beforeend',`<textarea></textarea>`);
+}
+      
 
     </script>
 </body>
