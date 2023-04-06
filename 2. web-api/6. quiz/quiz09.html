@@ -143,7 +143,9 @@ $btn2.classList.toggle('changeText');
 
         $btn3.addEventListener('click',()=>{
         $btn3.classList.toggle('spatula');
-        [...$leftCon.children]
+        [...$leftCon.children].forEach(c=>{
+        c.classList.toggle('hide');
+});
         if([...$leftCon.children].legth<2){
         $leftCon.insertAdjacentHTML('beforeend',`<textarea></textarea>`);
 }
