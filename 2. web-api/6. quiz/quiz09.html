@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+        .center {
+            text-align: center;
+        }
+
+        .content {
+            border: 1px solid #777;
+        }
+
+        .content,
+        .content .left,
+        .content .right {
+            width: 50%;
+            margin: 0 auto;
+            box-sizing: border-box;
+            padding: 5px;
+        }
+
+        .content .left,
+        .content .right {
+            float: left;
+        }
+
+        .left .inner,
+        .right .inner {
+            border: 1px solid #777;
+            height: 300px;
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .clearfix::after {
+            content: '';
+            display: block;
+            clear: both;
+        }
+
+        .memo {
+            width: 100%;
+            height: 250px;
+            box-sizing: border-box;
+            resize: none;
+        }
+        .hide :nth-child(-n+2){
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="center">
+            <h2>토글 형태 활용하기</h2>
+            <button id="btn1">어둡게 보기</button>
+            <button id="btn2" class="name">이름 보기</button>
+            <button id="btn3">메모장 모드</button>
+        </div>
+    </header>
+
+    <section>
+        <div class="content clearfix">
+            <div class="left">
+                <div class="inner"><img src="./img/1.jpg" alt="pic"></div>
+            </div>
+            <div class="right">
+                <div class="inner">
+                    <p>자바스크립트는 객체 기반의 스크립트 프로그래밍 언어이다. 이 언어는 웹 브라우저 내에서 주로 사용하며, 다른 응용 프로그램의 내장 객체에도 접근할 수 있는 기능을 가지고
+                        있다. 또한 Node.js와 같은 런타임 환경과 같이 서버 사이드 네트워크 프로그래밍에도 사용되고 있다.</p>
+                    <a href="http://www.naver.com">네이버로 이동</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+
+        // 어둡게 보기/밝게 보기
+        const $btn1 = document.querySelector('#btn1');
+        const $header = document.querySelector('header');
+        const $section = document.querySelector('section');
+        const $a = document.querySelector('a');
+
+        $btn1.addEventListener('click',()=>{
+            $btn1.classList.toggle('dark');
+            if($btn1.classList.contains('dark')){
+                document.body.style.background = 'black';
+                $header.style.color = 'white';
+                $section.style.color = 'white';
+                $a.style.color = 'white';
+                $btn1.textContent = '밝게 보기';
+            }else{
+                document.body.style.background = 'none';
+                $header.style.color = 'black';
+                $section.style.color = 'black';
+                $a.style.color = 'blue';
+                $btn1.textContent = '어둡게 보기';
+            }
+        });
+
+        // 이름 보기
+        const $btn2 = document.querySelector('#btn2');
+        const $rightText = document.querySelector('.right .inner');
+
+        $btn2.addEventListener('click',()=>{
+            $rightText.classList.toggle('hide');
+            if($rightText.classList.contains('hide')){
+                $rightText.insertAdjacentHTML('beforeend',`<p>홍길동<br>20세<br>능력단위<br>Java, Oracle, Jsp, CSS, JavaScript</p>`);
+                $btn2.textContent = '내용 보기';
+            }else{
+                $rightText.removeChild($rightText.lastElementChild);
+                $btn2.textContent = '이름 보기';
+            }
+        });
+
+
+        // 메모장 모드/사진 모드
+
+    </script>
+</body>
+
+</html>

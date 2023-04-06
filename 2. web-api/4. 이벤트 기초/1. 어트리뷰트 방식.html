@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <button type="button" id="btn1" onclick="greethings()">클릭하세요</button>
+    <button type="button" id="btn2" onmouseover="greethings()">마우스를 올리세요</button>
+    <button type="button" id="btn3" onmouseout="greethings()">마우스를 치우세요</button>
+
+    <script>
+
+        // 이벤트 핸들러(브라우저에게 전해줄 콜백 함수) 정의
+        function greethings() {
+            alert('안녕하세요'); 
+        }
+        const $btn1 = document.getElementById('btn1');
+        const $btn2 = document.getElementById('btn2');
+        const $btn3 = document.getElementById('btn3');
+        // addEventListener('click',greethings);
+        $btn3.addEventListener('click',function(){
+            alert('메롱');
+        });
+        $btn1.addEventListener('mouseout',() =>{
+            alert('bye');
+        });
+    </script>
+
+</body>
+</html>
