@@ -54,7 +54,7 @@
             box-sizing: border-box;
             resize: none;
         }
-        .hide :nth-child(-n+2){
+        .hide{
             display: none;
         }
     </style>
@@ -116,14 +116,13 @@
         const $rightText = document.querySelector('.right .inner');
 
         $btn2.addEventListener('click',()=>{
-            $rightText.classList.toggle('hide');
-            if($rightText.classList.contains('hide')){
-                $rightText.insertAdjacentHTML('beforeend',`<p>홍길동<br>20세<br>능력단위<br>Java, Oracle, Jsp, CSS, JavaScript</p>`);
+           
+[...$rightText.children].forEach( c => {
+ c.classList.toggle('hide');
+});
+            if([...$rightText.children].legth < 3){
+               $rightText.insertAdjacentHTML('beforeend',`<p>홍길동<br>20세<br>능력단위<br>Java, Oracle, Jsp, CSS, JavaScript</p>`);
                 $btn2.textContent = '내용 보기';
-            }else{
-                $rightText.removeChild($rightText.lastElementChild);
-                $btn2.textContent = '이름 보기';
-            }
         });
 
 
