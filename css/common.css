@@ -1,0 +1,7 @@
+@import url("https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css");
+@import url("https://cdn.linearicons.com/free/1.0.0/icon-font.min.css");
+
+a{
+    color: inherit;
+    text-decoration: none;
+}
