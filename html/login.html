@@ -5,29 +5,26 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="../css/common.css">
-    <link rel="stylesheet" href="../css/login.css">
+    <link rel="stylesheet" href="../css/common.css" />
+    <link rel="stylesheet" href="../css/login.css" />
   </head>
   <body>
     <!-- 게임 목록 1.블랙잭 2.홀짝 3.바카라 4.룰렛-->
     <div class="wrapper">
-      <img src="../img/las-vegas.jpg" alt="login-bg">
+      <div class="bg"><img src="../img/las-vegas.jpg" alt="bg" /></div>
       <div class="cutton"></div>
       <div class="width-container">
-        <h1 class="title">Casino</h1>
+        <h1 class="title">Welcome<br />Casino</h1>
         <section class="login">
-          <div class="input-box">
-            <input type="text" id="id">
-            <input type="password" id="pw">
+          <div class="name">
+            이름 : <input type="text" id="id" placeholder="이름을 입력하세요" />
+          </div>
+          <div class="birth">
+            생년월일 : <input type="text" id="birth" placeholder="YYMMDD" />
           </div>
           <button class="login-btn">로그인</button>
-          <div class="bottom-text">
-            <p>아이디를 잊으셨나요?</p>
-            <p>회원가입</p>
-          </div>
         </section>
       </div>
     </div>
-
   </body>
 </html>
