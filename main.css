@@ -28,11 +28,56 @@ section.main .main-title{
     color: #fff;
     font-size: 35px;
 }
-
 .input-box{
-
+    display: flex;
+    width: 100%;
+}
+.input-box input[type="text"]::placeholder{
+    color: #fff;
+}
+.input-box input[type="text"]{
+    font-size: 1.1em;
+    color: #fff;
+    background: #444;
+    border: none;
+    width: calc(100% - 30px);
+    box-sizing: border-box;
+    padding-left: 10px;
+}
+i{
+    font-size: 30px;
+    padding: 10px;
+    cursor: pointer;
+}
+.input-box .add{
+    background: #777;
+    color: #fff;
 }
 
 .todo-list li{
     display: flex;
+    width: 100%;
+    align-items: center;
+}
+.todo-list li:nth-child(odd){
+    background: rgba(153, 153, 153, 0.1);
+}
+.todo-list li input[type="checkbox"]{
+    width: 30px;
+}
+.todo-list li p{
+    display: block;
+    width: calc(100% - 90px);
+}
+.todo-list li .modi,.confirm{
+    color: green;
+}
+
+.todo-list li .delete{
+    color: red;
+}
+
+.todo-list li.checked p{
+    color: #999;
+    text-decoration: line-through;
 }
