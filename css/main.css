@@ -2,22 +2,86 @@
 
 .main #slide-img{
     width: 100%;
-    height: 400px;
-    background: yellow;
+    height: 40vw;
+    max-height: 400px;
     margin-top: 30px;
+    position: relative;
+    overflow: hidden;
 }
 
 .main #cash{
     width: 100%;
     height: 200px;
     background: yellow;
-    margin-top: 50px;
+    margin-top: 3vw;
 }
 
 .main #game-galy{
     width: 100%;
-    height: 500px;
-    background: yellow;
     margin-top: 50px;
     margin-bottom: 30px;
+    
 }
+
+#slide-img img{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+#slide-img img.slide{
+    animation-name: slideLeftReturn;
+    animation-duration: 2s;
+    z-index: 1;
+}
+
+
+#game-galy ul{
+    background: greenyellow;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+#game-galy h2{
+    padding: 2vw 0;
+    font-size: 2.4vw;
+    font-weight: 700;
+    margin-left: 5%;
+    color: #fff;
+}
+
+#game-galy ul li{
+    background: skyblue;
+    width: 30%;
+    height: 17vw;
+    max-height: 240px;
+    margin-right:5%;
+    margin-bottom:5%;
+}
+#game-galy ul li:nth-child(3n){
+    margin-right: 0;
+}
+
+#game-galy ul li:hover::after{
+    content: '게임하러가기 →';
+    color: #fff;
+    font-size: 1.7vw;
+    line-height: 20vw;
+    margin-left: 15px;
+}
+#game-galy ul li:hover{
+    transition: 0.5s;
+    background: rgba(0, 0, 0, 0.9);
+    cursor: pointer;
+}
+
+
+
+@keyframes slideLeftReturn {
+    0%{
+        transform: translateX(100%);
+    }
+    100%{
+        transform: translateX(0%);
+    }
+}
+
