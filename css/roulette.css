@@ -10,6 +10,26 @@
     
 }
 
+@keyframes boxOpen {
+    0%{
+        height: 0;
+    }
+    100%{
+        height: 210px;
+    }
+    
+}
+
+@keyframes boxClose {
+    0%{
+        height: 210px;
+    }
+    100%{
+        height: 0;
+    }
+    
+}
+
 .width-container{
     width: 80%;
     padding: 150px 0;
@@ -70,7 +90,9 @@
     animation: none;
 
 }
-
+#roulette{
+    margin-bottom: 100px;
+}
 #roulette .location{
     position: absolute;
     z-index: 5;
@@ -100,13 +122,34 @@
     animation-fill-mode: forwards;
 }
 
-.width-container .btn{
+.width-container .btn1{
     font-size: 30px;
     background: #888;
     width: 150px;
     padding: 10px 0;
     text-align: center;
     margin: 60px auto;
-
+    
     cursor: pointer;
 }
+.width-container .btn1.blocked{
+    color: #666;
+}
+.width-container .btn1:hover{
+    background: skyblue;
+}
+
+.betting-box.open{
+    animation-name: boxOpen;
+    animation-duration: 1s;
+}
+.betting-box.close{
+    animation-name: boxClose;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
+.betting-box>div{
+    margin-top: 10px;
+}
+

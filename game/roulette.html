@@ -34,11 +34,28 @@
                         <div id="ball"></div>
                     </div>
                     <div class="display-box">
-                        <p>test1</p>
+                        <p></p>
                     </div>
                 </div>
-                <p class="btn" id="spin-btn">SPIN</p>
-                <p class="btn" id="reset-btn">RESET</p>
+                <div class="betting-box">
+                    <div class="bet-color">
+                        <h4>1 TO 1</h4>
+                        <input type="radio" id="bet-red" name="roulette-bet" data-rate="1"><label for="bet-red">빨강</label>
+                        <input type="radio" id="bet-black" name="roulette-bet" data-rate="1"><label for="bet-black">검정</label>
+                    </div>
+                    <div class="bet-number">
+                        <h4>35 TO 1</h4>
+                        <!-- <input type="radio" id="bet-0" name="roulette-bet"><label for="bet-0">0</label> -->
+                    </div>
+                    <div class="bet-cash">
+                        <input type="number" id="betting-cash" readonly min="10000" max="200000" value="10000">
+                        <span class="lnr lnr-plus-circle bet-plus"></span>
+                        <span class="lnr lnr-circle-minus bet-minus"></span>
+                    </div>
+                    <div class="btn-betting">베팅하기</div>
+                </div>
+                <p class="btn1" id="spin-btn">SPIN</p>
+                <p class="btn1" id="reset-btn">RESET</p>
             </div>
             <aside class="ad" id="right-ad"></aside>
         </div>

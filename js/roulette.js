@@ -3,11 +3,13 @@ const $resetBtn = document.querySelector('#reset-btn');
 const $ball = document.querySelector('.ball-location');
 const spinAni = document.styleSheets[0].cssRules[1];
 const $display = document.querySelector('#roulette .display-box p');
+
 $spinBtn.addEventListener('click',(e)=>{
     let rn = Math.floor(Math.random()*1080)+3600;
     spinAni.appendRule(`100%{ transform : rotate(${rn}deg); height: 488px;}`);
     console.log(spinAni);
     $ball.classList.add('spin');
+    $spinBtn.classList.add('blocked');
     setTimeout(function(){
         showrn(rn);
     },6000)
@@ -15,6 +17,8 @@ $spinBtn.addEventListener('click',(e)=>{
 });
 $resetBtn.addEventListener('click',(e)=>{
     $ball.classList.remove('spin');
+    $spinBtn.classList.remove('blocked');
+    $bettingBox.classList.replace('close','open');
     $display.textContent = '';
 });
 
@@ -64,3 +68,28 @@ function whatNumber(n){ //9.72
     else if(335.33<n&& n <=345.05) {return 3;}
     else if(345.05<n&& n <=354.77) {return 26;}
 }
+
+const $betNumber = document.querySelector('.bet-number');
+(function (){
+    for(let i=0;i<=36;i++){
+        $betNumber.insertAdjacentHTML('beforeend',`<input type="radio" id="bet-${i}" name="roulette-bet" data-rate="35"><label for="bet-${i}">${i}</label>`);
+    }
+})();
+
+const $bettingBox = document.querySelector('.betting-box');
+const $bettingBtn = document.querySelector('.btn-betting');
+
+
+$bettingBtn.addEventListener('click',(e)=>{
+    if(!document.querySelector('input[name="roulette-bet"]:checked')){
+        alert('베팅할 항목을 선택하세요');
+    }else{
+        if(confirm('이대로 베팅하시겠습니까?')){
+            $bettingBox.classList.remove('open');
+            $bettingBox.classList.add('close');
+        }
+    }
+    console.log(document.querySelector('input[name="roulette-bet"]:checked').dataset.rate);
+    console.log(document.querySelector('input[name="roulette-bet"]:checked').id);
+});
+

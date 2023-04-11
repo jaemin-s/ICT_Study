@@ -99,8 +99,8 @@ a{
 }
 .width-container{
     background: #424242;
-    width: 60%;
-    max-width: 800px;
+    width: 80%;
+    max-width: 1200px;
     height: 100%;
     margin: 0 auto;
     padding-top: 100px;
@@ -108,7 +108,7 @@ a{
 
 aside.ad{
     position: sticky;
-    top :250px;
+    top :200px;
     width: 160px;
     height: 600px;
     background: red;
@@ -124,8 +124,9 @@ aside.ad#right-ad{
 footer{
     width: 100%;
     background: #111;
-    z-index: 1;
+    z-index: 2;
     color: #fff;
+    position: relative;
 }
 
 footer .top-box{
@@ -136,3 +137,59 @@ footer .bottom-box{
     height: 30%;
     padding: 3vw;
 }
+
+.blocked{
+    pointer-events: none;
+}
+
+.betting-box{
+    padding: 0 10px;
+    background: orange;
+    overflow: hidden;
+
+
+    
+}
+input[type="radio"]{
+    display: none;
+}
+
+input[type="radio"]+label{
+    display: inline-block;
+    padding: 5px 10px;
+    border: 2px solid #999;
+    margin-right: 10px;
+    margin-top: 10px;
+    cursor: pointer;
+    background: #fff;
+}
+input[type="radio"]+label:hover{
+    border-color: skyblue;
+}
+input[type="radio"]:checked+label{
+    background: aqua;
+    transition: 0.5s;
+}
+
+.betting-box .btn-betting{
+    background: skyblue;
+    margin: 20px auto;
+    padding: 10px;
+    color: #fff;
+    width: fit-content;
+    border-radius: 25px;
+    cursor: pointer;
+}
+
+.betting-box .btn-betting:hover{
+    background: aqua;
+}
+
+.bet-cash span{
+    font-size:40px;
+    cursor: pointer;
+}
+.bet-cash span:active{
+    color: #424242;
+}
+
