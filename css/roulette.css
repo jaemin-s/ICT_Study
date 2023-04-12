@@ -148,8 +148,22 @@
     animation-duration: 1s;
     animation-fill-mode: forwards;
 }
-
+#betting-cash:focus{
+    outline: 0;
+}
+#betting-cash{
+    font-size: 30px;
+    padding-top: 20px;
+    text-align: right;
+    border: 0;
+    background: none;
+    border-bottom: 1px solid #000;
+    width: 150px;
+}
 .betting-box>div{
     margin-top: 10px;
 }
 
+.bet-cash span:active{
+    color: #888;
+}
