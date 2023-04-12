@@ -81,3 +81,8 @@ i{
     color: #999;
     text-decoration: line-through;
 }
+
+/* 형철 : 맨 처음에 confirm 안보이도록 수정*/
+.todo-list li .confirm{
+    display: none;
+}
