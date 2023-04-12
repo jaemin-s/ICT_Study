@@ -7,8 +7,7 @@ const date = new Date();
 
 $loginBtn.onclick = function() {
 
-    console.log(typeof Number($birth.value));
-    console.log(Number($birth.value));
+    console.log(isNaN(+$birth.value));
 
     if($id.value === '') {
         alert('이름을 입력하세요');
@@ -19,8 +18,8 @@ $loginBtn.onclick = function() {
         $birth.focus();
         return;
     } 
-    else if(+$birth.value !== 'number') {
-        alert(typeof $birth.value);
+    else if(isNaN(+$birth.value)) {
+        //alert(typeof $birth.value);
         alert('숫자로 입력하세요.');
         $birth.focus();
         return;
