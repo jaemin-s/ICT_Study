@@ -19,7 +19,6 @@ $loginBtn.onclick = function() {
         return;
     } 
     else if(isNaN(+$birth.value)) {
-        //alert(typeof $birth.value);
         alert('숫자로 입력하세요.');
         $birth.focus();
         return;
@@ -43,15 +42,15 @@ $loginBtn.onclick = function() {
                 $birth.focus();
                 return;     
             }
-        } else if($birth.value.substr(2,2)%2===0) {
+        } else if($birth.value.substr(2,2) === '04' || $birth.value.substr(2,2) === '06' || $birth.value.substr(2,2) === '09' || $birth.value.substr(2,2) === '11') {
             if($birth.value.substr(4,2) > 30) {
-                alert('생년월일을 다시 입력하시오.(짝수달)');
+                alert('생년월일을 다시 입력하시오.');
                 $birth.focus();
                 return;
             }
         } else {
             if($birth.value.substr(4,2) > 31) {
-                alert('생년월일을 다시 입력하시오.(홀수달)');
+                alert('생년월일을 다시 입력하시오.');
                 $birth.focus();
                 return;
             }
