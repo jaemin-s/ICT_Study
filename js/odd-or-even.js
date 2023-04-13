@@ -31,5 +31,4 @@ $startBtn.onclick = function () {
     
     $dice1.src = `../img/${num1}_dot.png`;
     $dice2.src = `../img/${num2}_dot.png`;
-    
 }
