@@ -56,3 +56,15 @@
     margin: 50px auto 0;
     font-size: 50px;
 }
+
+/* 형철 : 로그인 후 인사말 미리 숨기기 */
+.login .nameAfter.hide{
+    display: none;
+}
+
+/* 형철 : 로그인 후 인사말*/
+.login .nameAfter{
+    font-size: 2.5em;
+    text-align: center;
+    line-height: 400px;
+}

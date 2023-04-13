@@ -1,0 +1,66 @@
+@import url(./common.css);
+
+.odd-or-even{
+    margin-top: 100px;
+}
+.odd-or-even .title{
+    font-size: 40px;
+    margin-left: 20px;
+    padding-bottom: 20px;
+}
+.game {
+    width: 100%;
+    height: 600px;
+    display: flex;
+}
+.game .display-box{
+    background: green;
+    width: 70%;
+    height: 100%;
+    position: relative;
+}
+
+.game .betting-box{
+    background: orange;
+    width: 30%;
+    height: 100%;
+}
+
+#cup {
+    position: absolute;
+    top: -10%; /* 20까지 */
+    left: 25%;
+    width: 50%;
+
+    /* z-index: 5; */
+}
+
+.dice{
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.dice img{
+    width: 80px;
+}
+
+@keyframes shake {
+    0%,100%{
+        transform: translate(0, 0);
+    }
+    20%,80%{
+        transform: translate(0,150px);
+    }
+    25%,35%,45%,55%,65%,75%{
+        transform: translate(-30px,150px);
+    }
+    30%,40%,50%,60%,70%{
+        transform: translate(30px,150px);
+    }
+}
+#cup.action{
+    animation-name: shake;
+    animation-duration: 4s;
+}

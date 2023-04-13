@@ -10,7 +10,7 @@
     
 }
 
-@keyframes boxOpen {
+/* @keyframes boxOpen {
     0%{
         height: 0;
     }
@@ -28,7 +28,7 @@
         height: 0;
     }
     
-}
+} */
 
 .width-container{
     width: 80%;
@@ -36,7 +36,7 @@
     box-sizing: border-box;
 }
 #roulette{
-    width: 100%;
+    width: 70%;
     min-height: 700px;
     display: flex;
     align-items: center;
@@ -65,6 +65,10 @@
     
 }
 
+.game{
+    display: flex;
+}
+
 .display-box p{
     color: #fff;
     font-size: 100px;
@@ -77,7 +81,7 @@
 .display-box{
     width: 400px;
     height: 400px;
-    background: #000;
+    background: green;
     position: absolute;
     border-radius: 50%;
     z-index: 2;
@@ -114,6 +118,9 @@
     border-radius: 50%;
 
 }
+.betting-box .blocked{
+    opacity: 0.7;
+}
 
 .ball-location.spin{
     animation-name: spinBall;
@@ -128,17 +135,26 @@
     width: 150px;
     padding: 10px 0;
     text-align: center;
-    margin: 60px auto;
+    margin: 60px 6%;
+    display: inline-block;
     
     cursor: pointer;
 }
+.width-container .btn1:last-child{
+    margin-top: 0px;
+}
+
 .width-container .btn1.blocked{
     color: #666;
 }
 .width-container .btn1:hover{
     background: skyblue;
 }
-
+.betting-box{
+    width: 30%;
+    z-index: 5;
+    position: relative;
+}
 .betting-box.open{
     animation-name: boxOpen;
     animation-duration: 1s;
@@ -148,8 +164,87 @@
     animation-duration: 1s;
     animation-fill-mode: forwards;
 }
-
+#betting-cash:focus{
+    outline: 0;
+}
+#betting-cash{
+    font-size: 30px;
+    padding-top: 20px;
+    text-align: right;
+    border: 0;
+    background: none;
+    border-bottom: 1px solid #000;
+    width: 150px;
+}
 .betting-box>div{
     margin-top: 10px;
 }
 
+.bet-cash span:active{
+    color: #888;
+}
+
+.showResult{
+    position: absolute;
+    width: 65%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    z-index: 4;
+}
+.showResult img{
+    width: 100%;
+}
+.showResult p{
+    position: absolute;
+    font-size: 100px;
+    color: yellow;
+    top: 40%;
+    left: 50%;
+    text-shadow: 3px 3px black;
+
+    transform: translateX(-30%);
+}
+.hide{
+    display: none;
+}
+
+.title h2{
+    font-size: 40px;
+    margin-left: 20px;
+    padding-bottom: 50px;
+    color: #fff;
+    text-shadow: 2px 2px 2px black;
+}
+
+#reset-btn{
+    position: relative;
+    z-index: 11;
+}
+
+.rule-box{
+    position: absolute;
+    left: -170%;
+    bottom: 50px;
+    z-index: 15;
+    background: #fff;
+    font-size: 20px;
+    padding: 10px;
+    border: 2px solid black;
+    display: none;
+}
+.btn-rule:hover+.rule-box{
+    display: block;
+}
+.rule-box h4{
+    padding: 10px 0;
+    font-weight: 700;
+}
+.rule-box p{
+    line-height: 1.2;
+}
+.rule-box p span{
+    font-weight: 700;
+    color: blue;
+}
