@@ -26,7 +26,7 @@
     background-position: center;
     position: relative;
     border-radius: 50px;
-    left: 400px;
+    left: 320px;
     
 }
 
@@ -50,7 +50,7 @@ input::placeholder{
   margin: 20px 0;
   position: relative;
   top: 80px;
-  left: -380px;
+  left: -300px;
 }
 
 .dust-class label{
