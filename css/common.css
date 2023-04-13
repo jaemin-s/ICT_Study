@@ -145,10 +145,7 @@ footer .bottom-box{
 .betting-box{
     padding: 0 10px;
     background: orange;
-    overflow: hidden;
 
-
-    
 }
 input[type="radio"]{
     display: none;
