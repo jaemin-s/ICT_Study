@@ -20,36 +20,30 @@ $resetBtn.addEventListener('click',()=>{
     $ball.classList.remove('spin');
     $spinBtn.classList.add('blocked');
     $bettingBox.classList.replace('close','open');
+    $display.parentNode.style.background = 'green';
     $display.textContent = '';
 });
 
 function showrn(){
-    console.log('showrn 들어옴');
     console.log(rouletteInfo.number);
     $display.textContent = rouletteInfo.number;
+    $display.parentNode.style.background = rouletteInfo.color;
 }
 
 function showResult(){
-    console.log('showResult 들어옴');
     console.log(bettingInfo.rate);
     if(bettingInfo.rate==1){
-        console.log('색깔 베팅 들어옴');
         console.log(rouletteInfo.color);
         console.log(bettingInfo.inputNumber);
         if(rouletteInfo.color===bettingInfo.inputNumber){
-            console.log('색깔 베팅 정답');
             alert(`축하합니다. 상금: ${bettingInfo.rate*bettingInfo.money+bettingInfo.money}원`);
         }else{
-            console.log('색깔 베팅 오답');
             alert('꽝');
         }
     }else if(bettingInfo.rate==35){
-        console.log('숫자 베팅 들어옴');
         if(rouletteInfo.number==bettingInfo.number){
-            console.log('숫자 베팅 정답');
             alert(`축하합니다. 상금: ${bettingInfo.rate*bettingInfo.money+bettingInfo.money}원`);
         }else{
-            console.log('숫자 베팅 오답');
             alert('꽝');
         }
     }
