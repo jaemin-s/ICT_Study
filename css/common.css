@@ -111,8 +111,9 @@ aside.ad{
     top :200px;
     width: 160px;
     height: 600px;
-    background: red;
     display: block;
+    background-image: url(../img/dobakimg4.jpg);
+    background-size: cover;
 }
 aside.ad#left-ad{
     left: 20px;
@@ -145,10 +146,7 @@ footer .bottom-box{
 .betting-box{
     padding: 0 10px;
     background: orange;
-    overflow: hidden;
 
-
-    
 }
 input[type="radio"]{
     display: none;
