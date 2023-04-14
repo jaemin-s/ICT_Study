@@ -104,6 +104,7 @@ a{
     height: 100%;
     margin: 0 auto;
     padding-top: 100px;
+    min-height: 100vh;
 }
 
 aside.ad{
@@ -170,17 +171,24 @@ input[type="radio"]:checked+label{
 }
 
 .betting-box .btn-betting{
-    background: skyblue;
+    background: #5DC8CD;
     margin: 20px auto;
     padding: 10px;
     color: #fff;
-    width: fit-content;
-    border-radius: 25px;
+    width: 80px;
+    line-height: 20px;
+    text-align: center;
+    border-radius: 5px;
     cursor: pointer;
+    box-shadow: 0px 5px 0px 0px #1E8185;
+    transition: all 0.2s;
 }
 
-.betting-box .btn-betting:hover{
-    background: aqua;
+.betting-box .btn-betting:active{
+    background: #01939A;
+    margin-top: 25px;
+    margin-bottom: 15px;
+    box-shadow: 0px 0px 0px 0px #1E8185;
 }
 
 .bet-cash span{
@@ -191,3 +199,23 @@ input[type="radio"]:checked+label{
     color: #424242;
 }
 
+.rule .toggle-box{
+    position: absolute;
+    width: 500px;
+    left: -600px;
+    top: -250px;
+    z-index: 5999;
+    background: #fff;
+    color: #000;
+    padding: 10px;
+    border: 3px solid #000;
+}
+
+.rule .toggle-box p{
+    text-align: left;
+    line-height: 1.1;
+}
+
+.hide{
+    display: none;
+}

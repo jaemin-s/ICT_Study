@@ -75,3 +75,67 @@
 /* #oddEven{
     width: 100%;
 } */
+
+.btns{
+    position: relative;
+}
+
+.btn{
+    width: 120px;
+    margin: 10px 20px 10px 0;
+    font-weight: 700;
+    text-align: center;
+    line-height: 50px;
+    padding: 0;
+    color: #fff;
+    border-radius: 5px;
+    transition: all 0.2s;
+    background: #00AE68;
+    box-shadow: 0px 5px 0px 0px #007144;
+    position: absolute;
+    left: 50%;
+
+    transform: translateX(-50%);
+}
+.btn:hover{
+    cursor: pointer;
+}
+.btn:active{
+    background: #21825B;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    box-shadow: 0px 0px 0px 0px #007144;
+}
+
+.btn.restart{
+    margin-top: 80px;
+}
+.btn.restart:active{
+    margin-top: 85px;
+}
+
+.btn.rule{
+    margin-top: 160px;
+}
+.btn.rule:active{
+    margin-top: 165px;
+}
+
+.bet-cash #betting-cash{
+    width: 100px;
+    border: none;
+    background: none;
+    color: #fff;
+    border-bottom: 1px solid #000;
+    font-size: 25px;
+}
+.betting-box .bet-odd-even{
+    margin-top: 10px;
+}
+.betting-box .bet-cash{
+    margin-top: 10px;
+}
+.btn.blocked{
+    background: #999;
+    box-shadow: 0px 5px 0px 0px #777;
+}
