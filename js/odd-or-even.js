@@ -28,7 +28,18 @@ $startBtn.onclick = function () {
 
     console.log('num1 = ' + num1);
     console.log('num2 = ' + num2);
-    
-    $dice1.src = `../img/${num1}_dot.png`;
-    $dice2.src = `../img/${num2}_dot.png`;
+
+
+
+    $cup.classList.add('action');
+
+    setTimeout(() =>{
+        $dice1.parentNode.classList.add('hide');
+        $dice1.src = `../img/${num1}_dot.png`;
+        $dice2.src = `../img/${num2}_dot.png`;
+        }
+    , 800);
+    setTimeout(() => $dice1.parentNode.classList.remove('hide'), 3200);
+
+
 }

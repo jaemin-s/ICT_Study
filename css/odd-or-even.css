@@ -32,7 +32,7 @@
     left: 25%;
     width: 50%;
 
-    /* z-index: 5; */
+    z-index: 5;
 }
 
 .dice{
@@ -63,4 +63,8 @@
 #cup.action{
     animation-name: shake;
     animation-duration: 4s;
+}
+
+.hide{
+    display: none;
 }
