@@ -14,7 +14,10 @@
     display: flex;
 }
 .game .display-box{
-    background: green;
+    /* background: darkgreen; */
+    background-image: url(../img/홀짝2.png);
+    background-repeat: no-repeat;
+    background-size: cover;
     width: 70%;
     height: 100%;
     position: relative;
