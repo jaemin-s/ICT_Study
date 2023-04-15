@@ -66,4 +66,9 @@ $loginBtn.onclick = function() {
     setTimeout(function(){
         window.open('./main.html','_self');
     },1000);
+
+    document.cookie = `user=${$id.value}`;
+    document.cookie = `money=0`;
+    console.log(document.cookie);
+
 }

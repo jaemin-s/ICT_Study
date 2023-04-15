@@ -85,14 +85,17 @@ a{
     text-shadow: 2px 2px 5px black;
 }
 
-#header .mo-menu{
+#header .user-info{
     position: absolute;
     top: 0;
     right: 0;
-    width: 100px;
+    width: 200px;
     height: 100%;
-    background: #000;
-    display: none;
+    background: #222;
+    color: #fff;
+    text-align: center;
+    box-sizing: border-box;
+    padding-top: 30px;
 }
 
 .main{

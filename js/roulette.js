@@ -51,15 +51,23 @@ function showResult(){
             $showResult.firstElementChild.classList.remove('hide');
             total += bettingInfo.rate*bettingInfo.money+bettingInfo.money;
             $showResult.lastElementChild.textContent = `축하합니다.`;
+            
         }else{
             $showResult.lastElementChild.textContent = `꽝`
             total -= bettingInfo.money;
+            
         }
     }else if(bettingInfo.rate==35){
-        if(rouletteInfo.number==bettingInfo.number){
+        console.log('확인');
+        console.log(rouletteInfo.number);
+        console.log(typeof rouletteInfo.number);
+        console.log(Number(bettingInfo.inputNumber));
+        console.log(typeof Number(bettingInfo.inputNumber));
+        if(rouletteInfo.number===Number(bettingInfo.inputNumber)){
             $showResult.firstElementChild.classList.remove('hide');
             $showResult.lastElementChild.textContent = `축하합니다.`
             total += bettingInfo.rate*bettingInfo.money+bettingInfo.money;
+            
         }else{
             $showResult.lastElementChild.textContent = `꽝`
             total -= bettingInfo.money;
@@ -68,6 +76,8 @@ function showResult(){
     }
     $resetBtn.classList.remove('blocked');
     $textinput2.value = total + ' 원';
+    setCookie('money',total);
+    $money.textContent = `잔액 : ${getCookie('money')}원`;
 }
 
 function whatNumber(n){ //9.72
@@ -293,7 +303,8 @@ const $textinput = document.querySelector('.dust-class > #itempw');
 console.log($textinput);
 let $textinput2 = document.querySelector('.dust-class.ver2 > #itemnew');
 console.log($textinput2);
-let total = 0;
+let total = +getCookie('money');
+$textinput2.value = total + ' 원';
 
 $button.addEventListener('click', function () {
   if ($textinput.value === '') {
@@ -307,6 +318,8 @@ $button.addEventListener('click', function () {
       total += Number($textinput.value);
       $textinput.value = '';
       $textinput2.value = total + ' 원';
+      setCookie('money',total);
+      $money.textContent = `잔액 : ${getCookie('money')}원`;
     }
   }
 });
@@ -320,3 +333,34 @@ for(let $nothat of $no){
       alert('죄송합니다. 점검 중 입니다.');
     })
 };
+
+
+////
+
+const $id = document.getElementById('user-id');
+const $money = document.getElementById('user-money');
+
+$id.textContent = `ID : ${getCookie('user')}`;
+$money.textContent = `잔액 : ${getCookie('money')}원`;
+
+function getCookie(key) {
+    let cookiesArr = document.cookie.split('; ');
+    for(let i=0;i<cookiesArr.length;i++){
+        let cookies = cookiesArr[i].split('=');
+        if(cookies[0]===key) {
+            return cookies[1];
+        }
+    }
+    return '';
+}
+
+function setCookie(key,value){
+    document.cookie = `${key}=${value}`;
+}
+
+function cookieExists(key){
+    if(getCookie(key)===''){
+        alert('로그인부터 해주세요');
+        window.open('./login.html');
+    }
+}
