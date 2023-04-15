@@ -120,6 +120,7 @@ aside.ad#left-ad{
     left: 20px;
 }
 aside.ad#right-ad{
+    display: none !important;
     right: 20px;
 }
 

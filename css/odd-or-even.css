@@ -142,12 +142,34 @@
     box-shadow: 0px 5px 0px 0px #777;
 }
 
+div.blocked>label{
+    background: #c7c7c7;
+}
 
+div.blocked>span{
+    color: #c9c9c9
+}
 
+div.btn-betting.blocked{
+    background: #999;
+    box-shadow: 0px 5px 0px 0px #777;
+}
 
+.result-text{
+    position: absolute;
+    bottom: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    color: yellow;
+    font-size: 25px;
+    text-align: center;
+}
 
-
-
+#correct-effect{
+    position: absolute;
+    z-index: 999;
+    width: 100%;
+}
 
 
 

@@ -18,11 +18,11 @@
         <header id="header">
             <div class="logo"><img src="../img/casino-logo.png" alt="logo" /></div>
             <div class="top-menu">
-                <a href="/casino/html/main.html">블랙잭</a>
-                <a href="/casino/html/main.html">바카라</a>
-                <a href="/casino/game/roulette.html">룰렛</a>
-                <a href="/casino/game/odd-or-even.html">홀짝</a>
-                <a href="/casino/html/main.html">고객지원</a>
+                <a href="../html/main.html">블랙잭</a>
+                <a href="../html/main.html">바카라</a>
+                <a href="./roulette.html">룰렛</a>
+                <a href="./odd-or-even.html">홀짝</a>
+                <a href="../html/main.html">고객지원</a>
             </div>
             <div class="mo-menu"></div>
         </header>
@@ -45,35 +45,40 @@
                                 <img src="../img/1_dot.png" alt="dice1" id="dice1">
                                 <img src="../img/1_dot.png" alt="dice2" id="dice2">
                             </div>
+                            <div class="result-text hide">
+                                <p>결과 텍스트1</p>
+                                <p>결과 텍스트2</p>
+                            </div>
+                            <img src="../img/gold-coin-falling.gif" alt="correct-effect" id="correct-effect" class="hide">
                         </div>
                         <div class="betting-box">
                             <div class="bet-odd-even">
                                 <h4>홀짝</h4>
-                                <input type="radio" id="bet-odd" name="ooe-bet" data-rate="1" data-select="odd"><label for="bet-odd">홀수</label>
-                                <input type="radio" id="bet-even" name="ooe-bet" data-rate="1" data-select="even"><label for="bet-even">짝수</label>
+                                <input type="radio" id="bet-odd" name="ooe-bet" data-rate="1" data-select="odd" data-betting-type="ooe"><label for="bet-odd">홀수</label>
+                                <input type="radio" id="bet-even" name="ooe-bet" data-rate="1" data-select="even" data-betting-type="ooe"><label for="bet-even">짝수</label>
                             </div>
                             <div class="bet-odd-even">
                                 <h4>주사위 합</h4>
-                                <input type="radio" id="bet-sum-2" name="ooe-bet" data-rate="35" data-select="2"><label for="bet-sum-2">2</label>
-                                <input type="radio" id="bet-sum-3" name="ooe-bet" data-rate="17" data-select="3"><label for="bet-sum-3">3</label>
-                                <input type="radio" id="bet-sum-4" name="ooe-bet" data-rate="11" data-select="4"><label for="bet-sum-4">4</label>
-                                <input type="radio" id="bet-sum-5" name="ooe-bet" data-rate="7" data-select="5"><label for="bet-sum-5">5</label>
-                                <input type="radio" id="bet-sum-6" name="ooe-bet" data-rate="6.2" data-select="6"><label for="bet-sum-6">6</label>
-                                <input type="radio" id="bet-sum-7" name="ooe-bet" data-rate="5" data-select="7"><label for="bet-sum-7">7</label>
-                                <input type="radio" id="bet-sum-8" name="ooe-bet" data-rate="6.2" data-select="8"><label for="bet-sum-8">8</label>
-                                <input type="radio" id="bet-sum-9" name="ooe-bet" data-rate="7" data-select="9"><label for="bet-sum-9">9</label>
-                                <input type="radio" id="bet-sum-10" name="ooe-bet" data-rate="11" data-select="10"><label for="bet-sum-10">10</label>
-                                <input type="radio" id="bet-sum-11" name="ooe-bet" data-rate="17" data-select="11"><label for="bet-sum-11">11</label>
-                                <input type="radio" id="bet-sum-12" name="ooe-bet" data-rate="35" data-select="12"><label for="bet-sum-12">12</label>
+                                <input type="radio" id="bet-sum-2" name="ooe-bet" data-rate="35" data-select="2" data-betting-type="sum"><label for="bet-sum-2">2</label>
+                                <input type="radio" id="bet-sum-3" name="ooe-bet" data-rate="17" data-select="3" data-betting-type="sum"><label for="bet-sum-3">3</label>
+                                <input type="radio" id="bet-sum-4" name="ooe-bet" data-rate="11" data-select="4" data-betting-type="sum"><label for="bet-sum-4">4</label>
+                                <input type="radio" id="bet-sum-5" name="ooe-bet" data-rate="7" data-select="5" data-betting-type="sum"><label for="bet-sum-5">5</label>
+                                <input type="radio" id="bet-sum-6" name="ooe-bet" data-rate="6.2" data-select="6" data-betting-type="sum"><label for="bet-sum-6">6</label>
+                                <input type="radio" id="bet-sum-7" name="ooe-bet" data-rate="5" data-select="7" data-betting-type="sum"><label for="bet-sum-7">7</label>
+                                <input type="radio" id="bet-sum-8" name="ooe-bet" data-rate="6.2" data-select="8" data-betting-type="sum"><label for="bet-sum-8">8</label>
+                                <input type="radio" id="bet-sum-9" name="ooe-bet" data-rate="7" data-select="9" data-betting-type="sum"><label for="bet-sum-9">9</label>
+                                <input type="radio" id="bet-sum-10" name="ooe-bet" data-rate="11" data-select="10" data-betting-type="sum"><label for="bet-sum-10">10</label>
+                                <input type="radio" id="bet-sum-11" name="ooe-bet" data-rate="17" data-select="11" data-betting-type="sum"><label for="bet-sum-11">11</label>
+                                <input type="radio" id="bet-sum-12" name="ooe-bet" data-rate="35" data-select="12" data-betting-type="sum"><label for="bet-sum-12">12</label>
                             </div>
                             <div class="bet-odd-even">
                                 <h4>주사위 차</h4>
-                                <input type="radio" id="bet-minus-0" name="ooe-bet" data-rate="5" data-select="0"><label for="bet-minus-0">0</label>
-                                <input type="radio" id="bet-minus-1" name="ooe-bet" data-rate="2" data-select="1"><label for="bet-minus-1">1</label>
-                                <input type="radio" id="bet-minus-2" name="ooe-bet" data-rate="3" data-select="2"><label for="bet-minus-2">2</label>
-                                <input type="radio" id="bet-minus-3" name="ooe-bet" data-rate="5" data-select="3"><label for="bet-minus-3">3</label>
-                                <input type="radio" id="bet-minus-4" name="ooe-bet" data-rate="8" data-select="4"><label for="bet-minus-4">4</label>
-                                <input type="radio" id="bet-minus-5" name="ooe-bet" data-rate="17" data-select="5"><label for="bet-minus-5">5</label>
+                                <input type="radio" id="bet-minus-0" name="ooe-bet" data-rate="5" data-select="0" data-betting-type="minus"><label for="bet-minus-0">0</label>
+                                <input type="radio" id="bet-minus-1" name="ooe-bet" data-rate="2" data-select="1" data-betting-type="minus"><label for="bet-minus-1">1</label>
+                                <input type="radio" id="bet-minus-2" name="ooe-bet" data-rate="3" data-select="2" data-betting-type="minus"><label for="bet-minus-2">2</label>
+                                <input type="radio" id="bet-minus-3" name="ooe-bet" data-rate="5" data-select="3" data-betting-type="minus"><label for="bet-minus-3">3</label>
+                                <input type="radio" id="bet-minus-4" name="ooe-bet" data-rate="8" data-select="4" data-betting-type="minus"><label for="bet-minus-4">4</label>
+                                <input type="radio" id="bet-minus-5" name="ooe-bet" data-rate="17" data-select="5" data-betting-type="minus"><label for="bet-minus-5">5</label>
                             </div>
                             <div class="bet-cash">
                                 <input type="number" id="betting-cash" readonly value="10000">
@@ -82,7 +87,7 @@
                             </div>
                             <div class="btn-betting">베팅하기</div>
                             <div class="btns">
-                                <div class="start btn">시작하기</div>
+                                <div class="start btn blocked">시작하기</div>
                                 <div class="restart btn blocked">다시하기</div>
                                 <div class="rule btn">설명보기
                                     <div class="toggle-box hide">
@@ -123,7 +128,7 @@
                 </div>
               </section>
             </div>
-            <aside class="ad" id="right-ad"></aside>
+            <!-- <aside class="ad" id="right-ad"></aside> -->
         </div>
     </div>
     <footer>
