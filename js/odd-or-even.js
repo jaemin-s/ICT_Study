@@ -162,3 +162,22 @@ $button.addEventListener('click', function () {
     }
   }
 });
+
+
+
+const $no = document.querySelectorAll('.nothat');
+console.log($no);
+
+for(let $nothat of $no){
+    $nothat.addEventListener('click', function(){
+      alert('죄송합니다. 점검 중 입니다.');
+    })
+};
+
+const $nothat = document.querySelectorAll('.picture .nothat1');
+
+for(let $nothat2 of $nothat){
+    $nothat2.addEventListener('click', function(){
+        alert('죄송합니다. 다른 게임을 이용 해주세요');
+    })
+};

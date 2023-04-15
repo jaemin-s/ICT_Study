@@ -1,5 +1,5 @@
-const $spinBtn = document.querySelector('#spin-btn');
-const $resetBtn = document.querySelector('#reset-btn');
+const $spinBtn = document.querySelector('.start.btn');
+const $resetBtn = document.querySelector('.restart.btn');
 const $ball = document.querySelector('.ball-location');
 const spinAni = document.styleSheets[0].cssRules[1];
 const $display = document.querySelector('#roulette .display-box p');
@@ -36,31 +36,38 @@ function showrn(){
     $display.textContent = rouletteInfo.number;
     $display.parentNode.style.background = rouletteInfo.color;
 }
+const $ruleBtn = document.querySelector('.rule.btn');
+$ruleBtn.addEventListener('click',()=>{
+    console.log($ruleBtn.lastElementChild);
+    $ruleBtn.lastElementChild.classList.toggle('hide');
+});
 
 function showResult(){
-    console.log(bettingInfo.rate);
+    // console.log(bettingInfo.rate);
     if(bettingInfo.rate==1){
-        console.log(rouletteInfo.color);
-        console.log(bettingInfo.inputNumber);
+        // console.log(rouletteInfo.color);
+        // console.log(bettingInfo.inputNumber);
         if(rouletteInfo.color===bettingInfo.inputNumber){
             $showResult.firstElementChild.classList.remove('hide');
-            // alert(`축하합니다. 상금: ${bettingInfo.rate*bettingInfo.money+bettingInfo.money}원`);
+            total += bettingInfo.rate*bettingInfo.money+bettingInfo.money;
             $showResult.lastElementChild.textContent = `축하합니다.`;
         }else{
             $showResult.lastElementChild.textContent = `꽝`
-            // alert('꽝');
+            total -= bettingInfo.money;
         }
     }else if(bettingInfo.rate==35){
         if(rouletteInfo.number==bettingInfo.number){
             $showResult.firstElementChild.classList.remove('hide');
             $showResult.lastElementChild.textContent = `축하합니다.`
-            // alert(`축하합니다. 상금: ${bettingInfo.rate*bettingInfo.money+bettingInfo.money}원`);
+            total += bettingInfo.rate*bettingInfo.money+bettingInfo.money;
         }else{
             $showResult.lastElementChild.textContent = `꽝`
+            total -= bettingInfo.money;
             // alert('꽝');
         }
     }
     $resetBtn.classList.remove('blocked');
+    $textinput2.value = total + ' 원';
 }
 
 function whatNumber(n){ //9.72
@@ -231,6 +238,8 @@ const $betCash = document.querySelector('.bet-cash');
 $bettingBtn.addEventListener('click',(e)=>{
     if(!document.querySelector('input[name="roulette-bet"]:checked')){
         alert('베팅할 항목을 선택하세요');
+    }else if(total < $bettingCash.value){
+        alert('잔액이 부족합니다');
     }else{
         if(confirm('이대로 베팅하시겠습니까?')){
             // $bettingBox.classList.remove('open');
@@ -278,13 +287,6 @@ const rouletteInfo = {
 
 
 
-
-
-
-
-
-
-
 const $button = document.querySelector('button');
 console.log($button);
 const $textinput = document.querySelector('.dust-class > #itempw');
@@ -308,3 +310,13 @@ $button.addEventListener('click', function () {
     }
   }
 });
+
+
+const $no = document.querySelectorAll('.nothat');
+console.log($no);
+
+for(let $nothat of $no){
+    $nothat.addEventListener('click', function(){
+      alert('죄송합니다. 점검 중 입니다.');
+    })
+};

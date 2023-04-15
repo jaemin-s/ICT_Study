@@ -115,6 +115,7 @@
 }
 
 .btn.rule{
+    font-weight: 400;
     margin-top: 160px;
 }
 .btn.rule:active{
@@ -171,6 +172,10 @@ div.btn-betting.blocked{
     width: 100%;
 }
 
+.toggle-box span{
+    font-weight: 700;
+    color: blue;
+} 
 
 
 
@@ -237,3 +242,4 @@ input::placeholder{
 .width-container{
     background: darkgreen;
 }
+

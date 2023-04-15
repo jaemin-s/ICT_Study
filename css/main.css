@@ -95,13 +95,7 @@ input::placeholder{
     right:20px;
 }
 
-
-
-
-
-
-
-
+    
 
 /*용석부분 끝*/
 
@@ -163,7 +157,6 @@ input::placeholder{
 }
 
 #game-galy ul li{
-    background: skyblue;
     width: 30%;
     height: 17vw;
     max-height: 240px;
@@ -185,11 +178,10 @@ input::placeholder{
     right: 30px;
     top: -20px;
     font-weight: 700;
-    
 }
 #game-galy ul li:hover{
     transition: 0.5s;
-    background: rgba(0, 0, 0, 0.9);
+    transform: scale(1.1);
     cursor: pointer;
 }
 

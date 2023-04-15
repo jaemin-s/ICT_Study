@@ -1,120 +1,123 @@
 <!DOCTYPE html>
 <html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/main.css" />
+    <script src="../js/main.js" defer></script>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Document</title>
-  <link rel="stylesheet" href="../css/main.css" />
-  <script src="../js/main.js"defer></script>
+    <style></style>
+  </head>
 
+  <body>
+    <div class="wrapper">
+      <div class="bg"><img src="../img/casino-hall.jpg" alt="main-bg" /></div>
+      <div class="cutton"></div>
+      <header id="header">
+        <div class="logo">
+          <a href="./main.html"
+            ><img src="../img/casino-logo.png" alt="logo"
+          /></a>
+        </div>
+        <div class="top-menu">
+          <a href="#" class="nothat">블랙잭</a>
+          <a href="#" class="nothat">바카라</a>
+          <a href="../game/roulette.html">룰렛</a>
+          <a href="../game/odd-or-even.html">홀짝</a>
+          <a href="#" class="nothat">하이로우</a>
+          <a href="#" class="nothat">고객지원</a>
+        </div>
+        <div class="mo-menu"></div>
+      </header>
+      <div class="main">
+        <aside class="ad" id="left-ad"></aside>
+        <div class="width-container">
+          <section id="slide-img">
+            <img src="../img/toto.jpg" alt="slide-ad" />
+            <img src="../img/toto2.jpg" alt="slide-ad" />
+            <img src="../img/dobak123.jpg" alt="slide-ad" />
+            <img src="../img/main-ad1.png" alt="slid-ad" />
+            <img src="../img/main-ad2.png" alt="slid-ad" />
+          </section>
 
+          <!--용석 부분-->
+          <section id="cash">
+            <div class="dust_class">
+              <div class="dust-class">
+                <label>
+                  <span>* </span>
+                  은행계좌번호
+                </label>
+                <input
+                  type="text"
+                  class="txt-input"
+                  id="itemname"
+                  placeholder="계좌번호"
+                />
+              </div>
 
-  <style>
+              <div class="dust-class">
+                <label>
+                  <span>* </span>
+                  <button type="button">충전하기</button>
+                </label>
+                <input
+                  type="text"
+                  class="txt-input"
+                  id="itempw"
+                  placeholder="충전 금액을 입력해주세요"
+                />
+              </div>
 
-  </style>
-</head>
+              <div class="dust-class ver2">
+                <label>
+                  <span>* </span>
+                  충전잔액
+                </label>
+                <input type="text" class="txt-input" id="itemnew" />
+              </div>
+            </div>
+          </section>
 
-<body>
-  <div class="wrapper">
-    <div class="bg"><img src="../img/casino-hall.jpg" alt="main-bg" /></div>
-    <div class="cutton"></div>
-    <header id="header">
-      <div class="logo"><img src="../img/casino-logo.png" alt="logo" /></div>
-      <div class="top-menu">
-        <a href="#" class="nothat">블랙잭</a>
-        <a href="#" class="nothat">바카라</a>
-        <a href="/casino/game/roulette.html">룰렛</a>
-        <a href="/casino/game/odd-or-even.html">홀짝</a>
-        <a href="#" class="nothat">하이로우</a>
-        <a href="#" class="nothat">고객지원</a>
+          <!--용석 부분 끝-->
+
+          <section id="game-galy">
+            <h2>실시간 미니게임</h2>
+            <ul class="picture">
+              <li class="nothat1">
+                <img src="../img/블랙잭1.jpg" alt="bl1" />
+              </li>
+              <li class="nothat1">
+                <img src="../img/바카라1.jpg" alt="bl2" />
+              </li>
+              <li>
+                <a href="/casino/game/roulette.html">
+                  <img src="../img/룰렛1.png" />
+                </a>
+              </li>
+              <li>
+                <a href="/casino/game/odd-or-even.html">
+                  <img src="../img/홀짝5.jpg" alt="bl4" />
+                </a>
+              </li>
+              <li class="nothat1">
+                <img src="../img/하이로우.jpg" alt="bl5" />
+              </li>
+              <li class="nothat1"><img src="../img/국세청.jpg" alt="bl6" /></li>
+            </ul>
+          </section>
+        </div>
+        <aside class="ad" id="right-ad"></aside>
       </div>
-      <div class="mo-menu"></div>
-    </header>
-    <div class="main">
-      <aside class="ad" id="left-ad"></aside>
-      <div class="width-container">
-        
-        <section id="slide-img">
-          <img src="../img/toto.jpg" alt="slide-ad">
-          <img src="../img/toto2.jpg" alt="slide-ad">
-          <img src="../img/dobak123.jpg" alt="slide-ad">
-          <img src="../img/main-ad1.png" alt="slid-ad">
-          <img src="../img/main-ad2.png" alt="slid-ad">
-        </section>
-
-
-
-        <!--용석 부분-->
-        <section id="cash">
-          <div class="dust_class">
-            <div class="dust-class">
-              <label>
-                <span>* </span>
-                은행계좌번호
-              </label>
-              <input type="text" class="txt-input" id="itemname" placeholder="계좌번호">
-            </div>
-
-            <div class="dust-class">
-              <label>
-                <span>* </span>
-                <button type="button">
-                  충전하기
-                </button>
-              </label>
-              <input type="text" class="txt-input" id="itempw" placeholder="충전 금액을 입력해주세요">
-            </div>
-
-            <div class="dust-class ver2">
-              <label>
-                <span>* </span>
-                충전잔액
-              </label>
-              <input type="text" class="txt-input" id="itemnew">
-            </div>
-          </div>
-        </section>
-
-
-
-
-
-        <!--용석 부분 끝-->
-
-
-
-
-
-        <section id="game-galy">
-          <h2>실시간 미니게임</h2>
-          <ul class="picture">
-            <li class="nothat1"><img src="../img/블랙잭1.jpg" alt="bl1"></li>
-            <li class="nothat1"><img src="../img/바카라1.jpg" alt="bl2"></li>
-            <li>
-              <a href="/casino/game/roulette.html">
-              <img src="../img/룰렛1.png">
-              </a>
-            </li>
-            <li>
-              <a href="/casino/game/odd-or-even.html">
-              <img src="../img/홀짝5.jpg" alt="bl4">
-              </a>
-            </li>
-            <li class="nothat1"><img src="../img/하이로우.jpg" alt="bl5"></li>
-            <li class="nothat1"><img src="../img/국세청.jpg" alt="bl6"></li>
-          </ul>
-        </section>
-      </div>
-      <aside class="ad" id="right-ad"></aside>
+      <footer>
+        <div class="top-box"></div>
+        <div class="bottom-box">
+          Copyright 2023-04-11. Team Casino All rights reserved.
+        </div>
+      </footer>
     </div>
-    <footer>
-      <div class="top-box"></div>
-      <div class="bottom-box">Copyright 2023-04-11. Team Casino All rights reserved.</div>
-    </footer>
-  </div>
-  <script src="../js/slideleftreturn.js"></script>
-</body>
-
+    <script src="../js/slideleftreturn.js"></script>
+  </body>
 </html>

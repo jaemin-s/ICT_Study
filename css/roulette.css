@@ -118,9 +118,6 @@
     border-radius: 50%;
 
 }
-.betting-box .blocked{
-    opacity: 0.7;
-}
 
 .ball-location.spin{
     animation-name: spinBall;
@@ -136,7 +133,7 @@
     padding: 10px 0;
     text-align: center;
     margin: 60px 6%;
-    display: inline-block;
+    display: block;
     
     cursor: pointer;
 }
@@ -198,13 +195,13 @@
 }
 .showResult p{
     position: absolute;
-    font-size: 100px;
+    font-size: 50px;
     color: yellow;
-    top: 40%;
-    left: 50%;
+    top: 45%;
+    left:65%;
     text-shadow: 3px 3px black;
 
-    transform: translateX(-30%);
+    transform: translateX(-50%);
 }
 .hide{
     display: none;
@@ -218,7 +215,7 @@
     text-shadow: 2px 2px 2px black;
 }
 
-#reset-btn{
+/* #reset-btn{
     position: relative;
     z-index: 11;
 }
@@ -236,18 +233,90 @@
 }
 .btn-rule:hover+.rule-box{
     display: block;
-}
-.rule-box h4{
+}*/
+/* .rule-box h4{
     padding: 10px 0;
     font-weight: 700;
-}
-.rule-box p{
+} */
+/* .rule-box p{
     line-height: 1.2;
-}
-.rule-box p span{
+} */
+.toggle-box span{
     font-weight: 700;
     color: blue;
+} 
+
+.btn{
+    width: 120px;
+    margin: 10px 20px 10px 0;
+    font-weight: 700;
+    text-align: center;
+    line-height: 50px;
+    padding: 0;
+    color: #fff;
+    border-radius: 5px;
+    transition: all 0.2s;
+    background: #00AE68;
+    box-shadow: 0px 5px 0px 0px #007144;
+    position: absolute;
+    left: 50%;
+
+    transform: translateX(-50%);
 }
+.btn:hover{
+    cursor: pointer;
+}
+.btn:active{
+    background: #21825B;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    box-shadow: 0px 0px 0px 0px #007144;
+}
+
+.btn.restart{
+    margin-top: 80px;
+}
+.btn.restart:active{
+    margin-top: 85px;
+}
+
+.btn.rule{
+    margin-top: 160px;
+}
+.btn.rule:active{
+    margin-top: 165px;
+}
+.btn.blocked{
+    background: #999;
+    box-shadow: 0px 5px 0px 0px #777;
+}
+
+div.blocked>label{
+    background: #c7c7c7;
+}
+
+div.blocked>span{
+    color: #c9c9c9
+}
+
+div.btn-betting.blocked{
+    background: #999;
+    box-shadow: 0px 5px 0px 0px #777;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 #roulette {
@@ -271,21 +340,21 @@ input{
     outline: none;
     font-size: 10px;
     background: rgba(0, 0, 0, 0);
-    color: red;
+    /* color: red; */
 }
 
 input::placeholder{
-  /* color: #d9d9d9; */
+  color: #d9d9d9;
   color:white;
 }
 
 .dust-class{
-  width: 50%; 
+  width: 40%; 
   box-sizing: border-box;
   margin: 20px 0;
   position: relative;
-  bottom: 225px;
-  left: 400px;
+  /* bottom: 125px; */
+  left: 200px; 
 }
 
 .dust-class label{
@@ -315,6 +384,7 @@ input::placeholder{
     border-radius: 8px;
     padding: 16px;
     margin-top: 12px;
+    color: red;
 }
 
 .dust-class label button {

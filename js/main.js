@@ -48,8 +48,6 @@ for(let $nothat of $no){
     })
 };
 
-
-
 const $nothat = document.querySelectorAll('.picture .nothat1');
 
 for(let $nothat2 of $nothat){

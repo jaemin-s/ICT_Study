@@ -15,13 +15,14 @@
         <div class="bg"><img src="../img/casino-hall.jpg" alt="main-bg" /></div>
         <div class="cutton"></div>
         <header id="header">
-            <div class="logo"><img src="../img/casino-logo.png" alt="logo" /></div>
+            <div class="logo"><a href="../html/main.html"><img src="../img/casino-logo.png" alt="logo" /></a></div>
             <div class="top-menu">
-                <a href="/casino/html/main.html">블랙잭</a>
-                <a href="/casino/html/main.html">바카라</a>
-                <a href="/casino/game/roulette.html">룰렛</a>
-                <a href="/casino/game/odd-or-even.html">홀짝</a>
-                <a href="/casino/html/main.html">고객지원</a>
+                <a href="#" class="nothat">블랙잭</a>
+                <a href="#" class="nothat">바카라</a>
+                <a href="./roulette.html">룰렛</a>
+                <a href="./odd-or-even.html">홀짝</a>
+                <a href="#" class="nothat">하이로우</a>
+                <a href="#" class="nothat">고객지원</a>
             </div>
             <div class="mo-menu"></div>
         </header>
@@ -57,7 +58,22 @@
                             <span class="lnr lnr-circle-minus bet-minus"></span>
                         </div>
                         <div class="btn-betting">베팅하기</div>
-                        <p class="btn1 blocked" id="spin-btn">시작</p>
+                        <div class="btns">
+                            <div class="start btn blocked">시작하기</div>
+                            <div class="restart btn blocked">다시하기</div>
+                            <div class="rule btn">설명보기
+                                <div class="toggle-box hide">
+                                    <h4>진행 순서</h4>
+                                    <p>1. 베팅 항목과 베팅 금액을 고르고 <span>베팅하기</span> 버튼을 누르세요</p>
+                                    <p>2. <span>시작하기</span>를 누르고 결과를 확인하세요</p>
+                                    <p>3. 다시하려면 <span>다시하기</span> 버튼을 누르세요</p>
+                                    <h4>베팅 룰</h4>
+                                    <p>1. 색깔 맞히기 : 나올 색깔을 맞히면 <span>베팅금액만큼</span> 추가로 받습니다.</p>
+                                    <p>2. 숫자 맞히기 : 나올 숫자를 맞히면 <span>베팅금액의 35배</span>를 추가로 받습니다.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- <p class="btn1 blocked" id="spin-btn">시작</p>
                         <p class="btn1 blocked" id="reset-btn">다시하기</p>
                         <p class="btn1 btn-rule">
                             설명보기
@@ -70,7 +86,7 @@
                             <h4>베팅 룰</h4>
                             <p>1. 색깔 맞히기 : 나올 색깔을 맞히면 <span>베팅금액만큼</span> 추가로 받습니다.</p>
                             <p>2. 숫자 맞히기 : 나올 숫자를 맞히면 <span>베팅금액의 35배</span>를 추가로 받습니다.</p>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
                 
@@ -78,13 +94,31 @@
                     <img src="../img/gold-glitter.gif" alt="gold" class="hide">
                     <p></p>
                 </div>
+                <div class="dust-class">
+                    <label>
+                      <span>* </span>
+                      <button type="button">
+                        충전하기
+                      </button>
+                    </label>
+                    <input type="text" class="txt-input" id="itempw" placeholder="충전 금액을 입력해주세요">
+                  </div>
+        
+                  <div class="dust-class ver2">
+                    <label>
+                      <span>* </span>
+                      충전잔액
+                    </label>
+                    <input type="text" class="txt-input" id="itemnew" readonly>
+                  </div>
+                </div>
             </div>
             <aside class="ad" id="right-ad"></aside>
         </div>
 
 
 
-        <div class="dust-class">
+        <!-- <div class="dust-class">
             <label>
               <span>* </span>
               <button type="button">
@@ -99,9 +133,9 @@
               <span>* </span>
               충전잔액
             </label>
-            <input type="text" class="txt-input" id="itemnew">
+            <input type="text" class="txt-input" id="itemnew" readonly>
           </div>
-        </div>
+        </div> -->
     </div>
 
 
