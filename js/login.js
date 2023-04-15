@@ -62,4 +62,8 @@ $loginBtn.onclick = function() {
     $login.removeChild($birth.parentNode);
     $login.removeChild($loginBtn);
     $nameAfter.classList.remove("hide");
+
+    setTimeout(function(){
+        window.open('./main.html','_self');
+    },1000);
 }

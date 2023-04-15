@@ -174,10 +174,3 @@ for(let $nothat of $no){
     })
 };
 
-const $nothat = document.querySelectorAll('.picture .nothat1');
-
-for(let $nothat2 of $nothat){
-    $nothat2.addEventListener('click', function(){
-        alert('죄송합니다. 다른 게임을 이용 해주세요');
-    })
-};
