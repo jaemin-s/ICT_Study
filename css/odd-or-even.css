@@ -14,7 +14,7 @@
     display: flex;
 }
 .game .display-box{
-    /* background: darkgreen; */
+    /* background: darkgreen;  */
     background-image: url(../img/홀짝2.png);
     background-repeat: no-repeat;
     background-size: cover;
@@ -131,6 +131,8 @@
 }
 .betting-box .bet-odd-even{
     margin-top: 10px;
+    
+
 }
 .betting-box .bet-cash{
     margin-top: 10px;
@@ -138,4 +140,78 @@
 .btn.blocked{
     background: #999;
     box-shadow: 0px 5px 0px 0px #777;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+input{
+    font-family: sans-serif;
+    border: 0;
+    outline: none;
+    font-size: 10px;
+    background: rgba(0, 0, 0, 0);
+    color: red;
+}
+
+input::placeholder{
+  /* color: #d9d9d9; */
+  color:white;
+}
+
+.dust-class{
+  width: 50%; 
+  box-sizing: border-box;
+  margin: 20px 0;
+  position: relative;
+  top: 1px;
+  left: 240px;
+}
+
+.dust-class label{
+  display: inline-block;
+  position: absolute;
+  top: -13px;
+  left: 14px;
+  padding: 10px;
+  background: black;
+  font-size: 14px;
+  color: #888;
+  font-weight: bold;
+  border-radius: 8px;
+}
+
+.dust-class label span{
+  color: #da4841;
+  vertical-align: -1px;
+}
+
+.dust-class input{
+    width: 100%;
+    border: 1px solid white;
+    font-size: 1rem;
+    line-height: 1.45;
+    letter-spacing: -0.04rem;
+    border-radius: 8px;
+    padding: 16px;
+    margin-top: 12px;
+}
+
+.dust-class label button {
+    background-color: #888;
+}
+
+
+.width-container{
+    background: darkgreen;
 }

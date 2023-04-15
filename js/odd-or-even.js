@@ -58,3 +58,30 @@ $ruleBtn.addEventListener('click',()=>{
     console.log($ruleBtn.lastElementChild);
     $ruleBtn.lastElementChild.classList.toggle('hide');
 });
+
+
+
+
+const $button = document.querySelector('button');
+console.log($button);
+const $textinput = document.querySelector('.dust-class > #itempw');
+console.log($textinput);
+let $textinput2 = document.querySelector('.dust-class.ver2 > #itemnew');
+console.log($textinput2);
+let total = 0;
+
+$button.addEventListener('click', function () {
+  if ($textinput.value === '') {
+    alert('충전 금액을 입력해 주세요.');
+  } else {
+    if (isNaN($textinput.value)) {
+      alert('금액이 잘못되었습니다.');
+      $textinput.value = '';
+      return;
+    } else {
+      total += Number($textinput.value);
+      $textinput.value = '';
+      $textinput2.value = total + ' 원';
+    }
+  }
+});
