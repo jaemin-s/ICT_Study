@@ -358,9 +358,17 @@ function setCookie(key,value){
     document.cookie = `${key}=${value}`;
 }
 
-function cookieExists(key){
-    if(getCookie(key)===''){
+window.addEventListener('load',()=>{
+    console.log(getCookie('user'));
+    if(getCookie('user')===''){
         alert('로그인부터 해주세요');
-        window.open('./login.html');
+        window.open('./login.html','_self');
     }
-}
+});
+
+const $logout = document.querySelector('#user-logout');
+$logout.addEventListener('click',()=>{
+  document.cookie = `user=${getCookie('user')}; max-age=-1;`;
+  document.cookie = `money=${getCookie('money')}; max-age=-1;`;
+  window.open('./login.html','_self');
+});

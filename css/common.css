@@ -96,6 +96,10 @@ a{
     text-align: center;
     box-sizing: border-box;
     padding-top: 30px;
+    line-height: 1.1;
+}
+#header .user-info #user-logout{
+    cursor: pointer;
 }
 
 .main{
