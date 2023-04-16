@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/baccarat.css">
+    <script src="../js/baccarat.js" defer></script>
+
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="bg"><img src="../img/casino-hall.jpg" alt="main-bg" /></div>
+        <div class="cutton"></div>
+        <header id="header">
+            <div class="logo"><a href="./main.html"><img src="../img/casino-logo.png" alt="logo" /></a></div>
+            <div class="top-menu">
+                <a href="#" class="nothat">블랙잭</a>
+                <a href="./baccarat.html">바카라</a>
+                <a href="./roulette.html">룰렛</a>
+                <a href="./odd-or-even.html">홀짝</a>
+                <a href="#" class="nothat">하이로우</a>
+                <a href="#" class="nothat">고객지원</a>
+            </div>
+            <div class="user-info">
+                <p id="user-id">test text</p>
+                <p id="user-money">test text2</p>
+                <p id="user-logout">로그아웃</p>
+              </div>
+        </header>
+        <div class="main">
+            <aside class="ad" id="left-ad"></aside>
+            <div class="width-container">
+                <div class="odd-or-even">
+                    <h2 class="title">바카라</h2>
+                    <div class="game">
+                        <div class="display-box">
+                            <div class="flex">
+                              <div class="cards">
+                                  <img src="../img/cards/10c.png" alt="card1" id="pCard1" class="card hide">
+                                  <img src="../img/cards/10c.png" alt="card2" id="pCard2" class="card hide">
+                                  <img src="../img/cards/10c.png" alt="card3" id="pCard3" class="card hide">
+                              </div>
+                              <div class="cards">
+                                  <img src="../img/cards/10c.png" alt="card4" id="bCard1" class="card hide">
+                                  <img src="../img/cards/10c.png" alt="card5" id="bCard2" class="card hide">
+                                  <img src="../img/cards/10c.png" alt="card6" id="bCard3" class="card hide">
+                              </div>
+                            </div>
+                            <div class="result-text">
+                                <p></p>
+                                <p></p>
+                            </div>
+                            <div class="ingame-btns">
+                              <div id="hit" class="btn blocked">Hit</div>
+                              <div id="stand" class="btn blocked">Stand</div>
+                            </div>
+                            <img src="../img/gold-coin-falling.gif" alt="correct-effect" id="correct-effect" class="hide">
+                        </div>
+                        <div class="betting-box">
+                            <div class="bet-odd-even">
+                                <h4>승자</h4>
+                                <input type="radio" id="bet-player" name="baccart-bet" data-rate="1" data-select="player" data-betting-type="winner"><label for="bet-player">플레이어</label>
+                                <input type="radio" id="bet-banker" name="baccart-bet" data-rate="1" data-select="banker" data-betting-type="winner"><label for="bet-banker">뱅커</label>
+                            </div>
+                            <div class="bet-odd-even">
+                                <h4>카드 수</h4>
+                                <input type="radio" id="bet-small" name="baccart-bet" data-rate="1.5" data-select="small" data-betting-type="card"><label for="bet-small">스몰</label>
+                                <input type="radio" id="bet-big" name="baccart-bet" data-rate="0.5" data-select="big" data-betting-type="card"><label for="bet-big">빅</label>
+                               
+                            </div>
+                            <div class="bet-odd-even">
+                                <h4>etc.</h4>
+                                <input type="radio" id="bet-six-banker" name="baccart-bet" data-rate="11" data-select="six-banker" data-betting-type="six-banker"><label for="bet-six-banker">6-뱅커</label>
+                                <input type="radio" id="bet-tie" name="baccart-bet" data-rate="9" data-select="tie" data-betting-type="tie"><label for="bet-tie">타이</label>
+                                <input type="radio" id="bet-pair-player" name="baccart-bet" data-rate="11" data-select="pair-player" data-betting-type="pair"><label for="bet-pair-player">페어-플레이어</label>
+                                <input type="radio" id="bet-pair-banker" name="baccart-bet" data-rate="11" data-select="pair-banker" data-betting-type="pair"><label for="bet-pair-banker">페어-뱅커</label>
+                            </div>
+                            <div class="bet-cash">
+                                <input type="number" id="betting-cash" readonly value="10000">
+                                <span class="lnr lnr-plus-circle bet-plus"></span>
+                                <span class="lnr lnr-circle-minus bet-minus"></span>
+                            </div>
+                            <div class="btn-betting">베팅하기</div>
+                            <div class="btns">
+                                <div class="start btn blocked">시작하기</div>
+                                <div class="restart btn blocked">다시하기</div>
+                                <div class="rule btn">설명보기
+                                    <div class="toggle-box hide">
+                                        <h4>진행순서</h4>
+                                        <p>1. 베팅 항목과 금액을 고르고 <span>베팅하기</span> 버튼을 누르세요</p>
+                                        <p>2. <span>시작하기</span>를 누르고 결과를 확인하세요</p>
+                                        <p>3. 다시하려면 <span>다시하기</span>를 누르고 1번부터 다시하세요</p>
+                                        <h4>카드 룰</h4>
+                                        <p>1. A는 1이고 K,Q,J는 10입니다</p>
+                                        <p>2. 카드의 합에서 십의 자리를 버린 수가 높은 사람이 승자입니다</p>
+                                        <p>3. 플레이어 또는 뱅커 둘 중 한명의 카드의 합이 8 또는 9가 되면(Natural) 카드를 더 받지 않고 승부합니다</p>
+                                        <p>3. 양쪽 모두 Natural이 아닐 경우, 플레이어는 합이 6 또는 7일 경우 더 받을지(Hit) 안 받을지(Stand)를 결정합니다</p>
+                                        <p>플레이어는 합이 0 ~ 5일 경우 더 받습니다(Hit) </p>
+                                        <p>5. 플레이어가 Stand일 경우, 뱅커는 합이 6 또는 7이면 Stand, 0 ~ 5경우 Hit합니다</p>
+                                        <p>6. 플레이어가 Hit일 경우, 아래의 조건을 따릅니다</p>
+                                        <p>- 7 : Stand</p>
+                                        <p>- 6 : 플레이어의 세번째 카드가 6,7이면 Hit</p>
+                                        <p>- 5 : 플레이어의 세번째 카드가 4,5,6,7이면 Hit</p>
+                                        <p>- 4 : 플레이어의 세번째 카드가 2,3,4,5,6,7이면 Hit</p>
+                                        <p>- 3 : 플레이어의 세번째 카드가 0,1,2,3,4,5,6,7,9이면 Hit</p>
+                                        <p>- 0~2 : Hit</p>
+                                        <h4>베팅 룰</h4>
+                                        <p>1. 승자 맞히기 : <span>승자</span>를 맞히면 <span>베팅금액만큼 추가</span>로 받습니다</p>
+                                        <p>* <span>뱅커가 6으로 승리</span>했을 경우 <span>베팅금액의 0.5배만 추가</span>로 받습니다</p>
+                                        <p>2. 카드 수 맞히기 : 이번 게임에서 <span> 플레이어와 뱅커가 사용한 카드 수의 합</span>을 맞히면 아래와 같이 추가로 받습니다.</p>
+                                        <p><span>-스몰(합쳐서 4장) : 베팅금액의 1.5배 -빅(합쳐서 5~6장) : 베팅금액의 0.5배</span></p>
+                                        <p>3. 기타 배팅 : 각각 </span>아래와 같이 추가로 받습니다.</p>
+                                        <p>-6뱅커 : <span>뱅커가 6으로 승리</span>했을 경우 <span>베팅금액의 11배</span> </p>
+                                        <p>-타이 : <span>플레이어와 뱅커의 수 합이 서로 같으면 베팅금액의 9배</span> </p>
+                                        <p> -페어 : <span>최초 2장의 카드가 같은 숫자</span>가 나올 경우 <span>베팅금액의 11배</span></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dust-class">
+                    <label>
+                      <span>* </span>
+                      <button type="button">
+                        충전하기
+                      </button>
+                    </label>
+                    <input type="text" class="txt-input" id="itempw" placeholder="충전 금액을 입력해주세요">
+                  </div>
+      
+                  <div class="dust-class ver2">
+                    <label>
+                      <span>* </span>
+                      충전잔액
+                    </label>
+                    <input type="text" class="txt-input" id="itemnew" readonly>
+                  </div>
+                </div>
+                    
+                </div>
+                <!-- <div class="dust-class">
+                    <label>
+                      <span>* </span>
+                      <button type="button">
+                        충전하기
+                      </button>
+                    </label>
+                    <input type="text" class="txt-input" id="itempw" placeholder="충전 금액을 입력해주세요">
+                  </div>
+      
+                  <div class="dust-class ver2">
+                    <label>
+                      <span>* </span>
+                      충전잔액
+                    </label>
+                    <input type="text" class="txt-input" id="itemnew" readonly>
+                  </div>
+                </div> -->
+              </section>
+            </div>
+            <!-- <aside class="ad" id="right-ad"></aside> -->
+        </div>
+    </div>
+    <footer>
+        <div class="top-box"></div>
+        <div class="bottom-box">Copyright 2023-04-11. Team Casino All rights reserved.</div>
+    </footer>
+    </div>
+</body>
+
+</html>
