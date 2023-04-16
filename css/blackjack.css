@@ -41,11 +41,11 @@
     flex-wrap: wrap;
     width: 39%;
     justify-content: space-around;
-    margin-top: 150px;
+    margin-top: 50px;
 }
 .cards img{
-    width: 45%;
-    padding: 10px 0;
+    width: 30%;
+    padding: 10px 0 0 0;
 }
 
 .game .display-box .ingame-btns{
@@ -65,7 +65,9 @@
 .btns{
     position: relative;
 }
-
+.ingame-btns .btn{
+    width: 80px;
+}
 .btn{
     width: 120px;
     margin: 10px 20px 10px 0;
@@ -158,6 +160,7 @@ div.btn-betting.blocked{
     position: absolute;
     z-index: 999;
     width: 100%;
+    top: 0;
 }
 
 .toggle-box span{
@@ -166,7 +169,7 @@ div.btn-betting.blocked{
 } 
 
 .rule .toggle-box{
-    top: -600px;
+    top: -400px;
 }
 
 

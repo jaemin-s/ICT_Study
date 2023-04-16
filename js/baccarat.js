@@ -40,14 +40,14 @@ function fisrtDrawing(){
     rns[i] = Math.floor(Math.random() * 13) + 1;
   }
   console.log(rns);
-  $pCard1.src = `../img/cards/${numbering(rns[0])+simbol()}.png`;
+  $pCard1.src = `../img/cards/${rns[0]+simbol()}.png`;
   $pCard1.classList.remove('hide');
-  $pCard2.src = `../img/cards/${numbering(rns[1])+simbol()}.png`;
+  $pCard2.src = `../img/cards/${rns[1]+simbol()}.png`;
   $pCard2.classList.remove('hide');
   pResult = (numbering(rns[0])+numbering(rns[1]))%10
-  $bCard1.src = `../img/cards/${numbering(rns[3])+simbol()}.png`;
+  $bCard1.src = `../img/cards/${rns[3]+simbol()}.png`;
   $bCard1.classList.remove('hide');
-  $bCard2.src = `../img/cards/${numbering(rns[4])+simbol()}.png`;
+  $bCard2.src = `../img/cards/${rns[4]+simbol()}.png`;
   $bCard2.classList.remove('hide');
   bResult = (numbering(rns[3])+numbering(rns[4]))%10
   $resultTxt.lastElementChild.textContent = `${pResult} : ${bResult}`;
@@ -215,14 +215,14 @@ function bAddTurn(){
   whoWin();
 }
 function bHit(){
-  $bCard3.src = `../img/cards/${numbering(rns[5])+simbol()}.png`;
+  $bCard3.src = `../img/cards/${rns[5]+simbol()}.png`;
   $bCard3.classList.remove('hide');
   bResult = (numbering(rns[5])+bResult)%10;
 }
 
 
 $hit.addEventListener('click',()=>{
-  $pCard3.src = `../img/cards/${numbering(rns[2])+simbol()}.png`;
+  $pCard3.src = `../img/cards/${rns[2]+simbol()}.png`;
   $pCard3.classList.remove('hide');
   pResult = (numbering(rns[2])+pResult)%10;
   $hit.classList.add('blocked');
