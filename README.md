@@ -10,4 +10,4 @@ www.casino/html/login.html
 
 문서 안에서 [참조 링크] 를 그대로 사용하는 것도 가능합니다.
 [1]: http://github.com/mkoko8855
-[참조 링크]: casino/html/login.html
+[참조 링크]: www.casino/html/login.html
