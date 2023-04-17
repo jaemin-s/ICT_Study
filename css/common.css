@@ -1,6 +1,8 @@
 @import url("https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css");
 @import url("https://cdn.linearicons.com/free/1.0.0/icon-font.min.css");
-
+*{
+    user-select: none;
+}
 a{
     color: inherit;
     text-decoration: none;
@@ -83,14 +85,21 @@ a{
     text-shadow: 2px 2px 5px black;
 }
 
-#header .mo-menu{
+#header .user-info{
     position: absolute;
     top: 0;
     right: 0;
-    width: 100px;
+    width: 200px;
     height: 100%;
-    background: #000;
-    display: none;
+    background: #222;
+    color: #fff;
+    text-align: center;
+    box-sizing: border-box;
+    padding-top: 30px;
+    line-height: 1.1;
+}
+#header .user-info #user-logout{
+    cursor: pointer;
 }
 
 .main{
@@ -104,6 +113,7 @@ a{
     height: 100%;
     margin: 0 auto;
     padding-top: 100px;
+    min-height: 100vh;
 }
 
 aside.ad{
@@ -119,6 +129,7 @@ aside.ad#left-ad{
     left: 20px;
 }
 aside.ad#right-ad{
+    display: none !important;
     right: 20px;
 }
 
@@ -170,17 +181,24 @@ input[type="radio"]:checked+label{
 }
 
 .betting-box .btn-betting{
-    background: skyblue;
+    background: #5DC8CD;
     margin: 20px auto;
     padding: 10px;
     color: #fff;
-    width: fit-content;
-    border-radius: 25px;
+    width: 80px;
+    line-height: 20px;
+    text-align: center;
+    border-radius: 5px;
     cursor: pointer;
+    box-shadow: 0px 5px 0px 0px #1E8185;
+    transition: all 0.2s;
 }
 
-.betting-box .btn-betting:hover{
-    background: aqua;
+.betting-box .btn-betting:active{
+    background: #01939A;
+    margin-top: 25px;
+    margin-bottom: 15px;
+    box-shadow: 0px 0px 0px 0px #1E8185;
 }
 
 .bet-cash span{
@@ -191,3 +209,23 @@ input[type="radio"]:checked+label{
     color: #424242;
 }
 
+.rule .toggle-box{
+    position: absolute;
+    width: 500px;
+    left: -600px;
+    top: -250px;
+    z-index: 5999;
+    background: #fff;
+    color: #000;
+    padding: 10px;
+    border: 3px solid #000;
+}
+
+.rule .toggle-box p{
+    text-align: left;
+    line-height: 1.1;
+}
+
+.hide{
+    display: none;
+}

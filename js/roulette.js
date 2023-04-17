@@ -1,5 +1,5 @@
-const $spinBtn = document.querySelector('#spin-btn');
-const $resetBtn = document.querySelector('#reset-btn');
+const $spinBtn = document.querySelector('.start.btn');
+const $resetBtn = document.querySelector('.restart.btn');
 const $ball = document.querySelector('.ball-location');
 const spinAni = document.styleSheets[0].cssRules[1];
 const $display = document.querySelector('#roulette .display-box p');
@@ -36,31 +36,48 @@ function showrn(){
     $display.textContent = rouletteInfo.number;
     $display.parentNode.style.background = rouletteInfo.color;
 }
+const $ruleBtn = document.querySelector('.rule.btn');
+$ruleBtn.addEventListener('click',()=>{
+    console.log($ruleBtn.lastElementChild);
+    $ruleBtn.lastElementChild.classList.toggle('hide');
+});
 
 function showResult(){
-    console.log(bettingInfo.rate);
+    // console.log(bettingInfo.rate);
     if(bettingInfo.rate==1){
-        console.log(rouletteInfo.color);
-        console.log(bettingInfo.inputNumber);
+        // console.log(rouletteInfo.color);
+        // console.log(bettingInfo.inputNumber);
         if(rouletteInfo.color===bettingInfo.inputNumber){
             $showResult.firstElementChild.classList.remove('hide');
-            // alert(`축하합니다. 상금: ${bettingInfo.rate*bettingInfo.money+bettingInfo.money}원`);
+            total += bettingInfo.rate*bettingInfo.money+bettingInfo.money;
             $showResult.lastElementChild.textContent = `축하합니다.`;
+            
         }else{
             $showResult.lastElementChild.textContent = `꽝`
-            // alert('꽝');
+            total -= bettingInfo.money;
+            
         }
     }else if(bettingInfo.rate==35){
-        if(rouletteInfo.number==bettingInfo.number){
+        console.log('확인');
+        console.log(rouletteInfo.number);
+        console.log(typeof rouletteInfo.number);
+        console.log(Number(bettingInfo.inputNumber));
+        console.log(typeof Number(bettingInfo.inputNumber));
+        if(rouletteInfo.number===Number(bettingInfo.inputNumber)){
             $showResult.firstElementChild.classList.remove('hide');
             $showResult.lastElementChild.textContent = `축하합니다.`
-            // alert(`축하합니다. 상금: ${bettingInfo.rate*bettingInfo.money+bettingInfo.money}원`);
+            total += bettingInfo.rate*bettingInfo.money+bettingInfo.money;
+            
         }else{
             $showResult.lastElementChild.textContent = `꽝`
+            total -= bettingInfo.money;
             // alert('꽝');
         }
     }
     $resetBtn.classList.remove('blocked');
+    $textinput2.value = total + ' 원';
+    setCookie('money',total);
+    $money.textContent = `잔액 : ${getCookie('money')}원`;
 }
 
 function whatNumber(n){ //9.72
@@ -231,6 +248,8 @@ const $betCash = document.querySelector('.bet-cash');
 $bettingBtn.addEventListener('click',(e)=>{
     if(!document.querySelector('input[name="roulette-bet"]:checked')){
         alert('베팅할 항목을 선택하세요');
+    }else if(total < $bettingCash.value){
+        alert('잔액이 부족합니다');
     }else{
         if(confirm('이대로 베팅하시겠습니까?')){
             // $bettingBox.classList.remove('open');
@@ -276,3 +295,80 @@ const rouletteInfo = {
     color : null
 }
 
+
+
+const $button = document.querySelector('button');
+console.log($button);
+const $textinput = document.querySelector('.dust-class > #itempw');
+console.log($textinput);
+let $textinput2 = document.querySelector('.dust-class.ver2 > #itemnew');
+console.log($textinput2);
+let total = +getCookie('money');
+$textinput2.value = total + ' 원';
+
+$button.addEventListener('click', function () {
+  if ($textinput.value === '') {
+    alert('충전 금액을 입력해 주세요.');
+  } else {
+    if (isNaN($textinput.value)) {
+      alert('금액이 잘못되었습니다.');
+      $textinput.value = '';
+      return;
+    } else {
+      total += Number($textinput.value);
+      $textinput.value = '';
+      $textinput2.value = total + ' 원';
+      setCookie('money',total);
+      $money.textContent = `잔액 : ${getCookie('money')}원`;
+    }
+  }
+});
+
+
+const $no = document.querySelectorAll('.nothat');
+console.log($no);
+
+for(let $nothat of $no){
+    $nothat.addEventListener('click', function(){
+      alert('죄송합니다. 점검 중 입니다.');
+    })
+};
+
+
+////
+
+const $id = document.getElementById('user-id');
+const $money = document.getElementById('user-money');
+
+$id.textContent = `ID : ${getCookie('user')}`;
+$money.textContent = `잔액 : ${getCookie('money')}원`;
+
+function getCookie(key) {
+    let cookiesArr = document.cookie.split('; ');
+    for(let i=0;i<cookiesArr.length;i++){
+        let cookies = cookiesArr[i].split('=');
+        if(cookies[0]===key) {
+            return cookies[1];
+        }
+    }
+    return '';
+}
+
+function setCookie(key,value){
+    document.cookie = `${key}=${value}`;
+}
+
+window.addEventListener('load',()=>{
+    console.log(getCookie('user'));
+    if(getCookie('user')===''){
+        alert('로그인부터 해주세요');
+        window.open('./login.html','_self');
+    }
+});
+
+const $logout = document.querySelector('#user-logout');
+$logout.addEventListener('click',()=>{
+  document.cookie = `user=${getCookie('user')}; max-age=-1;`;
+  document.cookie = `money=${getCookie('money')}; max-age=-1;`;
+  window.open('./login.html','_self');
+});

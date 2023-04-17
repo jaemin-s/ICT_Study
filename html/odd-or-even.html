@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/odd-or-even.css">
+    <script src="../js/odd-or-even.js" defer></script>
+
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="bg"><img src="../img/casino-hall.jpg" alt="main-bg" /></div>
+        <div class="cutton"></div>
+        <header id="header">
+            <div class="logo"><a href="./main.html"><img src="../img/casino-logo.png" alt="logo" /></a></div>
+            <div class="top-menu">
+                <a href="./blackjack.html">블랙잭</a>
+                <a href="./baccarat.html">바카라</a>
+                <a href="./roulette.html">룰렛</a>
+                <a href="./odd-or-even.html">홀짝</a>
+                <a href="#" class="nothat">하이로우</a>
+                <a href="#" class="nothat">고객지원</a>
+            </div>
+            <div class="user-info">
+                <p id="user-id">test text</p>
+                <p id="user-money">test text2</p>
+                <p id="user-logout">로그아웃</p>
+              </div>
+        </header>
+        <div class="main">
+            <aside class="ad" id="left-ad"></aside>
+            <div class="width-container">
+                <div class="odd-or-even">
+                    <h2 class="title">홀짝</h2>
+
+                    <!----------------- 형철 : 홀짝 배경 넣음 ----------------->
+                    <!-- <div class = "odd-or-even-background">
+                        <img src="../img/홀짝.png" alt="oddEven" id="oddEven">
+                    </div> -->
+                    <!-------------------------------------------------------->
+
+                    <div class="game">
+                        <div class="display-box">
+                            <img src="../img/red-cup.png" alt="cup" id="cup">
+                            <div class="dice">
+                                <img src="../img/1_dot.png" alt="dice1" id="dice1">
+                                <img src="../img/1_dot.png" alt="dice2" id="dice2">
+                            </div>
+                            <div class="result-text hide">
+                                <p>결과 텍스트1</p>
+                                <p>결과 텍스트2</p>
+                            </div>
+                            <img src="../img/gold-coin-falling.gif" alt="correct-effect" id="correct-effect" class="hide">
+                        </div>
+                        <div class="betting-box">
+                            <div class="bet-odd-even">
+                                <h4>홀짝</h4>
+                                <input type="radio" id="bet-odd" name="ooe-bet" data-rate="1" data-select="odd" data-betting-type="ooe"><label for="bet-odd">홀수</label>
+                                <input type="radio" id="bet-even" name="ooe-bet" data-rate="1" data-select="even" data-betting-type="ooe"><label for="bet-even">짝수</label>
+                            </div>
+                            <div class="bet-odd-even">
+                                <h4>주사위 합</h4>
+                                <input type="radio" id="bet-sum-2" name="ooe-bet" data-rate="35" data-select="2" data-betting-type="sum"><label for="bet-sum-2">2</label>
+                                <input type="radio" id="bet-sum-3" name="ooe-bet" data-rate="17" data-select="3" data-betting-type="sum"><label for="bet-sum-3">3</label>
+                                <input type="radio" id="bet-sum-4" name="ooe-bet" data-rate="11" data-select="4" data-betting-type="sum"><label for="bet-sum-4">4</label>
+                                <input type="radio" id="bet-sum-5" name="ooe-bet" data-rate="7" data-select="5" data-betting-type="sum"><label for="bet-sum-5">5</label>
+                                <input type="radio" id="bet-sum-6" name="ooe-bet" data-rate="6.2" data-select="6" data-betting-type="sum"><label for="bet-sum-6">6</label>
+                                <input type="radio" id="bet-sum-7" name="ooe-bet" data-rate="5" data-select="7" data-betting-type="sum"><label for="bet-sum-7">7</label>
+                                <input type="radio" id="bet-sum-8" name="ooe-bet" data-rate="6.2" data-select="8" data-betting-type="sum"><label for="bet-sum-8">8</label>
+                                <input type="radio" id="bet-sum-9" name="ooe-bet" data-rate="7" data-select="9" data-betting-type="sum"><label for="bet-sum-9">9</label>
+                                <input type="radio" id="bet-sum-10" name="ooe-bet" data-rate="11" data-select="10" data-betting-type="sum"><label for="bet-sum-10">10</label>
+                                <input type="radio" id="bet-sum-11" name="ooe-bet" data-rate="17" data-select="11" data-betting-type="sum"><label for="bet-sum-11">11</label>
+                                <input type="radio" id="bet-sum-12" name="ooe-bet" data-rate="35" data-select="12" data-betting-type="sum"><label for="bet-sum-12">12</label>
+                            </div>
+                            <div class="bet-odd-even">
+                                <h4>주사위 차</h4>
+                                <input type="radio" id="bet-minus-0" name="ooe-bet" data-rate="5" data-select="0" data-betting-type="minus"><label for="bet-minus-0">0</label>
+                                <input type="radio" id="bet-minus-1" name="ooe-bet" data-rate="2" data-select="1" data-betting-type="minus"><label for="bet-minus-1">1</label>
+                                <input type="radio" id="bet-minus-2" name="ooe-bet" data-rate="3" data-select="2" data-betting-type="minus"><label for="bet-minus-2">2</label>
+                                <input type="radio" id="bet-minus-3" name="ooe-bet" data-rate="5" data-select="3" data-betting-type="minus"><label for="bet-minus-3">3</label>
+                                <input type="radio" id="bet-minus-4" name="ooe-bet" data-rate="8" data-select="4" data-betting-type="minus"><label for="bet-minus-4">4</label>
+                                <input type="radio" id="bet-minus-5" name="ooe-bet" data-rate="17" data-select="5" data-betting-type="minus"><label for="bet-minus-5">5</label>
+                            </div>
+                            <div class="bet-cash">
+                                <input type="number" id="betting-cash" readonly value="10000">
+                                <span class="lnr lnr-plus-circle bet-plus"></span>
+                                <span class="lnr lnr-circle-minus bet-minus"></span>
+                            </div>
+                            <div class="btn-betting">베팅하기</div>
+                            <div class="btns">
+                                <div class="start btn blocked">시작하기</div>
+                                <div class="restart btn blocked">다시하기</div>
+                                <div class="rule btn">설명보기
+                                    <div class="toggle-box hide">
+                                        <h4>진행순서</h4>
+                                        <p>1. 베팅 항목과 금액을 고르고 <span>베팅하기</span> 버튼을 누르세요</p>
+                                        <p>2. <span>시작하기</span>를 누르고 결과를 확인하세요</p>
+                                        <p>3. 다시하려면 <span>다시하기</span>를 누르고 1번부터 다시하세요</p>
+                                        <h4>베팅 룰</h4>
+                                        <p>1. 홀짝 맞히기 : <span>주사위 합의 홀짝</span>을 맞히면 <span>베팅금액만큼 추가</span>로 받습니다</p>
+                                        <p>2. 주사위 합 맞히기 :<span> 주사위의 합</span>을 맞히면 아래와 같이 추가로 받습니다.</p>
+                                        <p class="rate-rule"><span>2,12 - 35배 3,11 - 17배 4,10 - 11배 5,9 - 7배 6,8 - 6.2배 7 - 5배</span></p>
+                                        <p>3. 주사위 차 맞히기 : <span>주사위의 값의 차이</span>를 맞히면 아래와 같이 추가로 받습니다.</p>
+                                        <p class="rate-rule">0,3 - 5배 1 - 2배 2 - 3배 4 - 8배 5 - 17배</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="dust-class">
+                    <label>
+                      <span>* </span>
+                      <button type="button">
+                        충전하기
+                      </button>
+                    </label>
+                    <input type="text" class="txt-input" id="itempw" placeholder="충전 금액을 입력해주세요">
+                  </div>
+      
+                  <div class="dust-class ver2">
+                    <label>
+                      <span>* </span>
+                      충전잔액
+                    </label>
+                    <input type="text" class="txt-input" id="itemnew" readonly>
+                  </div>
+                </div>
+              </section>
+            </div>
+            <!-- <aside class="ad" id="right-ad"></aside> -->
+        </div>
+    </div>
+    <footer>
+        <div class="top-box"></div>
+        <div class="bottom-box">Copyright 2023-04-11. Team Casino All rights reserved.</div>
+    </footer>
+    </div>
+</body>
+
+</html>
