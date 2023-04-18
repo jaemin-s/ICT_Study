@@ -187,6 +187,12 @@ WHERE no >=1 AND no <=10;
 --문제 13. 
 ----EMPLOYEES 과 DEPARTMENTS 테이블에서 JOB_ID가 SA_MAN 사원의 정보의 LAST_NAME, JOB_ID, 
 --DEPARTMENT_ID,DEPARTMENT_NAME을 출력하세요.
+SELECT * FROM departments;
+SELECT
+    last_name, job_id, department_id,
+    (SELECT d.department_name FROM departments d WHERE e.department_id = d.department_id) as department_name
+FROM employees e
+WHERE job_id = 'SA_MAN';
 
 
 --문제 14
@@ -194,12 +200,52 @@ WHERE no >=1 AND no <=10;
 ----인원수 기준 내림차순 정렬하세요.
 ----사람이 없는 부서는 출력하지 뽑지 않습니다.
 
+SELECT
+    d.department_id, d.department_name, d.manager_id, e.cnt
+FROM departments d
+JOIN (SELECT department_id, COUNT(*) as cnt FROM employees GROUP BY department_id) e
+ON d.department_id = e.department_id
+ORDER BY e.cnt ASC;
+
 
 --문제 15
 ----부서에 대한 정보 전부와, 주소, 우편번호, 부서별 평균 연봉을 구해서 출력하세요.
 ----부서별 평균이 없으면 0으로 출력하세요.
+select * from locations;
+
+SELECT
+    v1.*, ROUND(NVL(v2.AVG,0),2) as avg
+FROM(
+    SELECT
+        d.*, loc.street_address, loc.postal_code
+    FROM departments d
+    JOIN locations loc
+    ON d.location_id = loc.location_id
+) v1
+LEFT JOIN (SELECT department_id, AVG(salary) as avg FROM employees GROUP BY department_id) v2
+ON v1.department_id = v2.department_id;
 
 
 --문제 16
 ---문제 15 결과에 대해 DEPARTMENT_ID기준으로 내림차순 정렬해서 ROWNUM을 붙여 1-10데이터 까지만
 --출력하세요.
+SELECT v4.*
+FROM(
+    SELECT ROWNUM as no, v3.*
+    FROM(
+        SELECT
+            v1.*, ROUND(NVL(v2.AVG,0),2) as avg
+        FROM(
+            SELECT
+                d.*, loc.street_address, loc.postal_code
+            FROM departments d
+            JOIN locations loc
+            ON d.location_id = loc.location_id
+            ) v1
+            LEFT JOIN (SELECT department_id, AVG(salary) as avg FROM employees GROUP BY department_id
+        ) v2
+        ON v1.department_id = v2.department_id
+        ORDER BY v1.department_id DESC
+    ) v3
+)v4
+WHERE no <=10;
