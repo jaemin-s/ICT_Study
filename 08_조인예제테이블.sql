@@ -1,4 +1,4 @@
--- Å×ÀÌºí »ı¼º
+-- í…Œì´ë¸” ìƒì„±
 CREATE TABLE info (
     id NUMBER NOT NULL,
     title VARCHAR2(100),
@@ -21,7 +21,7 @@ CREATE TABLE auth (
     )
     ENABLE
 );
--- ½ÃÄö½º »ı¼º
+-- ì‹œí€€ìŠ¤ ìƒì„±
 CREATE SEQUENCE seq_info;
 CREATE SEQUENCE seq_auth;
 
@@ -32,22 +32,21 @@ INSERT INTO info(id, title, content) VALUES(SEQ_INFO.nextval, 'oracle', 'oracle 
 INSERT INTO info(id, title, content) VALUES(SEQ_INFO.nextval, 'mysql', 'mysql is');             
 INSERT INTO info(id, title, content) VALUES(SEQ_INFO.nextval, 'c', 'c is');             
 
-INSERT INTO auth(auth_id, name, job) values(SEQ_AUTH.nextval, 'ÀÌ°æ¹Î', 'developer');
-INSERT INTO auth(auth_id, name, job) values(SEQ_AUTH.nextval, 'È«±æÀÚ', 'DBA');
-INSERT INTO auth(auth_id, name, job) values(SEQ_AUTH.nextval, 'ÀÌ¼ø½Å', 'designer');
-INSERT INTO auth(auth_id, name, job) values(SEQ_AUTH.nextval, '°í±æµ¿', 'scientist');
-INSERT INTO auth(auth_id, name, job) values(SEQ_AUTH.nextval, 'ÀÌ°æ¹Î', 'teacher');
+INSERT INTO auth(auth_id, name, job) values(SEQ_AUTH.nextval, 'ì´ê²½ë¯¼', 'developer');
+INSERT INTO auth(auth_id, name, job) values(SEQ_AUTH.nextval, 'í™ê¸¸ì', 'DBA');
+INSERT INTO auth(auth_id, name, job) values(SEQ_AUTH.nextval, 'ì´ìˆœì‹ ', 'designer');
+INSERT INTO auth(auth_id, name, job) values(SEQ_AUTH.nextval, 'ê³ ê¸¸ë™', 'scientist');
+INSERT INTO auth(auth_id, name, job) values(SEQ_AUTH.nextval, 'ì´ê²½ë¯¼', 'teacher');
 
 SELECT * FROM info;
 SELECT * FROM auth;
 
 
--- ÄÃ·³ Ãß°¡
+-- ì»¬ëŸ¼ ì¶”ê°€
 ALTER TABLE info
 ADD(auth_id NUMBER);
 
--- info Å×ÀÌºíÀÇ auth_id¿¡ authÅ×ÀÌºíÀÇ auth_id¸¦ Ãß°¡ÇÏ´Â ÀÛ¾÷.
+-- info í…Œì´ë¸”ì˜ auth_idì— authí…Œì´ë¸”ì˜ auth_idë¥¼ ì¶”ê°€í•˜ëŠ” ì‘ì—….
 UPDATE info
 SET auth_id = 3
 WHERE id = 5;
-

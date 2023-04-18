@@ -1,4 +1,4 @@
--- ÀÌ³Ê(³»ºÎ) Á¶ÀÎ
+-- ì´ë„ˆ(ë‚´ë¶€) ì¡°ì¸
 select
     *
 from info i
@@ -8,10 +8,10 @@ on i.auth_id = a.auth_id;
 select
     *
 from info i
-join auth a -- inner »ı·« °¡´É
+join auth a -- inner ìƒëµ ê°€ëŠ¥
 on i.auth_id = a.auth_id;
 
--- ¿À¶óÅ¬ ¹®¹ı (Àß ¾È¾¸)
+-- ì˜¤ë¼í´ ë¬¸ë²• (ì˜ ì•ˆì”€)
 select
     *
 from info i, auth a
@@ -25,16 +25,16 @@ from info i
 inner join auth a
 on i.auth_id = a.auth_id;
 
--- ÇÊ¿äÇÑ µ¥ÀÌÅÍ¸¸ Á¶È¸ÇÏ°Ú´Ù! ¶ó°í ÇÑ´Ù¸é
--- where ±¸¹®À» ÅëÇØ ÀÏ¹İ Á¶°ÇÀ» °É¾î ÁÖ½Ã¸é µË´Ï´Ù.
+-- í•„ìš”í•œ ë°ì´í„°ë§Œ ì¡°íšŒí•˜ê² ë‹¤! ë¼ê³  í•œë‹¤ë©´
+-- where êµ¬ë¬¸ì„ í†µí•´ ì¼ë°˜ ì¡°ê±´ì„ ê±¸ì–´ ì£¼ì‹œë©´ ë©ë‹ˆë‹¤.
 select
     i.auth_id, i.title, i.content, a.name
 from info i
 inner join auth a
 on i.auth_id = a.auth_id
-where a.name = 'ÀÌ¼ø½Å';
+where a.name = 'ì´ìˆœì‹ ';
 
--- ¾Æ¿ìÅÍ(¿ÜºÎ) Á¶ÀÎ
+-- ì•„ìš°í„°(ì™¸ë¶€) ì¡°ì¸
 select 
     *
 from info i left outer join auth a
@@ -42,22 +42,22 @@ on i.auth_id = a.auth_id;
 
 select 
     *
-from info i left join auth a -- join¿¡ left or right¸¦ ºÙÀÌ¸é outer »ı·« °¡´É
+from info i left join auth a -- joinì— left or rightë¥¼ ë¶™ì´ë©´ outer ìƒëµ ê°€ëŠ¥
 on i.auth_id = a.auth_id;
 
--- ÁÂÃø Å×ÀÌºí°ú ¿ìÃø Å×ÀÌºí µ¥ÀÌÅÍ¸¦ ¸ğµÎ ÀĞ¾î Áßº¹µÈ µ¥ÀÌÅÍ´Â »èÁ¦µÇ´Â ¿ÜºÎ Á¶ÀÎ
+-- ì¢Œì¸¡ í…Œì´ë¸”ê³¼ ìš°ì¸¡ í…Œì´ë¸” ë°ì´í„°ë¥¼ ëª¨ë‘ ì½ì–´ ì¤‘ë³µëœ ë°ì´í„°ëŠ” ì‚­ì œë˜ëŠ” ì™¸ë¶€ ì¡°ì¸
 select *
 from info i full join auth a
 on i.auth_id = a.auth_id;
 
--- cross joinÀº joinÁ¶°ÇÀ» ¼³Á¤ÇÏÁö ¾Ê±â ´ë¹®¿¡
--- ´Ü¼øÈ÷ ¸ğµç ÄÃ·³¿¡ ´ëÇØ joinÀ» ÁøÇàÇÕ´Ï´Ù.
--- ½ÇÁ¦·Î´Â °ÅÀÇ »ç¿ëÇÏÁö ¾Ê½À´Ï´Ù.
+-- cross joinì€ joinì¡°ê±´ì„ ì„¤ì •í•˜ì§€ ì•Šê¸° ëŒ€ë¬¸ì—
+-- ë‹¨ìˆœíˆ ëª¨ë“  ì»¬ëŸ¼ì— ëŒ€í•´ joinì„ ì§„í–‰í•©ë‹ˆë‹¤.
+-- ì‹¤ì œë¡œëŠ” ê±°ì˜ ì‚¬ìš©í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤.
 select * from info
 cross join auth
 order by id asc;
 
--- ¿©·¯ °³ Å×ÀÌºí Á¶ÀÎ -> Å° °ª¸¸ Ã£¾Æ¼­ ±¸¹®À» ¿¬°áÇØ¼­ ¾²½Ã¸é µË´Ï´Ù.
+-- ì—¬ëŸ¬ ê°œ í…Œì´ë¸” ì¡°ì¸ -> í‚¤ ê°’ë§Œ ì°¾ì•„ì„œ êµ¬ë¬¸ì„ ì—°ê²°í•´ì„œ ì“°ì‹œë©´ ë©ë‹ˆë‹¤.
 select
     *
 from employees e
@@ -65,9 +65,9 @@ left join departments d on e.department_id = d.department_id
 left join locations loc on d.location_id = loc.location_id;
 
 /*
-- Å×ÀÌºí º°Äª a, i¸¦ ÀÌ¿ëÇÏ¿© left outer join »ç¿ë
-- info, auth Å×ÀÌºí »ç¿ë
-- job ÄÃ·³ÀÌ scientistÀÎ »ç¶÷ÀÇ id,title,content,jobÀ» Ãâ·Â
+- í…Œì´ë¸” ë³„ì¹­ a, ië¥¼ ì´ìš©í•˜ì—¬ left outer join ì‚¬ìš©
+- info, auth í…Œì´ë¸” ì‚¬ìš©
+- job ì»¬ëŸ¼ì´ scientistì¸ ì‚¬ëŒì˜ id,title,content,jobì„ ì¶œë ¥
 */
 select
     i.title,i.content,
@@ -77,8 +77,8 @@ left join info i
 on i.auth_id = a.auth_id
 where a.job = 'scientist';
 
--- ¼¿ÇÁ Á¶ÀÎÀÌ¶õ µ¿ÀÏ Å×ÀÌºí »çÀÌÀÇ Á¶ÀÎÀ» ¸»ÇÕ´Ï´Ù.
--- µ¿ÀÏ Å×ÀÌºí ÄÃ·³À» ÅëÇØ ±âÁ¸¿¡ Á¸ÀçÇÏ´Â °ªÀ» ¸ÅÄª½ÃÄÑ °¡Á®¿Ã ‹š »ç¿ëÇÕ´Ï´Ù.
+-- ì…€í”„ ì¡°ì¸ì´ë€ ë™ì¼ í…Œì´ë¸” ì‚¬ì´ì˜ ì¡°ì¸ì„ ë§í•©ë‹ˆë‹¤.
+-- ë™ì¼ í…Œì´ë¸” ì»¬ëŸ¼ì„ í†µí•´ ê¸°ì¡´ì— ì¡´ì¬í•˜ëŠ” ê°’ì„ ë§¤ì¹­ì‹œì¼œ ê°€ì ¸ì˜¬ Â‹Âš ì‚¬ìš©í•©ë‹ˆë‹¤.
 select
     e1.employee_id, e1.first_name, e1.manager_id,
     e2.first_name, e2.employee_id

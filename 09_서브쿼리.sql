@@ -1,16 +1,29 @@
 /*
-    ¼­ºêÄõ¸®
+    ì„œë¸Œì¿¼ë¦¬
     
-    - ¼­ºêÄõ¸®ÀÇ »ç¿ë¹æ¹ıÀº () ¾È¿¡ ¸í½ÃÇÔ.
-    ¼­ºêÄõ¸®ÀıÀÇ ¸®ÅÏÇàÀÌ 1ÁÙ ÀÌÇÏ¿©¾ß ÇÕ´Ï´Ù.
-    - ¼­ºêÄõ¸® Àı¿¡´Â ºñ±³ÇÒ ´ë»óÀÌ ÇÏ³ª ¹İµå½Ã µé¾î°¡¾ßÇÕ´Ï´Ù.
-    - ÇØ¼®ÇÒ ´ë´Â ¼­ºêÄõ¸®Àı ºÎÅÍ ¸ÕÀú ÇØ¼®ÇÏ¸é µË´Ï´Ù.
+    - ì„œë¸Œì¿¼ë¦¬ì˜ ì‚¬ìš©ë°©ë²•ì€ () ì•ˆì— ëª…ì‹œí•¨.
+    ì„œë¸Œì¿¼ë¦¬ì ˆì˜ ë¦¬í„´í–‰ì´ 1ì¤„ ì´í•˜ì—¬ì•¼ í•©ë‹ˆë‹¤.
+    - ì„œë¸Œì¿¼ë¦¬ ì ˆì—ëŠ” ë¹„êµí•  ëŒ€ìƒì´ í•˜ë‚˜ ë°˜ë“œì‹œ ë“¤ì–´ê°€ì•¼í•©ë‹ˆë‹¤.
+    - í•´ì„í•  ëŒ€ëŠ” ì„œë¸Œì¿¼ë¦¬ì ˆ ë¶€í„° ë¨¼ì € í•´ì„í•˜ë©´ ë©ë‹ˆë‹¤.
 */
 
--- 'Nancy'ÀÇ ±Ş¿©º¸´Ù ±Ş¿©°¡ ¸¹Àº »ç¶÷À» °Ë»öÇÏ´Â ¹®Àå.
+-- 'Nancy'ì˜ ê¸‰ì—¬ë³´ë‹¤ ê¸‰ì—¬ê°€ ë§ì€ ì‚¬ëŒì„ ê²€ìƒ‰í•˜ëŠ” ë¬¸ì¥.
 SELECT salary FROM employees WHERE first_name = 'Nancy';
 
 SELECT * FROM employees
 WHERE salary > (SELECT salary 
                 FROM employees 
                 WHERE first_name = 'Nancy');
+                
+-- employee_id 103ë²ˆì¸ ì‚¬ëŒê³¼ job_idê°€ ë™ì¼í•œ ì‚¬ëŒì„ ê²€ìƒ‰í•˜ëŠ” ë¬¸ì¥.
+SELECT job_id FROM employees WHERE employee_id = 103;
+
+SELECT * 
+FROM employees
+WHERE job_id = 
+    (SELECT job_id FROM employees WHERE employee_id = 103);
+
+SELECT * 
+FROM employees
+WHERE job_id = 
+    (SELECT job_id FROM employees WHERE job_id = 'IT_PROG');    -- ì„œë¸Œì¿¼ë¦¬ì˜ ê²°ê³¼ëŠ” í•œì¤„ì´ì—¬ì•¼ë¨

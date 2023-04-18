@@ -1,18 +1,17 @@
 /*
-Á¶ÀÎÀÌ¶õ?
-- ¼­·Î ´Ù¸¥ Å×ÀÌºí°£¿¡ ¼³Á¤µÈ °ü°è°¡ °áÇÕÇÏ¿©
-1°³ ÀÌ»óÀÇ Å×ÀÌºí¿¡¼­ µ¥ÀÌÅÍ¸¦ Á¶È¸ÇÏ±â À§ÇØ »ç¿ëÇÕ´Ï´Ù.
-
-select ÄÃ·³¸®½ºÆ® from Á¶ÀÎ ´ë»óÀÌ µÇ´Â Å×ÀÌºí (1°³ ÀÌ»ó)
-where Á¶ÀÎ Á¶°Ç -> ¿À¶óÅ¬ Á¶ÀÎ
+ì¡°ì¸ì´ëž€?
+- ì„œë¡œ ë‹¤ë¥¸ í…Œì´ë¸”ê°„ì— ì„¤ì •ëœ ê´€ê³„ê°€ ê²°í•©í•˜ì—¬
+1ê°œ ì´ìƒì˜ í…Œì´ë¸”ì—ì„œ ë°ì´í„°ë¥¼ ì¡°íšŒí•˜ê¸° ìœ„í•´ ì‚¬ìš©í•©ë‹ˆë‹¤.
+select ì»¬ëŸ¼ë¦¬ìŠ¤íŠ¸ from ì¡°ì¸ ëŒ€ìƒì´ ë˜ëŠ” í…Œì´ë¸” (1ê°œ ì´ìƒ)
+where ì¡°ì¸ ì¡°ê±´ -> ì˜¤ë¼í´ ì¡°ì¸
 */
 
--- employees Å×ÀÌºíÀÇ ºÎ¼­ id¿Í ÀÏÄ¡ÇÏ´Â departments Å×ÀÌºíÀÇ ºÎ¼­ id¸¦ Ã£¾Æ¼­
--- select ÀÌÇÏ¿¡ ÀÖ´Â ÄÃ·³µéÀ» Ãâ·ÂÇÏ´Â Äõ¸®¹®
+-- employees í…Œì´ë¸”ì˜ ë¶€ì„œ idì™€ ì¼ì¹˜í•˜ëŠ” departments í…Œì´ë¸”ì˜ ë¶€ì„œ idë¥¼ ì°¾ì•„ì„œ
+-- select ì´í•˜ì— ìžˆëŠ” ì»¬ëŸ¼ë“¤ì„ ì¶œë ¥í•˜ëŠ” ì¿¼ë¦¬ë¬¸
 
 select
-    first_name, -- ÇÑÂÊ¸¸ °¡Áö°í ÀÖ´Â ÄÃ·³Àº Å×ÀÌºíÀ» µû·Î ¾ÈºÙ¿©µµµÊ
-    e.department_id, --°øÅë ÄÃ·³Àº ¾î´À Å×ÀÌºí¿¡¼­ ²¨³»¿Ã Áö¸¦ ÀÛ¼ºÇØ¾ßÇÔ
+    first_name, -- í•œìª½ë§Œ ê°€ì§€ê³  ìžˆëŠ” ì»¬ëŸ¼ì€ í…Œì´ë¸”ì„ ë”°ë¡œ ì•ˆë¶™ì—¬ë„ë¨
+    e.department_id, --ê³µí†µ ì»¬ëŸ¼ì€ ì–´ëŠ í…Œì´ë¸”ì—ì„œ êº¼ë‚´ì˜¬ ì§€ë¥¼ ìž‘ì„±í•´ì•¼í•¨
     department_name
 from employees e, departments d
 where e.department_id = d.department_id;
@@ -23,19 +22,18 @@ select
     department_name
 from employees e
 inner join departments d
-on e.department_id = d.department_id; -- ansi Ç¥ÁØ Á¶ÀÎ ¹®¹ý
+on e.department_id = d.department_id; -- ansi í‘œì¤€ ì¡°ì¸ ë¬¸ë²•
 
 /*
-°¢°¢ÀÇ Å×ÀÌºí¿¡ µ¶¸³ÀûÀ¸·Î Á¸ÀçÇÏ´Â ÄÃ·³ÀÇ °æ¿ì¿¡´Â
-Å×ÀÌºí ÀÌ¸§À» »ý·«ÇØµµ ¹«¹æÇÕ´Ï´Ù ±×·¯³ª ÇØ¼®ÀÇ ¸íÈ®¼ºÀ» À§ÇØ
-Å×ÀÌºí ÀÌ¸§À» ÀÛ¼ºÇØ¼Å¼­ ¼Ò¼ÓÀ» Ç¥ÇöÇØ ÁÖ´Â °ÍÀÌ ¹Ù¶÷Á÷ÇÕ´Ï´Ù.
-Å×ÀÌºí ÀÌ¸§ÀÌ ³Ê¹« ±æ ½Ã¿¡´Â alias¸¦ ÀÛ¼ºÇÏ¿© ÄªÇÕ´Ï´Ù.
-µÎ Å×ÀÌºíÀÌ ¸ðµÎ °¡Áö°í ÀÖ´Â ÄÃ·³ÀÇ °æ¿ì ¹Ýµå½Ã ¸í½ÃÇØ ÁÖ¼Å¾ß ÇÕ´Ï´Ù.
-
+ê°ê°ì˜ í…Œì´ë¸”ì— ë…ë¦½ì ìœ¼ë¡œ ì¡´ìž¬í•˜ëŠ” ì»¬ëŸ¼ì˜ ê²½ìš°ì—ëŠ”
+í…Œì´ë¸” ì´ë¦„ì„ ìƒëžµí•´ë„ ë¬´ë°©í•©ë‹ˆë‹¤ ê·¸ëŸ¬ë‚˜ í•´ì„ì˜ ëª…í™•ì„±ì„ ìœ„í•´
+í…Œì´ë¸” ì´ë¦„ì„ ìž‘ì„±í•´ì…”ì„œ ì†Œì†ì„ í‘œí˜„í•´ ì£¼ëŠ” ê²ƒì´ ë°”ëžŒì§í•©ë‹ˆë‹¤.
+í…Œì´ë¸” ì´ë¦„ì´ ë„ˆë¬´ ê¸¸ ì‹œì—ëŠ” aliasë¥¼ ìž‘ì„±í•˜ì—¬ ì¹­í•©ë‹ˆë‹¤.
+ë‘ í…Œì´ë¸”ì´ ëª¨ë‘ ê°€ì§€ê³  ìžˆëŠ” ì»¬ëŸ¼ì˜ ê²½ìš° ë°˜ë“œì‹œ ëª…ì‹œí•´ ì£¼ì…”ì•¼ í•©ë‹ˆë‹¤.
 */
 
--- 3°³ÀÇ Å×ÀÌºíÀ» ÀÌ¿ëÇÑ ³»ºÎ Á¶ÀÎ (inner join)
--- ³»ºÎ Á¶ÀÎ : µÎ Å×ÀÌºí¿¡¼­ ¸ðµÎ ÀÏÄ¡ÇÏ´Â °ªÀ» °¡Áø Çà¸¸ ¹ÝÈ¯ÇÕ´Ï´Ù.
+-- 3ê°œì˜ í…Œì´ë¸”ì„ ì´ìš©í•œ ë‚´ë¶€ ì¡°ì¸ (inner join)
+-- ë‚´ë¶€ ì¡°ì¸ : ë‘ í…Œì´ë¸”ì—ì„œ ëª¨ë‘ ì¼ì¹˜í•˜ëŠ” ê°’ì„ ê°€ì§„ í–‰ë§Œ ë°˜í™˜í•©ë‹ˆë‹¤.
 
 select
     e.first_name, e.last_name, e.department_id,
@@ -65,19 +63,19 @@ and
     loc.state_province = 'California'; -- 1
     
 /*
-1. loc Å×ÀÌºíÀÇ province = 'California' Á¶°Ç¿¡ ¸Â´Â °ªÀ» ´ë»óÀ¸·Î
-2. location_id °ª°ú °°Àº °ªÀ» °¡Áö´Â µ¥ÀÌÅÍ¸¦
-    departments¿¡¼­ Ã£¾Æ¼­ Á¶ÀÎ
-3. À§ÀÇ °á°ú¿Í µ¿ÀÏÇÑ department_id¸¦ °¡Áø
-    employees Å×ÀÌºíÀÇ µ¥ÀÌÅÍ¸¦ Ã£¾Æ¼­ Á¶ÀÎ
-4. À§ÀÇ °á°ú¿Í jobs Å×ÀÌºíÀ» ºñ±³ÇÏ¿© Á¶ÀÎÇÏ°í ÃÖÁ¾ °á°ú¸¦ Ãâ·Â    
+1. loc í…Œì´ë¸”ì˜ province = 'California' ì¡°ê±´ì— ë§žëŠ” ê°’ì„ ëŒ€ìƒìœ¼ë¡œ
+2. location_id ê°’ê³¼ ê°™ì€ ê°’ì„ ê°€ì§€ëŠ” ë°ì´í„°ë¥¼
+    departmentsì—ì„œ ì°¾ì•„ì„œ ì¡°ì¸
+3. ìœ„ì˜ ê²°ê³¼ì™€ ë™ì¼í•œ department_idë¥¼ ê°€ì§„
+    employees í…Œì´ë¸”ì˜ ë°ì´í„°ë¥¼ ì°¾ì•„ì„œ ì¡°ì¸
+4. ìœ„ì˜ ê²°ê³¼ì™€ jobs í…Œì´ë¸”ì„ ë¹„êµí•˜ì—¬ ì¡°ì¸í•˜ê³  ìµœì¢… ê²°ê³¼ë¥¼ ì¶œë ¥    
 */
 
--- ¿ÜºÎ Á¶ÀÎ
+-- ì™¸ë¶€ ì¡°ì¸
 /*
-»óÈ£ Å×ÀÌºí°£¿¡ ÀÏÄ¡µÇ´Â °ªÀ¸·Î ¿¬°áµÇ´Â ³»ºÎ Á¶ÀÎ°ú´Â ´Ù¸£°Ô
-¾î´À ÇÑ Å×ÀÌºí¿¡ °øÅë °ªÀÌ ¾ø´õ¶óµµ ÇØ´ç rowµéÀÌ Á¶È¸ °á°ú¿¡
-¸ðµÎ Æ÷ÇÔµÇ´Â Á¶ÀÎÀ» ¸»ÇÕ´Ï´Ù
+ìƒí˜¸ í…Œì´ë¸”ê°„ì— ì¼ì¹˜ë˜ëŠ” ê°’ìœ¼ë¡œ ì—°ê²°ë˜ëŠ” ë‚´ë¶€ ì¡°ì¸ê³¼ëŠ” ë‹¤ë¥´ê²Œ
+ì–´ëŠ í•œ í…Œì´ë¸”ì— ê³µí†µ ê°’ì´ ì—†ë”ë¼ë„ í•´ë‹¹ rowë“¤ì´ ì¡°íšŒ ê²°ê³¼ì—
+ëª¨ë‘ í¬í•¨ë˜ëŠ” ì¡°ì¸ì„ ë§í•©ë‹ˆë‹¤
 */
 
 select
@@ -88,16 +86,16 @@ where e.department_id = d.department_id(+)
 and d.location_id = loc.location_id;
 
 /*
-    employees Å×ÀÌºí¿¡´Â Á¸ÀçÇÏ°í, departments Å×ÀÌºí¿¡´Â Á¸ÀçÇÏÁö ¾Ê¾Æµµ
-    (+)°¡ ºÙÁö ¾ÊÀº Å×ÀÌºíÀ» ±âÁØÀ¸·Î ÇÏ¿© departments Å×ÀÌºíÀÌ Á¶ÀÎ¿¡
-    Âü¿©ÇÏ¶ó´Â ÀÇ¹Ì¸¦ ºÎ¿©ÇÏ±â À§ÇØ ±âÈ£¸¦ ºÙÀÔ´Ï´Ù.
-    ¿ÜºÎ Á¶ÀÎÀ» »ç¿ëÇß´õ¶óµµ, ÀÌÈÄ¿¡ ³»ºÎ Á¶ÀÎÀ» »ç¿ëÇÏ¸é
-    ³»ºÎÁ¶ÀÎÀ» ¿ì¼±ÀûÀ¸·Î ÀÎ½ÄÇÕ´Ï´Ù.
+    employees í…Œì´ë¸”ì—ëŠ” ì¡´ìž¬í•˜ê³ , departments í…Œì´ë¸”ì—ëŠ” ì¡´ìž¬í•˜ì§€ ì•Šì•„ë„
+    (+)ê°€ ë¶™ì§€ ì•Šì€ í…Œì´ë¸”ì„ ê¸°ì¤€ìœ¼ë¡œ í•˜ì—¬ departments í…Œì´ë¸”ì´ ì¡°ì¸ì—
+    ì°¸ì—¬í•˜ë¼ëŠ” ì˜ë¯¸ë¥¼ ë¶€ì—¬í•˜ê¸° ìœ„í•´ ê¸°í˜¸ë¥¼ ë¶™ìž…ë‹ˆë‹¤.
+    ì™¸ë¶€ ì¡°ì¸ì„ ì‚¬ìš©í–ˆë”ë¼ë„, ì´í›„ì— ë‚´ë¶€ ì¡°ì¸ì„ ì‚¬ìš©í•˜ë©´
+    ë‚´ë¶€ì¡°ì¸ì„ ìš°ì„ ì ìœ¼ë¡œ ì¸ì‹í•©ë‹ˆë‹¤.
 */
 
 /*
-    ¿ÜºÎ Á¶ÀÎ ÁøÇà ½Ã ¸ðµç Á¶°Ç¿¡ (+)¸¦ ºÙ¿©¾ß ¿ÜºÎ Á¶ÀÎÀÌ À¯ÁöµË´Ï´Ù.
-    ÀÏ¹Ý Á¶°Ç¿¡µµ (+)¸¦ ºÙÀÌÁö ¾ÊÀ¸¸é ¿ÜºÎ Á¶ÀÎÀÌ Ç®¸®´Â Çö»óÀÌ ¹ß»ý. (µ¥ÀÌÅÍ ´©¶ô)
+    ì™¸ë¶€ ì¡°ì¸ ì§„í–‰ ì‹œ ëª¨ë“  ì¡°ê±´ì— (+)ë¥¼ ë¶™ì—¬ì•¼ ì™¸ë¶€ ì¡°ì¸ì´ ìœ ì§€ë©ë‹ˆë‹¤.
+    ì¼ë°˜ ì¡°ê±´ì—ë„ (+)ë¥¼ ë¶™ì´ì§€ ì•Šìœ¼ë©´ ì™¸ë¶€ ì¡°ì¸ì´ í’€ë¦¬ëŠ” í˜„ìƒì´ ë°œìƒ. (ë°ì´í„° ëˆ„ë½)
 */
 select
     e.employee_id, e.first_name,
@@ -106,5 +104,3 @@ select
 from employees e, job_history j
 where e.employee_id = j.employee_id(+)
 and j.department_id(+) = 80;
-
-

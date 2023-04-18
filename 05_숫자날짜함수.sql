@@ -1,33 +1,33 @@
--- ¼ýÀÚÇÔ¼ö
--- ROUND(¹Ý¿Ã¸²)
--- ¿øÇÏ´Â ¹Ý¿Ã¸² À§Ä¡¸¦ ¸Å°³°ªÀ¸·Î ÁöÁ¤. À½¼ö¸¦ ÁÖ´Â °Íµµ °¡´É
+-- ìˆ«ìží•¨ìˆ˜
+-- ROUND(ë°˜ì˜¬ë¦¼)
+-- ì›í•˜ëŠ” ë°˜ì˜¬ë¦¼ ìœ„ì¹˜ë¥¼ ë§¤ê°œê°’ìœ¼ë¡œ ì§€ì •. ìŒìˆ˜ë¥¼ ì£¼ëŠ” ê²ƒë„ ê°€ëŠ¥
 
 SELECT
     ROUND(3.1415, 3), ROUND(45.923,0), ROUND(45.923,-1)
 FROM dual;    
 
--- TRUNC(Àý»ç)
--- Á¤ÇØÁø ¼Ò¼öÁ¡ ÀÚ¸®¼ö±îÁö Àß¶ó³À´Ï´Ù.
+-- TRUNC(ì ˆì‚¬)
+-- ì •í•´ì§„ ì†Œìˆ˜ì  ìžë¦¬ìˆ˜ê¹Œì§€ ìž˜ë¼ëƒ…ë‹ˆë‹¤.
 SELECT
     TRUNC(3.1415, 3), TRUNC(45.923,0), TRUNC(45.923,-1)
 FROM dual;
 
--- ABS(Àý´ë°ª)
+-- ABS(ì ˆëŒ€ê°’)
 SELECT ABS(-34) FROM dual;
 
--- CELL(¿Ã¸²), FLOOR(³»¸²)
+-- CELL(ì˜¬ë¦¼), FLOOR(ë‚´ë¦¼)
 SELECT CEIL(3.14), FLOOR(3.14)
 FROM dual;
 
--- MOD(³ª¸ÓÁö)
+-- MOD(ë‚˜ë¨¸ì§€)
 SELECT 10 / 4, MOD(10,4)
 FROM dual;
 
--- ³¯Â¥ ÇÔ¼ö
+-- ë‚ ì§œ í•¨ìˆ˜
 SELECT sysdate FROM dual;
 SELECT systimestamp FROM dual;
 
--- ³¯Â¥µµ ¿¬»êÀÌ °¡´ÉÇÕ´Ï´Ù.
+-- ë‚ ì§œë„ ì—°ì‚°ì´ ê°€ëŠ¥í•©ë‹ˆë‹¤.
 SELECT sysdate + 1 FROM dual;
 
 SELECT first_name, sysdate - hire_date
@@ -41,13 +41,13 @@ SELECT first_name, hire_date,
 (sysdate - hire_date) / 365 AS year
 FROM employees;
 
--- ³¯Â¥ ¹Ý¿Ã¸², Àý»ç
-SELECT ROUND (sysdate) FROM dual; -- Á¤¿À¸¦ ±âÁØÀ¸·Î day ¹Ý¿Ã¸²
+-- ë‚ ì§œ ë°˜ì˜¬ë¦¼, ì ˆì‚¬
+SELECT ROUND (sysdate) FROM dual; -- ì •ì˜¤ë¥¼ ê¸°ì¤€ìœ¼ë¡œ day ë°˜ì˜¬ë¦¼
 SELECT ROUND(sysdate,'year') FROM dual;
 SELECT ROUND (sysdate, 'month') FROM dual;
-SELECT ROUND (sysdate, 'day') FROM dual; -- ÀÏ¿ùÈ­¼ö¸ñ±ÝÅä¸¦ ´ÜÀ§·Î ¹Ý¿Ã¸²
+SELECT ROUND (sysdate, 'day') FROM dual; -- ì¼ì›”í™”ìˆ˜ëª©ê¸ˆí† ë¥¼ ë‹¨ìœ„ë¡œ ë°˜ì˜¬ë¦¼
 
 SELECT TRUNC (sysdate) FROM dual;
 SELECT TRUNC(sysdate,'year') FROM dual;
 SELECT TRUNC (sysdate, 'month') FROM dual;
-SELECT TRUNC (sysdate, 'day') FROM dual; -- ÀÏ¿ùÈ­¼ö¸ñ±ÝÅä
+SELECT TRUNC (sysdate, 'day') FROM dual; -- ì¼ì›”í™”ìˆ˜ëª©ê¸ˆí† 

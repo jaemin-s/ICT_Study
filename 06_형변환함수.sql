@@ -1,17 +1,17 @@
--- Çü º¯È¯ÇÔ¼ö TO_CHAR, TH_NUMBER, TO_DATE
+-- í˜• ë³€í™˜í•¨ìˆ˜ TO_CHAR, TH_NUMBER, TO_DATE
 
--- ³¯Â¥¸¦ ¹®ÀÚ·Î TO_CHAR (°ª, Çü½Ä)
+-- ë‚ ì§œë¥¼ ë¬¸ìžë¡œ TO_CHAR (ê°’, í˜•ì‹)
 SELECT TO_CHAR(sysdate) FROM dual;
 SELECT TO_CHAR(sysdate, 'YYYY-MM-DD DAY PM HH:MI:SS') FROM dual;
 SELECT TO_CHAR(sysdate, 'YYYY-MM-DD HH24:MI:SS') FROM dual;
 
---  »ç¿ëÇÏ°í ½ÍÀº ¹®ÀÚ¸¦ ""·Î ¹­¾î Àü´ÞÇÕ´Ï´Ù
-SELECT first_name, TO_CHAR(hire_date,'YYYY"³â" MM"¿ù" DD"ÀÏ"')
+--  ì‚¬ìš©í•˜ê³  ì‹¶ì€ ë¬¸ìžë¥¼ ""ë¡œ ë¬¶ì–´ ì „ë‹¬í•©ë‹ˆë‹¤
+SELECT first_name, TO_CHAR(hire_date,'YYYY"ë…„" MM"ì›”" DD"ì¼"')
 FROM employees;
 
--- ¼ýÀÚ¸¦ ¹®ÀÚ·Î  TO_CHAR(°ª, Çü½Ä)
+-- ìˆ«ìžë¥¼ ë¬¸ìžë¡œ  TO_CHAR(ê°’, í˜•ì‹)
 SELECT TO_CHAR(20000,'99999') FROM dual;
--- ÁÖ¾îÁø ÀÚ¸´¼ö¿¡ ¼ýÀÚ¸¦ ¸ðµÎ Ç¥±âÇÒ ¼ö ¾ø¾î¼­ ¸ðµÎ #À¸·Î Ç¥±âµË´Ï´Ù.
+-- ì£¼ì–´ì§„ ìžë¦¿ìˆ˜ì— ìˆ«ìžë¥¼ ëª¨ë‘ í‘œê¸°í•  ìˆ˜ ì—†ì–´ì„œ ëª¨ë‘ #ìœ¼ë¡œ í‘œê¸°ë©ë‹ˆë‹¤.
 SELECT TO_CHAR(20000,'9999') FROM dual;
 SELECT TO_CHAR(20000.29,'99999.9') FROM dual;
 SELECT TO_CHAR(20000,'99,999') FROM dual;
@@ -19,25 +19,25 @@ SELECT TO_CHAR(20000,'99,999') FROM dual;
 SELECT TO_CHAR(salary, 'L99,999') AS salary
 FROM employees;
 
--- ¹®ÀÚ¸¦ ¼ýÀÚ·Î TO_NUMBER(°ª, Çü½Ä)
-SELECT '2000' + 2000 FROM dual; -- ÀÚµ¿ Çü º¯È¯ (¹®ÀÚ >> ¼ýÀÚ)
-SELECT TO_NUMBER('2000') + 2000 FROM dual; -- ¸í½ÃÀû Çü º¯È¯
-SELECT '$3,300' + 2000 FROM dual; -- ¿¡·¯
+-- ë¬¸ìžë¥¼ ìˆ«ìžë¡œ TO_NUMBER(ê°’, í˜•ì‹)
+SELECT '2000' + 2000 FROM dual; -- ìžë™ í˜• ë³€í™˜ (ë¬¸ìž >> ìˆ«ìž)
+SELECT TO_NUMBER('2000') + 2000 FROM dual; -- ëª…ì‹œì  í˜• ë³€í™˜
+SELECT '$3,300' + 2000 FROM dual; -- ì—ëŸ¬
 SELECT TO_NUMBER('$3,300', '$9,999') + 2000 FROM dual;
 
--- ¹®ÀÚ¸¦ ³¯Â¥·Î º¯È¯ÇÏ´Â ÇÔ¼ö TO_DATE(°ª, Çü½Ä)
+-- ë¬¸ìžë¥¼ ë‚ ì§œë¡œ ë³€í™˜í•˜ëŠ” í•¨ìˆ˜ TO_DATE(ê°’, í˜•ì‹)
 SELECT TO_DATE('2023-04-13') FROM dual;
 SELECT sysdate - TO_DATE('2021-03-26') FROM dual;
 SELECT TO_DATE('2020/12/25', 'YY-MM-DD') FROM dual;
--- ÁÖ¾îÁø ¹®ÀÚ¿­À» ¸ðµÎ º¯È¯ÇØ¾ß ÇÕ´Ï´Ù.
+-- ì£¼ì–´ì§„ ë¬¸ìžì—´ì„ ëª¨ë‘ ë³€í™˜í•´ì•¼ í•©ë‹ˆë‹¤.
 SELECT TO_DATE('2020-03-31 12:23:50', 'YY-MM-DD') FROM dual;
 
--- xxxx³â xx¿ù xxÀÏ ¹®ÀÚ¿­ Çü½ÄÀ¸·Î º¯È¯ÇØ º¸¼¼¿ä
--- Á¶È¸ ÄÃ·³¸íÀº dateInfo ¶ó°í ÇÏ°Ú½À´Ï´Ù.
-SELECT TO_CHAR(TO_DATE('20050102'),'YYYY"³â" MM"¿ù" DD"ÀÏ"') AS dateInfo
+-- xxxxë…„ xxì›” xxì¼ ë¬¸ìžì—´ í˜•ì‹ìœ¼ë¡œ ë³€í™˜í•´ ë³´ì„¸ìš”
+-- ì¡°íšŒ ì»¬ëŸ¼ëª…ì€ dateInfo ë¼ê³  í•˜ê² ìŠµë‹ˆë‹¤.
+SELECT TO_CHAR(TO_DATE('20050102'),'YYYY"ë…„" MM"ì›”" DD"ì¼"') AS dateInfo
 FROM dual;
 
--- NULL Á¦°Å ÇÔ¼ö NVL(ÄÃ·³, º¯È¯ÇÒ Å¸°Ù°ª)
+-- NULL ì œê±° í•¨ìˆ˜ NVL(ì»¬ëŸ¼, ë³€í™˜í•  íƒ€ê²Ÿê°’)
 SELECT null FROM dual;
 SELECT NVL(null, 0) FROM dual;
 
@@ -46,9 +46,9 @@ SELECT
     NVL(commission_pct, 0) AS comm_pct
 FROM employees;
 
--- NULL Á¦°Å ÇÔ¼ö NVL2(ÄÃ·³, nullÀÌ ¾Æ´Ò °æ¿ìÀÇ °ª, nullÀÏ °æ¿ìÀÇ °ª)
+-- NULL ì œê±° í•¨ìˆ˜ NVL2(ì»¬ëŸ¼, nullì´ ì•„ë‹ ê²½ìš°ì˜ ê°’, nullì¼ ê²½ìš°ì˜ ê°’)
 SELECT
-    NVL2('abc', '³Î¾Æ´Ô', '³ÎÀÓ')
+    NVL2('abc', 'ë„ì•„ë‹˜', 'ë„ìž„')
 FROM dual;
 
 SELECT
@@ -62,9 +62,9 @@ SELECT
     salary + (salary * NVL(commission_pct,0)) AS real_salary
 FROM employees;   
 
--- DECODE(ÄÃ·³ È¤Àº Ç¥Çö½Ä, Ç×¸ñ1, °á°ú1, Ç×¸ñ2, °á°ú2 ....... default) switch¶û ºñ½Á
+-- DECODE(ì»¬ëŸ¼ í˜¹ì€ í‘œí˜„ì‹, í•­ëª©1, ê²°ê³¼1, í•­ëª©2, ê²°ê³¼2 ....... default) switchëž‘ ë¹„ìŠ·
 SELECT
-    DECODE('F', 'A', 'AÀÔ´Ï´Ù.', 'B','BÀÔ´Ï´Ù.','C','CÀÔ´Ï´Ù.','¸ð¸£°Ú´Âµ¥¿ä')
+    DECODE('F', 'A', 'Aìž…ë‹ˆë‹¤.', 'B','Bìž…ë‹ˆë‹¤.','C','Cìž…ë‹ˆë‹¤.','ëª¨ë¥´ê² ëŠ”ë°ìš”')
 FROM dual;
 
 SELECT
@@ -96,38 +96,38 @@ FROM employees;
 SELECT 
     *
 FROM employees;
---¹®Á¦ 1.
---ÇöÀçÀÏÀÚ¸¦ ±âÁØÀ¸·Î EMPLOYEEÅ×ÀÌºíÀÇ ÀÔ»çÀÏÀÚ(hire_date)¸¦ ÂüÁ¶ÇØ¼­ ±Ù¼Ó³â¼ö°¡ 17³â ÀÌ»óÀÎ
---»ç¿øÀ» ´ÙÀ½°ú °°Àº ÇüÅÂÀÇ °á°ú¸¦ Ãâ·ÂÇÏµµ·Ï Äõ¸®¸¦ ÀÛ¼ºÇØ º¸¼¼¿ä. 
---Á¶°Ç 1) ±Ù¼Ó³â¼ö°¡ ³ôÀº »ç¿ø ¼ø¼­´ë·Î °á°ú°¡ ³ª¿Àµµ·Ï ÇÕ´Ï´Ù
+--ë¬¸ì œ 1.
+--í˜„ìž¬ì¼ìžë¥¼ ê¸°ì¤€ìœ¼ë¡œ EMPLOYEEí…Œì´ë¸”ì˜ ìž…ì‚¬ì¼ìž(hire_date)ë¥¼ ì°¸ì¡°í•´ì„œ ê·¼ì†ë…„ìˆ˜ê°€ 17ë…„ ì´ìƒì¸
+--ì‚¬ì›ì„ ë‹¤ìŒê³¼ ê°™ì€ í˜•íƒœì˜ ê²°ê³¼ë¥¼ ì¶œë ¥í•˜ë„ë¡ ì¿¼ë¦¬ë¥¼ ìž‘ì„±í•´ ë³´ì„¸ìš”. 
+--ì¡°ê±´ 1) ê·¼ì†ë…„ìˆ˜ê°€ ë†’ì€ ì‚¬ì› ìˆœì„œëŒ€ë¡œ ê²°ê³¼ê°€ ë‚˜ì˜¤ë„ë¡ í•©ë‹ˆë‹¤
 SELECT 
-    employee_id AS »ç¿ø¹øÈ£,
-    CONCAT(first_name, last_name) AS ÀÌ¸§,
-    hire_date AS ÀÔ»çÀÏÀÚ,
-    FLOOR((sysdate - hire_date) / 365) AS ±Ù¼Ó³â¼ö
+    employee_id AS ì‚¬ì›ë²ˆí˜¸,
+    CONCAT(first_name, last_name) AS ì´ë¦„,
+    hire_date AS ìž…ì‚¬ì¼ìž,
+    FLOOR((sysdate - hire_date) / 365) AS ê·¼ì†ë…„ìˆ˜
 FROM employees
 WHERE (sysdate - hire_date) / 365 >= 17
-ORDER BY ±Ù¼Ó³â¼ö DESC;
+ORDER BY ê·¼ì†ë…„ìˆ˜ DESC;
 
---¹®Á¦ 2.
---EMPLOYEE Å×ÀÌºíÀÇ manager_idÄÃ·³À» È®ÀÎÇÏ¿© first_name, manager_id, Á÷±ÞÀ» Ãâ·ÂÇÕ´Ï´Ù.
---100ÀÌ¶ó¸é ¡®»ç¿ø¡¯, 
---120ÀÌ¶ó¸é ¡®ÁÖÀÓ¡¯
---121ÀÌ¶ó¸é ¡®´ë¸®¡¯
---122¶ó¸é ¡®°úÀå¡¯
---³ª¸ÓÁö´Â ¡®ÀÓ¿ø¡¯ À¸·Î Ãâ·ÂÇÕ´Ï´Ù.
---Á¶°Ç 1) manager_id°¡ 100ÀÎ »ç¶÷µéÀ» ´ë»óÀ¸·Î¸¸ Á¶È¸ÇÕ´Ï´Ù
+--ë¬¸ì œ 2.
+--EMPLOYEE í…Œì´ë¸”ì˜ manager_idì»¬ëŸ¼ì„ í™•ì¸í•˜ì—¬ first_name, manager_id, ì§ê¸‰ì„ ì¶œë ¥í•©ë‹ˆë‹¤.
+--100ì´ë¼ë©´ â€˜ì‚¬ì›â€™, 
+--120ì´ë¼ë©´ â€˜ì£¼ìž„â€™
+--121ì´ë¼ë©´ â€˜ëŒ€ë¦¬â€™
+--122ë¼ë©´ â€˜ê³¼ìž¥â€™
+--ë‚˜ë¨¸ì§€ëŠ” â€˜ìž„ì›â€™ ìœ¼ë¡œ ì¶œë ¥í•©ë‹ˆë‹¤.
+--ì¡°ê±´ 1) manager_idê°€ 100ì¸ ì‚¬ëžŒë“¤ì„ ëŒ€ìƒìœ¼ë¡œë§Œ ì¡°íšŒí•©ë‹ˆë‹¤
 SELECT
-    first_name AS ÀÌ¸§,
+    first_name AS ì´ë¦„,
     manager_id,
     (CASE manager_id
-    WHEN 100 THEN '»ç¿ø'
-    WHEN 120 THEN 'ÁÖÀÓ'
-    WHEN 121 THEN '´ë¸®'
-    WHEN 122 THEN '°úÀå'
-    ELSE 'ÀÓ¿ø'
+    WHEN 100 THEN 'ì‚¬ì›'
+    WHEN 120 THEN 'ì£¼ìž„'
+    WHEN 121 THEN 'ëŒ€ë¦¬'
+    WHEN 122 THEN 'ê³¼ìž¥'
+    ELSE 'ìž„ì›'
     END
-    ) AS Á÷±Þ
+    ) AS ì§ê¸‰
 FROM employees
 WHERE department_id = 50;
 
@@ -135,7 +135,7 @@ SELECT
     salary,
     employee_id
     first_name,
-    DECODE( -- DECODE´Â ¹üÀ§ÁöÁ¤ÀÌ ºÒ°¡´É
+    DECODE( -- DECODEëŠ” ë²”ìœ„ì§€ì •ì´ ë¶ˆê°€ëŠ¥
         floor(salary/1000),
         3, 'B',
         2, 'C',
@@ -150,7 +150,7 @@ SELECT
     salary,
     employee_id
     first_name,
-    (CASE -- CASE´Â ¹üÀ§ ÁöÁ¤ÀÌ °¡´É
+    (CASE -- CASEëŠ” ë²”ìœ„ ì§€ì •ì´ ê°€ëŠ¥
         WHEN salary between 0 and 999 then 'E'
         WHEN salary between 1000 and 1999 then 'D'
         WHEN salary between 2000 and 2999 then 'C'

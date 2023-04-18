@@ -1,6 +1,6 @@
 SELECT * FROM employees;
 
--- WHEREÀý ºñ±³ (µ¥ÀÌÅÍ °ªÀº ´ë/¼Ò¹®ÀÚ¸¦ ±¸ºÐÇÕ´Ï´Ù.)
+-- WHEREì ˆ ë¹„êµ (ë°ì´í„° ê°’ì€ ëŒ€/ì†Œë¬¸ìžë¥¼ êµ¬ë¶„í•©ë‹ˆë‹¤.)
 
 SELECT first_name, last_name, job_id
 FROM employees
@@ -20,22 +20,22 @@ WHERE salary >= 15000;
 SELECT * FROM employees
 WHERE hire_date = '04/01/30';
 
--- µ¥ÀÌÅÍ Çà Á¦ÇÑ (BETWEEN, IN, LIKE)
+-- ë°ì´í„° í–‰ ì œí•œ (BETWEEN, IN, LIKE)
 SELECT * FROM employees
 WHERE salary BETWEEN 15000 AND 20000;
 
 SELECT * FROM employees
 WHERE hire_date BETWEEN '03/01/01' AND '03/12/31';
 
--- IN ¿¬»êÀÚÀÇ »ç¿ë (Æ¯Á¤ °ªµé°ú ºñ±³ÇÒ ¶§ »ç¿ë)
+-- IN ì—°ì‚°ìžì˜ ì‚¬ìš© (íŠ¹ì • ê°’ë“¤ê³¼ ë¹„êµí•  ë•Œ ì‚¬ìš©)
 SELECT * FROM employees
 WHERE manager_id IN (100, 101, 102);
 
 SELECT * FROM employees
 WHERE job_id IN ('IT_PROG', 'AD_VP');
 
--- LIKE ¿¬»êÀÚ
--- %´Â ¾î¶°ÇÑ ¹®ÀÚµç, _´Â µ¥ÀÌÅÍÀÇ ÀÚ¸®(À§Ä¡)¸¦ Ã£¾Æ³¾ ¶§
+-- LIKE ì—°ì‚°ìž
+-- %ëŠ” ì–´ë– í•œ ë¬¸ìžë“ , _ëŠ” ë°ì´í„°ì˜ ìžë¦¬(ìœ„ì¹˜)ë¥¼ ì°¾ì•„ë‚¼ ë•Œ
 SELECT first_name, hire_date
 FROM employees
 WHERE hire_date LIKE '03%';
@@ -44,7 +44,7 @@ SELECT first_name, hire_date
 FROM employees
 WHERE hire_date LIKE '___05%';
 
--- IS NULL (null°ªÀ» Ã£À½)
+-- IS NULL (nullê°’ì„ ì°¾ìŒ)
 SELECT * FROM employees
 WHERE manager_id = NULL;
 
@@ -55,15 +55,15 @@ SELECT * FROM employees
 WHERE commission_pct IS NOT NULL;
 
 -- AND, OR
--- AND°¡ ORº¸´Ù ¿¬»ê ¼ø¼­°¡ ºü¸§
+-- ANDê°€ ORë³´ë‹¤ ì—°ì‚° ìˆœì„œê°€ ë¹ ë¦„
 SELECT * FROM employees
 WHERE (job_id = 'IT_PROG'
 OR job_id = 'FI_MGR')
 AND salary >= 6000;
 
--- µ¥ÀÌÅÍÀÇ Á¤·Ä (SELECT ±¸¹®ÀÇ °¡Àå ¸¶Áö¸·¿¡ ¹èÄ¡µË´Ï´Ù.)
--- ASC: asceding ¿À¸§Â÷¼ø
--- DESC: desending ³»¸²Â÷¼ø
+-- ë°ì´í„°ì˜ ì •ë ¬ (SELECT êµ¬ë¬¸ì˜ ê°€ìž¥ ë§ˆì§€ë§‰ì— ë°°ì¹˜ë©ë‹ˆë‹¤.)
+-- ASC: asceding ì˜¤ë¦„ì°¨ìˆœ
+-- DESC: desending ë‚´ë¦¼ì°¨ìˆœ
 
 SELECT * FROM employees
 ORDER BY hire_date ASC;

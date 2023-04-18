@@ -1,36 +1,36 @@
---¹®Á¦ 1.
----EMPLOYEES Å×ÀÌºí°ú, DEPARTMENTS Å×ÀÌºíÀº DEPARTMENT_ID·Î ¿¬°áµÇ¾î ÀÖ½À´Ï´Ù.
----EMPLOYEES, DEPARTMENTS Å×ÀÌºíÀ» ¿¤¸®¾î½º¸¦ ÀÌ¿ëÇØ¼­
---°¢°¢ INNER , LEFT OUTER, RIGHT OUTER, FULL OUTER Á¶ÀÎ ÇÏ¼¼¿ä. (´Ş¶óÁö´Â ÇàÀÇ °³¼ö È®ÀÎ)
+--ë¬¸ì œ 1.
+---EMPLOYEES í…Œì´ë¸”ê³¼, DEPARTMENTS í…Œì´ë¸”ì€ DEPARTMENT_IDë¡œ ì—°ê²°ë˜ì–´ ìˆìŠµë‹ˆë‹¤.
+---EMPLOYEES, DEPARTMENTS í…Œì´ë¸”ì„ ì—˜ë¦¬ì–´ìŠ¤ë¥¼ ì´ìš©í•´ì„œ
+--ê°ê° INNER , LEFT OUTER, RIGHT OUTER, FULL OUTER ì¡°ì¸ í•˜ì„¸ìš”. (ë‹¬ë¼ì§€ëŠ” í–‰ì˜ ê°œìˆ˜ í™•ì¸)
 -- INNER
 SELECT
     *
 FROM employees e
 INNER JOIN DEPARTMENTS d
-ON e.department_id = d.department_id; --106°³
+ON e.department_id = d.department_id; --106ê°œ
 -- LEFT OUTER
 SELECT
     *
 FROM employees e
 LEFT JOIN DEPARTMENTS d
-ON e.department_id = d.department_id; --107°³
+ON e.department_id = d.department_id; --107ê°œ
 -- RIGHT OUTER
 SELECT
     *
 FROM employees e
 RIGHT JOIN DEPARTMENTS d
-ON e.department_id = d.department_id; --122°³
+ON e.department_id = d.department_id; --122ê°œ
 -- FULL OUTER
 SELECT
     *
 FROM employees e
 FULL JOIN DEPARTMENTS d
-ON e.department_id = d.department_id; --123°³
+ON e.department_id = d.department_id; --123ê°œ
 
---¹®Á¦ 2.
----EMPLOYEES, DEPARTMENTS Å×ÀÌºíÀ» INNER JOINÇÏ¼¼¿ä
---Á¶°Ç)employee_id°¡ 200ÀÎ »ç¶÷ÀÇ ÀÌ¸§, department_id¸¦ Ãâ·ÂÇÏ¼¼¿ä
---Á¶°Ç)ÀÌ¸§ ÄÃ·³Àº first_name°ú last_nameÀ» ÇÕÃÄ¼­ Ãâ·ÂÇÕ´Ï´Ù
+--ë¬¸ì œ 2.
+---EMPLOYEES, DEPARTMENTS í…Œì´ë¸”ì„ INNER JOINí•˜ì„¸ìš”
+--ì¡°ê±´)employee_idê°€ 200ì¸ ì‚¬ëŒì˜ ì´ë¦„, department_idë¥¼ ì¶œë ¥í•˜ì„¸ìš”
+--ì¡°ê±´)ì´ë¦„ ì»¬ëŸ¼ì€ first_nameê³¼ last_nameì„ í•©ì³ì„œ ì¶œë ¥í•©ë‹ˆë‹¤
 
 SELECT
     concat(e.first_name,e.last_name)as name, d.department_id
@@ -39,10 +39,10 @@ INNER JOIN DEPARTMENTS d
 ON e.department_id = d.department_id
 WHERE employee_id = 200;
 
---¹®Á¦ 3.
----EMPLOYEES, JOBSÅ×ÀÌºíÀ» INNER JOINÇÏ¼¼¿ä
---Á¶°Ç) ¸ğµç »ç¿øÀÇ ÀÌ¸§°ú Á÷¹«¾ÆÀÌµğ, Á÷¹« Å¸ÀÌÆ²À» Ãâ·ÂÇÏ°í, ÀÌ¸§ ±âÁØÀ¸·Î ¿À¸§Â÷¼ø Á¤·Ä
---HINT) ¾î¶² ÄÃ·³À¸·Î ¼­·Î ¿¬°áµÇ ÀÖ´ÂÁö È®ÀÎ
+--ë¬¸ì œ 3.
+---EMPLOYEES, JOBSí…Œì´ë¸”ì„ INNER JOINí•˜ì„¸ìš”
+--ì¡°ê±´) ëª¨ë“  ì‚¬ì›ì˜ ì´ë¦„ê³¼ ì§ë¬´ì•„ì´ë””, ì§ë¬´ íƒ€ì´í‹€ì„ ì¶œë ¥í•˜ê³ , ì´ë¦„ ê¸°ì¤€ìœ¼ë¡œ ì˜¤ë¦„ì°¨ìˆœ ì •ë ¬
+--HINT) ì–´ë–¤ ì»¬ëŸ¼ìœ¼ë¡œ ì„œë¡œ ì—°ê²°ë˜ ìˆëŠ”ì§€ í™•ì¸
 --select * from jobs;
     
 SELECT
@@ -52,8 +52,8 @@ INNER JOIN jobs j
 ON e.job_id = j.job_id
 ORDER BY e.first_name ASC;
 
---¹®Á¦ 4.
-----JOBSÅ×ÀÌºí°ú JOB_HISTORYÅ×ÀÌºíÀ» LEFT_OUTER JOIN ÇÏ¼¼¿ä.
+--ë¬¸ì œ 4.
+----JOBSí…Œì´ë¸”ê³¼ JOB_HISTORYí…Œì´ë¸”ì„ LEFT_OUTER JOIN í•˜ì„¸ìš”.
 --select * from job_history;
 
 SELECT
@@ -62,8 +62,8 @@ FROM jobs j
 LEFT JOIN job_history h
 ON j.job_id = h.job_id;
 
---¹®Á¦ 5.
-----Steven KingÀÇ ºÎ¼­¸íÀ» Ãâ·ÂÇÏ¼¼¿ä.
+--ë¬¸ì œ 5.
+----Steven Kingì˜ ë¶€ì„œëª…ì„ ì¶œë ¥í•˜ì„¸ìš”.
 --select * from departments;
 SELECT
     e.first_name||' '||e.last_name as name, d.department_name     
@@ -73,16 +73,16 @@ ON e.department_id = d.department_id
 where first_name = 'Steven'
 and last_name = 'King';
 
---¹®Á¦ 6.
-----EMPLOYEES Å×ÀÌºí°ú DEPARTMENTS Å×ÀÌºíÀ» Cartesian Product(Cross join)Ã³¸®ÇÏ¼¼¿ä
+--ë¬¸ì œ 6.
+----EMPLOYEES í…Œì´ë¸”ê³¼ DEPARTMENTS í…Œì´ë¸”ì„ Cartesian Product(Cross join)ì²˜ë¦¬í•˜ì„¸ìš”
 SELECT
     *
 FROM employees e
 CROSS JOIN departments d;
 
---¹®Á¦ 7.
---EMPLOYEES Å×ÀÌºí°ú DEPARTMENTS Å×ÀÌºíÀÇ ºÎ¼­¹øÈ£¸¦ Á¶ÀÎÇÏ°í SA_MAN »ç¿ø¸¸ÀÇ »ç¿ø¹øÈ£, ÀÌ¸§, 
---±Ş¿©, ºÎ¼­¸í, ±Ù¹«Áö¸¦ Ãâ·ÂÇÏ¼¼¿ä. (Alias¸¦ »ç¿ë)
+--ë¬¸ì œ 7.
+--EMPLOYEES í…Œì´ë¸”ê³¼ DEPARTMENTS í…Œì´ë¸”ì˜ ë¶€ì„œë²ˆí˜¸ë¥¼ ì¡°ì¸í•˜ê³  SA_MAN ì‚¬ì›ë§Œì˜ ì‚¬ì›ë²ˆí˜¸, ì´ë¦„, 
+--ê¸‰ì—¬, ë¶€ì„œëª…, ê·¼ë¬´ì§€ë¥¼ ì¶œë ¥í•˜ì„¸ìš”. (Aliasë¥¼ ì‚¬ìš©)
 select * from locations;
 SELECT
     e.employee_id, e.first_name, e.salary, d.department_name, loc.city 
@@ -93,9 +93,9 @@ JOIN locations loc
 ON d.location_id = loc.location_id
 WHERE e.job_id = 'SA_MAN';
 
---¹®Á¦ 8.
--- employees, jobs Å×ÀÌºíÀ» Á¶ÀÎ ÁöÁ¤ÇÏ°í job_titleÀÌ 'Stock Manager', 'Stock Clerk'ÀÎ Á÷¿ø Á¤º¸¸¸
---Ãâ·ÂÇÏ¼¼¿ä.
+--ë¬¸ì œ 8.
+-- employees, jobs í…Œì´ë¸”ì„ ì¡°ì¸ ì§€ì •í•˜ê³  job_titleì´ 'Stock Manager', 'Stock Clerk'ì¸ ì§ì› ì •ë³´ë§Œ
+--ì¶œë ¥í•˜ì„¸ìš”.
 select * from jobs;
 SELECT
     *
@@ -106,8 +106,8 @@ ON e.job_id=j.job_id
 --OR j.job_title='Stock Clerk';
 WHERE j.job_title IN('Stock Manager','Stock Clerk');
 
---¹®Á¦ 9.
--- departments Å×ÀÌºí¿¡¼­ Á÷¿øÀÌ ¾ø´Â ºÎ¼­¸¦ Ã£¾Æ Ãâ·ÂÇÏ¼¼¿ä. LEFT OUTER JOIN »ç¿ë
+--ë¬¸ì œ 9.
+-- departments í…Œì´ë¸”ì—ì„œ ì§ì›ì´ ì—†ëŠ” ë¶€ì„œë¥¼ ì°¾ì•„ ì¶œë ¥í•˜ì„¸ìš”. LEFT OUTER JOIN ì‚¬ìš©
 select * from departments;
 SELECT
     d.department_name
@@ -116,9 +116,9 @@ LEFT JOIN employees e
 ON d.department_id=e.department_id
 where e.first_name is null;
 
---¹®Á¦ 10. 
----joinÀ» ÀÌ¿ëÇØ¼­ »ç¿øÀÇ ÀÌ¸§°ú ±× »ç¿øÀÇ ¸Å´ÏÀú ÀÌ¸§À» Ãâ·ÂÇÏ¼¼¿ä
---ÈùÆ®) EMPLOYEES Å×ÀÌºí°ú EMPLOYEES Å×ÀÌºíÀ» Á¶ÀÎÇÏ¼¼¿ä.
+--ë¬¸ì œ 10. 
+---joinì„ ì´ìš©í•´ì„œ ì‚¬ì›ì˜ ì´ë¦„ê³¼ ê·¸ ì‚¬ì›ì˜ ë§¤ë‹ˆì € ì´ë¦„ì„ ì¶œë ¥í•˜ì„¸ìš”
+--íŒíŠ¸) EMPLOYEES í…Œì´ë¸”ê³¼ EMPLOYEES í…Œì´ë¸”ì„ ì¡°ì¸í•˜ì„¸ìš”.
 select * from employees;
 select
     e1.first_name||' '||e1.last_name as employee_name,
@@ -129,9 +129,9 @@ on e1.manager_id=e2.employee_id;
 
 
 
---¹®Á¦ 11. 
---6. EMPLOYEES Å×ÀÌºí¿¡¼­ left joinÇÏ¿© °ü¸®ÀÚ(¸Å´ÏÀú)¿Í, ¸Å´ÏÀúÀÇ ÀÌ¸§, ¸Å´ÏÀúÀÇ ±Ş¿© ±îÁö Ãâ·ÂÇÏ¼¼¿ä
---¸Å´ÏÀú ¾ÆÀÌµğ°¡ ¾ø´Â »ç¶÷Àº ¹èÁ¦ÇÏ°í ±Ş¿©´Â ¿ª¼øÀ¸·Î Ãâ·ÂÇÏ¼¼¿ä
+--ë¬¸ì œ 11. 
+--6. EMPLOYEES í…Œì´ë¸”ì—ì„œ left joiní•˜ì—¬ ê´€ë¦¬ì(ë§¤ë‹ˆì €)ì™€, ë§¤ë‹ˆì €ì˜ ì´ë¦„, ë§¤ë‹ˆì €ì˜ ê¸‰ì—¬ ê¹Œì§€ ì¶œë ¥í•˜ì„¸ìš”
+--ë§¤ë‹ˆì € ì•„ì´ë””ê°€ ì—†ëŠ” ì‚¬ëŒì€ ë°°ì œí•˜ê³  ê¸‰ì—¬ëŠ” ì—­ìˆœìœ¼ë¡œ ì¶œë ¥í•˜ì„¸ìš”
 select * from employees;
 SELECT
     e1.first_name||' '||e1.last_name as employee_name, e1.manager_id,

@@ -1,4 +1,4 @@
--- ±×·ì ÇÔ¼ö AVG, MAX, MIN, SUM, COUNT
+-- ê·¸ë£¹ í•¨ìˆ˜ AVG, MAX, MIN, SUM, COUNT
 
 select
     avg(salary),
@@ -10,10 +10,10 @@ from employees;
 
 SELECT COUNT(*) FROM employees;
 select count(first_name) from employees;
-select count(commission_pct) from employees; --nullÀÌ ¾Æ´Ñ ÇàÀÇ ¼ö
+select count(commission_pct) from employees; --nullì´ ì•„ë‹Œ í–‰ì˜ ìˆ˜
 select count(manager_id) from employees;
 
--- ºÎ¼­º°·Î ±×·ìÈ­, ±×·ìÇÔ¼öÀÇ »ç¿ë
+-- ë¶€ì„œë³„ë¡œ ê·¸ë£¹í™”, ê·¸ë£¹í•¨ìˆ˜ì˜ ì‚¬ìš©
 
 select 
     department_id,
@@ -21,22 +21,22 @@ select
 from employees
 group by department_id;
 
--- ÁÖÀÇÇÒ Á¡
--- ±×·ìÇÔ¼ö´Â ÀÏ¹İ ÄÃ·³°ú µ¿½Ã¿¡ ±×³É Ãâ·ÂÇÒ ¼ö´Â ¾ø½À´Ï´Ù.
+-- ì£¼ì˜í•  ì 
+-- ê·¸ë£¹í•¨ìˆ˜ëŠ” ì¼ë°˜ ì»¬ëŸ¼ê³¼ ë™ì‹œì— ê·¸ëƒ¥ ì¶œë ¥í•  ìˆ˜ëŠ” ì—†ìŠµë‹ˆë‹¤.
 select 
     department_id,
     avg(salary)
-from employees; -- ¿¡·¯
+from employees; -- ì—ëŸ¬
 
--- group byÀıÀ» »ç¿ëÇÒ ¶§ groupÀı¿¡ ¹­ÀÌÁö ¾ÊÀ¸¸é ´Ù¸¥ ÄÃ·³À» Á¶È¸ÇÒ ¼ö ¾ø½À´Ï´Ù.
+-- group byì ˆì„ ì‚¬ìš©í•  ë•Œ groupì ˆì— ë¬¶ì´ì§€ ì•Šìœ¼ë©´ ë‹¤ë¥¸ ì»¬ëŸ¼ì„ ì¡°íšŒí•  ìˆ˜ ì—†ìŠµë‹ˆë‹¤.
 select 
     job_id,
     department_id,
     avg(salary)
 from employees
-group by department_id; -- ¿¡·¯
+group by department_id; -- ì—ëŸ¬
 
--- group byÀı 2°³ »ç¿ë
+-- group byì ˆ 2ê°œ ì‚¬ìš©
 select 
     job_id,
     department_id,
@@ -59,7 +59,7 @@ from employees
 group by job_id
 having count(*) >= 5;
 
--- ºÎ¼­ ¾ÆÀÌµğ°¡ 50 ÀÌ»óÀÎ °ÍµéÀ» ±×·ìÈ­ ½ÃÅ°°í, ±×·ì ¿ù±Ş Æò±ÕÀÌ 5000 ÀÌ»ó¸¸ Á¶È¸
+-- ë¶€ì„œ ì•„ì´ë””ê°€ 50 ì´ìƒì¸ ê²ƒë“¤ì„ ê·¸ë£¹í™” ì‹œí‚¤ê³ , ê·¸ë£¹ ì›”ê¸‰ í‰ê· ì´ 5000 ì´ìƒë§Œ ì¡°íšŒ
 select
     department_id,
     avg(salary)
@@ -68,9 +68,9 @@ where department_id >=50
 group by department_id
 having avg(salary) >= 5000;
 
--- ÁıÇÕ ¿¬»êÀÚ
--- union(ÇÕÁıÇÕ Áßº¹x), union all(ÇÕÁıÇÕ Áßº¹o), intersect(±³ÁıÇÕ), minus(Â÷ÁıÇÕ)
--- À§ ¾Æ·¡ column °³¼ö¿Í µ¥ÀÌÅÍ Å¸ÀÔÀÌ Á¤È®È÷ ÀÏÄ¡ÇØ¾ß ÇÕ´Ï´Ù.
+-- ì§‘í•© ì—°ì‚°ì
+-- union(í•©ì§‘í•© ì¤‘ë³µx), union all(í•©ì§‘í•© ì¤‘ë³µo), intersect(êµì§‘í•©), minus(ì°¨ì§‘í•©)
+-- ìœ„ ì•„ë˜ column ê°œìˆ˜ì™€ ë°ì´í„° íƒ€ì…ì´ ì •í™•íˆ ì¼ì¹˜í•´ì•¼ í•©ë‹ˆë‹¤.
 
 select
     employee_id, first_name
@@ -102,29 +102,29 @@ select
 from employees
 where department_id = 20;
 
---¹®Á¦ 1.
---»ç¿ø Å×ÀÌºí¿¡¼­ JOB_IDº° »ç¿ø ¼ö¸¦ ±¸ÇÏ¼¼¿ä.
---»ç¿ø Å×ÀÌºí¿¡¼­ JOB_IDº° ¿ù±ŞÀÇ Æò±ÕÀ» ±¸ÇÏ¼¼¿ä. ¿ù±ŞÀÇ Æò±Õ ¼øÀ¸·Î ³»¸²Â÷¼ø Á¤·ÄÇÏ¼¼¿ä
+--ë¬¸ì œ 1.
+--ì‚¬ì› í…Œì´ë¸”ì—ì„œ JOB_IDë³„ ì‚¬ì› ìˆ˜ë¥¼ êµ¬í•˜ì„¸ìš”.
+--ì‚¬ì› í…Œì´ë¸”ì—ì„œ JOB_IDë³„ ì›”ê¸‰ì˜ í‰ê· ì„ êµ¬í•˜ì„¸ìš”. ì›”ê¸‰ì˜ í‰ê·  ìˆœìœ¼ë¡œ ë‚´ë¦¼ì°¨ìˆœ ì •ë ¬í•˜ì„¸ìš”
 select
     job_id,
-    count(job_id) as »ç¿ø¼ö,
-    avg(salary) as Æò±Õ¿ù±Ş
+    count(job_id) as ì‚¬ì›ìˆ˜,
+    avg(salary) as í‰ê· ì›”ê¸‰
 from employees
 group by job_id
-order by Æò±Õ¿ù±Ş desc;
+order by í‰ê· ì›”ê¸‰ desc;
 
 
---¹®Á¦ 2.
---»ç¿ø Å×ÀÌºí¿¡¼­ ÀÔ»ç ³âµµ º° »ç¿ø ¼ö¸¦ ±¸ÇÏ¼¼¿ä.
+--ë¬¸ì œ 2.
+--ì‚¬ì› í…Œì´ë¸”ì—ì„œ ì…ì‚¬ ë…„ë„ ë³„ ì‚¬ì› ìˆ˜ë¥¼ êµ¬í•˜ì„¸ìš”.
 select
-    to_char(hire_date,'YY') as ÀÔ»ç³âµµ,
-    count(to_char(hire_date,'YY')) as »ç¿ø¼ö
+    to_char(hire_date,'YY') as ì…ì‚¬ë…„ë„,
+    count(to_char(hire_date,'YY')) as ì‚¬ì›ìˆ˜
 from employees
 group by to_char(hire_date,'YY')
-order by ÀÔ»ç³âµµ asc;
+order by ì…ì‚¬ë…„ë„ asc;
 
---¹®Á¦ 3.
---±Ş¿©°¡ 5000 ÀÌ»óÀÎ »ç¿øµéÀÇ ºÎ¼­º° Æò±Õ ±Ş¿©¸¦ Ãâ·ÂÇÏ¼¼¿ä. ´Ü ºÎ¼­ Æò±Õ ±Ş¿©°¡ 7000ÀÌ»óÀÎ ºÎ¼­¸¸ Ãâ·Â
+--ë¬¸ì œ 3.
+--ê¸‰ì—¬ê°€ 5000 ì´ìƒì¸ ì‚¬ì›ë“¤ì˜ ë¶€ì„œë³„ í‰ê·  ê¸‰ì—¬ë¥¼ ì¶œë ¥í•˜ì„¸ìš”. ë‹¨ ë¶€ì„œ í‰ê·  ê¸‰ì—¬ê°€ 7000ì´ìƒì¸ ë¶€ì„œë§Œ ì¶œë ¥
 select
     department_id,
     avg(salary)
@@ -132,14 +132,14 @@ from employees
 where salary >= 5000
 group by department_id
 having avg(salary)>=7000;
---¹®Á¦ 4.
---»ç¿ø Å×ÀÌºí¿¡¼­ commission_pct(Ä¿¹Ì¼Ç) ÄÃ·³ÀÌ nullÀÌ ¾Æ´Ñ »ç¶÷µéÀÇ
---department_id(ºÎ¼­º°) salary(¿ù±Ş)ÀÇ Æò±Õ, ÇÕ°è, count¸¦ ±¸ÇÕ´Ï´Ù.
---Á¶°Ç 1) ¿ù±ŞÀÇ Æò±ÕÀº Ä¿¹Ì¼ÇÀ» Àû¿ë½ÃÅ² ¿ù±ŞÀÔ´Ï´Ù.
---Á¶°Ç 2) Æò±ÕÀº ¼Ò¼ö 2Â° ÀÚ¸®¿¡¼­ Àı»è ÇÏ¼¼¿ä
+--ë¬¸ì œ 4.
+--ì‚¬ì› í…Œì´ë¸”ì—ì„œ commission_pct(ì»¤ë¯¸ì…˜) ì»¬ëŸ¼ì´ nullì´ ì•„ë‹Œ ì‚¬ëŒë“¤ì˜
+--department_id(ë¶€ì„œë³„) salary(ì›”ê¸‰)ì˜ í‰ê· , í•©ê³„, countë¥¼ êµ¬í•©ë‹ˆë‹¤.
+--ì¡°ê±´ 1) ì›”ê¸‰ì˜ í‰ê· ì€ ì»¤ë¯¸ì…˜ì„ ì ìš©ì‹œí‚¨ ì›”ê¸‰ì…ë‹ˆë‹¤.
+--ì¡°ê±´ 2) í‰ê· ì€ ì†Œìˆ˜ 2ì§¸ ìë¦¬ì—ì„œ ì ˆì‚­ í•˜ì„¸ìš”
 select
     department_id,
-    trunc(avg(salary+salary*commission_pct),2) as Æò±Õ¿ù±Ş,
+    trunc(avg(salary+salary*commission_pct),2) as í‰ê· ì›”ê¸‰,
     sum(salary),
     count(salary)
 from employees
