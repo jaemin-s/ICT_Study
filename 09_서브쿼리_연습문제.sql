@@ -205,13 +205,21 @@ SELECT
 FROM departments d
 JOIN (SELECT department_id, COUNT(*) as cnt FROM employees GROUP BY department_id) e
 ON d.department_id = e.department_id
-ORDER BY e.cnt ASC;
+ORDER BY e.cnt DESC;
 
 
 --문제 15
 ----부서에 대한 정보 전부와, 주소, 우편번호, 부서별 평균 연봉을 구해서 출력하세요.
 ----부서별 평균이 없으면 0으로 출력하세요.
 select * from locations;
+
+SELECT
+    d.*, loc.street_address, loc.postal_code, ROUND(NVL(e.avg,0),2) as avg
+FROM departments d
+JOIN locations loc
+ON d.location_id = loc.location_id
+LEFT JOIN (SELECT department_id, AVG(salary) as avg FROM employees GROUP BY department_id) e
+ON d.department_id = e.department_id;
 
 SELECT
     v1.*, ROUND(NVL(v2.AVG,0),2) as avg
@@ -226,9 +234,26 @@ LEFT JOIN (SELECT department_id, AVG(salary) as avg FROM employees GROUP BY depa
 ON v1.department_id = v2.department_id;
 
 
+
 --문제 16
 ---문제 15 결과에 대해 DEPARTMENT_ID기준으로 내림차순 정렬해서 ROWNUM을 붙여 1-10데이터 까지만
 --출력하세요.
+
+SELECT *
+FROM(
+    SELECT ROWNUM as no,v.*
+    FROM(
+        SELECT d.*, loc.street_address, loc.postal_code, ROUND(NVL(e.avg,0),2) as avg
+        FROM departments d
+        JOIN locations loc
+        ON d.location_id = loc.location_id
+        LEFT JOIN (SELECT department_id, AVG(salary) as avg FROM employees GROUP BY department_id) e
+        ON d.department_id = e.department_id
+        ORDER BY d.department_id DESC
+    ) v
+)
+WHERE no <= 10;
+
 SELECT v4.*
 FROM(
     SELECT ROWNUM as no, v3.*
