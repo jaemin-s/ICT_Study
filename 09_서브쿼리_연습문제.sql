@@ -221,17 +221,17 @@ ON d.location_id = loc.location_id
 LEFT JOIN (SELECT department_id, AVG(salary) as avg FROM employees GROUP BY department_id) e
 ON d.department_id = e.department_id;
 
-SELECT
-    v1.*, ROUND(NVL(v2.AVG,0),2) as avg
-FROM(
-    SELECT
-        d.*, loc.street_address, loc.postal_code
-    FROM departments d
-    JOIN locations loc
-    ON d.location_id = loc.location_id
-) v1
-LEFT JOIN (SELECT department_id, AVG(salary) as avg FROM employees GROUP BY department_id) v2
-ON v1.department_id = v2.department_id;
+--SELECT
+--    v1.*, ROUND(NVL(v2.AVG,0),2) as avg
+--FROM(
+--    SELECT
+--        d.*, loc.street_address, loc.postal_code
+--    FROM departments d
+--    JOIN locations loc
+--    ON d.location_id = loc.location_id
+--) v1
+--LEFT JOIN (SELECT department_id, AVG(salary) as avg FROM employees GROUP BY department_id) v2
+--ON v1.department_id = v2.department_id;
 
 
 
@@ -252,25 +252,25 @@ FROM(
         ORDER BY d.department_id DESC
     ) v
 )
-WHERE no <= 10;
+WHERE no >=1 AND no <= 10;
 
-SELECT v4.*
-FROM(
-    SELECT ROWNUM as no, v3.*
-    FROM(
-        SELECT
-            v1.*, ROUND(NVL(v2.AVG,0),2) as avg
-        FROM(
-            SELECT
-                d.*, loc.street_address, loc.postal_code
-            FROM departments d
-            JOIN locations loc
-            ON d.location_id = loc.location_id
-            ) v1
-            LEFT JOIN (SELECT department_id, AVG(salary) as avg FROM employees GROUP BY department_id
-        ) v2
-        ON v1.department_id = v2.department_id
-        ORDER BY v1.department_id DESC
-    ) v3
-)v4
-WHERE no <=10;
+--SELECT v4.*
+--FROM(
+--    SELECT ROWNUM as no, v3.*
+--    FROM(
+--        SELECT
+--            v1.*, ROUND(NVL(v2.AVG,0),2) as avg
+--        FROM(
+--            SELECT
+--                d.*, loc.street_address, loc.postal_code
+--            FROM departments d
+--            JOIN locations loc
+--            ON d.location_id = loc.location_id
+--            ) v1
+--            LEFT JOIN (SELECT department_id, AVG(salary) as avg FROM employees GROUP BY department_id
+--        ) v2
+--        ON v1.department_id = v2.department_id
+--        ORDER BY v1.department_id DESC
+--    ) v3
+--)v4
+--WHERE no <=10;
