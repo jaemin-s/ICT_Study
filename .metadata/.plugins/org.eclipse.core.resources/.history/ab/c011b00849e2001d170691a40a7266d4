@@ -1,0 +1,27 @@
+package jdbc;
+
+import java.sql.*;
+import java.util.*;
+public class JdbcUpdate {
+
+	public static void main(String[] args) {
+		
+		// ID를 입력받으세요
+		// 수정할 이름과 이메일도 입력 받으세요.
+		// 지목한 ID의 이름과 이메일을 새로운 값으로 수정해보세요
+		// (ID는 존재하는 ID를 넣어 주셔야 수정이 가능합니다.)
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("ID를 입력하세요");
+		String id = sc.next();
+		
+		System.out.println("수정할 이름을 입력하세요");
+		String name = sc.next();
+		System.out.println("수정할 이메일을 입력하세요");
+		String email = sc.next();
+		
+		
+		
+	}
+
+}
