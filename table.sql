@@ -4,3 +4,5 @@ CREATE TABLE m_users(
     user_address VARCHAR2(200) NOT NULL,
     user_job VARCHAR2(20) NOT NULL
 );
+
+DROP TABLE m_users;
