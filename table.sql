@@ -6,3 +6,5 @@ CREATE TABLE m_users(
 );
 
 DROP TABLE m_users;
+
+INSERT INTO m_users VALUES ("991212-1234567","홍길동","서울시 마포구","의사");
