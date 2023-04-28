@@ -12,13 +12,16 @@ public class ProductService implements AppService{
 			ProductScreen();
 			int selection = inputInteger();
 			switch (selection) {
-			case 1:
+			case 1: // 제품 등록
 				System.out.println("menu3-1");
 				break;
-			case 2:
+			case 2: // 제품 수정
 				System.out.println("menu3-2");
 				break;
-			case 3:
+			case 3: // 제품 삭제
+				System.out.println("menu3-2");
+				break;
+			case 4:
 				return;
 			default:
 				System.out.println("잘 못 입력했습니다.");
