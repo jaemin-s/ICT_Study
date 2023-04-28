@@ -25,42 +25,42 @@ public class AppUI {
 	//시작 화면 출력
 	public static void startScreen() {
 		System.out.println("\n========== 처방 관리 시스템 ==========");
-		System.out.println("### 1. 1");
-		System.out.println("### 2. 2");
-		System.out.println("### 3. 3");
+		System.out.println("### 1. 조회 서비스");
+		System.out.println("### 2. 환자 관리");
+		System.out.println("### 3. 제품 관리");
 		System.out.println("### 4. 프로그램 종료");
 		System.out.println("--------------------------------------");
 		System.out.print(">>> ");
 	}//end startScreen()
 	
-	//조회 서비스 화면 출력
-	public static void menu1Screen() {
-		System.out.println("\n========== 1번 메뉴 ==========");
-		System.out.println("### 1. 1-1");
-		System.out.println("### 2. 1-2");
+	//1. 조회 서비스 화면 출력
+	public static void SearchScreen() {
+		System.out.println("\n========== 조회 서비스 ==========");
+		System.out.println("### 1. 처방 이력 조회");
+		System.out.println("### 2. 의약품 조회");
 		System.out.println("### 3. 첫 화면으로 가기");
 		System.out.println("-----------------------------------");
 		System.out.print(">>> ");
-	}//end menu1Screen()
+	}//end SearchScreen()
 	
-	//처방전 관리 화면 출력
-	public static void menu2Screen() {
-        System.out.println("\n========= 2번 메뉴 =========");
-        System.out.println("### 1. 2-1");
-        System.out.println("### 2. 2-2");
+	//2. 환자 관리 화면 출력
+	public static void PaientScreen() {
+        System.out.println("\n========= 환자 관리 =========");
+        System.out.println("### 1. 신규 환자 등록");
+        System.out.println("### 2. 처방전 작성");
         System.out.println("### 3. 첫 화면으로 가기");
         System.out.println("----------------------------------------");
         System.out.print(">>> ");
-    }//end menu2Screen()
+    }//end PaientScreen()
 	
-	//영화 관리 시스템 화면 출력
-	public static void menu3Screen() {
-        System.out.println("\n========= 3번 메뉴 =========");
-        System.out.println("### 1. 3-1");
-        System.out.println("### 2. 3-2");
+	//제품 관리 화면 출력
+	public static void ProductScreen() {
+        System.out.println("\n========= 제품 관리 =========");
+        System.out.println("### 1. 제품 등록하기");
+        System.out.println("### 2. 제품 삭제하기");
         System.out.println("### 3. 첫 화면으로 가기");
         System.out.println("----------------------------------------");
         System.out.print(">>> ");
-    }//end menu3Screen()
+    }//end ProductScreen()
 	
 } //end class

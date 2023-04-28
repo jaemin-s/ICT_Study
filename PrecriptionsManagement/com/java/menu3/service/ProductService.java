@@ -4,12 +4,12 @@ import static com.java.view.AppUI.*;
 
 import com.java.common.AppService;
 
-public class Menu3Service implements AppService{
+public class ProductService implements AppService{
 
 	@Override
 	public void start() {
 		while(true) {
-			menu3Screen();
+			ProductScreen();
 			int selection = inputInteger();
 			switch (selection) {
 			case 1:
