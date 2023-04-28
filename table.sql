@@ -2,19 +2,22 @@ CREATE TABLE m_users(
     user_id VARCHAR2(20) PRIMARY KEY,
     user_name VARCHAR2(20) NOT NULL,
     user_address VARCHAR2(200) NOT NULL,
-    user_job VARCHAR2(20) NOT NULL
+    user_phone VARCHAR2(20) NOT NULL
 );
 
 SELECT * FROM m_users;
+DROP TABLE m_users;
 
 CREATE TABLE prescriptions(
     prescription_no NUMBER(6) PRIMARY KEY,
     user_id VARCHAR2(20) REFERENCES m_users(user_id),
     doctor_name VARCHAR2(20) NOT NULL,
-    p_date DATE DEFAULT sysdate NOT NULL,
-    day_medication NUMBER(3) NOT NULL
+    product_name VARCHAR2(20) REFERENCES products(product_name) NOT NULL,
+    day_medication NUMBER(3) NOT NULL,
+    p_date DATE DEFAULT sysdate NOT NULL
 );
 
+DROP TABLE prescriptions;
 SELECT * FROM prescriptions;
 
 CREATE SEQUENCE prescriptions_seq
@@ -45,7 +48,7 @@ SELECT * FROM products;
 
 CREATE TABLE ingredients(
     product_name VARCHAR2(40),
-    ingredient VARCHAR2(40) NOT NULL
+    ingredient VARCHAR2(40) REFERENCES products(product_name) NOT NULL
 );
 
 
