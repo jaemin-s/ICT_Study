@@ -1,22 +1,22 @@
-package com.java.menu1.service;
-
-import com.java.common.AppService;
+package com.java.menu2.service;
 
 import static com.java.view.AppUI.*;
 
-public class Menu1Service implements AppService{
+import com.java.common.AppService;
+
+public class PaientService implements AppService{
 
 	@Override
 	public void start() {
 		while(true) {
-			menu1Screen();
+			PaientScreen();
 			int selection = inputInteger();
 			switch (selection) {
 			case 1:
-				System.out.println("menu1-1");
+				System.out.println("menu2-1");
 				break;
 			case 2:
-				System.out.println("menu1-2");
+				System.out.println("menu2-2");
 				break;
 			case 3:
 				return;

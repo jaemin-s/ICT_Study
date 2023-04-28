@@ -1,9 +1,9 @@
 package com.java.main;
 
 import com.java.common.AppService;
-import com.java.menu1.service.Menu1Service;
-import com.java.menu2.service.Menu2Service;
-import com.java.menu3.service.Menu3Service;
+import com.java.menu1.service.SearchService;
+import com.java.menu2.service.PaientService;
+import com.java.menu3.service.ProductService;
 
 public class AppController {
 	
@@ -13,13 +13,13 @@ private AppService service;
 	public void chooseSystem(int selectNumber) {
 		switch (selectNumber) {
 		case 1:
-			service = new Menu1Service();
+			service = new SearchService();
 			break;
 		case 2:
-			service = new Menu2Service();
+			service = new PaientService();
 			break;
 		case 3:
-			service = new Menu3Service();
+			service = new ProductService();
 			break;
 		case 4:
 			System.out.println("# 프로그램을 종료합니다.");
