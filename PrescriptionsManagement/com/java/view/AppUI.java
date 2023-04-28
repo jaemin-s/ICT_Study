@@ -57,8 +57,9 @@ public class AppUI {
 	public static void ProductScreen() {
         System.out.println("\n========= 제품 관리 =========");
         System.out.println("### 1. 제품 등록하기");
-        System.out.println("### 2. 제품 삭제하기");
-        System.out.println("### 3. 첫 화면으로 가기");
+        System.out.println("### 2. 제품 정보수정");
+        System.out.println("### 3. 제품 삭제하기");
+        System.out.println("### 4. 첫 화면으로 가기");
         System.out.println("----------------------------------------");
         System.out.print(">>> ");
     }//end ProductScreen()

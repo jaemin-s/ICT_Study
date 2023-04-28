@@ -13,7 +13,7 @@ public class SearchService implements AppService{
 			int selection = inputInteger();
 			switch (selection) {
 			case 1:
-				System.out.println("menu1-1");
+				
 				break;
 			case 2:
 				System.out.println("menu1-2");
@@ -27,5 +27,6 @@ public class SearchService implements AppService{
 		}//end while
 		
 	}//end start()
+
 
 }//end class
