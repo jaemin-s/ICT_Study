@@ -1,8 +1,7 @@
 package com.java.menus.repository;
 
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 import com.java.common.DataBaseConnection;
 import com.java.menus.domain.Patient;
