@@ -47,6 +47,12 @@ public class Patient {
 	public void setPatientPhone(String patientPhone) {
 		this.patientPhone = patientPhone;
 	}
+
+	@Override
+	public String toString() {
+		return "주민등록번호 = " + patientId + ", 이름 = " + patientName + ", 주소 = " + patientAddress
+				+ ", 연락처 = " + patientPhone + "\n";
+	}
 	
 	
 }

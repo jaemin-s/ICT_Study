@@ -26,7 +26,7 @@ public class SearchService implements AppService{
 				showSearchPrescription();
 				break;
 			case 2:
-				showSearchDrug();
+//				showSearchDrug();
 				break;
 			case 3:
 				return;
@@ -70,24 +70,26 @@ public class SearchService implements AppService{
 		System.out.println("\n### 조회할 의약품 이름을 입력하세요.(약품이름의 일부를 입력해도 됩니다.)");
 		System.out.println(">>> ");
 		drugName = "'%" + inputString() + "%'";
-		return drugRepository.searchDrug(drugName);
+		for(Drug d : drugRepository.searchDrug(drugName)) {
+			d.toString();
+		}
 	}
 	
 	//약 이름 검색 후 조회결과 출력
-	private int showSearchDrug() {
-		List<Drug> drugs = searchDrug();
-		
-		if(!drugs.isEmpty()) {
-			System.out.println("\n========================== 의약품 조회 결과 ==========================");
-			for(Drug drug : drugs) {
-				System.out.println(drug);
-			}
-		} else {
-			System.out.println("\n### 조회 결과가 없습니다.");
-		}
-		
-		return drugs.size();
-	}
+//	private int showSearchDrug() {
+//		List<Drug> drugs = searchDrug();
+//		
+//		if(!drugs.isEmpty()) {
+//			System.out.println("\n========================== 의약품 조회 결과 ==========================");
+//			for(Drug drug : drugs) {
+//				System.out.println(drug);
+//			}
+//		} else {
+//			System.out.println("\n### 조회 결과가 없습니다.");
+//		}
+//		
+//		return drugs.size();
+//	}
 
 
 }//end class

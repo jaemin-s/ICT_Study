@@ -71,8 +71,8 @@ public class Prescription {
 
 	@Override
 	public String toString() {
-		return "Prescription [prescriptionNo=" + prescriptionNo + ", doctorName=" + doctorName + ", prescriptionDate="
-				+ prescriptionDate + ", daysMedication=" + daysMedication + ", drugNumber=" + drugNumber + "]";
+		return "처방전 번호 =" + prescriptionNo + ", 담당 의사 = " + doctorName + ", 처방 일자 = "
+				+ prescriptionDate + ", 투약 일수 = " + daysMedication + ", 약 번호 = " + drugNumber + "\n";
 	}
 	
 	

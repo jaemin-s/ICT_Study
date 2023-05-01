@@ -12,8 +12,7 @@ public class PrescriptionRepository {
 	
 	//처방전 등록
 		public void addPrecription(Prescription pc) {
-			String sql = "INSERT INTO prescriptions (patient_id, doctor_name, grug_number, days_medication) "
-					+ "VALUES (?,?,?,?)";
+			String sql = "INSERT INTO prescriptions VALUES (prescriptions_seq.NEXTVAL,?,?,?,?,sysdate)";
 			
 			try(Connection conn = connection.getConnection();
 					PreparedStatement pstmt = conn.prepareStatement(sql)) {
