@@ -1,6 +1,6 @@
 package com.java.menus.domain;
 
-public class Precription {
+public class Prescription {
 	private int prescriptionNo;
 	private String patientId;
 	private String doctorName;
@@ -8,9 +8,9 @@ public class Precription {
 	private int daysMedication;
 	private int drugNumber;
 
-	public Precription() {}
+	public Prescription() {}
 
-	public Precription(int prescriptionNo, String patientId, String doctorName, String prescriptionDate,
+	public Prescription(int prescriptionNo, String patientId, String doctorName, String prescriptionDate,
 			int daysMedication, int drugNumber) {
 		super();
 		this.prescriptionNo = prescriptionNo;
@@ -67,6 +67,12 @@ public class Precription {
 
 	public void setDrugNumber(int drugNumber) {
 		this.drugNumber = drugNumber;
+	}
+
+	@Override
+	public String toString() {
+		return "Prescription [prescriptionNo=" + prescriptionNo + ", doctorName=" + doctorName + ", prescriptionDate="
+				+ prescriptionDate + ", daysMedication=" + daysMedication + ", drugNumber=" + drugNumber + "]";
 	}
 	
 	
