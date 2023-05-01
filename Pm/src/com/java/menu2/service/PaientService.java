@@ -2,13 +2,8 @@ package com.java.menu2.service;
 
 import static com.java.view.AppUI.*;
 
-import java.sql.Connection;
-import java.sql.SQLException;
-
 import com.java.common.AppService;
-import com.java.common.DataBaseConnection;
 import com.java.menu2.domain.Paient;
-import com.java.menu3.domain.Ingredient;
 
 public class PaientService implements AppService{
 
