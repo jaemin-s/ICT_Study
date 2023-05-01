@@ -10,7 +10,7 @@ public class PatientService implements AppService{
 	@Override
 	public void start() {
 		while(true) {
-			PaientScreen();
+			PatientScreen();
 			int selection = inputInteger();
 			switch (selection) {
 			case 1: // 신규 환자 등록
