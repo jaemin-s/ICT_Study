@@ -1,20 +1,20 @@
-CREATE TABLE m_users(
-    user_id VARCHAR2(20) PRIMARY KEY,
-    user_name VARCHAR2(20) NOT NULL,
-    user_address VARCHAR2(200) NOT NULL,
-    user_phone VARCHAR2(20) NOT NULL
+CREATE TABLE patients(
+    patient_id VARCHAR2(20) PRIMARY KEY,
+    patient_name VARCHAR2(20) NOT NULL,
+    patient_address VARCHAR2(200) NOT NULL,
+    patient_phone VARCHAR2(20) NOT NULL
 );
 
-SELECT * FROM m_users;
-DROP TABLE m_users;
+SELECT * FROM patients;
+DROP TABLE patients;
 
 CREATE TABLE prescriptions(
     prescription_no NUMBER(6) PRIMARY KEY,
-    user_id VARCHAR2(20) REFERENCES m_users(user_id),
+    patient_id VARCHAR2(20) REFERENCES patients(patient_id),
     doctor_name VARCHAR2(20) NOT NULL,
-    product_name VARCHAR2(20) REFERENCES products(product_name) NOT NULL,
-    day_medication NUMBER(3) NOT NULL,
-    p_date DATE DEFAULT sysdate NOT NULL
+    drug_number NUMBER(10) REFERENCES drugs(drug_number) NOT NULL,
+    days_medication NUMBER(3) NOT NULL,
+    prescription_date DATE DEFAULT sysdate NOT NULL
 );
 
 DROP TABLE prescriptions;
@@ -27,14 +27,17 @@ CREATE SEQUENCE prescriptions_seq
     NOCYCLE
     NOCACHE;
 
+DROP SEQUENCE prescriptions_seq;
 
-
-CREATE TABLE products(
-    product_name VARCHAR2(40) PRIMARY KEY,
-    product_price NUMBER(10) DEFAULT 5000 NOT NULL,
+CREATE TABLE drugs(
+    drug_number NUMBER(10) PRIMARY KEY,
+    drug_name VARCHAR2(40) UNIQUE NOT NULL,
+    drug_price NUMBER(10) DEFAULT 5000 NOT NULL,
     company_name VARCHAR2(40) NOT NULL
 );
 
+SELECT * FROM drugs;
+DROP TABLE drugs;
 
 CREATE SEQUENCE products_seq
     START WITH 1
@@ -43,13 +46,15 @@ CREATE SEQUENCE products_seq
     NOCYCLE
     NOCACHE;
    
-SELECT * FROM products;
+DROP SEQUENCE products_seq;
 
 
 CREATE TABLE ingredients(
-    product_name VARCHAR2(40),
-    ingredient VARCHAR2(40) REFERENCES products(product_name) NOT NULL
+    drug_number NUMBER(10) REFERENCES drugs(drug_number) NOT NULL,
+    ingredient VARCHAR2(40) NOT NULL
 );
+
+DROP TABLE ingredients;
 
 
 
