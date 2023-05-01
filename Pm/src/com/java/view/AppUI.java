@@ -44,7 +44,7 @@ public class AppUI {
 	}//end SearchScreen()
 	
 	//2. 환자 관리 화면 출력
-	public static void PaientScreen() {
+	public static void PatientScreen() {
         System.out.println("\n========= 환자 관리 =========");
         System.out.println("### 1. 신규 환자 등록");
         System.out.println("### 2. 처방전 작성");
