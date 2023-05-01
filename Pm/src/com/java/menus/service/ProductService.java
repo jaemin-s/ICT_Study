@@ -1,4 +1,4 @@
-package com.java.menu3.service;
+package com.java.menus.service;
 
 import static com.java.view.AppUI.*;
 

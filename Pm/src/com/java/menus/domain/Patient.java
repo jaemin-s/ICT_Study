@@ -1,14 +1,14 @@
-package com.java.menu2.domain;
+package com.java.menus.domain;
 
-public class Paient {
+public class Patient {
 	private String patientId;
 	private String patientName;
 	private String patientAddress;
 	private String patientPhone;
 	
-	public Paient() {}
+	public Patient() {}
 
-	public Paient(String patientId, String patientName, String patientAddress, String patientPhone) {
+	public Patient(String patientId, String patientName, String patientAddress, String patientPhone) {
 		super();
 		this.patientId = patientId;
 		this.patientName = patientName;

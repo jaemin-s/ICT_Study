@@ -1,4 +1,4 @@
-package com.java.menu3.domain;
+package com.java.menus.domain;
 
 public class Ingredient {
 	private int drugNumber;

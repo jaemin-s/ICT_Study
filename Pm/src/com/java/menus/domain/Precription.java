@@ -1,4 +1,4 @@
-package com.java.menu2.domain;
+package com.java.menus.domain;
 
 public class Precription {
 	private int prescriptionNo;
