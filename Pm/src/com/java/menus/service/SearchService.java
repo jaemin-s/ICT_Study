@@ -1,4 +1,4 @@
-package com.java.menu1.service;
+package com.java.menus.service;
 
 import com.java.common.AppService;
 

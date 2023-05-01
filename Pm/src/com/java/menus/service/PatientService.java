@@ -1,11 +1,11 @@
-package com.java.menu2.service;
+package com.java.menus.service;
 
 import static com.java.view.AppUI.*;
 
 import com.java.common.AppService;
-import com.java.menu2.domain.Paient;
+import com.java.menus.domain.Patient;
 
-public class PaientService implements AppService{
+public class PatientService implements AppService{
 
 	@Override
 	public void start() {
@@ -44,7 +44,7 @@ public class PaientService implements AppService{
 		System.out.println("전화번호: ");
 		String phone = inputString();
 		
-		Paient paient = new Paient();
+		Patient paient = new Patient();
 		paient.setPatientName(name);
 		paient.setPatientId(id);
 		paient.setPatientAddress(address);

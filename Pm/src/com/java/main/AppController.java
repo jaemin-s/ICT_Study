@@ -1,9 +1,7 @@
 package com.java.main;
 
 import com.java.common.AppService;
-import com.java.menu1.service.SearchService;
-import com.java.menu2.service.PaientService;
-import com.java.menu3.service.ProductService;
+import com.java.menus.service.*;
 
 public class AppController {
 	
@@ -16,7 +14,7 @@ private AppService service;
 			service = new SearchService();
 			break;
 		case 2:
-			service = new PaientService();
+			service = new PatientService();
 			break;
 		case 3:
 			service = new ProductService();
