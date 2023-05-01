@@ -47,6 +47,12 @@ public class Drug {
 	public void setDrugName(String drugName) {
 		this.drugName = drugName;
 	}
+
+	@Override
+	public String toString() {
+		return "제품 이름 = " + drugNumber + ", 가격 = " + drugPrice + ", 제조회사 = " + companyName
+				+ ", 약 번호=" + drugName + "\n";
+	}
 	
 	
 	
