@@ -39,14 +39,14 @@ CREATE TABLE drugs(
 SELECT * FROM drugs;
 DROP TABLE drugs;
 
-CREATE SEQUENCE products_seq
+CREATE SEQUENCE drugs_seq
     START WITH 1
     INCREMENT BY 1
     MAXVALUE 100000
     NOCYCLE
     NOCACHE;
    
-DROP SEQUENCE products_seq;
+DROP SEQUENCE drugs_seq;
 
 
 CREATE TABLE ingredients(
