@@ -26,7 +26,7 @@ public class SearchService implements AppService{
 				showSearchPrescription();
 				break;
 			case 2:
-//				showSearchDrug();
+				searchDrug();
 				break;
 			case 3:
 				return;
@@ -43,7 +43,7 @@ public class SearchService implements AppService{
 	//처방이력 검색
 	private List<Prescription> searchPrescription() {
 		System.out.println("\n### 처방이력을 조회할 환자의 주민등록번호를 (-)를 포함하여 입력하세요.");
-		System.out.println(">>> ");
+		System.out.print(">>> ");
 		String patientId = inputString();
 		return prescriptionRepository.searchHistory(patientId);
 	}
@@ -68,10 +68,11 @@ public class SearchService implements AppService{
 	private void searchDrug() {
 		String drugName = "";
 		System.out.println("\n### 조회할 의약품 이름을 입력하세요.(약품이름의 일부를 입력해도 됩니다.)");
-		System.out.println(">>> ");
+		System.out.print(">>> ");
 		drugName = "'%" + inputString() + "%'";
-		for(Drug d : drugRepository.searchDrug(drugName)) {
-			d.toString();
+		List<Drug> drugs = drugRepository.searchDrug(drugName);
+		for(Drug d : drugs) {
+			System.out.println(d);
 		}
 	}
 	

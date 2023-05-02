@@ -60,8 +60,8 @@ public class Drug {
 
 	@Override
 	public String toString() {
-		return "제품 이름 = " + drugNumber + ", 가격 = " + drugPrice + ", 제조회사 = " + companyName
-				+ ", 약 번호=" + drugName + "\n";
+		return "제품 번호 : " + drugNumber + ", 가격 : " + drugPrice + ", 제조회사 : " + companyName
+				+ ", 성분:" + ingredient + "\n";
 	}
 	
 	
