@@ -54,8 +54,8 @@ public class SearchService implements AppService{
 		
 		if(!prescriptions.isEmpty()) {
 			System.out.println("\n========================== 처방이력 조회 결과 ==========================");
-			for(Prescription prescription : prescriptions) {
-				System.out.println(prescription);
+			for(Prescription pre : prescriptions) {
+				System.out.println(pre);
 			}
 		} else {
 			System.out.println("\n### 조회 결과가 없습니다.");

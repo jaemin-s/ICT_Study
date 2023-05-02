@@ -34,7 +34,7 @@ public class PrescriptionRepository {
 	//처방전 조회
 	public List<Prescription> searchHistory(String patientId){
 		List<Prescription> pList = new ArrayList<>();
-		String sql = "SELECT * FROM Precriptions WHERE patient_id = ?";
+		String sql = "SELECT * FROM Prescriptions WHERE patient_id = ?";
 		
 		try(Connection conn = connection.getConnection();
 				PreparedStatement pstmt = conn.prepareStatement(sql)) {
@@ -44,9 +44,9 @@ public class PrescriptionRepository {
 			while(rs.next()) {
 				Prescription pre = new Prescription(
 						rs.getInt("prescription_no"),
-						rs.getString("patiend_id"),
+						rs.getString("patient_id"),
 						rs.getString("doctor_name"),
-						rs.getString("prescription_date"),
+						rs.getString("prescription_date").substring(0, 10),
 						rs.getInt("drug_number"),
 						rs.getInt("days_medication")
 						);
