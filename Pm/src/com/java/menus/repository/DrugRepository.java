@@ -34,19 +34,18 @@ public class DrugRepository {
 	//약 이름으로 찾기
 	public List<Drug> searchDrug(String keyword){
 		List<Drug> dList = new ArrayList<>();
-		String sql = "SELECT * FROM drugs WHERE patient_id = "+keyword+";";
-		
+		String sql = "SELECT * FROM drugs WHERE drug_name LIKE "+keyword+"";
 		try(Connection conn = connection.getConnection();
 				PreparedStatement pstmt = conn.prepareStatement(sql);
 				ResultSet rs = pstmt.executeQuery()) {
-			
 			while(rs.next()) {
 				Drug d = new Drug(
 						rs.getInt("drug_number"),
-						rs.getInt("drug_name"),
-						rs.getString("drug_price"),
-						rs.getString("ingredient"),
-						rs.getString("company_name")
+						rs.getInt("drug_price"),
+						rs.getString("company_name"),
+						rs.getString("drug_name"),
+						rs.getString("ingredient")
+						
 						);
 				dList.add(d);
 			}
