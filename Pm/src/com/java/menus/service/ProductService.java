@@ -4,7 +4,6 @@ import static com.java.view.AppUI.*;
 
 import com.java.common.AppService;
 import com.java.menus.domain.Drug;
-import com.java.menus.domain.Patient;
 import com.java.menus.repository.DrugRepository;
 
 public class ProductService implements AppService{
@@ -22,7 +21,6 @@ public class ProductService implements AppService{
 				break;
 			case 2: // 제품 수정
 				fixDrug();
-				System.out.println("menu3-2");
 				break;
 			case 3:
 				return;
@@ -38,44 +36,52 @@ public class ProductService implements AppService{
 	// 의약품 등록
 	private void addDrug() {
 		System.out.println("\n============= 의약품 등록 ==============");
-		System.out.println("의약품 번호: ");
-		int medNum  = inputInteger();
-		
-		System.out.println("의약품 이름: ");
+
+		System.out.print("의약품 이름: ");
 		String medName = inputString();
 		
-		System.out.println("의약품 가격: ");
+		System.out.print("의약품 가격(정수로 입력,원): ");
 		int medPrice = inputInteger();
 		
-		System.out.println("제조회사: ");
+		System.out.print("주요 성분: ");
+		String ingredient = inputString();
+		
+		System.out.print("제조회사: ");
 		String comName = inputString();
 		
 		Drug drug = new Drug();
-		drug.setDrugNumber(medNum);
 		drug.setDrugName(medName);
 		drug.setDrugPrice(medPrice);
+		drug.setIngredient(ingredient);
 		drug.setCompanyName(comName);
 		
+		drugRepository.insertDrug(drug);
 	}
 	
 	//의약품 수정
 	private void fixDrug() {
 		System.out.println("\n============= 의약품 수정 ==============");
-		System.out.println("수정할 의약품 번호: ");
+		System.out.print("수정할 의약품 번호: ");
 		int dNum = inputInteger();
 		
 		System.out.println("수정할 항목을 번호로 선택해 주세요.");
 		System.out.println("1. 의약품 이름 | 2. 의약품 가격 | 3. 제조회사 ");
 		int select = inputInteger();
 		
-		if(select == 2) {
-			System.out.println("변경할 가격을 정수로 입력해주세요.");
-			updateDrug(select,inputInteger());
-		} else if(select == 1 || select == 3) {
-			System.out.println("변경할 이름을 입력해주세요.");
-			updateDrug(select,inputString());
-		} else {
-			System.out.println("잘 못 입력하였습니다.");
+		if(select == 1) {
+			System.out.print("변경할 이름을 입력해주세요. : ");
+			String after = "drug_name = \'"+inputString()+"\'";
+			drugRepository.updateDrug(dNum,after);
+		} else if(select == 2) {
+			System.out.println("변경할 가격을 입력해주세요.(정수만) : ");
+			String after = "drug_price = "+inputInteger();
+			drugRepository.updateDrug(dNum,after);
+		} else if(select == 3) {
+			System.out.print("변경할 회사이름을 입력해주세요. : ");
+			String after = "company_name = \'"+inputString()+"\'";
+			drugRepository.updateDrug(dNum,after);
+		}else {
+			System.out.println("잘 못 입력하였습니다. ");
 		}
 		
 	

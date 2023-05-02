@@ -5,15 +5,17 @@ public class Drug {
 	private int drugPrice;
 	private String companyName;
 	private String drugName;
+	private String ingredient;
 	
 	public Drug() {}
 
-	public Drug(int drugNumber, int drugPrice, String companyName, String drugName) {
+	public Drug(int drugNumber, int drugPrice, String companyName, String drugName, String ingredient) {
 		super();
 		this.drugNumber = drugNumber;
 		this.drugPrice = drugPrice;
 		this.companyName = companyName;
 		this.drugName = drugName;
+		this.ingredient = ingredient;
 	}
 
 	public int getDrugNumber() {
@@ -46,6 +48,14 @@ public class Drug {
 
 	public void setDrugName(String drugName) {
 		this.drugName = drugName;
+	}
+
+	public String getIngredient() {
+		return ingredient;
+	}
+
+	public void setIngredient(String ingredient) {
+		this.ingredient = ingredient;
 	}
 
 	@Override
