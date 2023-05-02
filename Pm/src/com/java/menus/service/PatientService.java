@@ -5,9 +5,14 @@ import static com.java.view.AppUI.*;
 import com.java.common.AppService;
 import com.java.menus.domain.Patient;
 import com.java.menus.domain.Prescription;
+import com.java.menus.repository.PatientRepository;
+import com.java.menus.repository.PrescriptionRepository;
 
 public class PatientService implements AppService{
-
+	
+	private final PatientRepository patientRepository = new PatientRepository();
+	private final PrescriptionRepository prescriptionRepository = new PrescriptionRepository();
+	
 	@Override
 	public void start() {
 		while(true) {
@@ -33,16 +38,16 @@ public class PatientService implements AppService{
 	//신규 환자 등록
 	private void addPatient() {
 		System.out.println("\n============= 신규 환자 등록 ==============");
-		System.out.println("이름: ");
+		System.out.print("이름: ");
 		String name = inputString();
 		
-		System.out.println("주민등록번호: ");
+		System.out.print("\n환자 주민등록번호('-'포함): ");
 		String id = inputString();
 		
-		System.out.println("주소: ");
+		System.out.print("\n주소: ");
 		String address = inputString();
 		
-		System.out.println("전화번호: ");
+		System.out.print("\n전화번호('-'포함): ");
 		String phone = inputString();
 		
 		Patient patient = new Patient();
@@ -50,6 +55,8 @@ public class PatientService implements AppService{
 		patient.setPatientId(id);
 		patient.setPatientAddress(address);
 		patient.setPatientPhone(phone);
+		
+		patientRepository.addPatient(patient);
 		
 	}//end addPatient()
 	
@@ -64,27 +71,25 @@ public class PatientService implements AppService{
 	//처방전 작성
 	private void addPrescription() {
 		System.out.println("\n============= 처방전 작성 ==============");
-		System.out.println("환자 주민등록번호('-'포함): ");
+		System.out.print("\n환자 주민등록번호('-'포함): ");
 		String Id = inputString(); 
 		
-		System.out.println("담당의사 이름: ");
+		System.out.print("\n담당의사 이름: ");
 		String docName = inputString();
 		
-		System.out.println("의약품 번호: ");
+		System.out.print("\n의약품 번호: ");
 		int medNumber = inputInteger();
 		
-		System.out.println("투약 일수: ");
+		System.out.print("\n투약 일수: ");
 		int daysMed = inputInteger();
-		
-		System.out.println("처방일(년/월/일): ");
-		String preDate = inputString();
 		
 		Prescription prescription = new Prescription();
 		prescription.setPatientId(Id);
 		prescription.setDoctorName(docName);
 		prescription.setDrugNumber(medNumber);
 		prescription.setDaysMedication(daysMed);
-		prescription.setPrescriptionDate(preDate);
+		
+		prescriptionRepository.addPrecription(prescription);
 		
 	}//end addPrescription
 

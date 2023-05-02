@@ -70,10 +70,10 @@ public class ProductService implements AppService{
 		
 		if(select == 2) {
 			System.out.println("변경할 가격을 정수로 입력해주세요.");
-			updateDrug(select,inputInteger());
+			drugRepository.updateDrug(dNum,select,inputInteger());
 		} else if(select == 1 || select == 3) {
 			System.out.println("변경할 이름을 입력해주세요.");
-			updateDrug(select,inputString());
+			drugRepository.updateDrug(dNum,select,inputString());
 		} else {
 			System.out.println("잘 못 입력하였습니다.");
 		}
