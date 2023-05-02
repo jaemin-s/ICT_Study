@@ -11,14 +11,15 @@ public class DrugRepository {
 	private DataBaseConnection connection = DataBaseConnection.getInstance();
 	
 	//약 등록
-	public void addDrug(Drug d) {
-		String sql = "INSERT INTO drugs VALUES (drugs_seq.NEXTVAL,?,?,?)";
+	public void insertDrug(Drug d) {
+		String sql = "INSERT INTO drugs VALUES (drugs_seq.NEXTVAL,?,?,?,?)";
 		
 		try(Connection conn = connection.getConnection();
 				PreparedStatement pstmt = conn.prepareStatement(sql)) {
 			pstmt.setString(1, d.getDrugName());
 			pstmt.setInt(2, d.getDrugPrice());
-			pstmt.setString(3, d.getCompanyName());
+			pstmt.setString(3, d.getIngredient());
+			pstmt.setString(4, d.getCompanyName());
 			
 			if(pstmt.executeUpdate() == 1) {
 				System.out.println("정상 등록되었습니다.");
@@ -44,6 +45,7 @@ public class DrugRepository {
 						rs.getInt("drug_number"),
 						rs.getInt("drug_name"),
 						rs.getString("drug_price"),
+						rs.getString("ingredient"),
 						rs.getString("company_name")
 						);
 				dList.add(d);
@@ -66,7 +68,6 @@ public class DrugRepository {
 			if(rs.next()) {
 				dName = rs.getString("drug_name");
 			}
-			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -74,21 +75,12 @@ public class DrugRepository {
 	}
 	
 	//수정
-	public void updateDrug(int dNum, int select,Object value) {
-		String sql = "UPDATE drugs SET ? WHERE drug_number = ?";
+	public void updateDrug(int dNum, String col) {
+		String sql = "UPDATE drugs SET "+col+" WHERE drug_number = ?";
 		try(Connection conn = connection.getConnection();
 				PreparedStatement pstmt = conn.prepareStatement(sql)) {
-			if(select == 2) {
-				pstmt.setString(1, "drug_price = "+(int)value);
-				pstmt.setInt(2, dNum);
-			}else if(select ==1){
-				pstmt.setString(1, "drug_name = "+(String)value);
-				pstmt.setInt(2, dNum);
-			}else {
-				pstmt.setString(1, "company_name = "+(String)value);
-				pstmt.setInt(2, dNum);
-			}
-
+				pstmt.setInt(1, dNum);
+			
 			if(pstmt.executeUpdate() == 1) {
 				System.out.println("정상 수정되었습니다.");
 			} else {
