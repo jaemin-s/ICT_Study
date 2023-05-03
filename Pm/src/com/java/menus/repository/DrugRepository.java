@@ -59,7 +59,7 @@ public class DrugRepository {
 	//약 번호로 찾기
 	public String searchDrugName(int dNum) {
 		String dName = "";
-		String sql = "SELECT * FROM drugs WHERE patient_id = "+dNum+";";
+		String sql = "SELECT * FROM drugs WHERE patient_id = "+dNum;
 		try(Connection conn = connection.getConnection();
 				PreparedStatement pstmt = conn.prepareStatement(sql);
 				ResultSet rs = pstmt.executeQuery()) {
