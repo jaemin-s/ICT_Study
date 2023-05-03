@@ -21,9 +21,9 @@ public class PrescriptionRepository {
 				pstmt.setInt(4, pc.getDaysMedication());
 				
 				if(pstmt.executeUpdate() == 1) {
-					System.out.println("정상 등록되었습니다.");
+					System.out.println("\n정상 등록되었습니다.");
 				} else {
-					System.out.println("등록 실패했습니다.");
+					System.out.println("\n등록 실패했습니다.");
 				}
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -96,7 +96,7 @@ public class PrescriptionRepository {
 				while(rs.next()) {
 					System.out.print(rs.getString("drug_name")+" |\t "+rs.getString("ingredient"));
 				}
-				System.out.println("-------------------");
+				System.out.println("\n-------------------");
 			} else {
 				System.out.println("현재 투약중인 약이 없습니다.\n");
 			}

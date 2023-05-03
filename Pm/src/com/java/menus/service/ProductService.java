@@ -39,6 +39,11 @@ public class ProductService implements AppService{
 
 		System.out.print("의약품 이름: ");
 		String medName = inputString();
+		if(drugRepository.searchDrug("'"+medName+"'").size()!=0) {
+			System.out.println("\n이미 존재하는 제품명입니다.");
+			return;
+		}
+		
 		
 		System.out.print("의약품 가격(정수로 입력,원): ");
 		int medPrice = inputInteger();

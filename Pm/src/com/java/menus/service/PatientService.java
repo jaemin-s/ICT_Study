@@ -72,7 +72,10 @@ public class PatientService implements AppService{
 		System.out.println("\n============= 처방전 작성 ==============");
 		System.out.print("\n환자 주민등록번호('-'포함): ");
 		String Id = inputString(); 
-		
+		if(!patientRepository.searchDuplicate(Id)) {
+			System.out.println("\n등록되지 않은 환자입니다");
+			return;
+		}
 		//여기서 투약중인 약 이름 성분 출력 
 		prescriptionRepository.showDrugInfo(Id);
 		
