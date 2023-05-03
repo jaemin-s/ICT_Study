@@ -1,7 +1,6 @@
 package com.java.menus.repository;
 
 import java.sql.*;
-import java.util.*;
 
 import com.java.common.DataBaseConnection;
 import com.java.menus.domain.Prescription;
@@ -32,32 +31,38 @@ public class PrescriptionRepository {
 		}//end 처방전 등록
 		
 	//처방전 조회
-	public List<Prescription> searchHistory(String patientId){
-		List<Prescription> pList = new ArrayList<>();
-		String sql = "SELECT * FROM Prescriptions WHERE patient_id = ?";
+	public void searchHistory(String patientId){
+		String sql = "SELECT * FROM prescriptions p JOIN drugs d "
+				+ "ON p.drug_number = d.drug_number WHERE patient_id = ?";
 		
 		try(Connection conn = connection.getConnection();
 				PreparedStatement pstmt = conn.prepareStatement(sql)) {
 			pstmt.setString(1, patientId);
 			ResultSet rs = pstmt.executeQuery();
-			
+			if(rs.next()) {
+			System.out.println("\n-------------------------------------------------------------------------------");
+			System.out.println(" 처방전번호 |   주민등록번호   | 담당의사 |   처방일자  | 투약일수 | 약 이름 | 주요 성분 | 제조 회사");
 			while(rs.next()) {
-				Prescription pre = new Prescription(
-						rs.getInt("prescription_no"),
-						rs.getString("patient_id"),
-						rs.getString("doctor_name"),
-						rs.getString("prescription_date").substring(0, 10),
-						rs.getInt("drug_number"),
-						rs.getInt("days_medication")
-						);
-				pList.add(pre);
+						System.out.print(
+								"    "+rs.getInt("prescription_no")
+								+"\t| "+rs.getString("patient_id")
+								+"\t| "+rs.getString("doctor_name")
+								+"\t| "+rs.getString("prescription_date").substring(0, 10)
+								+"\t| "+rs.getInt("days_medication")
+								+"\t| "+rs.getString("drug_name")
+								+"\t| "+rs.getString("ingredient")
+								+"\t| "+rs.getString("company_name")+"\n"
+								);
 			}
-			
+			System.out.println("-------------------------------------------------------------------------------");
+			}else {
+				System.out.println("\n처방이력이 없습니다");
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return pList;
 	}//end 처방전 조회
+
 		
 	
 }

@@ -60,19 +60,15 @@ public class PatientService implements AppService{
 		
 	}//end addPatient()
 	
-//	CREATE TABLE prescriptions(
-//		    prescription_no NUMBER(6) PRIMARY KEY,
-//		    patient_id VARCHAR2(20) REFERENCES patients(patient_id),
-//		    doctor_name VARCHAR2(20) NOT NULL,
-//		    drug_number NUMBER(10) REFERENCES drugs(drug_number) NOT NULL,
-//		    days_medication NUMBER(3) NOT NULL,
-//		    prescription_date DATE DEFAULT sysdate NOT NULL
-//		);
 	//처방전 작성
 	private void addPrescription() {
 		System.out.println("\n============= 처방전 작성 ==============");
 		System.out.print("\n환자 주민등록번호('-'포함): ");
 		String Id = inputString(); 
+		
+		//여기서 투약중인 약 이름 성분 출력 
+		
+		
 		
 		System.out.print("\n담당의사 이름: ");
 		String docName = inputString();
