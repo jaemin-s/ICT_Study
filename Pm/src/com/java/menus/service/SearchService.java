@@ -44,6 +44,7 @@ public class SearchService implements AppService{
 		System.out.println("\n### 처방이력을 조회할 환자의 주민등록번호를 (-)를 포함하여 입력하세요.");
 		System.out.print(">>> ");
 		String patientId = inputString();
+
 		prescriptionRepository.searchHistory(patientId);
 	}
 	

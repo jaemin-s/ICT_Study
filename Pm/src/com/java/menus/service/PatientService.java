@@ -44,6 +44,12 @@ public class PatientService implements AppService{
 		System.out.print("\n환자 주민등록번호('-'포함): ");
 		String id = inputString();
 		
+		if(patientRepository.searchDuplicate(id)) {
+			System.out.println("");
+			System.out.println("이미 등록된 환자입니다. 다시 시도해주세요.");
+			return;
+		}
+		
 		System.out.print("\n주소: ");
 		String address = inputString();
 		
@@ -56,7 +62,8 @@ public class PatientService implements AppService{
 		patient.setPatientAddress(address);
 		patient.setPatientPhone(phone);
 		
-		patientRepository.addPatient(patient);
+		patientRepository.addPatient(patient);			
+		
 		
 	}//end addPatient()
 	

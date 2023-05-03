@@ -59,6 +59,7 @@ public class DrugRepository {
 	public String searchDrugName(int dNum) {
 		String dName = "";
 		String sql = "SELECT * FROM drugs WHERE drug_number = "+dNum+"";
+
 		try(Connection conn = connection.getConnection();
 				PreparedStatement pstmt = conn.prepareStatement(sql);
 				ResultSet rs = pstmt.executeQuery()) {

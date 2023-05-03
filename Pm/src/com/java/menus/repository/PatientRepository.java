@@ -13,6 +13,7 @@ public class PatientRepository {
 	
 	//환자 등록
 	public void addPatient(Patient patient) {
+		
 		String sql = "INSERT INTO patients VALUES (?,?,?,?)";
 		
 		try(Connection conn = connection.getConnection();
@@ -21,6 +22,7 @@ public class PatientRepository {
 			pstmt.setString(2, patient.getPatientName());
 			pstmt.setString(3, patient.getPatientAddress());
 			pstmt.setString(4, patient.getPatientPhone());
+			
 			
 			if(pstmt.executeUpdate() == 1) {
 				System.out.println("정상 등록되었습니다.");
@@ -31,6 +33,27 @@ public class PatientRepository {
 			e.printStackTrace();
 		}
 	}//end 환자 등록
+	
+	
+	//환자 중복찾기
+	public boolean searchDuplicate(String patientId){
+		String sql = "SELECT patient_id FROM patients WHERE patient_id = ?";
+		boolean flag = false;
+		try(Connection conn = connection.getConnection();
+				PreparedStatement pstmt = conn.prepareStatement(sql)) {
+			pstmt.setString(1, patientId);
+			ResultSet rs = pstmt.executeQuery();
+			if(rs.next()) {
+				flag = true;
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return flag;
+	}
+	
 	
 	public List<Patient> searchHistory(String patientId){
 		List<Patient> pList = new ArrayList<>();
@@ -58,5 +81,4 @@ public class PatientRepository {
 	}//end searchHistory
 	
 	
-
 }//end class
