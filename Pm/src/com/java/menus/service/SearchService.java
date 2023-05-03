@@ -56,7 +56,7 @@ public class SearchService implements AppService{
 		List<Drug> dList = drugRepository.searchDrug(drugName);
 		if(dList.size()!=0) {
 			System.out.println("---------------------------------------------");
-			System.out.println("제품 번호 |    제품 이름    |제품 가격|    제품 성분    | 제조 회사");
+			System.out.println("제품 번호 |    제품 성분    |제품 가격|    제품 이름    | 제조 회사");
 			for (Drug d : dList) {
 				System.out.print(
 						"    "+d.getDrugNumber()

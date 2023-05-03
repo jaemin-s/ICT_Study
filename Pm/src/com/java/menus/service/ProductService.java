@@ -5,7 +5,6 @@ import static com.java.view.AppUI.*;
 import com.java.common.AppService;
 import com.java.menus.domain.Drug;
 import com.java.menus.repository.DrugRepository;
-import com.java.menus.repository.PrescriptionRepository;
 
 public class ProductService implements AppService{
 	
