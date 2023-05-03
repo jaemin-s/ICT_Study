@@ -15,7 +15,7 @@ public class AppUI {
 		try {
 			num = sc.nextInt();
 		} catch (InputMismatchException e) {
-			System.out.println("정수로 입력해 주세요.");
+			
 		} finally {
 			sc.nextLine();
 		}

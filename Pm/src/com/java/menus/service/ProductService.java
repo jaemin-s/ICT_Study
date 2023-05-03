@@ -39,9 +39,18 @@ public class ProductService implements AppService{
 
 		System.out.print("의약품 이름: ");
 		String medName = inputString();
+		if(drugRepository.searchDrug("'"+medName+"'").size()!=0) {
+			System.out.println("\n이미 존재하는 제품명입니다.");
+			return;
+		}
+		
 		
 		System.out.print("의약품 가격(정수로 입력,원): ");
 		int medPrice = inputInteger();
+		if(medPrice == 0) {
+			System.out.println("잘 못 입력했습니다");
+			return;
+		}
 		
 		System.out.print("주요 성분: ");
 		String ingredient = inputString();
@@ -56,6 +65,7 @@ public class ProductService implements AppService{
 		drug.setCompanyName(comName);
 		
 		drugRepository.insertDrug(drug);
+		System.out.println(drugRepository.searchDrug("'"+medName+"'")); 
 	}
 	
 	//의약품 수정
@@ -63,6 +73,16 @@ public class ProductService implements AppService{
 		System.out.println("\n============= 의약품 수정 ==============");
 		System.out.print("수정할 의약품 번호: ");
 		int dNum = inputInteger();
+		String dName = drugRepository.searchDrugName(dNum);
+		if(dName.equals("")) {
+			System.out.println("없는 제품입니다.");
+			return;
+		}
+		if(dNum == 0) {
+			System.out.println("잘 못 입력했습니다");
+			return;
+		}
+		System.out.println(drugRepository.searchDrug("'"+dName+"'")); 
 		
 		System.out.println("수정할 항목을 번호로 선택해 주세요.");
 		System.out.println("1. 의약품 이름 | 2. 의약품 가격 | 3. 제조회사 ");

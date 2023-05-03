@@ -1,6 +1,7 @@
 package com.java.menus.repository;
 
 import java.sql.*;
+import java.util.*;
 
 import com.java.common.DataBaseConnection;
 import com.java.menus.domain.*;
@@ -31,36 +32,34 @@ public class DrugRepository {
 	}//end 약 등록
 
 	//약 이름으로 찾기
-	public void searchDrug(String keyword){
+	public List<Drug> searchDrug(String keyword){
+		List<Drug> dList = new ArrayList<>();
 		String sql = "SELECT * FROM drugs WHERE drug_name LIKE "+keyword+"";
 		try(Connection conn = connection.getConnection();
 				PreparedStatement pstmt = conn.prepareStatement(sql);
 				ResultSet rs = pstmt.executeQuery()) {
-			if(rs.next()) {
-				System.out.println("---------------------------------------------");
-				System.out.println("제품 번호 |    제품 이름    |제품 가격|    제품 성분    | 제조 회사");
-				while(rs.next()) {
-					System.out.print(
-							"    "+rs.getInt("drug_number")
-							+"\t| "+rs.getString("drug_name")
-							+"\t| "+rs.getInt("drug_price")
-							+"\t| "+rs.getString("ingredient")
-							+"\t| "+rs.getString("company_name")+"\n"
-							);
-				}
-			}else {
-				System.out.println("\n조회결과가 없습니다.");
+			
+			while(rs.next()) {
+				Drug d = new Drug(
+						rs.getInt("drug_number"),
+						rs.getInt("drug_price"),
+						rs.getString("drug_name"),
+						rs.getString("ingredient"),
+						rs.getString("company_name")
+						);
+				dList.add(d);
 			}
-
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		return dList;
 	}//end 처방전 조회
 
 	//약 번호로 찾기
 	public String searchDrugName(int dNum) {
 		String dName = "";
-		String sql = "SELECT * FROM drugs WHERE patient_id = "+dNum;
+		String sql = "SELECT * FROM drugs WHERE drug_number = "+dNum+"";
+
 		try(Connection conn = connection.getConnection();
 				PreparedStatement pstmt = conn.prepareStatement(sql);
 				ResultSet rs = pstmt.executeQuery()) {
@@ -69,7 +68,6 @@ public class DrugRepository {
 				dName = rs.getString("drug_name");
 			}
 		} catch (Exception e) {
-			e.printStackTrace();
 		}
 		return dName;
 	}

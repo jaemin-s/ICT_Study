@@ -25,9 +25,9 @@ public class PatientRepository {
 			
 			
 			if(pstmt.executeUpdate() == 1) {
-				System.out.println("정상 등록되었습니다.");
+				System.out.println("\n정상 등록되었습니다.");
 			} else {
-				System.out.println("등록 실패했습니다.");
+				System.out.println("\n등록 실패했습니다.");
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
