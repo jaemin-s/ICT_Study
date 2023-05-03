@@ -44,7 +44,6 @@ public class SearchService implements AppService{
 		prescriptionRepository.searchHistory(patientId);
 	}
 	
-
 	//약 이름검색
 	private void searchDrug() {
 		String drugName = "";
