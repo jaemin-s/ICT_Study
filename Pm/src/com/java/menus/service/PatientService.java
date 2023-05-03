@@ -67,8 +67,7 @@ public class PatientService implements AppService{
 		String Id = inputString(); 
 		
 		//여기서 투약중인 약 이름 성분 출력 
-		
-		
+		prescriptionRepository.showDrugInfo(Id);
 		
 		System.out.print("\n담당의사 이름: ");
 		String docName = inputString();
@@ -88,5 +87,6 @@ public class PatientService implements AppService{
 		prescriptionRepository.addPrecription(prescription);
 		
 	}//end addPrescription
+
 
 }//end class

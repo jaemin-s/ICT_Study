@@ -1,6 +1,7 @@
 package com.java.menus.repository;
 
 import java.sql.*;
+import java.util.*;
 
 import com.java.common.DataBaseConnection;
 import com.java.menus.domain.Prescription;
@@ -39,19 +40,20 @@ public class PrescriptionRepository {
 				PreparedStatement pstmt = conn.prepareStatement(sql)) {
 			pstmt.setString(1, patientId);
 			ResultSet rs = pstmt.executeQuery();
-			if(rs.next()) {
+			
+			if(isExistsH(patientId)) {
 			System.out.println("\n-------------------------------------------------------------------------------");
 			System.out.println(" 처방전번호 |   주민등록번호   | 담당의사 |   처방일자  | 투약일수 | 약 이름 | 주요 성분 | 제조 회사");
 			while(rs.next()) {
 						System.out.print(
 								"    "+rs.getInt("prescription_no")
-								+"\t| "+rs.getString("patient_id")
-								+"\t| "+rs.getString("doctor_name")
-								+"\t| "+rs.getString("prescription_date").substring(0, 10)
-								+"\t| "+rs.getInt("days_medication")
-								+"\t| "+rs.getString("drug_name")
-								+"\t| "+rs.getString("ingredient")
-								+"\t| "+rs.getString("company_name")+"\n"
+								+"   | "+rs.getString("patient_id")
+								+" | "+rs.getString("doctor_name")
+								+" | "+rs.getString("prescription_date").substring(0, 10)
+								+" | "+rs.getInt("days_medication")
+								+" | "+rs.getString("drug_name")
+								+" | "+rs.getString("ingredient")
+								+" | "+rs.getString("company_name")+"\n"
 								);
 			}
 			System.out.println("-------------------------------------------------------------------------------");
@@ -63,6 +65,64 @@ public class PrescriptionRepository {
 		}
 	}//end 처방전 조회
 
+	private boolean isExistsH(String patientId) {
+		boolean flag = false;
+		String sql = "SELECT * FROM prescriptions WHERE patient_id = ?";
+		try(Connection conn = connection.getConnection();
+				PreparedStatement pstmt = conn.prepareStatement(sql)) {
+			pstmt.setString(1, patientId);
+			ResultSet rs = pstmt.executeQuery();
+			if(rs.next()) {
+				flag = true;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 		
+		return flag;
+	}
+
+	public void showDrugInfo(String id) {
+		String sql = "SELECT drug_name, ingredient FROM "
+				+"(SELECT TRUNC(prescription_date+days_medication-sysdate) AS remain,drug_number  "
+				+ "FROM prescriptions WHERE patient_id = ?) a "
+				 +"JOIN drugs d ON a.drug_number = d.drug_number WHERE remain > 0";
+		
+		try(Connection conn = connection.getConnection();
+				PreparedStatement pstmt = conn.prepareStatement(sql)) {
+			pstmt.setString(1, id);
+			ResultSet rs = pstmt.executeQuery();
+			if(isExistsD(id)) {
+				System.out.println("---- 투약중인 약 ----");
+				while(rs.next()) {
+					System.out.print(rs.getString("drug_name")+" |\t "+rs.getString("ingredient"));
+				}
+				System.out.println("-------------------");
+			} else {
+				System.out.println("현재 투약중인 약이 없습니다.\n");
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+
+	public boolean isExistsD(String id) {
+		boolean flag = false;
+		String sql = "SELECT drug_name, ingredient FROM "
+				+"(SELECT TRUNC(prescription_date+days_medication-sysdate) AS remain,drug_number  "
+				+ "FROM prescriptions WHERE patient_id = ?) a "
+				 +"JOIN drugs d ON a.drug_number = d.drug_number WHERE remain > 0";
+		try(Connection conn = connection.getConnection();
+				PreparedStatement pstmt = conn.prepareStatement(sql)) {
+			pstmt.setString(1, id);
+			ResultSet rs = pstmt.executeQuery();
+			if(rs.next()) {
+				flag = true;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return flag;	
+	}
 	
 }

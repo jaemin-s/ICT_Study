@@ -2,9 +2,12 @@ package com.java.menus.service;
 
 import com.java.common.AppService;
 import com.java.menus.repository.PrescriptionRepository;
+import com.java.menus.domain.Drug;
 import com.java.menus.repository.DrugRepository;
 
 import static com.java.view.AppUI.*;
+
+import java.util.*;
 
 
 public class SearchService implements AppService{
@@ -50,7 +53,23 @@ public class SearchService implements AppService{
 		System.out.println("\n### 조회할 의약품 이름을 입력하세요.(약품이름의 일부를 입력해도 됩니다.)");
 		System.out.print(">>> ");
 		drugName = "'%" + inputString() + "%'";
-		drugRepository.searchDrug(drugName);
+		List<Drug> dList = drugRepository.searchDrug(drugName);
+		if(dList.size()!=0) {
+			System.out.println("---------------------------------------------");
+			System.out.println("제품 번호 |    제품 이름    |제품 가격|    제품 성분    | 제조 회사");
+			for (Drug d : dList) {
+				System.out.print(
+						"    "+d.getDrugNumber()
+						+"\t| "+d.getDrugName()
+						+"\t| "+d.getDrugPrice()
+						+"\t| "+d.getIngredient()
+						+"\t| "+d.getCompanyName()+"\n"
+						);
+			}
+			System.out.println("---------------------------------------------");
+		} else {
+			System.out.println("\n조회 결과가 없습니다");
+		}
 	}
 	
 
