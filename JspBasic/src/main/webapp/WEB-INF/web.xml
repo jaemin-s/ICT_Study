@@ -9,4 +9,24 @@
     <welcome-file>default.jsp</welcome-file>
     <welcome-file>default.htm</welcome-file>
   </welcome-file-list>
+  
+  <error-page>
+  	<error-code>404</error-code>
+  	<location>/Exception/error_404.jsp</location>
+  </error-page>
+  
+  <error-page>
+  	<exception-type>java.lang.NullPointerException</exception-type>
+  	<location>/Exception/error_null.jsp</location>
+  </error-page>
+  
+  <servlet>
+  	<servlet-name>basic</servlet-name>
+  	<servlet-class>kr.co.jsp.servlet.sertvbetBasic</servlet-class>  	
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>basic</servlet-name>
+  	<url-pattern>/basic</url-pattern>
+  </servlet-mapping>
 </web-app>
