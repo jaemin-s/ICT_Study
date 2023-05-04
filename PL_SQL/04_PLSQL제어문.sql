@@ -34,7 +34,6 @@ BEGIN
         dbms_output.put_line('낮음');
     ELSIF v_salary <= 9000 THEN
         dbms_output.put_line('중간');
-    ELSE
         dbms_output.put_line('높음');
     END IF;
 END;
@@ -88,6 +87,7 @@ BEGIN
         IF v_commission > 0.15 THEN
             dbms_output.put_line(v_salary*v_commission);
         END IF;
+    ELSE');
     ELSE
         dbms_output.put_line(v_salary);
     END IF;
