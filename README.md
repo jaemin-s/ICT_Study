@@ -8,4 +8,4 @@
        - 제품 번호 입력시 제품 정보 출력
 
 ## 데이터 베이스 개념적 설계 ERD
-
+![ERD개념적설계 drawio](https://user-images.githubusercontent.com/125543841/236095382-a2efcbe9-94c7-4761-84a1-8ca896299fc0.png)
