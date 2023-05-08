@@ -89,21 +89,21 @@ public class UserDAO {
 		return result;
 	}
 
-	
+
 	public UserVO getUserInfo(String id) {
 		UserVO u = new UserVO();
 		String sql = "SELECT * FROM my_user WHERE user_id = ?";
 		try(Connection conn = ds.getConnection();
-					PreparedStatement pstmt = conn.prepareStatement(sql)){
-				pstmt.setString(1, id);
-				ResultSet rs = pstmt.executeQuery();
-				if(rs.next()) {
-					u.setUserId(rs.getString("user_id"));
-					u.setUserPw(rs.getString("user_pw"));
-					u.setUserName(rs.getString("user_name"));
-					u.setUserEmail(rs.getString("user_email"));
-					u.setUserAddress(rs.getString("user_address"));
-				}
+				PreparedStatement pstmt = conn.prepareStatement(sql)){
+			pstmt.setString(1, id);
+			ResultSet rs = pstmt.executeQuery();
+			if(rs.next()) {
+				u.setUserId(rs.getString("user_id"));
+				u.setUserPw(rs.getString("user_pw"));
+				u.setUserName(rs.getString("user_name"));
+				u.setUserEmail(rs.getString("user_email"));
+				u.setUserAddress(rs.getString("user_address"));
+			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -120,7 +120,37 @@ public class UserDAO {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+
+	}
+
+	public void updateUser(UserVO vo) {
+		String sql = "UPDATE my_user SET user_name = ?, user_email = ?, user_address = ? "
+				+ "WHERE user_id = ?";
+		try(Connection conn = ds.getConnection();
+				PreparedStatement pstmt = conn.prepareStatement(sql)){
+			pstmt.setString(1, vo.getUserName());
+			pstmt.setString(2, vo.getUserEmail());
+			pstmt.setString(3, vo.getUserAddress());
+			pstmt.setString(4, vo.getUserId());
+			pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+	}
+
+	public void deleteUser(String id) {
+		String sql = "DELETE FROM my_user WHERE user_id = ?";
+		try(Connection conn = ds.getConnection();
+				PreparedStatement pstmt = conn.prepareStatement(sql)){
+			pstmt.setString(1, id);
+			pstmt.executeUpdate();
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
 		
 	}
+
+
 
 }
