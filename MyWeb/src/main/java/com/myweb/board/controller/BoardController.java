@@ -9,16 +9,15 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.myweb.board.service.GetListService;
-import com.myweb.board.service.IBoardService;
-import com.myweb.board.service.RegistService;
+import com.myweb.board.model.BoardDAO;
+import com.myweb.board.service.*;
 
 @WebServlet("*.board")
 public class BoardController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
 	private IBoardService sv;
-	
+	private RequestDispatcher dp;
     public BoardController() {
         super();
     }
@@ -52,10 +51,49 @@ public class BoardController extends HttpServlet {
 			sv = new GetListService();
 			sv.execute(request, response);
 			
-			RequestDispatcher dp = request.getRequestDispatcher("board/board_list.jsp");
+			dp = request.getRequestDispatcher("board/board_list.jsp");
 			dp.forward(request, response);
 			break;
-
+		case "content":
+			System.out.println("글 상세보기 요청이 들어옴");
+			sv = new ContentService();
+			sv.execute(request, response);
+			
+			dp = request.getRequestDispatcher("board/board_content.jsp");
+			dp.forward(request, response);
+			break;
+		case "delete":
+			System.out.println("글 삭제 요청 들어옴");
+			BoardDAO.getInstance().deleteBoard(
+					Integer.parseInt(request.getParameter("bId")
+							));
+			
+			response.sendRedirect("/MyWeb/list.board");
+			break;
+		case "modify":
+			System.out.println("글 수정페이지로 이동 요청");
+			sv = new ModifyService();
+			sv.execute(request, response);
+			
+			dp = request.getRequestDispatcher("board/board_modify.jsp");
+			dp.forward(request, response);
+			break;
+		case "update":
+			System.out.println("글 변경 요청 들어옴");
+			sv = new UpdateService();
+			sv.execute(request, response);
+			
+			response.sendRedirect("/MyWeb/content.board?bId="+request.getParameter("bId"));
+			break;
+		case "search":
+			System.out.println("검색 요청 들어옴");
+			sv = new SearchService();
+			sv.execute(request, response);
+			if(request.getAttribute("boardList") != null) {
+				dp = request.getRequestDispatcher("board/board_list.jsp");
+				dp.forward(request, response);
+			}
+			break;
 		}
 	
 	}

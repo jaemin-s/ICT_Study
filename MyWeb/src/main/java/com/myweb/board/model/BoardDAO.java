@@ -122,4 +122,41 @@ public class BoardDAO implements IBoardDAO {
 		}
 	}
 
+	public void upHit(int bId) {
+		String sql = "UPDATE my_board SET hit=hit+1 WHERE board_id=?";
+		try (Connection conn = ds.getConnection();
+				PreparedStatement pstmt = conn.prepareStatement(sql)){
+			pstmt.setInt(1,bId);
+			pstmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+	}
+
+	@Override
+	public List<BoardVO> searchBoard(String category, String keyword) {
+		List<BoardVO> bList = new ArrayList<>(); 
+		String sql = "SELECT * FROM my_board WHERE "+category+" LIKE ? ORDER BY board_id DESC";
+		try (Connection conn = ds.getConnection();
+				PreparedStatement pstmt = conn.prepareStatement(sql)){
+			pstmt.setString(1, "%"+keyword+"%");
+			ResultSet rs = pstmt.executeQuery();
+			while(rs.next()) {
+				BoardVO b = new BoardVO(
+						rs.getInt("board_id"),
+						rs.getString("writer"),
+						rs.getString("title"),
+						rs.getString("content"),
+						rs.getTimestamp("reg_date").toLocalDateTime(),
+						rs.getInt("hit"));
+				bList.add(b);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return bList;
+	}
+
+	
 }

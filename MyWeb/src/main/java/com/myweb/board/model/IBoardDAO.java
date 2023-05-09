@@ -18,4 +18,10 @@ public interface IBoardDAO {
 	
 	//글 삭제
 	void deleteBoard(int boardId);
+	
+	//글 검색
+	List<BoardVO> searchBoard(String category,String keyword);
+	
+	//조회수 추가
+	void upHit(int bId);
 }
