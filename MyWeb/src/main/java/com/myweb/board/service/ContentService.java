@@ -16,24 +16,28 @@ public class ContentService implements IBoardService {
 		BoardDAO dao = BoardDAO.getInstance();
 		Cookie[] cookies = request.getCookies();
 		boolean flag = false;
-		for(Cookie c : cookies) {
-			if(c.getName().equals(bId+"cookie")) {
-				flag = true;
-				break;
+		if(cookies != null) {
+			for(Cookie c : cookies) {
+				if(c.getName().equals(bId+"cookie")) {
+					flag = true;
+					break;
+				}
 			}
 		}
 		if(!flag) {
 			dao.upHit(bId);
 		}
 		Cookie c = new Cookie(bId+"cookie", "true");
-		
+
 		c.setMaxAge(15);
 		response.addCookie(c);
-		
+
 		BoardVO	vo = dao.contentBoard(bId);
-		vo.setContent(vo.getContent().replace("\r\n", "<br>"));
+		if(vo.getContent()!=null) {
+			vo.setContent(vo.getContent().replace("\r\n", "<br>"));
+		}
 		request.setAttribute("content", vo);
-		
+
 	}
 
 }

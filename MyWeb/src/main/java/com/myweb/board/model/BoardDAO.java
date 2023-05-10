@@ -10,6 +10,8 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
 
+import com.myweb.board.commons.PageVO;
+
 public class BoardDAO implements IBoardDAO {
 
 	private DataSource ds;
@@ -49,8 +51,12 @@ public class BoardDAO implements IBoardDAO {
 	}
 
 	@Override
-	public List<BoardVO> listBoard() {
-		String sql = "SELECT * FROM my_board ORDER BY board_id DESC";
+	public List<BoardVO> listBoard(PageVO paging) {
+		String sql = "SELECT * FROM "
+				+ "(SELECT ROWNUM AS rn, a.* FROM "
+				+ "(SELECT * FROM my_board ORDER BY board_id DESC) a) "
+				+ "WHERE rn > "+(paging.getPage()-1)*paging.getCpp()
+				+ " AND rn <= "+paging.getPage()*paging.getCpp();
 		List<BoardVO> bList = new ArrayList<>();
 		try (Connection conn = ds.getConnection();
 				PreparedStatement pstmt = conn.prepareStatement(sql);
@@ -156,6 +162,23 @@ public class BoardDAO implements IBoardDAO {
 			e.printStackTrace();
 		}
 		return bList;
+	}
+	
+	@Override
+	public int countArticles() {
+		int cnt = 0;
+		String sql = "SELECT COUNT(*) FROM my_board";
+		try (Connection conn = ds.getConnection();
+				PreparedStatement pstmt = conn.prepareStatement(sql);
+				ResultSet rs = pstmt.executeQuery()){
+			if(rs.next()) {
+				cnt = rs.getInt("COUNT(*)");
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return cnt;
 	}
 
 	
