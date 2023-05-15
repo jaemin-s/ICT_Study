@@ -6,7 +6,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.spring.db.model.BoardVO;
 import com.spring.db.service.IBoardService;
@@ -78,7 +77,7 @@ public class BoardController {
 
     //삭제는 알아서 작성해 주세요. (삭제 클릭하면 해당 글이 삭제될 수 있도록)
     @GetMapping("/delete")
-    public String delete(int bno,RedirectAttributes ra) {
+    public String delete(int bno) {
     	service.deleteB(bno);
     	return "redirect:/board/list";
     }
