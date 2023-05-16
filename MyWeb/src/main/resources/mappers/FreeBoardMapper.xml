@@ -4,20 +4,13 @@
     
 <mapper namespace="com.spring.myweb.freeboard.mapper.IFreeBoardMapper">
 
-<!-- 	//글 등록
-	void regist(FreeBoardVO vo);
-	
-	//글 목록
-	List<FreeBoardVO> getList();
-	
-	//상세보기
-	FreeBoardVO getContent(int bno);
-	
+<!-- 
 	//수정
 	void update(FreeBoardVO vo);
 	
 	//삭제
-	void delete(int bno); -->
+	void delete(int bno); 
+	-->
 
 	<insert id="regist">
 		INSERT INTO freeboard 
@@ -25,5 +18,25 @@
 		VALUES(#{title},#{writer},#{content})
 	</insert>
 	
+	<select id="getList" resultType="board">
+		SELECT * FROM freeboard
+		ORDER BY bno DESC
+	</select>
+	
+	<select id="getContent" resultType="board">
+		SELECT * FROM freeboard
+		WHERE bno = #{bno}
+	</select>
+	
+	<update id="update">
+		UPDATE freeboard SET
+		title = #{title}, content = #{content}, update_date = CURRENT_TIMESTAMP
+		WHERE bno = #{bno}
+	</update>
+	
+	<delete id="delete">
+		DELETE FROM freeboard
+		WHERE bno = #{bno}
+	</delete>
 
 </mapper>
