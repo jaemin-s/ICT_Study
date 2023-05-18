@@ -121,7 +121,7 @@
             }
 
             //아이디 중복확인 비동기 요청 준비
-            const xhr = new XMLHttpRequest();
+            // const xhr = new XMLHttpRequest();
 
             // //서버 요청 정보 설정
             // xhr.open('POST','${pageContext.request.contextPath}/user/idCheck');
@@ -143,28 +143,63 @@
             전체적이고, 포괄적인 응답 정보를 가지고 있습니다.
             - 따라서, 서버가 응답한 여러 정보 중 JSON
             */
-
+            
             //fetch('url',{요청 관련 정보 객체})
-            fetch('${pageContext.request.contextPath}/user/idCheck',{
-                method: 'post',
-                headers: {
-                    'Content-Type': 'text/plain'
-                },
-                body: userId
-            }).then(res=>{
-                //fetch 함수를 통해 비동기 통신이 실행되고,
-                //요청이 완료 된 후 then()의 매개값으로 응답에 관련된
-                //함수를 콜백 방식으로 전달합니다.
-                //함수의 매개변수를 선언하면 해당 매개변수로 응답에 관련된
-                //전반적인 정보를 가진 응답 정보가 전달됩니다.
-                console.log(res);
-                console.log(res.text());
-                res.text()
-            }).then(data => {
-                console.log(data);
-            });
-        }
+            // fetch('${pageContext.request.contextPath}/user/idCheck',{
+            //     method: 'post',
+            //     headers: {
+            //         'Content-Type': 'text/plain'
+            //     },
+            //     body: userId
+            // }).then(res=>{
+            //     //fetch 함수를 통해 비동기 통신이 실행되고,
+            //     //요청이 완료 된 후 then()의 매개값으로 응답에 관련된
+            //     //함수를 콜백 방식으로 전달합니다.
+            //     //함수의 매개변수를 선언하면 해당 매개변수로 응답에 관련된
+            //     //전반적인 정보를 가진 응답 정보가 전달됩니다.
+            //     console.log(res);
+            //     console.log(res.text());
+            //     res.text()
+            // }).then(data => {
+            //     console.log(data);
+            // });
 
+        
+
+        const reqObj = {
+            method: 'post',
+            headers: {
+                'Content-Type':'text/plain'
+            },
+            body:userId
+        };
+
+        //비동기 요청 보내기
+        fetch('${pageContext.request.contextPath}/user/idCheck', reqObj)
+        .then(res => res.text()) //요청 완료 후 응답 정보에서 텍스트만 빼기
+        .then(data => { //텍스트만 뺀 promise 객체로부터 data전달받음
+            if(data === 'ok'){
+                //아이디를 고정
+                document.getElementById('userId').setAttribute('readonly',true);
+                //버튼 못 누르게 비활성화
+                document.getElementById('idCheckBtn').setAttribute('disabled',true);
+                //메세지 남기기
+                document.getElementById('msgId').textContent = '사용 가능한 아이디 입니다.';
+            } else {
+                document.getElementById('msgId').textContent = '중복된 아이디 입니다.';
+            }
+        }); 
+    }//아이디 중복 확인 끝
+
+        //인증번호 이메일 전송
+        document.getElementById('mail-check-btn').onclick = function() {
+            const email = document.getElementById('userEmail1').value + 
+            document.getElementById('userEmail2').value
+            console.log('완성된 email:' + email);
+            fetch('${pageContext.request.contextPath}/user/mailCheck?email='+email)
+                .then()
+            
+        }
         
 
 
