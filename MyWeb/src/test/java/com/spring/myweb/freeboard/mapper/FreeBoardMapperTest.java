@@ -1,10 +1,5 @@
 package com.spring.myweb.freeboard.mapper;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNull;
-
-import java.util.List;
-
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -34,6 +29,7 @@ public class FreeBoardMapperTest {
 		//given - when - then 패턴을 따릅니다. (생략가능)
 		
 		//given: 테스트를 위해 주어질 데이터 (ex: parameter)
+<<<<<<< HEAD
 		for(int i=1;i<=200;i++) {
 			FreeBoardVO vo = new FreeBoardVO();
 			vo.setTitle("테스트 제목 "+i);
@@ -97,4 +93,15 @@ public class FreeBoardMapperTest {
 		assertNull(mapper.getContent(bno));
 	}
 	
+=======
+		FreeBoardVO vo = new FreeBoardVO();
+		vo.setTitle("첫번째 글");
+		vo.setWriter("abc1234");
+		vo.setContent("hello world");
+		//when: 테스트 실제 상황
+		mapper.regist(vo);
+		//then: 테스트 결과를 확인
+	}
+	
+>>>>>>> parent of 4215fa5 (0516)
 }
