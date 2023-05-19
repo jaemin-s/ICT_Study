@@ -9,7 +9,7 @@
                 <div class="titlebox">
                     회원가입
                 </div>
-                <form action="${pageContext.request.contextPath}/user/join" method="post" name="joinFrom">
+                <form action="${pageContext.request.contextPath}/user/join" method="post" name="joinForm">
                     <div class="form-group">
                         <!--사용자클래스선언-->
                         <label for="id">아이디</label>
@@ -272,22 +272,22 @@
                 if(!document.getElementById('userId').getAttribute('readonly')){
                 alert('아이디 중복체크는 필수입니다.');
                 return;
-            }
-            if(document.getElementById('userPw').value !== document.getElementById('pwConfirm').value) {
-                alert('비밀번호 확인란을 확인하세요!');
-                return;
-            }
-            if(document.getElementById('userName').value === ''){
-                alert('이름은 필수값입니다.');
-                return;
-            }
-            if(!document.getElementById('mail-check-btn').disabled) {
-                alert('이메일 인증을 완료해 주세요.');
-                return;
-            }
-            if(confirm('회원가입을 진행합니다')){
-                document.joinForm.submit();
-            } else return;
+	            }
+	            if(document.getElementById('userPw').value !== document.getElementById('pwConfirm').value) {
+	                alert('비밀번호 확인란을 확인하세요!');
+	                return;
+	            }
+	            if(document.getElementById('userName').value === ''){
+	                alert('이름은 필수값입니다.');
+	                return;
+	            }
+	            if(!document.getElementById('mail-check-btn').disabled) {
+	                alert('이메일 인증을 완료해 주세요.');
+	                return;
+	            }
+	            if(confirm('회원가입을 진행합니다')){
+	                document.joinForm.submit();
+	            } else return;
             } else {
                 alert('입력값을 다시 한 번 확인하세요!');
             }
