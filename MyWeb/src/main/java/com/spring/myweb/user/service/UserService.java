@@ -25,8 +25,7 @@ public class UserService implements IUserService {
 
 	@Override
 	public UserVO login(String id, String pw) {
-		// TODO Auto-generated method stub
-		return null;
+		return mapper.login(id, pw);
 	}
 
 	@Override

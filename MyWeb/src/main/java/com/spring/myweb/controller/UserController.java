@@ -2,6 +2,7 @@ package com.spring.myweb.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -61,7 +62,13 @@ public class UserController {
 	
 	//로그인 페이지로 이동 요청
 	@GetMapping("/userLogin")
-	public void login() {
+	public void login() {}
+	
+	//로그인 요청
+	@PostMapping("/userLogin")
+	public void login(String userId, String userPw, Model model) {
+		log.info("userController의 login");
+		model.addAttribute("user",service.login(userId, userPw));
 		
 	}
 }
