@@ -3,7 +3,6 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
     
 <mapper namespace="com.spring.myweb.freeboard.mapper.IFreeBoardMapper">
-<<<<<<< HEAD
 	
 	<!-- 
 		동적 SQL 쿼리
@@ -27,23 +26,6 @@
 	 		OR content LIKE CONCAT('%',#{keyword},'%')
 	 	</if>
 	 </sql>
-=======
-
-<!-- 	//글 등록
-	void regist(FreeBoardVO vo);
-	
-	//글 목록
-	List<FreeBoardVO> getList();
-	
-	//상세보기
-	FreeBoardVO getContent(int bno);
-	
-	//수정
-	void update(FreeBoardVO vo);
-	
-	//삭제
-	void delete(int bno); -->
->>>>>>> parent of 4215fa5 (0516)
 
 	<insert id="regist">
 		INSERT INTO freeboard 
@@ -51,7 +33,6 @@
 		VALUES(#{title},#{writer},#{content})
 	</insert>
 	
-<<<<<<< HEAD
 	<select id="getList" resultType="board">
 		SELECT * FROM freeboard
 		<include refid="search"/>
@@ -79,7 +60,5 @@
 		DELETE FROM freeboard
 		WHERE bno = #{bno}
 	</delete>
-=======
->>>>>>> parent of 4215fa5 (0516)
 
 </mapper>
