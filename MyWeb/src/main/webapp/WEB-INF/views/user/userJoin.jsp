@@ -194,6 +194,7 @@
         //인증번호 이메일 전송
         document.getElementById('mail-check-btn').onclick = function() {
             const email = document.getElementById('userEmail1').value + 
+<<<<<<< HEAD
             document.getElementById('userEmail2').value;
             console.log('완성된 email:' + email);
             fetch('${pageContext.request.contextPath}/user/mailCheck?email='+email)
@@ -201,6 +202,12 @@
                 	.then(date => {
                 		console.log('인증번호: '+ data)
                 	})
+=======
+            document.getElementById('userEmail2').value
+            console.log('완성된 email:' + email);
+            fetch('${pageContext.request.contextPath}/user/mailCheck?email='+email)
+                .then()
+>>>>>>> parent of 9a4b11b (메일 발송됨)
             
         }
         

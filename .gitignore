@@ -17,7 +17,6 @@ local.properties
 .classpath
 .project
 .springBeans
-email.properties
 
 # External tool builders
 .externalToolBuilders/
