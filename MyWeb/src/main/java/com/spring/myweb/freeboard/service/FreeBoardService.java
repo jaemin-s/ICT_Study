@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 
 import com.spring.myweb.command.FreeBoardVO;
 import com.spring.myweb.freeboard.mapper.IFreeBoardMapper;
-import com.spring.myweb.util.PageVO;
 
 @Service
 public class FreeBoardService implements IFreeBoardService {
@@ -21,13 +20,8 @@ public class FreeBoardService implements IFreeBoardService {
 	}
 
 	@Override
-	public List<FreeBoardVO> getList(PageVO vo) {
-		return mapper.getList(vo);
-	}
-	
-	@Override
-	public int getTotal(PageVO vo) {
-		return mapper.getTotal(vo);
+	public List<FreeBoardVO> getList() {
+		return mapper.getList();
 	}
 
 	@Override

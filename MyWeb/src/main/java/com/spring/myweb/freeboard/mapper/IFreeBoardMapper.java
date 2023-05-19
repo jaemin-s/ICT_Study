@@ -3,7 +3,6 @@ package com.spring.myweb.freeboard.mapper;
 import java.util.List;
 
 import com.spring.myweb.command.FreeBoardVO;
-import com.spring.myweb.util.PageVO;
 
 public interface IFreeBoardMapper {
 	
@@ -11,10 +10,7 @@ public interface IFreeBoardMapper {
 	void regist(FreeBoardVO vo);
 	
 	//글 목록
-	List<FreeBoardVO> getList(PageVO vo);
-	
-	//총 게시물 수 구하기
-	int getTotal(PageVO vo);
+	List<FreeBoardVO> getList();
 	
 	//상세보기
 	FreeBoardVO getContent(int bno);
