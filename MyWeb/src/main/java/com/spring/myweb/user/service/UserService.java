@@ -19,7 +19,7 @@ public class UserService implements IUserService {
 
 	@Override
 	public void join(UserVO vo) {
-		// TODO Auto-generated method stub
+		mapper.join(vo);
 
 	}
 
