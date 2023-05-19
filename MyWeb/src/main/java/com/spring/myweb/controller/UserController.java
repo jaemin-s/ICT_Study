@@ -71,4 +71,16 @@ public class UserController {
 		model.addAttribute("user",service.login(userId, userPw));
 		
 	}
+	
+	//로그아웃
+	@GetMapping("/userLogout")
+	public String logout() {
+		
+		return "redirect:/";
+	}
+	
+	//마이페이지 이동 요청
+	@GetMapping("/userMypage")
+	public void userMypage() {
+	}
 }
