@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 import com.spring.myweb.command.UserVO;
 import com.spring.myweb.user.mapper.IUserMapper;
+import com.spring.myweb.util.PageVO;
 
 @Service
 public class UserService implements IUserService {
@@ -32,22 +33,22 @@ public class UserService implements IUserService {
 	}
 
 	@Override
-	public UserVO login(String id, String pw) {
+	public String login(String id, String pw) {
 		//id 정보를 기반으로 회원의 정보를 조회
-		UserVO vo = getInfo(id);
-		if(vo != null) {
-			String dbPw = vo.getUserPw();
+		String dbPw = mapper.login(id);
+		if(dbPw != null) {
 			//날것의 비밀번호와 암호화된 비밀번호의 일치 여부를 알려주는 matches
 			if(encoder.matches(pw, dbPw)) {
-				return vo;
+				return id;
 			}
 		}
 		return null;
 	}
 
 	@Override
-	public UserVO getInfo(String id) {
-		return mapper.getInfo(id);
+	public UserVO getInfo(String id, PageVO vo) {
+		
+		return mapper.getInfo(id, vo);
 	}
 
 	@Override

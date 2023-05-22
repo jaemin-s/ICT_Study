@@ -8,8 +8,6 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.spring.myweb.command.UserVO;
-
 import lombok.extern.slf4j.Slf4j;
 
 //인터셉터로 사용할 클래스는 HandlerInterceptor 인터페이스를 구현합니다.
@@ -36,13 +34,13 @@ public class UserLoginSuccessHandler implements HandlerInterceptor{
 		
 		if(request.getMethod().equals("POST")) {
 			ModelMap map = modelAndView.getModelMap();
-			UserVO vo = (UserVO) map.get("user"); //모델 내에 있는 user라는 이름의 데이터 꺼내기
+			String id = (String) map.get("user"); //모델 내에 있는 user라는 이름의 데이터 꺼내기
 //			log.info("인터셉터 내부에서 user 확인: "+ vo.toString());
 			
-			if(vo != null) { //로그인 성공
+			if(id != null) { //로그인 성공
 				log.info("로그인 성공 로직 동작");
 				HttpSession session = request.getSession();
-				session.setAttribute("login", vo);
+				session.setAttribute("login", id);
 				response.sendRedirect(request.getContextPath()+"/");
 			} else { // 로그인 실패
 				modelAndView.addObject("msg","loginFail");

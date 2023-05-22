@@ -10,6 +10,8 @@ public class PageVO {
 	private int pageNum;
 	private int cpp;
 	
+	private String loginId;
+	
 	private String keyword;
 	private String condition;
 	

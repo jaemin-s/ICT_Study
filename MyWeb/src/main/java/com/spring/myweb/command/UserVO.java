@@ -16,6 +16,7 @@ package com.spring.myweb.command;
  */
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -34,4 +35,6 @@ public class UserVO {
 	private String addrDetail;
 	private String addrZipNum;
 	private LocalDateTime regDate;
+	
+	private List<FreeBoardVO> userBoardList;
 }

@@ -45,14 +45,14 @@
 								<td><a
 									href="${pageContext.request.contextPath}/freeboard/content/${vo.bno}?pageNum=${pc.paging.pageNum}&cpp=${pc.paging.cpp}&keyword=${pc.paging.keyword}&condition=${pc.paging.condition}">${vo.title}</a></td>
 								<td>${vo.writer}</td>
-								<td><fmt:parseDate value="${vo.regDate}"
-										pattern="yyyy-MM-dd'T'HH:mm:ss" var="parsedDateTime"
-										type="both" /> <fmt:formatDate value="${parsedDateTime}"
-										pattern="yyyy년 MM월 dd일 HH시 mm분" /> ${parsedDateTime}</td>
-								<td><fmt:parseDate value="${vo.updateDate}"
-										pattern="yyyy-MM-dd'T'HH:mm:ss" var="parsedDateTime"
-										type="both" /> <fmt:formatDate value="${parsedUpdateTime}"
-										pattern="yyyy년 MM월 dd일 HH시 mm분" /> ${parsedUpdateTime}</td>
+								<td>
+                            		<fmt:parseDate value="${vo.regDate}" pattern="yyyy-MM-dd'T'HH:mm:ss" var="parsedDateTime" type="both" />
+                            		<fmt:formatDate value="${parsedDateTime}" pattern="yyyy년 MM월 dd일 HH시 mm분" />
+                            	</td>
+                            	<td>
+                            		<fmt:parseDate value="${vo.updateDate}" pattern="yyyy-MM-dd'T'HH:mm:ss" var="parsedUpdateTime" type="both" />
+                            		<fmt:formatDate value="${parsedUpdateTime}" pattern="yyyy년 MM월 dd일 HH시 mm분" />
+                            	</td>
 							</tr>
 						</c:forEach>
 
