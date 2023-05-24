@@ -17,7 +17,7 @@ public interface IReplyService {
 		int getTotal(int bno);
 		
 		//비밀번호 확인
-		boolean pwCheck(ReplyVO vo);
+		Boolean pwCheck(ReplyVO vo);
 		
 		//댓글 수정
 		void update(ReplyVO vo);
