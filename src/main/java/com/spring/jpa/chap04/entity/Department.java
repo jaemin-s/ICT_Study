@@ -1,0 +1,26 @@
+package com.spring.jpa.chap04.entity;
+
+import lombok.*;
+
+import javax.persistence.*;
+
+@Getter
+@Setter
+@ToString
+@EqualsAndHashCode(of = "id")
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+@Entity
+@Table(name = "tbl_dept")
+public class Department {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "dept_id")
+    private long id;
+
+    @Column(name = "dept_name", nullable = false)
+    private String name;
+
+}

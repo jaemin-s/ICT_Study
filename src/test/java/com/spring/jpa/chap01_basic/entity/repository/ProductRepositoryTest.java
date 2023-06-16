@@ -1,8 +1,6 @@
 package com.spring.jpa.chap01_basic.entity.repository;
 
 import com.spring.jpa.chap01_basic.entity.Product;
-import com.spring.jpa.chap01_basic.entity.Product.Category;
-import org.hibernate.boot.TempTableDdlTransactionHandling;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -11,7 +9,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.Rollback;
 
 import javax.transaction.Transactional;
-
 import java.util.List;
 import java.util.Optional;
 
@@ -26,28 +23,14 @@ class ProductRepositoryTest {
     @Autowired
     ProductRepository productRepository;
 
-    @BeforeEach // 테스트 돌리기 전에 실행
+    @BeforeEach
+        // 테스트 돌리기 전에 실행
     void insertDummyData() {
         //given
-        Product p1 = Product.builder()
-                .name("아이폰")
-                .category(ELECTRONIC)
-                .price(1200000)
-                .build();
-        Product p2 = Product.builder()
-                .name("탕수육")
-                .category(FOOD)
-                .price(18000)
-                .build();
-        Product p3 = Product.builder()
-                .name("구두")
-                .category(FASHION)
-                .price(240000)
-                .build();
-        Product p4 = Product.builder()
-                .name("쓰레기")
-                .category(FOOD)
-                .build();
+        Product p1 = Product.builder().name("아이폰").category(ELECTRONIC).price(1200000).build();
+        Product p2 = Product.builder().name("탕수육").category(FOOD).price(18000).build();
+        Product p3 = Product.builder().name("구두").category(FASHION).price(240000).build();
+        Product p4 = Product.builder().name("쓰레기").category(FOOD).build();
 
         //when
         Product saved1 = productRepository.save(p1);
@@ -59,11 +42,7 @@ class ProductRepositoryTest {
     @Test
     @DisplayName("5번째 상품을 데이터베이스에 저장해야 한다.")
     void testSave() {
-        Product product = Product.builder()
-                .name("정장")
-                .price(1000000)
-                .category(FASHION)
-                .build();
+        Product product = Product.builder().name("정장").price(1000000).category(FASHION).build();
 
         Product saved = productRepository.save(product);
 
@@ -90,8 +69,9 @@ class ProductRepositoryTest {
         //then
         productList.forEach(System.out::println);
 
-        assertEquals(4,productList.size());
+        assertEquals(4, productList.size());
     }
+
 
     @Test
     @DisplayName("3번 상품을 조회하면 상품명이 '구두'")
@@ -103,7 +83,30 @@ class ProductRepositoryTest {
         //then
         product.ifPresent(p -> {
             assertEquals("구두", p.getName());
+
         });
+    }
+
+    @Test
+    @DisplayName("2번 삼품의 이름과 가격을 변경")
+    void testModify() {
+        //given
+        long id = 2L;
+        String newName = "짜장면";
+        int newPrice = 6000;
+        //when
+        //jpa에서 update는 따로 메서드를 지원하지 않고
+        //조회를 한 후 setter로 변경하면 자동으로 update문이 나감
+        //변경 후 다시 save를 호출하세요
+        Optional<Product> product = productRepository.findById(id);
+        product.ifPresent(p -> {
+            p.setName(newName);
+            p.setPrice(newPrice);
+
+            productRepository.save(p);
+        });
+        //then
+        assertTrue(product.isPresent());
     }
 
 
