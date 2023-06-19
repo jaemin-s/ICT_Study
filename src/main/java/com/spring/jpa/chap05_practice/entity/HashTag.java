@@ -6,7 +6,7 @@ import javax.persistence.*;
 
 @Setter
 @Getter
-@ToString
+@ToString(exclude = {"post"})
 @EqualsAndHashCode(of = {"id"})
 @AllArgsConstructor
 @NoArgsConstructor
