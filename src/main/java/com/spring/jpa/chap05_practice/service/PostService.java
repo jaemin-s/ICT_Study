@@ -1,6 +1,7 @@
 package com.spring.jpa.chap05_practice.service;
 
 import com.spring.jpa.chap05_practice.dto.*;
+import com.spring.jpa.chap05_practice.entity.HashTag;
 import com.spring.jpa.chap05_practice.entity.Post;
 import com.spring.jpa.chap05_practice.repository.HashTagRopository;
 import com.spring.jpa.chap05_practice.repository.PostRepository;
@@ -46,15 +47,52 @@ public class PostService {
     }
 
     public PostDetailResponseDTO getDetail(long id) {
-        Post postEntity = postRepository.findById(id).orElseThrow(
-                () -> new RuntimeException(id + "번 게시물이 존재하지 않습니다.")
-        );
+        Post postEntity = getPost(id);
 
         return  new PostDetailResponseDTO(postEntity);
     }
 
-    public PostDetailResponseDTO insert(PostCreateDTO dto) {
+    private Post getPost(long id) {
+        Post postEntity = postRepository.findById(id).orElseThrow(
+                () -> new RuntimeException(id + "번 게시물이 존재하지 않습니다.")
+        );
+        return postEntity;
+    }
 
-        return null;
+    public PostDetailResponseDTO insert(final PostCreateDTO dto)
+        throws RuntimeException {
+        Post saved = postRepository.save(dto.toEntity());
+
+        List<String> hashTags = dto.getHashTags();
+        if(hashTags != null & hashTags.size() > 0){
+            hashTags.forEach(ht -> {
+                HashTag savedTag = hashTagRopository.save(
+                        HashTag.builder().tagName(ht).post(saved).build()
+                );
+                saved.addHashTag(savedTag);
+            });
+
+        }
+
+        return new PostDetailResponseDTO(saved);
+    }
+
+    public PostDetailResponseDTO modify(PostModifyDTO dto) {
+
+        // 수정 전 데이터를 조회
+        Post postEntity = getPost(dto.getPostNo());
+
+        // 수정 시작
+        postEntity.setTitle(dto.getTitle());
+        postEntity.setContent(dto.getContent());
+
+        // 수정 완료
+        Post modifiedPost = postRepository.save(postEntity);
+
+        return new PostDetailResponseDTO(modifiedPost);
+    }
+
+    public void detele(long id) {
+        postRepository.deleteById(id);
     }
 }

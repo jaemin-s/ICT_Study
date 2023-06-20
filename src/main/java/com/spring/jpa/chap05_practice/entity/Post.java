@@ -39,6 +39,15 @@ public class Post {
     @UpdateTimestamp
     private LocalDateTime updateDate;
 
-    @OneToMany(mappedBy = "post")
+    @OneToMany(mappedBy = "post",orphanRemoval = true)
+    @Builder.Default
     private List<HashTag> hashTags = new ArrayList<>();
+
+    // 양방향 매핑에서 리스트쪽에 데이터를 추가하는 편의메서드 생성
+    public void addHashTag(HashTag hashTag){
+        hashTags.add(hashTag);
+        if (this != hashTag.getPost()) {
+            hashTag.setPost(this);
+        }
+    }
 }
