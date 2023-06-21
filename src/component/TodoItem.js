@@ -8,7 +8,7 @@ const TodoItem = ({item:{id,title,done}, rmTodo, chkTodo}) => {
 
   return (
     <li className='todo-list-item' >
-      <div className={classNames('check-circle',{active:done})} onClick={()=>chkTodo(id)}>
+      <div className={classNames('check-circle',{active:done})} onClick={()=>chkTodo(id,done)}>
         {done&&<MdDone/>}
       </div>
       <span className={classNames('text',{finish:done})}>{title}</span>
