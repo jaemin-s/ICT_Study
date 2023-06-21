@@ -5,30 +5,11 @@ import TodoInput from './TodoInput';
 
 import './scss/TodoTemplate.scss'
 const TodoTemplate = () => {
-
+  
+  const API_BASE_URL = 'http://localhost:8181/api/todos';
   // 서버에 할일 목록(json)을 요청(fetch)해서 받아와야 함
-  const [todos,setTodos] = useState([
-    {
-      id : 1,
-      title : '아침 산책하기',
-      done : false
-    },
-    {
-      id : 2,
-      title : '오늘 주간 신문 읽기',
-      done : true
-    },
-    {
-      id : 3,
-      title : '샌드위치 사먹기',
-      done : false
-    },
-    {
-      id : 4,
-      title : '리액트 복습하기',
-      done : false
-    }
-  ]);
+
+  const [todos,setTodos] = useState([]);
 
   // todoInput에게 todoText를 받아오는 함수
   // 자식 컴포넌트가 부모 컴포넌트에게 데이터를 전달할 때는
@@ -36,9 +17,7 @@ const TodoTemplate = () => {
   // 부모 컴포넌트에서 함수를 선언(매개변수 꼭 선언!) -> props로 함수를 전달
   const addTodo = todoText => {
     const newTodo = {
-      id : todos.length===0? 1 : todos[todos.length-1].id+1,
       title : todoText,
-      done : false
     }
 
     //리액트의 상태변수는 무조건 setter를 통해서만
@@ -52,19 +31,35 @@ const TodoTemplate = () => {
 
     //setTodos(todos.concat(newTodo));
 
-    setTodos([...todos, newTodo]);
+    //setTodos([...todos, newTodo]);
+    fetch(API_BASE_URL,{
+      method : 'POST',
+      headers : { 'content-type' : 'application/json'},
+      body : JSON.stringify(newTodo)
+    }).then(res => res.json()).then(data => setTodos(data.todos));
   }
 
   useEffect(() => {
-    //console.log(todos);
-  }, [todos])
+    fetch(API_BASE_URL).then(res => res.json()).then(data => setTodos(data.todos));
+  }, [])
 
   const rmTodo = id => {
-    setTodos(todos.filter(todo => todo.id!==id));
+    const param = '/'+id;
+    fetch(API_BASE_URL+param,{
+      method : 'DELETE',
+      headers : { 'content-type' : 'application/json'}
+    }).then(res => res.json()).then(data => setTodos(data.todos));
   }
 
-  const chkTodo = id => {
-    setTodos(todos.map(todo=>todo.id===id ? {...todo, done:!todo.done}:todo));
+  const chkTodo = (id,done) => {
+    fetch(API_BASE_URL,{
+      method : 'PATCH',
+      headers : { 'content-type' : 'application/json'},
+      body : JSON.stringify({
+        'id' : id,
+        'done' : !done
+      })
+    }).then(res => res.json()).then(data => setTodos(data.todos));
   }
 
   const cntRestTodo = () =>{
