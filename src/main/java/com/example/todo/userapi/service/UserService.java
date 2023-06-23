@@ -1,5 +1,7 @@
 package com.example.todo.userapi.service;
 
+import com.example.todo.exception.DuplicatedEmailException;
+import com.example.todo.exception.NoRegisteredArgumentsException;
 import com.example.todo.userapi.dto.request.UserRequestSignUpDTO;
 import com.example.todo.userapi.dto.response.UserSignUpResponseDTO;
 import com.example.todo.userapi.entity.User;
@@ -18,14 +20,14 @@ public class UserService {
     private final PasswordEncoder encoder;
 
     // 회원 가입 처리
-    public UserSignUpResponseDTO create(UserRequestSignUpDTO dto) {
+    public UserSignUpResponseDTO create(UserRequestSignUpDTO dto) throws RuntimeException{
 
         if(dto == null || dto.getEmail().equals("")) {
-            throw new RuntimeException("가입 정보가 없습니다.");
+            throw new NoRegisteredArgumentsException("가입 정보가 없습니다.");
         }
 
-        if(userRepository.existsByEmail(dto.getEmail())) {
-            throw new RuntimeException("중복된 이메일 입니다.");
+        if(isDuplicate(dto.getEmail())) {
+            throw new DuplicatedEmailException("중복된 이메일 입니다.");
         }
 
         //패스워드 인코딩
