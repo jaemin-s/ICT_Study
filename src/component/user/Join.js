@@ -2,7 +2,14 @@ import React, { useState } from 'react'
 import {Button, Container, Grid,
     TextField, Typography, Link} from "@mui/material";
 
+import { API_BASE_URL as BASE, USER } from '../../config/host-config';
+import { useNavigate } from 'react-router-dom';
+
 const Join = () => {
+
+    const API_BASE_URL = BASE+USER;
+
+    const redirection = useNavigate();
 
     //상태변수로 회원가입 입력값 관리
     const [userValue, setUserValue] = useState({
@@ -44,11 +51,36 @@ const Join = () => {
         });
     }
 
+    const isValid = () => {
+        for(const key in correct) {
+            if(!correct[key]) return false;
+        }
+        return true;
+    }
+
+    const fetchSignUpPost = () => {
+        fetch(API_BASE_URL, {
+            method:'POST',
+            headers:{'content-type' : 'application/json'},
+            body: JSON.stringify(userValue)
+        }).then(res => {
+            if(res.status === 200){
+                alert('회원가입에 성공했습니다.');
+            } else {
+                alert('회원가입에 실패했습니다.');
+            }
+        });
+    }
+
     const joinButtonClickHandler = e => {
         e.preventDefault();
-        console.log(userValue);
-        console.log(message);
-        console.log(correct);
+        
+        if(isValid()) {
+            fetchSignUpPost();
+            redirection('/login')
+        } else {
+            alert('입력란을 다시 확인해 주세요');
+        }
     }
 
     const nameHandler = e => {
@@ -103,7 +135,7 @@ const Join = () => {
         let msg;
         let flag = false;
         if(!inputVal) {
-            msg = '비밀번호 확인은 필수입니다.';
+            msg = '비밀번호 확인은 필수입니다';
         } else if(inputVal!==userValue.password){
             msg = '비밀번호가 다릅니다';
         } else {
@@ -114,24 +146,36 @@ const Join = () => {
         saveInputState({inputVal:'pass',flag,msg,key:'passwordCheck'});
     }
 
-    const emailHandler = e => {
+    // const fetchDuplicateCheck = email => {
+        //     fetch(`${API_BASE_URL}/check?email=${email}`).then(res => res.json).then(data => {
+            //         console.log(data);
+            //         return data;
+            //     })
+            // }
+    const fetchDuplicateCheck = async email => {
+        const res = await fetch(`${API_BASE_URL}/check?email=${email}`);
+        return await res.json();
+    }
+
+    const emailHandler = async e => {
         const inputVal = e.target.value;
+        const emailRegex = /^[a-z0-9\.\-_]+@([a-z0-9\-]+\.)+[a-z]{2,6}$/;
 
         let msg;
         let flag = false;
         if(!inputVal) {
             msg = '이메일은 필수입니다';
-        // } else if(){
-        //     msg = '';
+        } else if(!emailRegex.test(inputVal)){
+            msg = '이메일 형식이 아닙니다';
+        } else if(await fetchDuplicateCheck(inputVal)){
+            msg = '사용중인 이메일 입니다';
         } else {
-            msg = '사용 가능한 이메일입니다.';
+            msg = '사용 가능한 이메일 입니다';
             flag = true;
         }
 
         saveInputState({inputVal,flag,msg,key:'email'});
     }
-
-
 
     return (
         <Container component="main" maxWidth="xs" style={{ margin: "200px auto" }}>
