@@ -1,8 +1,11 @@
 package com.example.todo.userapi.service;
 
+import com.example.todo.auth.TokenProvider;
 import com.example.todo.exception.DuplicatedEmailException;
 import com.example.todo.exception.NoRegisteredArgumentsException;
+import com.example.todo.userapi.dto.request.LoginRequestDTO;
 import com.example.todo.userapi.dto.request.UserRequestSignUpDTO;
+import com.example.todo.userapi.dto.response.LoginResponseDTO;
 import com.example.todo.userapi.dto.response.UserSignUpResponseDTO;
 import com.example.todo.userapi.entity.User;
 import com.example.todo.userapi.repository.UserRepository;
@@ -18,6 +21,7 @@ public class UserService {
 
     private final UserRepository userRepository;
     private final PasswordEncoder encoder;
+    private final TokenProvider tokenProvider;
 
     // 회원 가입 처리
     public UserSignUpResponseDTO create(UserRequestSignUpDTO dto) throws RuntimeException{
@@ -43,5 +47,21 @@ public class UserService {
 
     public boolean isDuplicate(String email) {
         return userRepository.existsByEmail(email);
+    }
+
+    public LoginResponseDTO authenticate(final LoginRequestDTO dto){
+        User user = userRepository.findByEmail(dto.getEmail())
+                .orElseThrow(() -> new RuntimeException("가입된 회원이 아닙니다."));
+        String rawPassword = dto.getPassword();
+        String encodedPassword = user.getPassword();
+        if(!encoder.matches(rawPassword,encodedPassword)) {
+            throw new RuntimeException("비밀번호가 틀렸습니다.");
+        }
+
+        log.info("{}님 로그인 성공",user.getUserName());
+
+        String token = tokenProvider.createToken(user);
+
+        return new LoginResponseDTO(user, token);
     }
 }
