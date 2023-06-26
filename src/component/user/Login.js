@@ -11,8 +11,7 @@ const Login = () => {
 
     const redirection = useNavigate();
 
-    const loginHandler = async e => {
-        e.preventDefault();
+    const fetchLogin = async() => {
 
         const res = await fetch(REQUEST_URL,{
             method:'POST',
@@ -25,11 +24,21 @@ const Login = () => {
 
         if(res.status === 400){
             alert(await res.text());
-        }else{
-            console.log(await res.json());
-            alert('로그인 성공');
-            redirection('/');
         }
+
+        const { token, userName, email, role } = await res.json();
+
+        localStorage.setItem('ACCESS_TOKEN', token);
+        localStorage.setItem('LOGIN_USERNAME', userName);
+        localStorage.setItem('USER_ROLE', role);
+
+        redirection('/');
+    }
+    const loginHandler = e => {
+        e.preventDefault();
+
+        fetchLogin();
+    
     }
 
     return (

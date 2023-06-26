@@ -2,11 +2,25 @@ import React, { useEffect, useState } from 'react'
 import TodoHeader from './TodoHeader';
 import TodoMain from './TodoMain';
 import TodoInput from './TodoInput';
+import { useNavigate } from 'react-router-dom';
+import { Spinner } from 'reactstrap';
 
 import './scss/TodoTemplate.scss'
 
 import { API_BASE_URL as BASE, TODO } from '../../config/host-config';
+import { getLoginUserInfo } from '../util/login-utils';
 const TodoTemplate = () => {
+
+  const [loading, setLoading] = useState(true);
+
+  const redirection = useNavigate();
+
+  const { token } = getLoginUserInfo();
+
+  const requestHeader = {
+    'content-type' : 'application/json',
+    'Authorization' : 'Bearer '+ token
+  }
   
   const API_BASE_URL = BASE+TODO;
   // 서버에 할일 목록(json)을 요청(fetch)해서 받아와야 함
@@ -36,27 +50,23 @@ const TodoTemplate = () => {
     //setTodos([...todos, newTodo]);
     fetch(API_BASE_URL,{
       method : 'POST',
-      headers : { 'content-type' : 'application/json'},
+      headers : requestHeader,
       body : JSON.stringify(newTodo)
     }).then(res => res.json()).then(data => setTodos(data.todos));
   }
-
-  useEffect(() => {
-    fetch(API_BASE_URL).then(res => res.json()).then(data => setTodos(data.todos));
-  }, [])
 
   const rmTodo = id => {
     const param = '/'+id;
     fetch(API_BASE_URL+param,{
       method : 'DELETE',
-      headers : { 'content-type' : 'application/json'}
+      headers : requestHeader
     }).then(res => res.json()).then(data => setTodos(data.todos));
   }
 
   const chkTodo = (id,done) => {
     fetch(API_BASE_URL,{
       method : 'PATCH',
-      headers : { 'content-type' : 'application/json'},
+      headers : requestHeader,
       body : JSON.stringify({
         'id' : id,
         'done' : !done
@@ -68,12 +78,53 @@ const TodoTemplate = () => {
     return todos.filter(todo => !todo.done).length;
   }
 
-  return (
+  useEffect(() => {
+    fetch(API_BASE_URL,{
+      method : 'GET',
+      headers : requestHeader
+    }).then(res => {
+      if(res.status === 200) return res.json();
+      else if(res.status === 403) {
+        alert('로그인이 필요한 서비스 입니다.');
+        redirection('login');
+        return;
+      } else {
+        alert('관리자에게 문의하세요');
+      }
+      return;
+      }
+    ).then(data => {
+      setTodos(data.todos);
+      setLoading(false);
+    });
+  }, []);
+
+  // 로딩이 끝난 후 보여줄 컴포넌트
+  const loadEndedPage = (
     <div className='TodoTemplate'>
-        <TodoHeader cnt={cntRestTodo()}/>
-        <TodoMain todoList={todos} rmTodo={rmTodo} chkTodo={chkTodo}/>
-        <TodoInput addTodo={addTodo}/>
+      <TodoHeader count={cntRestTodo} />
+        <TodoMain 
+          todoList={todos} 
+          remove={rmTodo} 
+          check={chkTodo} 
+        />
+      <TodoInput addTodo={addTodo} />
     </div>
+  );
+
+  // 로딩 중일 때 보여줄 컴포넌트
+  const loadingPage = (
+    <div className='loading'>
+      <Spinner color='danger'>
+        loading...
+      </Spinner>
+    </div>
+  );
+
+  return (
+    <>
+      { loading ? loadingPage : loadEndedPage }
+    </>
   );
 }
 
