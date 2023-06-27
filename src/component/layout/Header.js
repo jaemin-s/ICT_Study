@@ -3,13 +3,11 @@ import {AppBar, Toolbar, Grid,
     Typography, Button} from "@mui/material";
 import './header.css';
 import { Link, useNavigate } from 'react-router-dom';
+
 import { isLogin, getLoginUserInfo } from '../util/login-utils';
+import { red } from '@mui/material/colors'; 
 
 const Header = () => {
-
-    const [userInfo, setUserInfo] = useState({});
-
-    const { token, userName, role} = userInfo;
 
     const redirection = useNavigate();
 
@@ -17,10 +15,6 @@ const Header = () => {
         localStorage.clear();
         redirection('/login');
     }
-
-    useEffect(()=>{
-        setUserInfo(getLoginUserInfo());
-    },[userInfo]);
   
     return (
         <AppBar position="fixed" style={{
@@ -38,7 +32,7 @@ const Header = () => {
                         }>
                             <Typography variant="h4">
                                 {
-                                    isLogin() ? userName+'님': '오늘'
+                                    isLogin() ? getLoginUserInfo().userName+'님': '오늘'
                                 }의 할일
                             </Typography>   
                         </div>

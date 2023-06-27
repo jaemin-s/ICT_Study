@@ -94,7 +94,7 @@ const TodoTemplate = () => {
       return;
       }
     ).then(data => {
-      setTodos(data.todos);
+      if(data) setTodos(data.todos);
       setLoading(false);
     });
   }, []);

@@ -3,7 +3,7 @@ import {Button, Container, Grid,
     TextField, Typography, Link} from "@mui/material";
     
 import { API_BASE_URL as BASE, USER } from '../../config/host-config';
-import { redirect, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
 
@@ -24,6 +24,7 @@ const Login = () => {
 
         if(res.status === 400){
             alert(await res.text());
+            return;
         }
 
         const { token, userName, email, role } = await res.json();
