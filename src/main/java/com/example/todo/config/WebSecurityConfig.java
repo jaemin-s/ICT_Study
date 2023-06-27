@@ -30,7 +30,7 @@ public class WebSecurityConfig {
         //Security 모듈이 기본적으로 제공하는 보안 정책 해제.
         http.cors().and().csrf().disable().httpBasic().disable()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
-                .authorizeRequests().antMatchers("/api/auth/**").permitAll()
+                .authorizeRequests().antMatchers("/","/api/auth/**").permitAll()
                 //.antMatchers(HttpMethod.POST,"/api/todos").hasRole("ADMIN")
                 .anyRequest().authenticated();
 

@@ -30,10 +30,11 @@ public class JwtAuthFilter extends OncePerRequestFilter {
     
     //필터가 해야 할 작업을 기술
     @Override
-    protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
+    protected void doFilterInternal(HttpServletRequest request,
+                                    HttpServletResponse response, FilterChain filterChain)
             throws ServletException, IOException {
         try {
-            String token = parseBearToken(request);
+            String token = parseBearerToken(request);
             log.info("Jwt Token Filter is running - token : {}", token);
             if(token != null){
                 TokenUserInfo userInfo = tokenProvider.validateAndGetTokenUserInfo(token);
@@ -59,7 +60,7 @@ public class JwtAuthFilter extends OncePerRequestFilter {
         filterChain.doFilter(request, response);
     }
 
-    private String parseBearToken(HttpServletRequest request) {
+    private String parseBearerToken(HttpServletRequest request) {
         String bearerToken = request.getHeader("Authorization");
 
         if(StringUtils.hasText(bearerToken)&&bearerToken.startsWith("Bearer")) {
