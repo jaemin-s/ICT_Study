@@ -1,6 +1,7 @@
 package com.finalProject.stockbeginner.user.repository;
 
 import com.finalProject.stockbeginner.user.dto.request.forceGradeDownRequestDTO;
+import com.finalProject.stockbeginner.user.dto.response.MbtiUserResponseDTO;
 import com.finalProject.stockbeginner.user.entity.User;
 import com.finalProject.stockbeginner.user.entity.UserRole;
 import org.jetbrains.annotations.NotNull;
@@ -71,6 +72,16 @@ class UserRepositoryTest {
 
         }
 
+    }
+
+    @Test
+    @DisplayName("mbti 유저 수 테스트")
+    void mbtiTest() {
+        //given
+        List<MbtiUserResponseDTO> mbtiUser = userRepository.getMbtiUser();
+        //when
+        System.out.println("mbtiUser = " + mbtiUser);;
+        //then
     }
 
 }
