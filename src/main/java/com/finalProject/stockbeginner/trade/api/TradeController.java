@@ -1,11 +1,14 @@
 package com.finalProject.stockbeginner.trade.api;
 
 import com.finalProject.stockbeginner.trade.dto.request.TradeRequestDTO;
+import com.finalProject.stockbeginner.trade.dto.response.HistoryResponseDTO;
 import com.finalProject.stockbeginner.trade.dto.response.RankResponseDTO;
 import com.finalProject.stockbeginner.trade.entity.TradeHistory;
 import com.finalProject.stockbeginner.trade.service.TradeService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -50,6 +53,16 @@ public class TradeController {
             List<TradeHistory> histories = tradeService.getTradeHistory(email);
             //histories.sort(Collections.reverseOrder());
             return ResponseEntity.ok().body(histories);
+        } catch (Exception e) {
+            return ResponseEntity.internalServerError().body(e.getMessage());
+        }
+    }
+
+    @GetMapping("/historyAll")
+    public ResponseEntity<?> getAllHistory(Pageable pageable) {
+        try {
+            Page<HistoryResponseDTO> historyResponseDTOList = tradeService.getAllHistory(pageable);
+            return ResponseEntity.ok().body(historyResponseDTOList);
         } catch (Exception e) {
             return ResponseEntity.internalServerError().body(e.getMessage());
         }
