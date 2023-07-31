@@ -1,8 +1,6 @@
 package com.finalProject.stockbeginner.trade.entity;
 
-import com.finalProject.stockbeginner.user.entity.User;
 import lombok.*;
-import org.hibernate.annotations.GenericGenerator;
 import javax.persistence.*;
 
 @Getter
@@ -15,10 +13,7 @@ import javax.persistence.*;
 
 @Table(name = "ranking")
 public class Ranking {
-//    @Id
-//    @GeneratedValue(generator = "system-uuid")
-//    @GenericGenerator(name = "system-uuid", strategy = "uuid")
-//    private String id;
+
 
     @Column(nullable = false)
     private Long profit;
@@ -27,15 +22,7 @@ public class Ranking {
     private String userName;
 
     @Id
-<<<<<<< HEAD
-    @Column(nullable = false)
-=======
     @Column(name = "email", nullable = false)
->>>>>>> feat/jh
     private String email;
 
-    //@OneToOne(fetch = FetchType.LAZY)
-    //@JoinColumn(name = "user_email")
-    //@ToString.Exclude
-    //private User user;
 }
