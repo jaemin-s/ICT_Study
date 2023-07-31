@@ -51,6 +51,7 @@ public class MyInfoResponseDTO {
         this.myStocks = myStocks;
         this.mbti = user.getMbti();
         this.role = user.getUserRole();
+        this.phoneNumber = user.getPhoneNumber();
     }
 
     public MyInfoResponseDTO(User user) {

@@ -27,11 +27,7 @@ public class Ranking {
     private String userName;
 
     @Id
-<<<<<<< HEAD
-    @Column(nullable = false)
-=======
     @Column(name = "email", nullable = false)
->>>>>>> feat/jh
     private String email;
 
     //@OneToOne(fetch = FetchType.LAZY)
