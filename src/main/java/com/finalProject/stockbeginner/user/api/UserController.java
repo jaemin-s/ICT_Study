@@ -282,5 +282,26 @@ public class UserController {
         return ResponseEntity.ok().body(mbtiUser);
     }
 
+    //나이대 별 유저수
+    @GetMapping("/agesUser")
+    public ResponseEntity<?> agesUser(){
+        try {
+            List<CntByAgesResponseDTO> dtos = userService.getAgesUser();
+            return ResponseEntity.ok().body(dtos);
+        } catch (Exception e) {
+            return ResponseEntity.internalServerError().body("실패");
+        }
+    }
+
+    @GetMapping("/agesProfit")
+    public ResponseEntity<?> agesProfitUser(){
+        try {
+            List<CntProfitByAgesResponseDTO> dtos = userService.getAgesProfit();
+            return ResponseEntity.ok().body(dtos);
+        } catch (Exception e) {
+            return ResponseEntity.internalServerError().body("실패");
+        }
+    }
+
 
 }

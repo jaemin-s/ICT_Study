@@ -38,6 +38,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.management.Query;
+import javax.persistence.EntityManager;
+import javax.persistence.TypedQuery;
 import javax.validation.constraints.Email;
 import java.io.BufferedReader;
 import java.io.File;
@@ -47,6 +50,7 @@ import java.net.HttpURLConnection;
 import java.net.URI;
 import java.net.URL;
 import java.util.*;
+import java.util.stream.Collectors;
 
 @Service
 @Slf4j
@@ -60,6 +64,7 @@ public class UserService {
     private final StockRepository stockRepository;
     private final JavaMailSender mailSender;
     private final TokenUserInfo tokenUserInfo;
+    private final EntityManager em;
 
 
     @Value("${upload.path}")
@@ -471,5 +476,15 @@ public class UserService {
     public List<MbtiUserResponseDTO> getMbtiUser() {
         List<MbtiUserResponseDTO> mbtiUser = userRepository.getMbtiUser();
         return mbtiUser;
+    }
+
+    public List<CntByAgesResponseDTO> getAgesUser() {
+        List<CntByAgesDTO> dtos = userRepository.getCntByAges();
+        return dtos.stream().map(CntByAgesResponseDTO::new).collect(Collectors.toList());
+    }
+
+    public List<CntProfitByAgesResponseDTO> getAgesProfit() {
+        List<CntProfitByAgesDTO> dtos = userRepository.getCntProfitByAges();
+        return dtos.stream().map(CntProfitByAgesResponseDTO::new).collect(Collectors.toList());
     }
 }

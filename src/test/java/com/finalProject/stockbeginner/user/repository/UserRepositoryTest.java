@@ -1,10 +1,8 @@
 package com.finalProject.stockbeginner.user.repository;
 
-import com.finalProject.stockbeginner.user.dto.request.forceGradeDownRequestDTO;
-import com.finalProject.stockbeginner.user.dto.response.MbtiUserResponseDTO;
+import com.finalProject.stockbeginner.user.dto.response.*;
 import com.finalProject.stockbeginner.user.entity.User;
 import com.finalProject.stockbeginner.user.entity.UserRole;
-import org.jetbrains.annotations.NotNull;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,9 +10,9 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.Rollback;
 import org.springframework.transaction.annotation.Transactional;
 
-import javax.validation.constraints.Email;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -83,5 +81,32 @@ class UserRepositoryTest {
         System.out.println("mbtiUser = " + mbtiUser);;
         //then
     }
+    
+    @Test
+    @DisplayName("native test")
+    void ntest() {
+        //given
+        List<CntByAgesDTO> dtos = userRepository.getCntByAges();
+        System.out.println("dtos.stream().map(CntByAgesResponseDTO::new).collect(Collectors.toList()) = "
+                + dtos.stream().map(CntByAgesResponseDTO::new).collect(Collectors.toList()));
+        //when
+        
+        //then
+    }
+
+    @Test
+    @DisplayName("profit join")
+    void profittest() {
+        //given
+        List<CntProfitByAgesDTO> dtos = userRepository.getCntProfitByAges();
+        System.out.println("dtos = " + dtos.stream().map(CntProfitByAgesResponseDTO::new).collect(Collectors.toList()));
+        //when
+
+        //then
+    }
+
+
+    
+
 
 }

@@ -26,6 +26,7 @@ public class Ranking {
     @Column(nullable = false)
     private String userName;
     @Id
+    @Column(nullable = false)
     private String email;
 
 }
