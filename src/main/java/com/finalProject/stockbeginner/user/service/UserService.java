@@ -476,6 +476,7 @@ public class UserService {
         return mbtiUser;
     }
 
+
     public List<CntByAgesResponseDTO> getAgesUser() {
         List<CntByAgesDTO> dtos = userRepository.getCntByAges();
         return dtos.stream().map(CntByAgesResponseDTO::new).collect(Collectors.toList());
@@ -488,5 +489,22 @@ public class UserService {
 
     public Page<MyInfoResponseDTO> getUserAll(Pageable pageable) {
         return userRepository.findAll(pageable).map(MyInfoResponseDTO::new);
+
+    }
+
+    public List<CareerUserResponseDTO> getCareerUser() {
+        List<CareerUserResponseDTO> list = userRepository.getCareerUser();
+        return list;
+    }
+
+    public List<MbtiAvgResponseDTO> getMbtiAvg() {
+        List<MbtiAvgResponseDTO> list = userRepository.getMbtiProfit();
+        return list;
+    }
+
+    public List<CareerAvgResponseDTO> getCareerProfit() {
+        List<CareerAvgResponseDTO> list = userRepository.getCareerProfit();
+        return list;
+
     }
 }
