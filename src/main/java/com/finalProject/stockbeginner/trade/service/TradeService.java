@@ -1,6 +1,7 @@
 package com.finalProject.stockbeginner.trade.service;
 
 import com.finalProject.stockbeginner.trade.dto.request.TradeRequestDTO;
+import com.finalProject.stockbeginner.trade.dto.response.HistoryResponseDTO;
 import com.finalProject.stockbeginner.trade.dto.response.RankResponseDTO;
 import com.finalProject.stockbeginner.trade.entity.Ranking;
 import com.finalProject.stockbeginner.trade.entity.Stock;
@@ -12,6 +13,8 @@ import com.finalProject.stockbeginner.user.entity.User;
 import com.finalProject.stockbeginner.user.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
@@ -124,6 +127,10 @@ public class TradeService {
             i++;
         }
         return dtoList;
+    }
+
+    public Page<HistoryResponseDTO> getAllHistory(Pageable pageable) {
+        return tradeHistoryRepository.findAll(pageable).map(HistoryResponseDTO::new);
     }
 }
 

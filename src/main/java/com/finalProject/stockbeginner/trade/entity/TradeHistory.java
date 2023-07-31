@@ -27,7 +27,7 @@ public class TradeHistory {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
-    @ToString.Exclude
+//    @ToString.Exclude
     private User user;
 
     @Column(name = "stock_id", nullable = false)
