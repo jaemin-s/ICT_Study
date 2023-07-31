@@ -12,6 +12,8 @@ import com.finalProject.stockbeginner.user.service.OAuthService;
 import com.finalProject.stockbeginner.user.service.UserService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -293,6 +295,7 @@ public class UserController {
         }
     }
 
+    //나이대별 손익 평균
     @GetMapping("/agesProfit")
     public ResponseEntity<?> agesProfitUser(){
         try {
@@ -303,5 +306,15 @@ public class UserController {
         }
     }
 
+    //전체 유저 정보 조회
+    @GetMapping("/userAll")
+    public ResponseEntity<?> getUserAll(Pageable pageable) {
+        try {
+            Page<MyInfoResponseDTO> myInfoResponseDTO = userService.getUserAll(pageable);
+            return ResponseEntity.ok().body(myInfoResponseDTO);
+        } catch (Exception e) {
+            return ResponseEntity.internalServerError().body(e.getMessage());
+        }
+    }
 
 }

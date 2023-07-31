@@ -1,8 +1,6 @@
 package com.finalProject.stockbeginner.user.service;
 
-import ch.qos.logback.core.net.SyslogOutputStream;
 import com.finalProject.stockbeginner.exception.DuplicatedEmailException;
-import com.finalProject.stockbeginner.trade.dto.response.RankResponseDTO;
 import com.finalProject.stockbeginner.trade.entity.Stock;
 import com.finalProject.stockbeginner.trade.repository.StockRepository;
 import com.finalProject.stockbeginner.user.auth.TokenProvider;
@@ -23,14 +21,14 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.hibernate.hql.internal.ast.tree.IsNullLogicOperatorNode;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -486,5 +484,9 @@ public class UserService {
     public List<CntProfitByAgesResponseDTO> getAgesProfit() {
         List<CntProfitByAgesDTO> dtos = userRepository.getCntProfitByAges();
         return dtos.stream().map(CntProfitByAgesResponseDTO::new).collect(Collectors.toList());
+    }
+
+    public Page<MyInfoResponseDTO> getUserAll(Pageable pageable) {
+        return userRepository.findAll(pageable).map(MyInfoResponseDTO::new);
     }
 }

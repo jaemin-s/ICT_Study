@@ -27,6 +27,7 @@ public class MyInfoResponseDTO {
     private List<MyStock> myStocks;
     private String mbti;
     private UserRole role;
+    private String phoneNumber;
 
     public MyInfoResponseDTO(User user, List<Stock> stocks){
         ArrayList<MyStock> myStocks = new ArrayList<>();
@@ -52,5 +53,12 @@ public class MyInfoResponseDTO {
         this.role = user.getUserRole();
     }
 
+    public MyInfoResponseDTO(User user) {
+        this.name = user.getName();
+        this.nick = user.getNick();
+        this.email = user.getEmail();
+        this.phoneNumber = user.getPhoneNumber();
+        this.role = user.getUserRole();
+    }
 }
 

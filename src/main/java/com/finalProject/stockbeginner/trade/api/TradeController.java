@@ -57,7 +57,8 @@ public class TradeController {
             return ResponseEntity.internalServerError().body(e.getMessage());
         }
     }
-
+    
+    //전체 유저 거래내역 조회
     @GetMapping("/historyAll")
     public ResponseEntity<?> getAllHistory(Pageable pageable) {
         try {

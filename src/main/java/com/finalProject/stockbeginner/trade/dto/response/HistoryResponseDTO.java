@@ -1,6 +1,7 @@
 package com.finalProject.stockbeginner.trade.dto.response;
 
 import com.finalProject.stockbeginner.trade.entity.TradeHistory;
+import com.finalProject.stockbeginner.user.entity.UserRole;
 import lombok.*;
 
 import java.time.LocalDateTime;
@@ -19,6 +20,7 @@ public class HistoryResponseDTO {
     private long quantity;
     private String tradeType;
     private LocalDateTime tradeDate;
+    private UserRole role;
 
     public HistoryResponseDTO(TradeHistory tradeHistory) {
         this.userName = tradeHistory.getUser().getName();
@@ -28,6 +30,6 @@ public class HistoryResponseDTO {
         this.quantity = tradeHistory.getQuantity();
         this.tradeType = tradeHistory.getTradeType();
         this.tradeDate = tradeHistory.getTradeDate();
-
+        this.role = tradeHistory.getUser().getUserRole();
     }
 }
