@@ -25,6 +25,8 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.hibernate.hql.internal.ast.tree.IsNullLogicOperatorNode;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -471,5 +473,9 @@ public class UserService {
     public List<MbtiUserResponseDTO> getMbtiUser() {
         List<MbtiUserResponseDTO> mbtiUser = userRepository.getMbtiUser();
         return mbtiUser;
+    }
+
+    public Page<MyInfoResponseDTO> getUserAll(Pageable pageable) {
+        return userRepository.findAll(pageable).map(MyInfoResponseDTO::new);
     }
 }
