@@ -6,10 +6,7 @@ import com.finalProject.stockbeginner.exception.NoRegisteredArgumentsException;
 import com.finalProject.stockbeginner.trade.dto.response.RankResponseDTO;
 import com.finalProject.stockbeginner.user.auth.TokenUserInfo;
 import com.finalProject.stockbeginner.user.dto.request.*;
-import com.finalProject.stockbeginner.user.dto.response.FavoriteListResponseDTO;
-import com.finalProject.stockbeginner.user.dto.response.LoginResponseDTO;
-import com.finalProject.stockbeginner.user.dto.response.MyInfoResponseDTO;
-import com.finalProject.stockbeginner.user.dto.response.UserRegisterResponseDTO;
+import com.finalProject.stockbeginner.user.dto.response.*;
 import com.finalProject.stockbeginner.user.entity.User;
 import com.finalProject.stockbeginner.user.service.OAuthService;
 import com.finalProject.stockbeginner.user.service.UserService;
@@ -278,7 +275,12 @@ public class UserController {
         }
     }
 
-
+    //MBTI별 총 유저 수
+    @GetMapping("/mbtiuser")
+    public ResponseEntity<?> mbtiUser() {
+        List<MbtiUserResponseDTO> mbtiUser = userService.getMbtiUser();
+        return ResponseEntity.ok().body(mbtiUser);
+    }
 
 
 }

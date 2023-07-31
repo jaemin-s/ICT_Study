@@ -12,10 +12,7 @@ import com.finalProject.stockbeginner.user.dto.request.FavoriteRequestDTO;
 import com.finalProject.stockbeginner.user.dto.request.KakaoRegisterRequestDTO;
 import com.finalProject.stockbeginner.user.dto.request.LoginRequestDTO;
 import com.finalProject.stockbeginner.user.dto.request.UserRegisterRequestDTO;
-import com.finalProject.stockbeginner.user.dto.response.FavoriteListResponseDTO;
-import com.finalProject.stockbeginner.user.dto.response.LoginResponseDTO;
-import com.finalProject.stockbeginner.user.dto.response.MyInfoResponseDTO;
-import com.finalProject.stockbeginner.user.dto.response.UserRegisterResponseDTO;
+import com.finalProject.stockbeginner.user.dto.response.*;
 import com.finalProject.stockbeginner.user.entity.FavoriteStock;
 import com.finalProject.stockbeginner.user.entity.User;
 import com.finalProject.stockbeginner.user.entity.UserRole;
@@ -468,5 +465,11 @@ public class UserService {
             return "탈퇴가 완료되었습니다";
         }
         return "다시 시도해주세요";
+    }
+
+    //mbti 유저 수
+    public List<MbtiUserResponseDTO> getMbtiUser() {
+        List<MbtiUserResponseDTO> mbtiUser = userRepository.getMbtiUser();
+        return mbtiUser;
     }
 }
