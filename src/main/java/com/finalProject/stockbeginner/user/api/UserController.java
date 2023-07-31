@@ -282,5 +282,25 @@ public class UserController {
         return ResponseEntity.ok().body(mbtiUser);
     }
 
+    //경력별 유저 수
+    @GetMapping("/careeruser")
+    public ResponseEntity<?> careerUser() {
+        List<CareerUserResponseDTO> list = userService.getCareerUser();
+        return ResponseEntity.ok().body(list);
+    }
+
+    //mbti별 손익 정보
+    @GetMapping("/mbtiprofit")
+    public ResponseEntity<?> mbtiProfit() {
+        List<MbtiAvgResponseDTO> list = userService.getMbtiAvg();
+        return ResponseEntity.ok().body(list);
+    }
+
+    //경력별 손익 정보
+    @GetMapping("/careerprofit")
+    public ResponseEntity<?> careerProfit() {
+        List<CareerAvgResponseDTO> list = userService.getCareerProfit();
+        return ResponseEntity.ok().body(list);
+    }
 
 }

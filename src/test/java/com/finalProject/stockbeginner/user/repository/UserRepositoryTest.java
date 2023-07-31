@@ -1,7 +1,7 @@
 package com.finalProject.stockbeginner.user.repository;
 
 import com.finalProject.stockbeginner.user.dto.request.forceGradeDownRequestDTO;
-import com.finalProject.stockbeginner.user.dto.response.MbtiUserResponseDTO;
+import com.finalProject.stockbeginner.user.dto.response.*;
 import com.finalProject.stockbeginner.user.entity.User;
 import com.finalProject.stockbeginner.user.entity.UserRole;
 import org.jetbrains.annotations.NotNull;
@@ -81,6 +81,44 @@ class UserRepositoryTest {
         List<MbtiUserResponseDTO> mbtiUser = userRepository.getMbtiUser();
         //when
         System.out.println("mbtiUser = " + mbtiUser);;
+        //then
+    }
+
+//    @Test
+//    @DisplayName("age 유저 수 테스트")
+//    void ageTest() {
+//        List<AgeUserResponseDTO> ageUser = userRepository.getAgeUser();
+//        System.out.println("ageUser = " + ageUser);
+//
+//    }
+
+    @Test
+    @DisplayName("경력 유저 수 테스트")
+    void careerTest() {
+        //given
+        List<CareerUserResponseDTO> list = userRepository.getCareerUser();
+        //when
+        System.out.println("list = " + list);
+        //then
+    }
+
+    @Test
+    @DisplayName("mbti 평균 수익")
+    void mbtiAvgTest() {
+        //given
+        List<MbtiAvgResponseDTO> mbtiAvg = userRepository.getMbtiProfit();
+        //when
+        System.out.println("mbtiAvg = " + mbtiAvg);
+        //then
+    }
+
+    @Test
+    @DisplayName("career 평균 수익")
+    void careerAvgTest() {
+        //given
+        List<CareerAvgResponseDTO> careerAvg = userRepository.getCareerProfit();
+        //when
+        System.out.println("careerAvg = " + careerAvg);
         //then
     }
 

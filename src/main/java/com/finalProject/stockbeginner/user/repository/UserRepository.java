@@ -1,6 +1,6 @@
 package com.finalProject.stockbeginner.user.repository;
 
-import com.finalProject.stockbeginner.user.dto.response.MbtiUserResponseDTO;
+import com.finalProject.stockbeginner.user.dto.response.*;
 import com.finalProject.stockbeginner.user.entity.FavoriteStock;
 import com.finalProject.stockbeginner.user.entity.User;
 import org.hibernate.sql.Delete;
@@ -34,6 +34,41 @@ public interface UserRepository extends JpaRepository<User, String> {
     // mbti 유저 수
     @Query("SELECT new com.finalProject.stockbeginner.user.dto.response.MbtiUserResponseDTO(COUNT(*), u.mbti) FROM User u GROUP BY u.mbti")
     List<MbtiUserResponseDTO> getMbtiUser();
+
+    //연령 별 유저 수 (실패)
+//    @Query("SELECT new com.finalProject.stockbeginner.user.dto.response.AgeUserResponseDTO(CASE " +
+//            "WHEN age BETWEEN 1 AND 19 THEN '미성년자' " +
+//            "WHEN age BETWEEN 20 AND 29 THEN '20대' " +
+//            "WHEN age BETWEEN 30 AND 39 THEN '30대' " +
+//            "WHEN age BETWEEN 40 AND 49 THEN '40대' " +
+//            "WHEN age BETWEEN 50 AND 59 THEN '50대' " +
+//            "WHEN age BETWEEN 60 AND 69 THEN '60대' " +
+//            "ELSE '70세 이상' END AS ageGroup, " +
+//            "COUNT(*) AS countUsers) " +
+//            "FROM User " +
+//            "GROUP BY ageGroup")
+//    List<AgeUserResponseDTO> getAgeUser();
+
+    // 경력별 유저 수
+    @Query("SELECT new com.finalProject.stockbeginner.user.dto.response.CareerUserResponseDTO(COUNT(*), u.career) FROM User u GROUP BY u.career")
+    List<CareerUserResponseDTO> getCareerUser();
+
+    //mbti별 평균 손익
+    @Query("SELECT new com.finalProject.stockbeginner.user.dto.response.MbtiAvgResponseDTO(u.mbti, ROUND(AVG(r.profit))) " +
+            "FROM User u " +
+            "RIGHT JOIN Ranking r " +
+            "ON u.email = r.email " +
+            "GROUP BY u.mbti")
+    List<MbtiAvgResponseDTO> getMbtiProfit();
+
+    //경력별 평균 손익
+    @Query("SELECT new com.finalProject.stockbeginner.user.dto.response.CareerAvgResponseDTO(u.career, ROUND(AVG(r.profit))) " +
+            "FROM User u " +
+            "RIGHT JOIN Ranking r " +
+            "ON u.email = r.email " +
+            "GROUP BY u.career")
+    List<CareerAvgResponseDTO> getCareerProfit();
+
 
 }
 

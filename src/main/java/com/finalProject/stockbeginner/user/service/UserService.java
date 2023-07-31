@@ -472,4 +472,19 @@ public class UserService {
         List<MbtiUserResponseDTO> mbtiUser = userRepository.getMbtiUser();
         return mbtiUser;
     }
+
+    public List<CareerUserResponseDTO> getCareerUser() {
+        List<CareerUserResponseDTO> list = userRepository.getCareerUser();
+        return list;
+    }
+
+    public List<MbtiAvgResponseDTO> getMbtiAvg() {
+        List<MbtiAvgResponseDTO> list = userRepository.getMbtiProfit();
+        return list;
+    }
+
+    public List<CareerAvgResponseDTO> getCareerProfit() {
+        List<CareerAvgResponseDTO> list = userRepository.getCareerProfit();
+        return list;
+    }
 }
