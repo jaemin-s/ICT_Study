@@ -5,7 +5,6 @@ import com.finalProject.stockbeginner.user.dto.response.CntByAgesDTO;
 import com.finalProject.stockbeginner.user.dto.response.CntProfitByAgesDTO;
 import com.finalProject.stockbeginner.user.dto.response.MbtiUserResponseDTO;
 import com.finalProject.stockbeginner.user.dto.response.*;
-import com.finalProject.stockbeginner.user.entity.FavoriteStock;
 import com.finalProject.stockbeginner.user.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -37,6 +36,7 @@ public interface UserRepository extends JpaRepository<User, String> {
     // mbti 유저 수
     @Query("SELECT new com.finalProject.stockbeginner.user.dto.response.MbtiUserResponseDTO(COUNT(*), u.mbti) FROM User u GROUP BY u.mbti")
     List<MbtiUserResponseDTO> getMbtiUser();
+
 
     @Query(nativeQuery = true, value = "SELECT CASE " +
             "WHEN u.age BETWEEN 1 AND 19 THEN '미성년자' " +

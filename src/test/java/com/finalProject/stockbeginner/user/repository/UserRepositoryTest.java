@@ -1,9 +1,5 @@
 package com.finalProject.stockbeginner.user.repository;
 
-<<<<<<< HEAD
-=======
-import com.finalProject.stockbeginner.user.dto.request.forceGradeDownRequestDTO;
->>>>>>> feat/jh
 import com.finalProject.stockbeginner.user.dto.response.*;
 import com.finalProject.stockbeginner.user.entity.User;
 import com.finalProject.stockbeginner.user.entity.UserRole;
