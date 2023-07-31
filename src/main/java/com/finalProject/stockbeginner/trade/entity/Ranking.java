@@ -25,8 +25,17 @@ public class Ranking {
 
     @Column(nullable = false)
     private String userName;
+
     @Id
+<<<<<<< HEAD
     @Column(nullable = false)
+=======
+    @Column(name = "email", nullable = false)
+>>>>>>> feat/jh
     private String email;
 
+    //@OneToOne(fetch = FetchType.LAZY)
+    //@JoinColumn(name = "user_email")
+    //@ToString.Exclude
+    //private User user;
 }
