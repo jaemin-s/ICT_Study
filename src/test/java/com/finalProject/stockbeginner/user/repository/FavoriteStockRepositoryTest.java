@@ -99,5 +99,15 @@ class FavoriteStockRepositoryTest {
         //then
         System.out.println("favoriteStock = " + favoriteStock);
     }
+    
+    @Test
+    @DisplayName("특정 회원 모두 삭제")
+    void delete() {
+        //given
+        userRepository.delete(userRepository.findByEmail("jaemin@naver.com").orElseThrow());
+        //when
+        
+        //then
+    }
 
 }

@@ -8,4 +8,6 @@ import java.util.List;
 
 public interface RankingRepository extends JpaRepository<Ranking, String> {
 
+    void deleteAllByEmail(String email);
+
 }

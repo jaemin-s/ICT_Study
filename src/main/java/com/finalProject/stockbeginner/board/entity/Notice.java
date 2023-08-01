@@ -5,6 +5,8 @@ import com.finalProject.stockbeginner.board.dto.requestDTO.BoardUpdateRequestDTO
 import com.finalProject.stockbeginner.user.entity.User;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -24,7 +26,7 @@ public class Notice {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_email")
-
+    @OnDelete(action = OnDeleteAction.CASCADE)
     private User user;
 
     private String writer;

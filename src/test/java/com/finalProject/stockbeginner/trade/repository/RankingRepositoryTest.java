@@ -74,7 +74,7 @@ class RankingRepositoryTest {
         //given
 
         //when
-        rankingRepository.deleteAll();
+        rankingRepository.deleteAllByEmail("abc123@naver.com");
         //then
     }
     

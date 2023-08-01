@@ -154,5 +154,9 @@ public class TradeService {
         rankingRepository.deleteAll();
         stockRepository.deleteAll();
     }
+
+    public void deleteByEmail(String email) {
+        rankingRepository.deleteAllByEmail(email);
+    }
 }
 

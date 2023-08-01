@@ -4,6 +4,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.finalProject.stockbeginner.exception.DuplicatedEmailException;
 import com.finalProject.stockbeginner.exception.NoRegisteredArgumentsException;
 import com.finalProject.stockbeginner.trade.dto.response.RankResponseDTO;
+import com.finalProject.stockbeginner.trade.entity.TradeHistory;
+import com.finalProject.stockbeginner.trade.service.TradeService;
 import com.finalProject.stockbeginner.user.auth.TokenUserInfo;
 import com.finalProject.stockbeginner.user.dto.request.*;
 import com.finalProject.stockbeginner.user.dto.response.*;
@@ -36,6 +38,7 @@ import java.util.List;
 public class UserController {
     private final UserService userService;
     private final OAuthService oAuthService;
+    private final TradeService tradeService;
 
     //로그인 요청 처리
     @PostMapping("/login")
@@ -130,6 +133,7 @@ public class UserController {
     String deleteInfo(@PathVariable("email") String email) {
         try {
             log.info("이메일 : " + email);
+            tradeService.deleteByEmail(email);
             return userService.deleteInfo(email);
 
         } catch (Exception e) {
