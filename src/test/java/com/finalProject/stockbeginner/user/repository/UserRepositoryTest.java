@@ -1,5 +1,6 @@
 package com.finalProject.stockbeginner.user.repository;
 
+import com.finalProject.stockbeginner.user.dto.request.UserDTO;
 import com.finalProject.stockbeginner.user.dto.response.*;
 import com.finalProject.stockbeginner.user.entity.User;
 import com.finalProject.stockbeginner.user.entity.UserRole;
@@ -144,6 +145,24 @@ class UserRepositoryTest {
         List<CareerAvgResponseDTO> careerAvg = userRepository.getCareerProfit();
         //when
         System.out.println("careerAvg = " + careerAvg);
+        //then
+    }
+
+    @Test
+    @DisplayName("포인트 부여")
+    void updatePoint() {
+        //given
+        String email = "jaemin@naver.com";
+        Long point = 1500L;
+        //when
+        User user = userRepository.findByEmail(email).orElseThrow();
+        System.out.println("user = " + user);
+        UserDTO userDTO = new UserDTO(user, point);
+        System.out.println("userDTO = " + userDTO);
+        User updateUser = new User(userDTO);
+        System.out.println("updateUser = " + updateUser);
+        User saved = userRepository.save(updateUser);
+
         //then
     }
 

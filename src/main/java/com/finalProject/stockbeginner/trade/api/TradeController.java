@@ -5,6 +5,7 @@ import com.finalProject.stockbeginner.trade.dto.response.HistoryResponseDTO;
 import com.finalProject.stockbeginner.trade.dto.response.RankResponseDTO;
 import com.finalProject.stockbeginner.trade.entity.TradeHistory;
 import com.finalProject.stockbeginner.trade.service.TradeService;
+import com.finalProject.stockbeginner.user.service.UserService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
@@ -91,5 +92,15 @@ public class TradeController {
         } catch (Exception e) {
             return ResponseEntity.internalServerError().body(e.getMessage());
         }
+    }
+
+    @PutMapping("/ranking/reset")
+    public ResponseEntity<?> resetRank(){
+            try {
+                tradeService.resetRanking();
+                return ResponseEntity.ok().body("랭킹이 초기화 되었습니다.");
+            } catch (Exception e) {
+                return ResponseEntity.internalServerError().body("요청 실패");
+            }
     }
 }

@@ -9,6 +9,7 @@ import com.finalProject.stockbeginner.trade.entity.TradeHistory;
 import com.finalProject.stockbeginner.trade.repository.RankingRepository;
 import com.finalProject.stockbeginner.trade.repository.StockRepository;
 import com.finalProject.stockbeginner.trade.repository.TradeHistoryRepository;
+import com.finalProject.stockbeginner.user.dto.request.UserDTO;
 import com.finalProject.stockbeginner.user.entity.User;
 import com.finalProject.stockbeginner.user.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
@@ -131,6 +132,26 @@ public class TradeService {
 
     public Page<HistoryResponseDTO> getAllHistory(Pageable pageable) {
         return tradeHistoryRepository.findAll(pageable).map(HistoryResponseDTO::new);
+    }
+
+    public void resetRanking(){
+        List<Ranking> rankingList = rankingRepository.findAll(Sort.by(Sort.Direction.DESC,"profit"));
+        for (int i = 0; i < rankingList.size() ; i++) {
+            User user = userRepository.findByEmail(rankingList.get(i).getEmail()).orElseThrow();
+            UserDTO userDTO;
+            if(i==0){
+                userDTO = new UserDTO(user, 500L+user.getGradePoint());
+            }else if(i==1){
+                userDTO = new UserDTO(user, 300L+user.getGradePoint());
+            }else if(i==2){
+                userDTO = new UserDTO(user, 200L+user.getGradePoint());
+            }else{
+                userDTO = new UserDTO(user, 50L+user.getGradePoint());
+            }
+            User updateUser = new User(userDTO);
+            userRepository.save(updateUser);
+        }
+        rankingRepository.deleteAll();
     }
 }
 

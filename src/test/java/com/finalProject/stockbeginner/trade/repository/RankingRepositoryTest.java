@@ -67,5 +67,15 @@ class RankingRepositoryTest {
         Ranking save = rankingRepository.save(ranking);
         //then
     }
+
+    @Test
+    @DisplayName("전체 삭제")
+    void deleteAll() {
+        //given
+
+        //when
+        rankingRepository.deleteAll();
+        //then
+    }
     
 }
