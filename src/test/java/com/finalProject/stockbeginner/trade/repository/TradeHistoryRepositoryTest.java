@@ -30,4 +30,14 @@ class TradeHistoryRepositoryTest {
         System.out.println("result = " + result);
     }
 
+    @Test
+    @DisplayName("delete")
+    void delete() {
+        //given
+        tradeHistoryRepository.deleteAll();
+        //when
+
+        //then
+    }
+
 }

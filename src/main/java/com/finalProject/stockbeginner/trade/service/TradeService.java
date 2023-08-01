@@ -152,6 +152,7 @@ public class TradeService {
             userRepository.save(updateUser);
         }
         rankingRepository.deleteAll();
+        stockRepository.deleteAll();
     }
 }
 

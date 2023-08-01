@@ -16,5 +16,4 @@ public interface TradeHistoryRepository extends JpaRepository<TradeHistory, Stri
     List<TradeHistory> findByUserOrderByTradeDateDesc(User user);
 
     Page<TradeHistory> findAll(Pageable pageable);
-
 }

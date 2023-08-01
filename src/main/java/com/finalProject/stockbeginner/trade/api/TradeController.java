@@ -25,6 +25,8 @@ public class TradeController {
 
     private final TradeService tradeService;
 
+    private final UserService userService;
+
     //매수 요청
     @PostMapping("/buy")
     public ResponseEntity<?> buying(@RequestBody TradeRequestDTO requestDTO){
@@ -86,6 +88,7 @@ public class TradeController {
     public ResponseEntity<?> getOneRank(@PathVariable String email){
         try {
             List<RankResponseDTO> rankResponseDTOList = tradeService.getAllRank();
+
             Optional<RankResponseDTO> responseDTO = rankResponseDTOList.stream()
                     .filter(dto -> dto.getEmail().equals(email)).findFirst();
             return ResponseEntity.ok().body(responseDTO);
@@ -98,6 +101,7 @@ public class TradeController {
     public ResponseEntity<?> resetRank(){
             try {
                 tradeService.resetRanking();
+                userService.resetMoney();
                 return ResponseEntity.ok().body("랭킹이 초기화 되었습니다.");
             } catch (Exception e) {
                 return ResponseEntity.internalServerError().body("요청 실패");
