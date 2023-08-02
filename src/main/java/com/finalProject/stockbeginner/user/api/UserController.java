@@ -1,55 +1,44 @@
 package com.finalProject.stockbeginner.user.api;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.finalProject.stockbeginner.exception.DuplicatedEmailException;
 import com.finalProject.stockbeginner.exception.NoRegisteredArgumentsException;
-import com.finalProject.stockbeginner.user.auth.KakaoOAuth;
+import com.finalProject.stockbeginner.trade.dto.response.RankResponseDTO;
+import com.finalProject.stockbeginner.trade.entity.TradeHistory;
+import com.finalProject.stockbeginner.trade.service.TradeService;
 import com.finalProject.stockbeginner.user.auth.TokenUserInfo;
-import com.finalProject.stockbeginner.user.dto.UserUpdateDTO;
-import com.finalProject.stockbeginner.user.dto.request.LoginRequestDTO;
-import com.finalProject.stockbeginner.user.dto.request.UserRegisterRequestDTO;
-import com.finalProject.stockbeginner.user.dto.response.LoginResponseDTO;
-import com.finalProject.stockbeginner.user.dto.response.UserRegisterResponseDTO;
+import com.finalProject.stockbeginner.user.dto.request.*;
+import com.finalProject.stockbeginner.user.dto.response.*;
+import com.finalProject.stockbeginner.user.entity.User;
 import com.finalProject.stockbeginner.user.service.OAuthService;
 import com.finalProject.stockbeginner.user.service.UserService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.hibernate.Session;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.util.FileCopyUtils;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import javax.validation.Valid;
 import java.io.File;
-import java.io.IOException;
-import java.util.HashMap;
+import java.util.List;
 
 @RestController
 @Slf4j
 @RequiredArgsConstructor
 @RequestMapping("/api/user")
 public class UserController {
-
     private final UserService userService;
     private final OAuthService oAuthService;
-    private final KakaoOAuth kakaoOAuth;
-
-
-
-
-    //카카오 로그인
-    @GetMapping("/kakao")
-    public void getKakaoAuthUrl(HttpServletResponse response) throws IOException {
-        response.sendRedirect(kakaoOAuth.responseUrl());
-    }
+    private final TradeService tradeService;
 
     //로그인 요청 처리
     @PostMapping("/login")
@@ -59,37 +48,99 @@ public class UserController {
         try {
             LoginResponseDTO responseDTO
                     = userService.authenticate(dto);
-
             return ResponseEntity.ok().body(responseDTO);
-
         } catch (Exception e) {
             e.printStackTrace();
             return ResponseEntity.badRequest()
                     .body(e.getMessage());
+        }
+    }
 
+    //카카오 로그인
+    @GetMapping("/callback/kakao")
+    public ResponseEntity<?> login(@RequestParam("code") String code, HttpSession session) throws Exception {
+        try {
+            String access_Token = oAuthService.getKakaoAccessToken(code);
+            System.out.println("login Controller : " + access_Token);
+            LoginResponseDTO responseDTO = userService.kakaoLogin(access_Token);
+            System.out.println("login Controller response dto : " + responseDTO);
+            return ResponseEntity.ok().body(responseDTO);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ResponseEntity.badRequest()
+                    .body(e.getMessage());
+        }
+    }
+
+    // 아이디 찾기
+    @PostMapping("/searchId")
+    public String searchId(@Validated @RequestBody SearchIdRequestDTO dto) {
+        try {
+            log.info(dto.toString());
+            String email
+                    = userService.searchId(dto);
+            log.info("컨트롤러 이메일 :" + email);
+            return email;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "일치하는 회원 정보가 없음";
+        }
+    }
+
+    //비밀번호 변경
+//    @Transactional
+    @PostMapping("/sendEmail")
+    public String sendEmail(@Validated @RequestBody ChangePasswordRequestDTO dto) {
+        try {
+            if (userService.sendEmail(dto) != null) {
+                MailDTO maildto = userService.createMailAndChangePassword(dto);
+                userService.mailSend(maildto);
+                String answer = "이메일로 임시비밀번호가 발송되었습니다";
+                return answer;
+            }
+            String answer = "일치하는 회원정보가 없습니다";
+            return answer;
+        } catch (Exception e) {
+            e.printStackTrace();
+            String answer = "다시 시도해주세요";
+            return answer;
+        }
+    }
+
+    //강등
+    @PostMapping("/forcegradedown")
+    public String forceGradeDown(@Validated @RequestBody forceGradeDownRequestDTO dto) {
+        return userService.forceGradeDown(dto);
+
+    }
+
+    //회원 수정
+    @PatchMapping("/updateInfo")
+    public String updateInfo(@Validated @RequestBody ChangeInfoRequestDTO dto) {
+        try {
+            log.info("체인지디티오: " + dto.toString());
+            return userService.updateInfo(dto);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "일치하는 회원 정보가 없음";
         }
     }
 
 
-//    //카카오 로그인
-//    @GetMapping("/callback/kakao")
-//    public String login(@RequestParam("code") String code, HttpSession session) throws Exception {
-//        String access_Token = oAuthService.getKakaoAccessToken(code);
-////        userService.createKakaoUser(access_Token);
-//        HashMap<String, Object> userInfo = userService.getUserInfo(access_Token);
-//        System.out.println("login Controller : " + userInfo);
-//        userService.giveTokenToKakao(userInfo);
-//
-//
-////            클라이언트의 이메일이 존재할 때 세션에 해당 이메일과 토큰 등록
-////        if (userInfo.get("email") != null) {
-////            session.setAttribute("userId", userInfo.get("email"));
-////            session.setAttribute("access_Token", access_Token);
-////        }
-//
-//
-//        return "로그인에 성공했습니다.";
-//    }
+    //회원 탈퇴
+    @DeleteMapping("/deleteInfo/{email}")
+    String deleteInfo(@PathVariable("email") String email) {
+        try {
+            log.info("이메일 : " + email);
+            tradeService.deleteByEmail(email);
+            return userService.deleteInfo(email);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "일치하는 회원 정보가 없음";
+        }
+    }
 
 
     //회원 가입
@@ -97,29 +148,22 @@ public class UserController {
     public ResponseEntity<?> register(@RequestPart("user") UserRegisterRequestDTO requestDTO,
                                       @RequestPart(value = "profileImage", required = false) MultipartFile profileImg,
                                       BindingResult result) {
-
         {
             log.info("/api/auth POST - {}", requestDTO);
-
             if (result.hasErrors()) {
                 log.warn(result.toString());
                 return ResponseEntity.badRequest()
                         .body(result.getFieldError());
             }
-
             try {
-
                 String uploadedFilePath = null;
                 if (profileImg != null) {
                     log.info("attached file name: {}", profileImg.getOriginalFilename());
                     uploadedFilePath = userService.uploadProfileImage(profileImg);
                 }
-
-
                 UserRegisterResponseDTO responseDTO = userService.register(requestDTO, uploadedFilePath);
                 return ResponseEntity.ok()
                         .body(responseDTO);
-
             } catch (NoRegisteredArgumentsException e) {
                 log.warn("필수 가입 정보를 전달받지 못했습니다.");
                 return ResponseEntity.badRequest()
@@ -136,7 +180,6 @@ public class UserController {
         }
     }
 
-
     //프로필 이미지 관련
     // 프로필 사진 이미지 데이터를 클라이언트에게 응답 처리
     @GetMapping("/load-profile")
@@ -144,53 +187,37 @@ public class UserController {
             @AuthenticationPrincipal TokenUserInfo userInfo
     ) {
         log.info("/api/auth/load-profile - GET!, user: {}", userInfo.getEmail());
-
         try {
-            //클라이언트가 요청한 프로필 사진을 응답해야 함.
-            //1. 프로필 사진의 경로를 얻어야 함.
-            String filePath
+              String filePath
                     = userService.findProfilePath(userInfo.getUserId());
-
-            //2. 얻어낸 파일 경로를 통해서 실제 파일 데이터 로드하기
             File profileFile = new File(filePath);
-
             if (!profileFile.exists()) {
                 return ResponseEntity.notFound().build();
             }
-
-            // 해당 경로에 저장된 파일을 바이트배열로 직렬화 해서 리턴
             byte[] fileData = FileCopyUtils.copyToByteArray(profileFile);
-
-            //3. 응답 헤더에 컨턴츠 타입을 설정.
             HttpHeaders headers = new HttpHeaders();
             MediaType contentType = findExtensionAndGetMediaType(filePath);
-            if(contentType == null) {
+            if (contentType == null) {
                 return ResponseEntity.internalServerError()
                         .body("발견된 파일은 이미지 파일이 아닙니다.");
             }
             headers.setContentType(contentType);
-
             return ResponseEntity.ok()
                     .headers(headers)
                     .body(fileData);
-
         } catch (Exception e) {
             e.printStackTrace();
             return ResponseEntity.internalServerError()
                     .body("파일을 찾을 수 없습니다.");
         }
-
     }
 
     private MediaType findExtensionAndGetMediaType(String filePath) {
-
-        // 파일 경로에서 확장자 추출하기
-        // C:/todo_upload/asjkldlkaslkdjc_abc.jpg
         String ext
                 = filePath.substring(filePath.lastIndexOf(".") + 1);
-
         switch (ext.toUpperCase()) {
-            case "JPG": case "JPEG":
+            case "JPG":
+            case "JPEG":
                 return MediaType.IMAGE_JPEG;
             case "PNG":
                 return MediaType.IMAGE_PNG;
@@ -199,67 +226,120 @@ public class UserController {
             default:
                 return null;
         }
-
     }
 
-
-    //
-//        log.info("controller password, {}",requestDTO.getPassword());
-//        log.info("requestDTO: " + requestDTO);
-//        try {
-//            UserRegisterResponseDTO responseDTO = userService.register(requestDTO);
-//            return ResponseEntity.ok().body(responseDTO);
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//            return ResponseEntity.badRequest().body(e.getMessage());
-//        }
-//    }
-//
     //닉네임 중복 확인
     @GetMapping("/checknick")
     public ResponseEntity<?> checkNick(String nick) {
-        if(nick.trim().equals("")) {
+        if (nick.trim().equals("")) {
             return ResponseEntity.badRequest()
                     .body("닉네임이 없습니다!");
         }
         boolean resultFlag = userService.isDuplicateNick(nick);
         return ResponseEntity.ok().body(resultFlag);
-
     }
 
     //이메일 중복 확인
     @GetMapping("/check")
     public ResponseEntity<?> check(String email) {
-        if(email.trim().equals("")) {
+        if (email.trim().equals("")) {
             return ResponseEntity.badRequest()
                     .body("이메일이 없습니다!");
         }
         boolean resultFlag = userService.isDuplicate(email);
         return ResponseEntity.ok().body(resultFlag);
-
     }
 
 
-    //회원 수정
-    @PatchMapping
-    public ResponseEntity<?> updateInfo(@Valid @RequestBody UserUpdateDTO dto, TokenUserInfo userInfo) {
-            try {
-              LoginResponseDTO responseDTO = userService.updateInfo(dto, userInfo);
-            return ResponseEntity.ok().body(responseDTO);
+    //즐겨찾기 추가(별 모양 클릭)
+    @PostMapping("/favorite")
+    public ResponseEntity<?> FavoriteToggle(@RequestBody FavoriteRequestDTO requestDTO) {
+        try {
+            List<FavoriteListResponseDTO> result = userService.favoriteToggle(requestDTO);
+            return ResponseEntity.ok().body(result);
         } catch (Exception e) {
-            e.printStackTrace();
             return ResponseEntity.badRequest().body(e.getMessage());
         }
     }
 
-
-
-    //회원 탈퇴
-    @DeleteMapping("/{id}")
-    public ResponseEntity<?> deleteUser(TokenUserInfo userInfo) {
-       userService.deleteUser(userInfo);
-
-        return ResponseEntity.noContent().build();
+    //내정보 받아오기
+    @GetMapping("/myInfo/{email}")
+    public ResponseEntity<?> getUserInfo(@PathVariable String email) {
+        MyInfoResponseDTO myInfo = userService.getMyInfo(email);
+        return ResponseEntity.ok().body(myInfo);
     }
-}
 
+
+    //즐겨찾기 리스트 불러오기
+    @GetMapping("/favorite/{email}")
+    public ResponseEntity<?> favoriteList(@PathVariable String email) {
+        try {
+            List<FavoriteListResponseDTO> favoriteStockList = userService.favoriteList(email);
+            return ResponseEntity.ok().body(favoriteStockList);
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
+    }
+
+    //MBTI별 총 유저 수
+    @GetMapping("/mbtiuser")
+    public ResponseEntity<?> mbtiUser() {
+        List<MbtiUserResponseDTO> mbtiUser = userService.getMbtiUser();
+        return ResponseEntity.ok().body(mbtiUser);
+    }
+
+    //나이대 별 유저수
+    @GetMapping("/agesUser")
+    public ResponseEntity<?> agesUser(){
+        try {
+            List<CntByAgesResponseDTO> dtos = userService.getAgesUser();
+            return ResponseEntity.ok().body(dtos);
+        } catch (Exception e) {
+            return ResponseEntity.internalServerError().body("실패");
+        }
+    }
+
+    //나이대별 손익 평균
+    @GetMapping("/agesProfit")
+    public ResponseEntity<?> agesProfitUser(){
+        try {
+            List<CntProfitByAgesResponseDTO> dtos = userService.getAgesProfit();
+            return ResponseEntity.ok().body(dtos);
+        } catch (Exception e) {
+            return ResponseEntity.internalServerError().body("실패");
+        }
+    }
+
+    //전체 유저 정보 조회
+    @GetMapping("/userAll")
+    public ResponseEntity<?> getUserAll(Pageable pageable) {
+        try {
+            Page<MyInfoResponseDTO> myInfoResponseDTO = userService.getUserAll(pageable);
+            return ResponseEntity.ok().body(myInfoResponseDTO);
+        } catch (Exception e) {
+            return ResponseEntity.internalServerError().body(e.getMessage());
+        }
+    }
+    //경력별 유저 수
+    @GetMapping("/careeruser")
+    public ResponseEntity<?> careerUser() {
+        List<CareerUserResponseDTO> list = userService.getCareerUser();
+        return ResponseEntity.ok().body(list);
+    }
+
+    //mbti별 손익 정보
+    @GetMapping("/mbtiprofit")
+    public ResponseEntity<?> mbtiProfit() {
+        List<MbtiAvgResponseDTO> list = userService.getMbtiAvg();
+        return ResponseEntity.ok().body(list);
+    }
+
+    //경력별 손익 정보
+    @GetMapping("/careerprofit")
+    public ResponseEntity<?> careerProfit() {
+        List<CareerAvgResponseDTO> list = userService.getCareerProfit();
+        return ResponseEntity.ok().body(list);
+
+    }
+
+}

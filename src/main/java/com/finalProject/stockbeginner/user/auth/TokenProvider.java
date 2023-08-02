@@ -27,25 +27,16 @@ public class TokenProvider {
 
 
     public String createToken(User userEntity) {
-
-        //토큰 만료시간 생성
         Date expiry = Date.from(
                 Instant.now().plus(1, ChronoUnit.DAYS)
         );
-
-
-        //추가 클레임 정의
         Map<String, Object> claims = new HashMap<>();
         claims.put("email", userEntity.getEmail());
-
-
-
         return Jwts.builder()
-               .signWith(
+                .signWith(
                         Keys.hmacShaKeyFor(SECRET_KEY.getBytes()),
                         SignatureAlgorithm.HS512
                 )
-
                 .setClaims(claims) //
                 .setIssuer("관리자") // iss: 발급자 정보
                 .setIssuedAt(new Date())
@@ -54,26 +45,35 @@ public class TokenProvider {
                 .compact();
     }
 
-
+    public String createTokenToKakao(String email) {
+        Date expiry = Date.from(
+                Instant.now().plus(1, ChronoUnit.DAYS)
+        );
+        Map<String, Object> claims = new HashMap<>();
+        claims.put("email", email);
+        return Jwts.builder()
+                .signWith(
+                        Keys.hmacShaKeyFor(SECRET_KEY.getBytes()),
+                        SignatureAlgorithm.HS512
+                )
+                .setClaims(claims) //
+                .setIssuer("관리자") // iss: 발급자 정보
+                .setIssuedAt(new Date())
+                .setExpiration(expiry)
+                .setSubject(email)
+                .compact();
+    }
 
     public TokenUserInfo validateAndGetTokenUserInfo(String token) {
-
         Claims claims = Jwts.parserBuilder()
-                //토큰 발급자의 발급 당시의 서명을 넣어줌
                 .setSigningKey(Keys.hmacShaKeyFor(SECRET_KEY.getBytes()))
-                // 서명 위조 검사: 위조된 경우에는 예외가 발생합니다.
-                // 위조가 되지 않은 경우 페이로드를 리턴.
                 .build()
                 .parseClaimsJws(token)
                 .getBody();
-
         log.info("claims: {}", claims);
-
         return TokenUserInfo.builder()
                 .userId(claims.getSubject())
                 .email(claims.get("email", String.class))
                 .build();
     }
-
-
 }
