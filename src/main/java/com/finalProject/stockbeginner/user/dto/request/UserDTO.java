@@ -71,6 +71,7 @@ public class UserDTO {
         this.mbti = user.getMbti();
         if(user.getUserRole()==UserRole.BLACK||user.getUserRole()==UserRole.ADMIN){
             System.out.println("블랙이나 어드민");
+            this.userRole = user.getUserRole();
         }else{
             if(point>=1000){
                 this.userRole = UserRole.GOLD;
