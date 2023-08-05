@@ -10,7 +10,7 @@ import lombok.*;
 @ToString
 public class RankResponseDTO {
     private Long rank;
-    private String userName;
+    private String userNick;
     private String email;
     private Long profit;
 }

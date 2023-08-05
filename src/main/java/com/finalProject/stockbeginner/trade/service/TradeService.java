@@ -103,7 +103,7 @@ public class TradeService {
             Ranking userRank = rankingRepository.findById(requestDTO.getEmail()).orElseThrow();
                 profit += userRank.getProfit();
             }
-            rankingRepository.save(Ranking.builder().userName(user.getName()).profit(profit).email(user.getEmail()).build());
+            rankingRepository.save(Ranking.builder().userNick(user.getNick()).profit(profit).email(user.getEmail()).build());
             return "success";
         } catch (Exception e) {
             e.printStackTrace();
@@ -122,7 +122,7 @@ public class TradeService {
         List<RankResponseDTO> dtoList = new ArrayList<>();
         Long i = 1L;
         for (Ranking ranking : rankingList){
-            RankResponseDTO dto = RankResponseDTO.builder().rank(i).userName(ranking.getUserName())
+            RankResponseDTO dto = RankResponseDTO.builder().rank(i).userNick(ranking.getUserNick())
                     .email(ranking.getEmail()).profit(ranking.getProfit())
                     .build();
             dtoList.add(dto);

@@ -19,7 +19,7 @@ public class Ranking {
     private Long profit;
 
     @Column(nullable = false)
-    private String userName;
+    private String userNick;
 
     @Id
     @Column(name = "email", nullable = false)
