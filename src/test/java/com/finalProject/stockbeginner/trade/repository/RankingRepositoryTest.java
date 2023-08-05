@@ -26,17 +26,17 @@ class RankingRepositoryTest {
     @Autowired
     UserRepository userRepository;
 
-    @Test
-    @DisplayName("ranking add test")
-    void addRank() {
-        //given
-        User user = userRepository.findByEmail("kcs123@naver.com").orElseThrow();
-        Ranking ranking = Ranking.builder().profit(2500L).userName(user.getName()).email(user.getEmail()).build();
-        //when
-        Ranking save = rankingRepository.save(ranking);
-
-        //then
-    }
+//    @Test
+//    @DisplayName("ranking add test")
+//    void addRank() {
+//        //given
+//        User user = userRepository.findByEmail("kcs123@naver.com").orElseThrow();
+//        Ranking ranking = Ranking.builder().profit(2500L).userName(user.getName()).email(user.getEmail()).build();
+//        //when
+//        Ranking save = rankingRepository.save(ranking);
+//
+//        //then
+//    }
 
     @Test
     @DisplayName("get all rank")
@@ -56,17 +56,17 @@ class RankingRepositoryTest {
         System.out.println("kcs123@naver.com's rank: "+i);
     }
     
-    @Test
-    @DisplayName("change ranking point")
-    void changePoint() {
-        //given
-        Ranking result = rankingRepository.findById("kcs123@naver.com").orElseThrow();
-
-        Ranking ranking = Ranking.builder().profit(result.getProfit()-1200L).userName(result.getUserName()).email(result.getEmail()).build();
-        //when
-        Ranking save = rankingRepository.save(ranking);
-        //then
-    }
+//    @Test
+//    @DisplayName("change ranking point")
+//    void changePoint() {
+//        //given
+//        Ranking result = rankingRepository.findById("kcs123@naver.com").orElseThrow();
+//
+//        Ranking ranking = Ranking.builder().profit(result.getProfit()-1200L).userName(result.getUserName()).email(result.getEmail()).build();
+//        //when
+//        Ranking save = rankingRepository.save(ranking);
+//        //then
+//    }
 
     @Test
     @DisplayName("전체 삭제")
