@@ -43,7 +43,7 @@ public class User  {
     @Column(name = "user_name", nullable = false)
     private String name;
 
-    @Column(nullable = false, unique = true)
+    @Column(nullable = false)
     private String nick;
 
     @Builder.Default
