@@ -99,11 +99,15 @@ public class TradeService {
                     -(beforePrice/beforeQuantity))*
                     requestDTO.getQuantity());
             System.out.println("profit:"+profit);
+            System.out.println("랭킹에 있니?"+rankingRepository.existsById(requestDTO.getEmail()));
             if(rankingRepository.existsById(requestDTO.getEmail())){
-            Ranking userRank = rankingRepository.findById(requestDTO.getEmail()).orElseThrow();
+                System.out.println("if문 들어옴");
+                Ranking userRank = rankingRepository.findById(requestDTO.getEmail()).orElseThrow();
                 profit += userRank.getProfit();
             }
-            rankingRepository.save(Ranking.builder().userNick(user.getNick()).profit(profit).email(user.getEmail()).build());
+            Ranking newRanking = Ranking.builder().userNick(user.getNick()).profit(profit).email(user.getEmail()).build();
+            System.out.println("newRanking = " + newRanking);
+            rankingRepository.save(newRanking);
             return "success";
         } catch (Exception e) {
             e.printStackTrace();
