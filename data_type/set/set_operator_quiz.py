@@ -8,3 +8,4 @@ li2 = [1, 3, 8, 4, 5, 7, 101]
 
 newli = sorted(list(set(li)^set(li2)))
 print(newli)
+
