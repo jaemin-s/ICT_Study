@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css">
+
+    <style>
+        h1{
+            font-size: 36px;
+            font-weight: bold;
+            margin: 20px;
+            text-align: center;
+        }
+
+        h2{
+            font-size: 24px;
+            font-weight: bold;
+            text-align: center;
+            padding: 10px;
+        }
+
+        p{
+            font-size: 14px;
+            line-height: 1.4;
+            padding: 10px;
+        }
+        .container{
+            border: 3px solid orange;
+            width: 800px;
+            margin: 0 auto;
+        }
+        
+        header{
+            border: 3px solid yellow;
+        }
+
+        nav {
+            border: 3px solid purple;
+            width: 150px;
+            height: 300px;
+            float: left;
+        }
+        section{
+            border: 3px solid green;
+            width: 500px;
+            float: right;
+        }
+        footer{
+            border: 3px solid blue;
+        }
+        .clearfix::after{
+            content: '';
+            display: block;
+            clear: both;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>float 속성을 이용한 레이아웃</h1>
+    <div class="container">
+        <header>
+            <h2>header 영역</h2>
+        </header>
+        <div class="main-content clearfix">
+            <nav>
+                <h2>nav 영역</h2>
+            </nav>
+            <section>
+                <h2>섹션 영역</h2>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut finibus tempus feugiat. Integer vel
+                    blandit urna. Fusce at nulla ut enim tempor venenatis id commodo ex. Nullam nulla diam, aliquam id
+                    massa et, imperdiet tempus libero. Praesent in accumsan nulla, vulputate porttitor nulla.
+                    Suspendisse pellentesque lectus eget nibh gravida, a dictum justo porttitor. Vivamus lacinia varius
+                    finibus. Duis lectus erat, ullamcorper sed lectus eget, mollis dignissim enim. Nunc vitae diam
+                    auctor, congue lacus eu, lobortis nisl. Morbi fringilla id turpis nec aliquet. Praesent ornare
+                    tellus eu libero condimentum convallis. Quisque luctus ultrices nibh. Proin sagittis nisl sit amet
+                    porttitor ullamcorper. Suspendisse ullamcorper magna odio, eu rutrum tellus dignissim sed. Etiam
+                    arcu purus, scelerisque eget justo nec, euismod cursus ligula. Pellentesque dictum urna finibus
+                    auctor efficitur.
+                </p>
+            </section>
+        </div>
+        <footer>
+            <h2>footer 영역</h2>
+        </footer>
+    </div>
+
+</body>
+
+</html>
