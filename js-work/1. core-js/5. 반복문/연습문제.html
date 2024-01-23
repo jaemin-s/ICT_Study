@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        // Math.random(); 0.0이상 1.0미만의 랜덤값
+        // Math.floor(); 내림
+        // Math.ceil; 올림
+        // Math.round; 반올림
+        // var rn1 = Math.floor(Math.random()*100+1);
+        // alert(rn1);
+
+        var cnt = 0,
+            corcnt = 0;
+
+        while (true) {
+            var rn1 = Math.floor(Math.random() * 20 + 1);
+            var rn2 = Math.floor(Math.random() * 20 + 1);
+            var oper = Math.floor(Math.random() * 3 + 1);
+            if (oper === 1) {
+                var input = prompt(`${rn1}+${rn2}=?
+                정답을 입력해주세요("그만"입력시 종료)`);
+                if (input == '그만') {
+                    break;
+                } else if (input == rn1 + rn2) {
+                    alert('정답입니다.');
+                    corcnt++;
+                    cnt++;
+                } else {
+                    alert(`오답입니다. 정답은 ${rn1+rn2}`);
+                    cnt++;
+                }
+            } else if (oper === 2) {
+                var input = prompt(`${rn1}-${rn2}=?
+                정답을 입력해주세요("그만"입력시 종료)`);
+                if (input == '그만') {
+                    break;
+                } else if (input == rn1 - rn2) {
+                    alert('정답입니다.');
+                    corcnt++;
+                    cnt++;
+                } else {
+                    alert(`오답입니다. 정답은 ${rn1-rn2}`);
+                    cnt++;
+                }
+            } else {
+                var input = prompt(`${rn1}*${rn2}=?
+                정답을 입력해주세요("그만"입력시 종료)`);
+                if (input == '그만') {
+                    break;
+                } else if (input == rn1 * rn2) {
+                    alert('정답입니다.');
+                    corcnt++;
+                    cnt++;
+                } else {
+                    alert(`오답입니다. 정답은 ${rn1*rn2}`);
+                    cnt++;
+                }
+            }
+        }
+        alert(`종료합니다.
+        총 문제수: ${cnt}
+        정답횟수: ${corcnt}
+        오답횟수: ${cnt-corcnt}`);
+    </script>
+
+
+
+</body>
+
+</html>

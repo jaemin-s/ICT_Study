@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const group = {
+            ele1 : 'nothing',
+            ele2 : 20
+        }
+        console.log(`group.ele1 : ${group.ele1}`);
+        
+        let {ele1, ele2} = group;
+        console.log(ele1);
+        ele1 = 'someting'
+        console.log(`group.ele1 : ${group.ele1}`);
+        console.log(ele1);
+
+        </script>
+</body>
+</html>

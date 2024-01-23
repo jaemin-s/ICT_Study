@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        function showEveOrOddnNumber(n, delimiter){
+            for(var i=1;i<=n; i++){
+                if(i%2===0){
+                    console.log(i);
+                }
+            }
+        }
+        // function showOddNumber(n){
+        //     for(var i=1;i<=n; i++){
+        //         if(i%2 !== 0){
+        //             console.log(i);
+        //         }
+        //     }
+        // }
+
+        function showNumber(n, callback){
+            for(var i=i;i<=n;i++){
+                if(callback(i)){
+                    console.log(i);
+                }
+            }
+        }
+        showNumber(10,function(n){
+            return n % 2 === 0;
+        });
+
+        // 1부터 200까지의 정수 중 5의 배수이면서 10의 배수는 아닌 거
+        showNumber(200,function(n){
+            return n%5===0&&n%10!==0;
+        });
+
+
+
+
+    </script>
+</body>
+</html>

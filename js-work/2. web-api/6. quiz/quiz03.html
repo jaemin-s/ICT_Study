@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h2>언어를 선택하세요</h2>
+    <p class="msg"></p>
+
+    <hr>
+
+    <select id="selector">
+        <option value="선택">선택</option>
+        <option value="Hello">영어</option>
+        <option value="안녕하세요">한국어</option>
+        <option value="你好">중국어</option>
+    </select>
+
+    <script>
+        const $selector = document.getElementById('selector');
+        const $msg = document.querySelector('p.msg');
+        $msg.style.fontSize = '50px';
+        $msg.style.textAlign = 'center';
+        $selector.addEventListener('change',function(e){
+            if($selector.value === '선택'){
+                $msg.textContent = '';
+            }else{
+                $msg.textContent = e.target.value;
+            }
+        });
+
+        // 선택된 옵션의 index값을 얻어오는 문법
+        console.log($selector.options.selectedIndex);
+
+
+
+    </script>
+
+
+</body>
+</html>

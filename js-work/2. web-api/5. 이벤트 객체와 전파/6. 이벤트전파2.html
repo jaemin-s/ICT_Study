@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #fruits {
+            list-style: none;
+            padding: 0;
+        }
+
+        #fruits li {
+            width: 100px;
+            cursor: pointer;
+        }
+
+        #fruits .active {
+            color: red;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <ul id="fruits">
+        <li id="apple" class="active">Apple</li>
+        <li id="banana">Banana</li>
+        <li id="grape">Grape</li>
+    </ul>
+
+    <div>선택된 과일: <em class="msg">apple</em></div>
+
+    <br>
+
+    # 새로운 과일 추가:
+    <input type="text" class="text-box">
+    <button id="add">추가</button>
+    <script>
+        const $fruits = document.querySelector('#fruits');
+        const $msg = document.querySelector('.msg');
+        const $liList = [...$fruits.children];
+
+
+        function activate(e) {
+            // 이벤트 발생 타겟이 특정 요소인지를 검증
+            if (!e.target.matches('#fruits > li')) {
+                console.log('여긴 ㄴㄴ');
+                return;
+            }
+            // active 클래스를 클릭된 요소에 추가하고
+            // 기존에 active를 가지고 있던 요소에 클래스를 삭제.
+            // $liList.forEach(li => {
+            //     if (li !== e.target) {
+            //         if (li.classList.contains('active')) {
+            //             li.classList.remove('active');
+            //         }
+            //     }else{
+            //     li.classList.add('active');
+            //     }
+            // });
+            for(let $li of $liList){
+                $li.classList.toggle('active',$li===e.target);
+            }
+            // for(let $li of [...$fruits.children]){
+            //     $li.classList.toggle('active',$li===e.target);
+            // }
+            // 메세지 영역에 이벤트가 발생된 과일 이름을 추가
+            $msg.textContent = e.target.textContent;
+
+        }
+        // ul에 이벤트 등록
+        $fruits.addEventListener('click', activate);
+
+        // 동적으로 과일을 추가
+        const $textBox = document.querySelector('.text-box');
+        const $btn = document.querySelector('#add');
+        // function addLi(e){
+        //     $fruits.insertAdjacentHTML('beforeend',`<li>${$textBox.value}</li>`);
+        //     $textBox.value = '';
+        // }
+        function addLi(e){
+            const $newLi = document.createElement('li');
+            $newLi.textContent = $textBox.value;
+            $newLi.setAttribute('id', $textBox.value.toLowerCase());
+            $fruits.appendChild($newLi);
+            $textBox.value = '';
+            
+            $liList.push($newLi);
+        }
+        $btn.addEventListener('click',addLi);
+        // 입력창 안에서 엔터 키를 입력하면 버튼 클릭과 동일한 효과를 냄
+        $textBox.addEventListener('keydown',(e)=>{
+            if(e.key === 'Enter'){
+                $btn.click();
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+        var a = 5, b = '5';
+        console.log(a==b); //동등 비교, 타입을 자동으로 변환해서 비교
+        console.log(a===b); //일치 비교
+
+        console.log('------------------------');
+        console.log('0'=='');
+        console.log(0=='');
+        console.log(0=='0');
+        console.log(false=='false');
+        console.log(false=='0');
+
+        // NaN은 자신과 일치하지 않는 유일한 값입니다.
+        console.log(NaN===NaN);
+
+        // 문자열 비교
+        console.log('--------------------');
+        console.log('apple'==='APPLE');
+
+        console.log('peach'<'zebra'); 
+        console.log('peach'<'Zebra'); //유니코드 기준 순서
+    </script>
+
+</body>
+</html>

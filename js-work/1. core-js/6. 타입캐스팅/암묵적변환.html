@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        var ex = 10 +'20';
+        console.log(`ex: ${ex}`); //문자열과 정수간 덧셈은 문자열 합치기라서 문자열로 나옴
+
+        var ex2 = 10 * '3';
+        console.log(`ex2: ${ex2}`); //문자열과 정수간에 곱하기는 없어서 정수로 변환해서 연산됨
+
+        ex2 = 100 + '';
+        console.log(`ex2: ${typeof ex2}`);
+
+        // 문자열 타입의 암묵적 숫자 변환
+        var ex3 = +'550';
+
+        console.log(ex3);
+        console.log(`ex3: ${typeof ex3}`);
+
+        var ex4 = +'false';
+
+        console.log(ex4);
+        console.log(`ex4: ${typeof ex4}`);
+
+        var ex5 = +true;
+
+        console.log(ex5);
+        console.log(`ex5: ${typeof ex5}`);
+    </script>
+
+
+</body>
+</html>

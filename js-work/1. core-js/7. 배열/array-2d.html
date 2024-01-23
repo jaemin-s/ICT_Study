@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 우리반 학생들 4과목 점수
+        // var kim = [67,89,92,32];
+        // var lee = [100,87,55,97];
+        // var park = [25,44,17,84];
+
+        var outStudentScore = [
+            [67, 89, 92, 32],
+            [100, 87, 55, 97],
+            [25, 44, 17, 84]
+        ];
+
+        console.log(outStudentScore);
+        console.log(outStudentScore[1]);
+        console.log(outStudentScore[0][2]);
+
+        var total = 0;
+        for(var stu of outStudentScore){
+            var avg = 0;
+            for(var score of stu){
+                avg += score;
+            }
+            total+=avg/stu.length;
+        }
+        console.log(`반평균: ${total/outStudentScore.length}`);
+    </script>
+</body>
+
+</html>
