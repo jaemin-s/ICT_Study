@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>AI Chat Test</title>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script>
+    const openaiApiKey = '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';  // OpenAI API 키를 설정합니다.
+
+    // 사용자의 메시지를 AI에 전송하고 응답을 처리하는 함수입니다.
+    const sendMessage = async (message) => {
+        // OpenAI API에 POST 요청을 보냅니다.
+      const response = await axios.post('https://api.openai.com/v1/chat/completions', {
+        messages: [{ role: 'system', content: 'You are a helpful assistant.' }, { role: 'user', content: message }],
+        model: 'gpt-3.5-turbo'
+      }, {
+        headers: {
+          'Authorization': `Bearer ${openaiApiKey}`,
+          'Content-Type': 'application/json',
+        }
+      });
+
+      // AI의 응답을 가져옵니다.
+      const assistantReply = response.data.choices[0].message.content;
+
+      // HTML에 결과 출력
+      const resultElement = document.getElementById('result');
+
+      // 사용자의 메시지를 출력합니다.
+      const messageElement = document.createElement('p');
+
+      messageElement.textContent = 'User: ' + message;
+
+      resultElement.appendChild(messageElement);
+
+         // AI의 응답을 출력합니다.
+      const assistantElement = document.createElement('p');
+
+      assistantElement.textContent = 'Assistant: ' + assistantReply;
+
+      resultElement.appendChild(assistantElement);
+    };
+
+    // 고정된 입력값으로 AI와 대화
+    sendMessage('한국 노래 3개를 1번부터 3번까지 가수와 함께 알려줘.설명은 하지말고, 번호를 붙여서 배열 안에 차례로 넣어줘.');
+    // sendMessage('How are you?');
+    // sendMessage('What is the meaning of life?');
+  </script>
+</head>
+<body>
+  <h1>AI Chat Test</h1>
+  <div id="result"></div>
+</body>
+</html>

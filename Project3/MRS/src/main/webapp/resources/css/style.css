@@ -1,0 +1,823 @@
+/* 기본 */
+@font-face {
+    font-family: 'Tenada';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2210-2@1.0/Tenada.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+	font-family: 'Tenada';
+	overflow-y: scroll;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+img, a {
+	-webkit-user-drag: none;
+}
+
+/* 사이드 시작 */
+.side {
+	width: 25%;
+	height: 100vh;
+	position: sticky;
+	top: 0px;
+	z-index: 10;
+}
+
+.side-back {
+	width: 100%;
+	height: 100vh;
+	position: absolute;
+	top: 0px;
+	z-index: -1;
+	background-image: url("../img/animation3.png");
+	background-size: 260%;
+	background-position: -340px;
+	opacity: 0.65;
+}
+
+.side>div {
+	width: 80%;
+	margin: 10% auto;
+}
+
+/* 사이드 선택사항 */
+.side .menu {
+	margin-top: 20%;
+	height: 35%;
+	/* background: orange; */
+}
+
+.side .menu a {
+	width: 100%;
+	height: 20%;
+	text-decoration: none;
+	font-weight: bolder;
+	font-size: 40px;
+	color: black;
+	display: block;
+}
+
+.spotify-login-button {
+	text-align: center;
+	margin-bottom: 120px;
+}
+
+.login-text {
+	font-weight: bold;
+}
+
+.side h1 {
+	width: 100%;
+	display: flex;
+	height: 20%;
+	margin: 0 50% 5% 0;
+	font-weight: bolder;
+	font-size: 60px;
+	text-decoration: none;
+	color: black;
+}
+
+.side h3 {
+	font-weight: bolder;
+	font-size: 40px;
+	margin-bottom: 70px;
+}
+
+.side .menu a:hover {
+	color: rgb(191, 23, 23);
+}
+
+.side .menu .mainBtn {
+    color: rgb(191, 23, 23);
+}
+/* 사이드 에어팟 이미지 */
+.side .imgDiv {
+	width: 170px;
+	height: 150px;
+	position: relative;
+	z-index: 2;
+	margin: 90px auto 30px;
+}
+
+.side img {
+	width: 100%;
+	cursor: pointer;
+}
+
+/* 사이드에 있는 컨트롤러 */
+.controller-module {
+	width: 90%;
+	height: 210px;
+	margin: 0 auto;
+	background-color: #1e2125;
+	border-radius: 30px;
+}
+
+.controller-module ul {
+	margin: 0 10%;
+}
+
+.controller-module h1 {
+	font-family: "Open Sans", sans-serif;
+	font-size: 13pt;
+	font-weight: 600;
+	text-transform: uppercase;
+	color: white;
+	cursor: default;
+	padding-top: 15px;
+}
+
+.controller-module h2 {
+	height: 50px;
+	font-family: "Open Sans", sans-serif;
+	font-size: 13pt;
+	font-weight: 300;
+	color: white;
+	cursor: default;
+	padding-bottom: 10px;
+}
+
+#content {
+	width: 100%;
+}
+
+input[type=range] {
+	-webkit-appearance: none;
+	width: 100%;
+}
+
+input[type=range]::-webkit-slider-thumb {
+	-webkit-appearance: none;
+}
+
+input[type=range]:focus {
+	outline: none;
+}
+
+input[type=range]::-ms-track {
+	width: 100%;
+	cursor: pointer;
+	background: transparent;
+	border-color: transparent;
+	color: transparent;
+}
+
+input[type=range]::-webkit-slider-thumb {
+	-webkit-appearance: none;
+	height: 10px;
+	width: 10px;
+	border-radius: 50px;
+	background: #ffffff;
+	cursor: pointer;
+	-webkit-transition: all 0.2s;
+	-moz-transition: all 0.2s;
+	transition: all 0.2s;
+}
+
+input[type=range]::-webkit-slider-thumb:active {
+	height: 15px;
+	width: 15px;
+	margin-top: -3px;
+}
+
+input[type=range]::-moz-slider-thumb:active {
+	height: 15px;
+	width: 15px;
+	margin-top: -3px;
+}
+
+input[type=range]::-ms-slider-thumb:active {
+	height: 15px;
+	width: 15px;
+	margin-top: -3px;
+}
+
+input[type=range]::-moz-range-thumb {
+	height: 10px;
+	width: 10px;
+	border-radius: 50px;
+	background: #ffffff;
+	cursor: pointer;
+}
+
+input[type=range]::-ms-thumb {
+	height: 15px;
+	width: 15px;
+	border-radius: 50px;
+	background: #ffffff;
+	cursor: pointer;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+	width: 100%;
+	height: 8px;
+	cursor: pointer;
+	background: #666666;
+}
+
+input[type=range]:focus::-webkit-slider-runnable-track {
+	background: #666666;
+}
+
+input[type=range]::-moz-range-track {
+	width: 100%;
+	height: 8px;
+	cursor: pointer;
+	background: #666666;
+}
+
+input[type=range]::-ms-track {
+	width: 100%;
+	height: 8px;
+	cursor: pointer;
+	background: #666666;
+}
+
+input[type=range]::-ms-fill-lower {
+	width: 100%;
+	height: 8px;
+	cursor: pointer;
+	background: #666666;
+}
+
+input[type=range]:focus::-ms-fill-lower {
+	background: #666666;
+}
+
+input[type=range]::-ms-fill-upper {
+	width: 100%;
+	height: 8px;
+	cursor: pointer;
+	background: #666666;
+}
+
+input[type=range]:focus::-ms-fill-upper {
+	background: #666666;
+}
+
+#content .now-time {
+	display: flex;
+}
+
+#content #time p {
+	font-family: Roboto;
+	font-weight: normal;
+}
+
+#content #total-time {
+	margin-left: 75%;
+}
+
+#content #total-time p {
+	font-family: Roboto;
+	font-weight: normal;
+}
+
+#controller-timer {
+	color: #494b4e;
+	font-size: 9pt;
+	font-family: Arial, Sans-Serif;
+	padding-top: 10px;
+}
+
+.controller-controls {
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+}
+
+#controller-play {
+	width: 30px;
+	height: 30px;
+	enable-background: new 0 0 25 25;
+}
+
+#controller-play g {
+	stroke: #fefefe;
+	stroke-width: 1;
+	stroke-miterlimit: 10;
+}
+
+#controller-play g path {
+	fill: #fefefe;
+}
+
+#controller-play:hover {
+	cursor: pointer;
+}
+
+#controller-play:hover g {
+	stroke: rgb(191, 23, 23);
+	cursor: pointer;
+}
+
+#controller-play:hover g path {
+	fill: rgb(191, 23, 23);
+	cursor: pointer;
+}
+
+.controller-step-backward {
+	width: 18px;
+	height: 18px;
+	enable-background: new 0 0 25 25;
+}
+
+.controller-step-backward g polygon {
+	fill: #fefefe;
+}
+
+.controller-step-foreward {
+	width: 18px;
+	height: 18px;
+	enable-background: new 0 0 25 25;
+}
+
+.controller-step-foreward g polygon {
+	fill: #fefefe;
+}
+
+#controller-pause {
+	enable-background: new 0 0 25 25;
+	width: 30px;
+	height: 30px;
+	cursor: pointer;
+	display: none;
+}
+
+#controller-pause rect {
+	fill: white;
+}
+
+#controller-pause:hover rect {
+	fill: rgb(191, 23, 23);
+}
+
+.controller-step-backward g polygon:hover, .controller-step-foreward g polygon:hover
+	{
+	fill: rgb(191, 23, 23);
+	cursor: pointer;
+}
+
+p {
+	color: #bdbdbd;
+}
+
+#controller-skip p {
+	color: #2980b9;
+}
+
+#controller-skip p:hover {
+	color: #e74c3c;
+	cursor: pointer;
+}
+
+.controller-expend {
+	cursor: pointer;
+}
+
+.controller-expend svg:hover g polygon {
+	fill: rgb(191, 23, 23);
+}
+
+/* 메인페이지 */
+section.main {
+	width: 1700px;
+	margin: 0 auto;
+	display: flex;
+	/* background: skyblue; */
+}
+
+section.main .main-right {
+	width: 75%;
+	background: black;
+	position: relative;
+	display: block;
+}
+
+/* 메인페이지 검색창 */
+section.main .main-right .search {
+	color: white;
+	font-size: 50px;
+	margin-left: 86px;
+	margin-top: 70px;
+	margin-bottom: 120px;
+	display:flex;
+}
+
+.search #searchQuery {
+	width: 400px;
+	height: 50px;
+	border-radius: 15px 0 0 15px;
+	border: none;
+	text-align: center;
+	outline:none;
+}
+
+.search #searchBtn {
+	margin-left: 6px;
+	border: none;
+	border-radius: 0 15px 15px 0;
+	background: #ffffffa3;
+	cursor: pointer;
+	spellcheck: false;
+}
+
+.search #searchBtn:hover {
+	background: white;
+}
+
+/* 메인페이지 로고 */
+section.main .main-right .main-logo-img {
+	width: 20%;
+	position: absolute;
+	left: 78%;
+	top: 80px;
+}
+
+section.main .main-right .main-logo-img img {
+	width: 100%;
+}
+
+/* them by feeling */
+section.main .main-right .choose-text {
+	font-size: 70px;
+	color: white;
+	margin-left: 86px;
+	margin-top: 60px;
+}
+
+/* 메인 페이지 */
+section.main .main-right .choose-img {
+	width: 100%;
+	margin: 40px;
+}
+
+section.main .main-right .choose-img img {
+	display: inline-flex;
+	margin-left: 48px;
+	margin-bottom: 40px;
+	border: 3px solid white;
+	border-radius: 30px;
+	width: 19%;
+}
+
+section.main .main-right .choose-img img:hover {
+	border: 3px solid rgb(191, 23, 23);
+	border-radius: 30px;
+	cursor: pointer;
+}
+
+/* 댓글 페이지 */
+section.main .video-right {
+	width: 75%;
+	min-height: 1750px;
+	background: black;
+	position: relative;
+	display: none;
+	color: white;
+}
+
+section.main .video-right .detail-ng {
+	width: 70%;
+	margin: 100px auto 0;
+}
+
+section.main .video-right .detail-ng .detail-cover {
+	box-sizing: border-box;
+	border: 3px solid white;
+	width: 500px;
+	height: 500px;
+	margin: 0 auto;
+}
+
+section.main .video-right .detail-ng img {
+	width: 100%;
+	height: 100%;
+}
+
+section.main .video-right .detail-ng .teamTitle {
+	color: white;
+	text-align: center;
+	height: 100px;
+	line-height: 100px;
+	font-size: 20px;
+	font-weight: 700;
+}
+
+/* 댓글페이지 댓글작성영역 */
+.video-right .video-comment {
+	width: 80%;
+	margin: 0 auto;
+	display: flex;
+}
+
+.video-right .video-comment textarea {
+	width: 80%;
+	height: 40px;
+	resize: none;
+	color: white;
+	background: black;
+	border-top: none;
+	border-left: none;
+	border-right: none;
+	border-bottom: 1px solid white;
+	line-height: 33px;
+}
+
+input.edit-input {
+	background: none;
+	border : 0;
+	border-bottom: 1px solid #666;
+	outline : 0;
+	color : white;
+}
+input.edit-input:focus{
+	border-bottom: 2px solid white;
+}
+
+.video-right .video-comment textarea:focus {
+	outline: none;
+}
+
+button.edit-save {
+  background-color: #777;
+  border-radius: 8px;
+  border-width: 0;
+  cursor: pointer;
+  font-size: 14px;
+  line-height: 16px;
+  list-style: none;
+  margin: 0;
+  padding: 10px 12px;
+  text-align: center;
+}
+button.edit-save:hover{
+	background-color:#999;
+}
+
+.video-right .video-comment .commentbtn {
+	width: 15%;
+	margin-left: 5%;
+	opacity: 0.7;
+	border-radius: 16px;
+}
+
+.video-right .video-comment .commentbtn:hover {
+	opacity: 1;
+	cursor: pointer;
+}
+
+/* 댓글 보여주는 칸 */
+.reply-content {
+	color: white;
+	background-color: #ffffff1c;
+	margin: 10px 82px;
+}
+
+.reply-content>* {
+	padding: 10px;
+}
+
+.reply-content strong {
+	font-weight: 800;
+	color :#e8e8e8;
+}
+
+.reply-content small {
+	margin-left: 10px;
+	color :#e8e8e8;
+}
+
+.reply-content a {
+	width: 50px;
+	height: 20px;
+	text-align: center;
+	line-height: 20px;
+	border-radius: 15px;
+	color: white;
+	text-decoration: none;
+	font-weight: 700;
+	float: right;
+	margin-right: 8px;
+}
+
+.reply-content a:hover {
+	background: #ffffff99;
+}
+
+/* 메인페이지에 있는 list */
+.hidden-button {
+	position: absolute;
+	top: 5px;
+	right: 2;
+	color: white;
+	background: black;
+	border: 1px solid white;
+	cursor : pointer;
+}
+
+.hidden-button:hover {
+	background: #ffffff5e;
+}
+
+.flextoggle {
+	display: flex;
+	flex-wrap: wrap;
+	width: 50%;
+}
+
+section.main .main-right .choose-img.flextoggle img {
+	width: 38%;
+}
+
+.flex-box {
+	display: flex;
+}
+
+.flex-box .hidden {
+	display: none !important;
+}
+
+.flex-box #result-list {
+	color: white;
+	text-align: center;
+	width: 65%;
+	height: 100%;
+	position: sticky;
+	top: 20px;
+	margin-right: 7%;
+	border-top: 1px solid white;
+	border-bottom: 1px solid white;
+}
+
+.flex-box #result-list .list-body li, .flex-box #result-list .list-head
+	{
+	display: flex;
+	margin: 20 0;
+	justify-content : space-between;
+	align-items : center;
+}
+
+.flex-box #result-list .list-head {
+	font-size: 14px;
+}
+
+.flex-box #result-list .result-image {
+	width: 14%;
+}
+
+.flex-box #result-list .list-body .result-image {
+	box-sizing: border-box;
+	border: 1px solid white;
+}
+
+.flex-box #result-list .result-image img {
+	width: 100%;
+	height: 100%;
+}
+
+.flex-box #result-list .result-title{
+	width: 56%;
+}
+.flex-box #result-list .result-title:hover{
+	cursor: pointer;
+}
+.flex-box #result-list .result-artists{
+	width: 24%;
+}
+
+.flex-box .hidden {
+	display: none !important;
+}
+
+.flex-box .list-body .result-title:hover {
+	color: rgb(191, 23, 23);
+}
+
+/* 댓글페이지에 있는 리스트 */
+section.main .video-right .playList {
+	width: 35%;
+	height: 900px;
+	text-align: center;
+	padding: 20px 0;
+	position: sticky;
+	top: -1000px;
+}
+
+.playList #comments-list {
+	color: white;
+	text-align: center;
+	width: 90%;
+	height: 1700px;
+	border-bottom: 1px solid white;
+	border-top: 1px solid white;
+}
+
+.playList #comments-list .comments-body li, .playList #comments-list .comments-head
+	{
+	display: flex;
+	margin: 26 0;
+	justify-content: space-between;
+	align-items: center;
+	text-overflow: ellipsis;
+}
+
+.playList #comments-list .comments-head {
+	font-size: 20px;
+}
+
+.playList #comments-list .comments-image {
+	width: 14%;
+}
+
+.playList #comments-list .comments-body .comments-image {
+	box-sizing: border-box;
+	border: 1px solid white;
+}
+
+.playList #comments-list .comments-image img {
+	width: 100%;
+}
+
+.playList #comments-list .comments-title{
+	width: 56%;
+	text-overflow: ellipsis;
+}
+.playList #comments-list .comments-artists{
+	width: 24%;
+	text-overflow: ellipsis;
+}
+
+.playList .comments-title:hover {
+	color: rgb(191, 23, 23);
+}
+
+.comments-title, .comments-artists {
+	cursor: pointer;
+}
+
+ul.playLists p {
+	font-size: 2px;
+}
+
+ul.playLists li {
+	display: inline-block;
+}
+
+.playList a.top-btn {
+	width: 60px;
+	height: 60px;
+	color: black;
+	background: white;
+	text-align: center;
+	line-height: 63px;
+	font-weight: 800;
+	font-size: 30PX;
+	border-radius: 50%;
+	opacity: 0.7;
+	display: none;
+	margin: 70px 167px 30px ;
+}
+
+.playList a.top-btn:hover {
+	opacity: 1;
+}
+
+/* 검색 창*/
+#searchResults {
+	color: #2980b9;
+}
+
+/* 사용 설명 */
+.main .manual {
+	position: absolute;
+	left: 45%;
+	top: 70px;
+	font-size: 15;
+}
+
+.main .manual button {
+	background: black;
+	color: white;
+	border: 1px solid white;
+	padding: 5px;
+	font-size : 20px;
+	margin-left : 80px;
+}
+
+.main .manual button:hover {
+	background: #ffffff73;
+}
+
+.main .manual p {
+	padding: 8px 0 0 0;
+}
+
+.main .manual p.hidden-manual {
+	display: none;
+}

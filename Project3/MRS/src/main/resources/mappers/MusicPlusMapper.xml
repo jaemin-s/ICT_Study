@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.music.mrs.plus.mapper.IMusicplusMapper">
+
+	<insert id="plus">
+		INSERT INTO musicplus
+		(music_id)
+		VALUES
+		(#{musicId})
+		ON DUPLICATE KEY UPDATE
+		music_id = VALUES(music_id)
+	</insert>
+
+	<select id="getnum" resultType="int">
+		SELECT mno
+		FROM musicplus
+		WHERE music_id = #{musicId}
+	
+	</select>
+
+</mapper>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.music.mrs.reply.mapper.IReplyMapper">
+
+	<insert id="replyRegist" parameterType="map">
+
+		 INSERT INTO reply (rmno,urno, rdisplay_name, reply_content, reg_date)
+    VALUES (#{rmno},#{uservo.usersId}, #{uservo.displayName}, #{vo.replyContent}, NOW())
+
+	</insert>
+
+	<select id="getList" resultType="reply">
+		SELECT * FROM reply
+		WHERE rmno = #{rmno}
+		ORDER BY rno DESC
+		LIMIT #{paging.pageStart}, #{paging.cpp}
+	</select>
+	
+	<select id="getTotal" resultType="int">
+		SELECT COUNT(*)
+		FROM reply
+		WHERE rmno = #{rmno}
+	</select>
+	
+	<select id="getrno" resultType="reply">
+		SELECT * FROM reply
+		WHERE rno = #{rno}
+	</select>
+	
+	<update id="update" parameterType="map">
+		UPDATE reply SET
+		reply_content = #{reply.replyContent}, rdisplay_name=#{reply.rdisplayName}
+		WHERE rno = #{reply.rno}
+		AND urno = #{urno}
+	</update>
+
+	<delete id="delete" parameterType="map">
+		DELETE FROM reply
+		WHERE rno = #{rno}
+		AND urno = #{urno}
+	
+	</delete>
+	
+
+</mapper>

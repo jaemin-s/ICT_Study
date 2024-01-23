@@ -1,0 +1,176 @@
+sad : 
+limit 10 
+market: KR
+seed_artists : 3MaRWfwKpbYnkYHC5gRKYo
+seed_genres: 슬픈
+seed_tracks: 7oT5JOWwxnwcZRI6NLzhWs
+
+happy
+limit 10 
+market: KR
+<<<<<<< HEAD
+seed_artists : 5TnQc2N1iKlFjYD7CPGvFc
+seed_genres: 행복 신남
+seed_tracks: 0EhdXt3y460mTRsi97Pyk5
+
+rain
+limit 10 
+market: KR
+seed_artists : 5TnQc2N1iKlFjYD7CPGvFc
+seed_genres: 행복 신남
+seed_tracks: 0EhdXt3y460mTRsi97Pyk5
+
+잔잔한
+
+귀여움
+=======
+seed_artists : 4rxWm4OrS8IRQ3YxDUwnJA
+seed_genres: 행복 신남&ballad
+seed_tracks: 0UnOf7i44YK0ULpkEGHe4R
+min_popularity 60
+
+
+상큼한 발랄한
+limit 10 
+market: KR
+seed_artists : 2019zR22qK2RBvCqtudBaI
+seed_genres: 상큼한&K-POP
+seed_tracks: 3NfgdU9mbIVhcJF3XvC0c9
+min_popularity 60
+
+화창한 날 
+limit 10 
+market: KR
+seed_artists : 3HqSLMAZ3g3d5poNaI7GOU
+seed_genres: K-POP&화창한
+seed_tracks: 5xrtzzzikpG3BLbo4q1Yul
+min_energy 0
+max_energy 1
+min_popularity 60
+
+
+잔잔한
+limit 10 
+market: KR
+seed_artists : 7c1HgFDe8ogy5NOZ1ANCJQ
+seed_genres: 잔잔한&발라드
+seed_tracks: 2YduGtSyKz5Mizcc9mTeFC
+min_popularity 60
+
+
+눈 오는 날
+
+limit 10 
+market: KR
+seed_artists : 4iHNK0tOyZPYnBU7nGAgpQ
+seed_genres: WINTER&SNOW&CALROL
+seed_tracks: 0bYg9bo50gSsH3LtXe2SQn
+min_energy x
+max_energy x
+min_popularity X
+
+
+
+흐린날
+limit 10 
+market: KR
+seed_artists : 50Zu2bK9y5UAtD0jcqk5VX
+seed_genres: 우울한&발라드
+seed_tracks: 5xX7oEKHN0H9VOjezo2ZaA
+min_energy x
+max_energy x
+min_popularity 60
+
+
+
+불러볼까
+limit 10 
+market: KR
+seed_artists : 3MaRWfwKpbYnkYHC5gRKYo
+seed_genres: 인기있는
+seed_tracks: 7oT5JOWwxnwcZRI6NLzhWs
+min_energy x
+max_energy x
+min_popularity 45
+
+
+불러볼까(추천)
+limit 10 
+market: KR
+seed_artists : 57YbQhFBBDksLzX08lqVnw
+seed_genres: 겨울
+seed_tracks: 7vnec3moFU8rMbHFUq9Ue7
+min_energy x
+max_energy x
+min_popularity 40
+
+
+
+인기많은
+
+limit 10 
+market: KR
+seed_artists : 4SpbR6yFEvexJuaBpgAU5p
+seed_genres: 인기 있는&K-POP
+seed_tracks: 51vRumtqbkNW9wrKfESwfu
+min_energy x
+max_energy x
+min_popularity 60
+
+--------------------------------------------------------------
+
+외로운
+
+limit : 10
+market : KR
+seed_artists : 4dB2XmMpzPxsMRnt62TbF5
+seed_genres : ballad
+seed_tracks : 10if3nqm7OS7qrV45v9GOg
+min_popularity : 60
+
+--------------------------------------------------------------
+
+party
+
+limit : 10
+market : KR
+seed_arists : 0du5cEVh5yTK9QJze8zA0C
+seed_genres : k-pop
+seed_tracks : 32OlwWuMpZ6b0aN2RZOeMS
+min_popularity : 60
+
+운동
+
+limit : 10
+market : KR
+seed_arists : 6fOMl44jA4Sp5b9PpYCkzz
+seed_genres : edm&pop
+seed_tracks : 5rLyYxZNzca00ENADO9m54
+min_popularity : 80
+
+비 오는 날
+
+limit : 10
+market : KR
+seed_arists : 4gzpq5DPGxSnKTe4SA8HAU
+seed_genres : pop
+seed_tracks : 75JFxkI2RXiU7L9VXzMkle
+min_popularity : 80
+
+
+
+
+
+
+>>>>>>> fa65d80913ef3305b693d6bc0e6ad98e544ba39b
+
+
+
+
+
+
+
+
+
+
+

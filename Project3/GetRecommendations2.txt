@@ -1,0 +1,148 @@
+sad
+
+
+
+
+-------------------------------------------------------------
+love
+
+limit : 10
+market : KR
+seed_artists : 6zn0ihyAApAYV51zpXxdEp
+seed_genres : love
+seed_tracks : 47CcHKISaUPsK4QkO9ERFc
+min_popularity : 60
+
+--------------------------------------------------------------
+쉬러가자
+
+limit : 10
+market : KR
+seed_artist : 2el9LgZHLeQnXHABBkgb7M
+seed_genres : trip
+seed_tracks : 4L1MHK27ifT30Ndicpr7js
+min_popularity : 60
+
+--------------------------------------------------------------
+
+외로운
+
+limit : 10
+market : KR
+seed_artists : 4dB2XmMpzPxsMRnt62TbF5
+seed_genres : ballad
+seed_tracks : 10if3nqm7OS7qrV45v9GOg
+min_popularity : 60
+
+--------------------------------------------------------------
+
+party
+
+limit : 10
+market : KR
+seed_arists : 0du5cEVh5yTK9QJze8zA0C
+seed_genres : k-pop
+seed_tracks : 32OlwWuMpZ6b0aN2RZOeMS
+min_popularity : 60
+
+--------------------------------------------------------------
+
+cute
+
+limit : 
+market : 
+seed_arists : 
+seed_genres : 
+seed_tracks : 
+min_popularity : 
+
+--------------------------------------------------------------
+
+잔잔한
+
+limit : 
+market : 
+seed_arists : 
+seed_genres : 
+seed_tracks : 
+min_popularity : 
+
+--------------------------------------------------------------
+
+운동
+
+limit : 10
+market : KR
+seed_arists : 6fOMl44jA4Sp5b9PpYCkzz
+seed_genres : edm&pop
+seed_tracks : 5rLyYxZNzca00ENADO9m54
+min_popularity : 80
+
+--------------------------------------------------------------
+
+비 오는 날
+
+limit : 10
+market : KR
+seed_arists : 4gzpq5DPGxSnKTe4SA8HAU
+seed_genres : pop
+seed_tracks : 75JFxkI2RXiU7L9VXzMkle
+min_popularity : 80
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
