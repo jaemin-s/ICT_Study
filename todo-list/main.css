@@ -1,0 +1,111 @@
+@import url("https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css");
+@import url("https://cdn.linearicons.com/free/1.0.0/icon-font.min.css");
+
+.wrapper{
+    background: rgb(233, 235, 240);
+    height: 100vh;
+    position: relative;
+}
+
+section.main {
+    background: #fff;
+    width: 500px;
+    height: 500px;
+
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: -1px -1px 20px black;
+}
+
+section.main .main-title{
+    padding: 20px;
+    text-align: center;
+    background: skyblue;
+    color: #fff;
+    font-size: 35px;
+}
+.input-box{
+    display: flex;
+    width: 100%;
+}
+.input-box input[type="text"]::placeholder{
+    color: #fff;
+}
+.input-box input[type="text"]{
+    font-size: 1.1em;
+    color: #fff;
+    background: #444;
+    border: none;
+    width: calc(100% - 30px);
+    box-sizing: border-box;
+    padding-left: 10px;
+}
+i{
+    font-size: 30px;
+    padding: 10px;
+    cursor: pointer;
+}
+.input-box .add{
+    background: #777;
+    color: #fff;
+}
+
+.todo-list li{
+    display: flex;
+    width: 100%;
+    align-items: center;
+}
+.todo-list li:nth-child(odd){
+    background: rgba(153, 153, 153, 0.1);
+}
+.todo-list li input[type="checkbox"]{
+    width: 30px;
+}
+.todo-list li p{
+    display: block;
+    width: calc(100% - 90px);
+}
+.todo-list li .modi,.confirm{
+    color: green;
+}
+
+.todo-list li .delete{
+    color: red;
+}
+
+.todo-list li.checked p{
+    color: #999;
+    text-decoration: line-through;
+}
+
+/* 형철 : 맨 처음에 confirm 안보이도록 수정*/
+.todo-list li .confirm{
+    display: none;
+}
+
+/* 여기서부터 용석 추가한것 */
+
+
+li.animation{
+    animation: li 1.5s ease-in-out;
+}
+
+
+@keyframes li {
+    0% {
+        background: orange;
+        transform: translateX(20px);
+    }
+    50% {
+        background: orangered;
+        transform: translateX(-500px);
+    } 
+    100% {
+        background: red;
+        transform: translateX(-2000px);
+    }
+}
