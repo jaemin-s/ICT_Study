@@ -1,0 +1,70 @@
+@import url(./common.css);
+
+
+.width-container{
+    width: 60%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.width-container h1{
+    color: yellow;
+    font-size: 10vw;
+    margin-bottom: 50px;
+    text-shadow: 10px 10px 10px black;
+}
+
+.login{
+    background: #303030;
+    height: 400px;
+    color: #fff;
+    font-size: 50px;
+    text-align: right;
+    overflow: auto;
+    border-radius: 50px;
+    box-shadow: 2px 2px 10px black;
+}
+.login > div{
+    margin-top: 50px;
+    padding-right: 10%;
+    margin: 50px 50px 0 50px;
+    height: 60px;
+    line-height: 60px;
+}
+
+.login input[type="text"]{
+    font-size: 30px;
+    width: 60%;
+    outline-style: none;
+    color: #fff;
+    background: none;
+    border : none;
+    border-radius: 1px;
+    border-bottom: 1px solid white;
+    padding: 5px;
+
+}
+.login input[type="text"]::placeholder{
+    color: rgba(255, 255, 255, 0.7);
+}
+.width-container{
+    background: none;
+}
+
+.login .login-btn{
+    display: block;
+    margin: 50px auto 0;
+    font-size: 50px;
+}
+
+/* 형철 : 로그인 후 인사말 미리 숨기기 */
+.login .nameAfter.hide{
+    display: none;
+}
+
+/* 형철 : 로그인 후 인사말*/
+.login .nameAfter{
+    font-size: 2em;
+    text-align: center;
+    line-height: 400px;
+}
