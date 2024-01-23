@@ -1,0 +1,46 @@
+<mxfile host="app.diagrams.net" modified="2023-05-21T13:17:56.349Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36" etag="CTfp1ZCcoGLTf4l17RFx" version="21.3.2" type="device">
+  <diagram name="페이지-1" id="RIXx633SCwNMuEIAVLCu">
+    <mxGraphModel dx="1500" dy="1080" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="-aYcJ3OMDWk6ct81ZDcv-1" value="밖에 어때?" style="whiteSpace=wrap;html=1;aspect=fixed;" parent="1" vertex="1">
+          <mxGeometry x="339" y="200" width="150" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="-aYcJ3OMDWk6ct81ZDcv-2" value="SAD" style="whiteSpace=wrap;html=1;aspect=fixed;" parent="1" vertex="1">
+          <mxGeometry x="339" y="400" width="150" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="-aYcJ3OMDWk6ct81ZDcv-3" value="불러 볼까?" style="whiteSpace=wrap;html=1;aspect=fixed;" parent="1" vertex="1">
+          <mxGeometry x="590" y="200" width="150" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="-aYcJ3OMDWk6ct81ZDcv-4" value="HAPPY" style="whiteSpace=wrap;html=1;aspect=fixed;" parent="1" vertex="1">
+          <mxGeometry x="90" y="400" width="150" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="-aYcJ3OMDWk6ct81ZDcv-5" value="LOVE" style="whiteSpace=wrap;html=1;aspect=fixed;" parent="1" vertex="1">
+          <mxGeometry x="590" y="400" width="150" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="-aYcJ3OMDWk6ct81ZDcv-6" value="외로운" style="whiteSpace=wrap;html=1;aspect=fixed;" parent="1" vertex="1">
+          <mxGeometry x="90" y="620" width="150" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="-aYcJ3OMDWk6ct81ZDcv-7" value="귀여운" style="whiteSpace=wrap;html=1;aspect=fixed;" parent="1" vertex="1">
+          <mxGeometry x="590" y="620" width="150" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="-aYcJ3OMDWk6ct81ZDcv-8" value="요즘 인기" style="whiteSpace=wrap;html=1;aspect=fixed;" parent="1" vertex="1">
+          <mxGeometry x="90" y="200" width="150" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="-aYcJ3OMDWk6ct81ZDcv-9" value="잔잔한" style="whiteSpace=wrap;html=1;aspect=fixed;" parent="1" vertex="1">
+          <mxGeometry x="339" y="620" width="150" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="-aYcJ3OMDWk6ct81ZDcv-10" value="파티 하자!" style="whiteSpace=wrap;html=1;aspect=fixed;" parent="1" vertex="1">
+          <mxGeometry x="90" y="840" width="150" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="-aYcJ3OMDWk6ct81ZDcv-11" value="운동 하자!" style="whiteSpace=wrap;html=1;aspect=fixed;" parent="1" vertex="1">
+          <mxGeometry x="339" y="840" width="150" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="-aYcJ3OMDWk6ct81ZDcv-12" value="쉬러 가자!" style="whiteSpace=wrap;html=1;aspect=fixed;" parent="1" vertex="1">
+          <mxGeometry x="590" y="840" width="150" height="150" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,0 +1,11 @@
+header {
+    border: 4px solid tomato;
+}
+
+section {
+    border: 4px solid greenyellow;
+}
+
+footer {
+    border: 4px solid skyblue
+}
