@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>로그인</title>
+    <link rel="stylesheet" href="../css/common.css" />
+    <link rel="stylesheet" href="../css/login.css" />
+    <link rel="icon" href="../img/favicon.ico">
+
+    <!--형철 : 로그인 후 인사말 js 연결-->
+    <script src="../js/login.js" defer></script>
+    <!---------------------------------->
+  </head>
+  <body>
+    <!-- 게임 목록 1.블랙잭 2.홀짝 3.바카라 4.룰렛-->
+    <div class="wrapper">
+      <div class="bg"><img src="../img/las-vegas.jpg" alt="bg" /></div>
+      <div class="cutton"></div>
+      <div class="width-container">
+        <h1 class="title">Welcome<br />Casino</h1>
+        <section class="login">
+          <!--형철 : 로그인 후 인사말-->
+          <p class="nameAfter hide"></p>
+          <!-------------------------->
+
+          <div class="name">
+            이름 : <input type="text" id="id" placeholder="이름을 입력하세요" />
+          </div>
+          <div class="birth">
+            생년월일 : <input type="text" id="birth" placeholder="YYMMDD" />
+          </div>
+          <button class="login-btn">로그인</button>
+        </section>
+      </div>
+    </div>
+  </body>
+</html>

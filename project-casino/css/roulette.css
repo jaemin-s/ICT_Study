@@ -1,0 +1,420 @@
+@import url(./common.css);
+
+@keyframes spinBall {
+    0% {
+        transform: rotate(0);
+        height: 700px;
+    }
+
+    100% {
+        transform: rotate(3600deg);
+        height: 488px;
+    }
+
+}
+
+/* @keyframes boxOpen {
+    0%{
+        height: 0;
+    }
+    100%{
+        height: 210px;
+    }
+    
+}
+
+@keyframes boxClose {
+    0%{
+        height: 210px;
+    }
+    100%{
+        height: 0;
+    }
+    
+} */
+
+.width-container {
+    width: 80%;
+    padding: 150px 0;
+    box-sizing: border-box;
+}
+
+#roulette {
+    width: 70%;
+    min-height: 700px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    /* animation-name: spinBg;
+    animation-duration: 5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite; */
+
+    position: relative;
+}
+
+#roulette #roulette-bg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+@keyframes spinBg {
+    from {
+        transform: rotate(0);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+
+}
+
+.game {
+    display: flex;
+}
+
+.display-box p {
+    color: #fff;
+    font-size: 100px;
+    font-weight: 700;
+    text-align: center;
+    line-height: 400px;
+    z-index: 3;
+
+}
+
+.display-box {
+    width: 400px;
+    height: 400px;
+    background: green;
+    position: absolute;
+    border-radius: 50%;
+    z-index: 2;
+
+
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    animation: none;
+
+}
+
+#roulette {
+    margin-bottom: 100px;
+}
+
+#roulette .location {
+    position: absolute;
+    z-index: 5;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#roulette .ball-location {
+    width: 35px;
+    height: 700px;
+
+}
+
+#ball {
+    width: 35px;
+    height: 35px;
+
+    position: absolute;
+    background: #fff;
+    border-radius: 50%;
+
+}
+
+.ball-location.spin {
+    animation-name: spinBall;
+    animation-duration: 6s;
+    animation-timing-function: 1;
+    animation-fill-mode: forwards;
+}
+
+.width-container .btn1 {
+    font-size: 30px;
+    background: #888;
+    width: 150px;
+    padding: 10px 0;
+    text-align: center;
+    margin: 60px 6%;
+    display: block;
+
+    cursor: pointer;
+}
+
+.width-container .btn1:last-child {
+    margin-top: 0px;
+}
+
+.width-container .btn1.blocked {
+    color: #666;
+}
+
+.width-container .btn1:hover {
+    background: skyblue;
+}
+
+.betting-box {
+    width: 30%;
+    z-index: 5;
+    position: relative;
+}
+
+.betting-box.open {
+    animation-name: boxOpen;
+    animation-duration: 1s;
+}
+
+.betting-box.close {
+    animation-name: boxClose;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
+#betting-cash:focus {
+    outline: 0;
+}
+
+#betting-cash {
+    font-size: 30px;
+    padding-top: 20px;
+    text-align: right;
+    border: 0;
+    background: none;
+    border-bottom: 1px solid #000;
+    width: 150px;
+}
+
+.betting-box>div {
+    margin-top: 10px;
+}
+
+.bet-cash span:active {
+    color: #888;
+}
+
+.showResult {
+    position: absolute;
+    width: 65%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    z-index: 4;
+}
+
+.showResult img {
+    width: 100%;
+}
+
+.showResult p {
+    position: absolute;
+    font-size: 50px;
+    color: yellow;
+    top: 45%;
+    left: 65%;
+    text-shadow: 3px 3px black;
+
+    transform: translateX(-50%);
+}
+
+.hide {
+    display: none;
+}
+
+.title h2 {
+    font-size: 40px;
+    margin-left: 20px;
+    padding-bottom: 50px;
+    color: #fff;
+    text-shadow: 2px 2px 2px black;
+}
+
+/* #reset-btn{
+    position: relative;
+    z-index: 11;
+}
+
+.rule-box{
+    position: absolute;
+    left: -170%;
+    bottom: 50px;
+    z-index: 15;
+    background: #fff;
+    font-size: 20px;
+    padding: 10px;
+    border: 2px solid black;
+    display: none;
+}
+.btn-rule:hover+.rule-box{
+    display: block;
+}*/
+/* .rule-box h4{
+    padding: 10px 0;
+    font-weight: 700;
+} */
+/* .rule-box p{
+    line-height: 1.2;
+} */
+.toggle-box span {
+    font-weight: 700;
+    color: blue;
+}
+
+.btn {
+    width: 120px;
+    margin: 10px 20px 10px 0;
+    font-weight: 700;
+    text-align: center;
+    line-height: 50px;
+    padding: 0;
+    color: #fff;
+    border-radius: 5px;
+    transition: all 0.2s;
+    background: #00AE68;
+    box-shadow: 0px 5px 0px 0px #007144;
+    position: absolute;
+    left: 50%;
+
+    transform: translateX(-50%);
+}
+
+.btn:hover {
+    cursor: pointer;
+}
+
+.btn:active {
+    background: #21825B;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    box-shadow: 0px 0px 0px 0px #007144;
+}
+
+.btn.restart {
+    margin-top: 80px;
+}
+
+.btn.restart:active {
+    margin-top: 85px;
+}
+
+.btn.rule {
+    margin-top: 160px;
+}
+
+.btn.rule:active {
+    margin-top: 165px;
+}
+
+.btn.blocked {
+    background: #999;
+    box-shadow: 0px 5px 0px 0px #777;
+}
+
+div.blocked>label {
+    background: #c7c7c7;
+}
+
+div.blocked>span {
+    color: #c9c9c9
+}
+
+div.btn-betting.blocked {
+    background: #999;
+    box-shadow: 0px 5px 0px 0px #777;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#roulette {
+    background: green;
+}
+
+.width-container {
+    background: darkgreen;
+}
+
+
+
+
+
+
+
+
+input {
+    font-family: sans-serif;
+    border: 0;
+    outline: none;
+    font-size: 10px;
+    background: rgba(0, 0, 0, 0);
+    /* color: red; */
+}
+
+input::placeholder {
+    color: #d9d9d9;
+    color: white;
+}
+
+.dust-class {
+    width: 40%;
+    box-sizing: border-box;
+    margin: 20px 0;
+    position: relative;
+    /* bottom: 125px; */
+    left: 200px;
+}
+
+.dust-class label {
+    display: inline-block;
+    position: absolute;
+    top: -13px;
+    left: 14px;
+    padding: 10px;
+    background: black;
+    font-size: 14px;
+    color: #888;
+    font-weight: bold;
+    border-radius: 8px;
+}
+
+.dust-class label span {
+    color: #da4841;
+    vertical-align: -1px;
+}
+
+.dust-class input {
+    width: 100%;
+    border: 1px solid white;
+    font-size: 1rem;
+    line-height: 1.45;
+    letter-spacing: -0.04rem;
+    border-radius: 8px;
+    padding: 16px;
+    margin-top: 12px;
+    color: red;
+}
+
+.dust-class label button {
+    background-color: #888;
+}
